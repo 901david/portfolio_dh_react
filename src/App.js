@@ -150,6 +150,9 @@ const IndividProj = (props)=> {
 }
 
 class ContactBar extends React.Component {
+  handleClick = ()=>{
+    // Put modal text here and link with nodemailer
+  };
   render () {
     return (
       <div className="col-xs-8 col-sm-8 col-md-8 col-lg-1" id="contactBar">
@@ -172,7 +175,7 @@ class ContactBar extends React.Component {
   			<a target="_blank" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
   			</div>
         <div className="col-xs-2 col-sm-2 col-md-2 col-lg-12 pull-left">
-  		    <img className="img-responsive" src="./images/mail.png" alt="Email Me" />
+  		    <img onCLick={this.handleClick} className="img-responsive" src="./images/mail.png" alt="Email Me" />
   			</div>
   		</div>
     );
@@ -181,9 +184,11 @@ class ContactBar extends React.Component {
 
 const Projects = (props) => {
     return (
-      <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 boxBackground" id="portImages">
+      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 boxBackground" id="portImages">
+      <div className="applicationMove">
   		<h1 id="recentProj">Applications:</h1>
-      {props.projects.map(project => <IndividProj key={props.title} {...project} />)}
+      {props.projects.map(project => <IndividProj {...project} />)}
+      </div>
   		</div>
     );
 
@@ -191,6 +196,7 @@ const Projects = (props) => {
 
 
 class Portfolio extends React.Component {
+
   render() {
     return (
       <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12' id='main'>
@@ -205,7 +211,9 @@ class Portfolio extends React.Component {
       <Education />
       </div>
       </div>
+      <div className="row">
       <Projects projects = {portfolioData} />
+      </div>
       <ContactBar />
       </div>
     );
