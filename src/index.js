@@ -4,5 +4,5 @@ import './index.css';
 import Portfolio from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Portfolio />, document.body);
+ReactDOM.render(<Portfolio />, document.getElementById('root'));
 registerServiceWorker();

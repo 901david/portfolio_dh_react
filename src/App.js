@@ -5,33 +5,80 @@ const Nav = (props)=> {
 
     return (
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id='nav'>
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2 mainHolder">
+        <img src="./images/headshot_comp.png" className="pull-left img-circle img-responsive" id="mainPic" />
+        </div>
+        <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">
     		<p id="mainNameHeader">David Hammond</p><p id="emailFormat" >VDavidHammond@Gmail.com</p>
-    	   </div>
+        </div>
         </div>
     );
 }
 
 const Objective = (props)=>{
   return (
-    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mainContentHeaderHolder">
+    <div className="row">
+    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id='topMargin'>
 
-    <div className="col-lg-6 boxBackground animated fadeIn">
-    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mainContentHeaderHolder">
-      <p className="mainContentHeader">Objective</p>
+    <div className="col-lg-12 animated fadeIn">
+      <p className="mainTextTwo" id="objective"> I am a full stack developer with a deep interest in backend.  My diverse background, based in video editing and the legal field, allows me to have a creative, open mind, yet be concise and detail-oriented. I am assertive in approaching problems, and can take the lead in any situation, but can also constructively take criticism to improve my performance.  I can handle high-stress environments, while maintaining a cool head and a sense of urgency in my work.  I can play the role of a team member and lead the team, both, in a successful manner. My goal is to create applications that are built on efficient and effective code.</p>
     </div>
-    <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5 mainHolder">
-    <img src="./images/headshot_comp.png" className="pull-left img-responsive" />
-    </div>
-      <p classild="mainText" id="objective"> I am a full stack developer with a deep interest in backend.  My diverse background, based in video editing and the legal field, allows me to have a creative, open mind, ye,t be concise and detail-oriented. I am assertive in approaching problems, and can take the lead in any situation, but can also constructively take criticism to improve my performance.  I can handle high-stress environments, while maintaining a cool head and a sense of urgency in my work.  I can play the role of a team member and lead the team, both, in a successful manner.</p>
     </div>
     </div>
   );
 }
 
+const Background = (props) =>{
+  return (
+    <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn">
+    <div className="textMargin">
+    <div className="background" id="background">
+      <p className="mainTitleText">AB Court Reporting & Video</p>
+      <p className="supportingText">Senior Production Support</p>
+      <p className="supportingText">March 2012 - present</p>
+      <ul>
+        <li>Responsible to ensure that legal transcripts are in perfect standing before
+        being delivered to clients.
+        </li>
+        <li>Time management, note taking, and a high level of critical thinking are
+        needed to be successful at this position.
+        </li>
+        <li>High attention to detail and complex document management.</li>
+        <li>Case management on multiple cases.</li>
+        <li>Due to performance I have been promoted to senior level, which supervises
+        two other employees and is responsible for hiring and training new employees
+        when necessary.
+      </li>
+    </ul>
+    <p className="mainTitleText">Master Video Productions</p>
+    <p className="supportingText">Video Editor</p>
+    <p className="supportingText">January 2011-March 2012</p>
+    <ul>
+      <li>Handled Projects from start to finish, including meeting with clients face to
+      face, writing scripts, shooting, editing and outputting to final desired codec.
+      </li>
+      <li>On a weekly basis responsible for closed captioning two television shows,
+      which included transcribing them.
+      </li>
+      <li>Managed multiple projects at once with multiple deadlines to meet. </li>
+      <li>Work with other editors to break up the responsibility of larger projects and
+      make sure all the parts come together into a final project.
+      </li>
+  </ul>
+    <p className="mainTitleText">Additional Work Experience</p>
+    <ul>
+    <li className="supportingText">Freelance Video Editor - 2007-2011, 2016-Present </li>
+    <li className="supportingText">Alford Imaging – Photo Technician, Seasonal - 2010 </li>
+  </ul>
+    </div>
+    </div>
+    </div>
+  );
+};
+
 const Technical = (props)=> {
   return (
-    <div className="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 boxBackground animated fadeIn" id="rightSide">
+    <div className="col-xs-8 col-xs-offset-3 col-sm-8 col-sm-offset-3 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 boxBackground animated fadeIn" id="rightSide">
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
       <p className="mainContentHeader">Technical Skills</p>
       </div>
@@ -40,10 +87,33 @@ const Technical = (props)=> {
   );
 }
 
+const TechnicalAdditional = (props)=> {
+  return (
+    <div className="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 boxBackground animated fadeIn" id="rightSide">
+      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+      <p className="mainContentHeader">Additional Skills</p>
+      </div>
+      <p className="mainText">Final Cut Pro, Motion, Premiere Pro, After Effects, Photoshop, Charactor Animator, Illustrator, Encore, Illustrator</p>
+    </div>
+  );
+}
+
+const TechHolder = (props)=>{
+  return (
+      <div className="row">
+        <div className="col-lg-12 colorBox">
+          <Technical />
+          <TechnicalAdditional />
+        </div>
+      </div>
+  );
+};
+
 const Education = (props) => {
   return (
 
-    <div id="education" className="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1 boxBackground animated fadeIn" id="leftSide">
+    <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn" id="leftSide">
+      <div className="textMargin">
       <p className="mainTitleText">Denver University, Denver, Colorado</p>
       <p className="supportingText">April 2017 - October 2017</p>
       <p className="supportingText">DU Coding Bootcamp - Javascript Full Stack Web Development</p>
@@ -62,6 +132,7 @@ const Education = (props) => {
       <p className="supportingText">B.A. Religious Studies</p>
       <p>Rhodes is a 4 year Liberal Arts college where I was able to take a very wide range of classes. My major was more ont he philosophical side, Religious Studies. This was an intense major that helps to provoke intense critical thinking by reading an extremely wide range of texts and lot sof writing. This experience has set a solid foundation for life-long learning.
       </p>
+      </div>
     </div>
   );
 
@@ -81,24 +152,27 @@ const IndividProj = (props)=> {
 class ContactBar extends React.Component {
   render () {
     return (
-      <div className="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 boxBackgroundTwo" id="contactPort">
-  			<p className="contactText center">Contact Me</p>
-  			<div className="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
-  			<a target="_blank" href="http://github.com/901david/"><img className="img-responsive animated fadeIn" src="./images/gitlogo.png" alt="Github" /></a>
+      <div className="col-xs-8 col-sm-8 col-md-8 col-lg-1" id="contactBar">
+
+  			<div className="col-xs-2 col-sm-2 col-md-2 col-lg-12 pull-left">
+  			<a target="_blank" href="http://github.com/901david/"><img className="img-responsive" src="./images/gitlogo.png" alt="Github" /></a>
   			</div>
-  			<div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+  			<div className="col-xs-2 col-sm-2 col-md-2 col-lg-12 clear pull-left">
   			<a target="_blank" href="https://www.linkedin.com/in/david-hammond-96b1b8137/"><img
 
-        className="img-responsive animated fadeIn" src="./images/linkedFinal.png" alt="LinkedIn" /></a>
+        className="img-responsive" src="./images/linkedFinal.png" alt="LinkedIn" /></a>
   			</div>
-  			<div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-  			<a target="_blank" href="http://stackoverflow.com/users/7826396/901david?tab=profile"><img className="img-responsive animated fadeIn" src="./images/stackoverflow.png" alt="StackOverflow" /></a>
+  			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  			<a target="_blank" href="http://stackoverflow.com/users/7826396/901david?tab=profile"><img className="img-responsive" src="./images/stackoverflow.png" alt="StackOverflow" /></a>
   			</div>
-  			<div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-  			<a target="_blank" href="https://twitter.com/scriptscrawler"><img className="img-responsive animated fadeIn" src="./images/twitter.png" alt="Twitter" /></a>
+  			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  			<a target="_blank" href="https://twitter.com/scriptscrawler"><img className="img-responsive" src="./images/twitter.png" alt="Twitter" /></a>
   			</div>
-  			<div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-  			<a target="_blank" href="https://vimeo.com/user62557417"><img className="img-responsive animated fadeIn" src="./images/mountain.png" alt="Mountain View Video" /></a>
+  			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  			<a target="_blank" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
+  			</div>
+        <div className="col-xs-2 col-sm-2 col-md-2 col-lg-12 pull-left">
+  		    <img className="img-responsive" src="./images/mail.png" alt="Email Me" />
   			</div>
   		</div>
     );
@@ -107,22 +181,30 @@ class ContactBar extends React.Component {
 
 const Projects = (props) => {
     return (
-      <div className="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 boxBackground" id="portImages">
+      <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 boxBackground" id="portImages">
   		<h1 id="recentProj">Applications:</h1>
-      {props.projects.map(project => <IndividProj {...project} />)}
+      {props.projects.map(project => <IndividProj key={props.title} {...project} />)}
   		</div>
     );
 
 }
 
+
 class Portfolio extends React.Component {
   render() {
     return (
       <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12' id='main'>
+      <div className="row">
       <Nav />
+      </div>
       <Objective />
-      <Technical />
+      <TechHolder />
+      <div className="row">
+      <div className="col-lg-12" id="secondColorBar">
+      <Background />
       <Education />
+      </div>
+      </div>
       <Projects projects = {portfolioData} />
       <ContactBar />
       </div>

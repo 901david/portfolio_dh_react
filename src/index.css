@@ -1,6 +1,6 @@
 body {
-  background-image: url("./images/back2.jpg");
-  background-size: cover;
+  margin-top: 200px;
+  background-color:white;
   margin-top: 140px;
   z-index: 0;
 }
