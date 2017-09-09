@@ -5,7 +5,7 @@ const Nav = (props)=> {
 
     return (
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id='nav'>
-        <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2 mainHolder">
+        <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 mainHolder">
         <img src="./images/headshot_comp.png" className="pull-left img-circle img-responsive" id="mainPic" />
         </div>
         <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">
@@ -21,7 +21,7 @@ const Objective = (props)=>{
     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id='topMargin'>
 
     <div className="col-lg-12 animated fadeIn">
-      <p className="mainTextTwo" id="objective"> I am a full stack developer with a deep interest in backend.  My diverse background, based in video editing and the legal field, allows me to have a creative, open mind, yet be concise and detail-oriented. I am assertive in approaching problems, and can take the lead in any situation, but can also constructively take criticism to improve my performance.  I can handle high-stress environments, while maintaining a cool head and a sense of urgency in my work.  I can play the role of a team member and lead the team, both, in a successful manner. My goal is to create applications that are built on efficient and effective code.</p>
+      <p className="mainTextTwo textMargin" id="objective"> I am a full stack developer with a deep interest in backend.  My diverse background, based in video editing and the legal field, allows me to have a creative, open mind, yet be concise and detail-oriented. I am assertive in approaching problems, and can take the lead in any situation, but can also constructively take criticism to improve my performance.  I can handle high-stress environments, while maintaining a cool head and a sense of urgency in my work.  I can play the role of a team member and lead the team, both, in a successful manner. My goal is to create applications that are built on efficient and effective code.</p>
     </div>
     </div>
     </div>
@@ -78,22 +78,22 @@ const Background = (props) =>{
 
 const Technical = (props)=> {
   return (
-    <div className="col-xs-8 col-xs-offset-3 col-sm-8 col-sm-offset-3 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 boxBackground animated fadeIn" id="rightSide">
-      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 boxBackground animated fadeIn" id="rightSide">
+      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 center skillsTop">
       <p className="mainContentHeader">Technical Skills</p>
       </div>
-      <p className="mainText">Node.js, JavaScript, jQuery, GIT, Github, GitBash, Firebase, HTML, CSS, Bootstrap, Animate CSS Media Queries, APIs, JSON, REST, AJAX, the command line, computer science fundamentals Final Cut Pro, Adobe Photoshop, Adobe Premiere Pro, Apple Motion, Adobe After Affects, Adobe Illustrator, Adobe Character Animator</p>
+      <p className="mainText textMargin">Node.js, JavaScript, jQuery, GIT, Github, GitBash, Firebase, HTML, CSS, Bootstrap, Animate CSS Media Queries, APIs, JSON, REST, AJAX, the command line, computer science fundamentals Final Cut Pro, Adobe Photoshop, Adobe Premiere Pro, Apple Motion, Adobe After Affects, Adobe Illustrator, Adobe Character Animator</p>
     </div>
   );
 }
 
 const TechnicalAdditional = (props)=> {
   return (
-    <div className="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 boxBackground animated fadeIn" id="rightSide">
-      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 boxBackground animated fadeIn" id="rightSide">
+      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 center skillsTop">
       <p className="mainContentHeader">Additional Skills</p>
       </div>
-      <p className="mainText">Final Cut Pro, Motion, Premiere Pro, After Effects, Photoshop, Charactor Animator, Illustrator, Encore, Illustrator</p>
+      <p className="mainText textMargin">Final Cut Pro, Motion, Premiere Pro, After Effects, Photoshop, Charactor Animator, Illustrator, Encore, Illustrator</p>
     </div>
   );
 }
@@ -137,10 +137,10 @@ const Education = (props) => {
   );
 
 }
-
+// make class add toggle stuff to state then call
 const IndividProj = (props)=> {
     return (
-      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 centerMeTimbers">
+      <div className="col-xs-12 col-sm-12 col-md-5 col-md-ofset-1 col-lg-5 col-lg-offset-1 centerMeTimbers">
       <div className="col-xs-10 col-sm-10 col-md-12 col-lg-12 borderBox">
       <p id={props.title}><b>{props.title}</b></p>
       <img src={props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" /><br/><a className="textAlignPort" href={props.gitLink} target="_blank">GitHub Repo</a><span> | </span><a href={props.gitSite} target="_blank">Application</a></div></div>
@@ -157,10 +157,10 @@ class ContactBar extends React.Component {
     return (
       <div className="col-xs-8 col-sm-8 col-md-8 col-lg-1" id="contactBar">
 
-  			<div className="col-xs-2 col-sm-2 col-md-2 col-lg-12 pull-left">
+  			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
   			<a target="_blank" href="http://github.com/901david/"><img className="img-responsive" src="./images/gitlogo.png" alt="Github" /></a>
   			</div>
-  			<div className="col-xs-2 col-sm-2 col-md-2 col-lg-12 clear pull-left">
+  			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 clear pull-left">
   			<a target="_blank" href="https://www.linkedin.com/in/david-hammond-96b1b8137/"><img
 
         className="img-responsive" src="./images/linkedFinal.png" alt="LinkedIn" /></a>
@@ -174,7 +174,7 @@ class ContactBar extends React.Component {
   			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   			<a target="_blank" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
   			</div>
-        <div className="col-xs-2 col-sm-2 col-md-2 col-lg-12 pull-left">
+        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
   		    <img onCLick={this.handleClick} className="img-responsive" src="./images/mail.png" alt="Email Me" />
   			</div>
   		</div>
@@ -221,3 +221,5 @@ class Portfolio extends React.Component {
 }
 
 export default Portfolio;
+
+// data-toggle="popover" title='"<b>' + {props.title} + '</b>"' data-content='"' + {props.description} + '<b><p>Technologies Used:</b> ' +  {props.technology} + '"'data-toggle="popover" title='"<b>' + {props.title} + '</b>"' data-content='"' + {props.description} + '<b><p>Technologies Used:</b> ' +  {props.technology} + '"'
