@@ -7,18 +7,14 @@ app.get('/', function (req, res) {
    res.sendFile(path.join(__dirname, './index.html'));
 });
 app.post('/api/contact', (req, res)=>{
-  // let data = {
-  //   from: req.body.email,
-  //   to: 'vdavidhammond@gmail.com',
-  //   subject: req.body.subject,
-  //   text: req.body.body
-  // };
+  console.log(req.body);
   let data = {
-    from: "person@emailaddress.com",
+    from: req.body.email,
     to: 'vdavidhammond@gmail.com',
-    subject: "test",
-    text: "test"
+    subject: req.body.subject,
+    text: req.body.body
   };
+
   mailgun.messages().send(data, function (error, body) {
     res.send(body);
   });
