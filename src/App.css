@@ -30,6 +30,10 @@
 .mainText {
   font-style: italic;
 }
+.textMarginTwo {
+  margin-left:350px;
+  margin-right:350px;
+}
 .textMargin {
   margin:50px;
 }
@@ -53,7 +57,7 @@ ul {
 }
 #portImages {
   color:black;
-  background-image: url('./images/middlebar.jpg');
+  background-image: url('./images/middlebar2.jpg');
   background-size: cover;
 }
 .mainTitleText {
@@ -93,6 +97,7 @@ ul {
 .borderBox {
   margin-left: 2%;
 }
+
 .portImageGroup {
   border: 1px solid black;
 

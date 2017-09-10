@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "elemental": "^0.6.1",
+    "express": "^4.15.4",
+    "mailgun-js": "^0.13.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.13"
@@ -12,5 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "less": "^2.7.2"
   }
 }
