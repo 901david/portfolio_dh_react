@@ -6,11 +6,14 @@ const Nav = (props)=> {
 
   return (
     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id='nav'>
-    <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 mainHolder">
-    <img src="./images/headshot_comp.png" className="pull-left img-circle img-responsive" id="mainPic" />
+    <div className="col-xs-1 col-sm-1 col-md-1 col-lg-2 mainHolder">
+    <img src="./images/headshot_comp.png" className="pull-left img-circle img-responsive App-logo" id="mainPic" />
     </div>
-    <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-    <p id="mainNameHeader">David Hammond</p><p id="emailFormat" >VDavidHammond@Gmail.com</p>
+    <div className="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
+    <p id="mainNameHeader">David Hammond</p>
+    <div className="col-lg-9 col-lg-offset-2">
+    <p id="emailFormat" >VDavidHammond@Gmail.com</p>
+    </div>
     </div>
     </div>
   );
@@ -143,9 +146,15 @@ const Education = (props) => {
 const IndividProj = (props)=> {
   return (
     <div className="col-xs-12 col-sm-12 col-md-5 col-md-ofset-1 col-lg-5 col-lg-offset-1 centerMeTimbers">
-    <div className="col-xs-10 col-sm-10 col-md-12 col-lg-12 borderBox">
-    <p id={props.title}><b>{props.title}</b></p>
-    <img src={props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" /><br/><a className="textAlignPort" href={props.gitLink} target="_blank">GitHub Repo</a><span> | </span><a href={props.gitSite} target="_blank">Application</a>
+    <div className="col-xs-10 col-sm-10 col-md-12 col-lg-12 borderBox" id="anchorFix">
+    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+    <p id={props.title} className="center projTitle"><b>{props.title}</b></p>
+    </div>
+    <img src={props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" />
+    <br/>
+    <a className="textAlignPort" href={props.gitLink} target="_blank">GitHub Repo</a>
+    <span> | </span>
+    <a href={props.gitSite} target="_blank">Application</a>
     </div>
     </div>
 
@@ -187,7 +196,7 @@ const Projects = (props) => {
   return (
     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 boxBackground" id="portImages">
     <div className="applicationMove">
-    <h1 id="recentProj">Applications:</h1>
+    <h1 id="recentProj">Spotlight on Applications:</h1>
     {props.projects.map(project => <IndividProj {...project} />)}
     </div>
     </div>

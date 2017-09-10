@@ -1,6 +1,7 @@
 body {
-  /*margin-top: 200px;*/
+  font-family: 'Philosopher', sans-serif;
   background-color:white;
   margin-top: 140px;
   z-index: 0;
+  letter-spacing: 2px;
 }

@@ -1,8 +1,8 @@
-/*
-.App-logo {
+
+/*.App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+  /*height: 80px;*/
+/*}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -10,7 +10,8 @@
 }*/
 #mainPic {
   border:3px solid black;
-  margin-top: 30%;
+  margin-top: 2%;
+  max-height:185px;
 }
 #nav {
   margin:0;
@@ -31,8 +32,8 @@
   font-style: italic;
 }
 .textMarginTwo {
-  margin-left:350px;
-  margin-right:350px;
+  margin-left:150px;
+  margin-right:150px;
 }
 .textMargin {
   margin:50px;
@@ -54,6 +55,32 @@ ul {
 }
 #recentProj {
   text-align: center;
+  font-size: 55px;
+}
+a {
+  font-size: 18px;
+}
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+.projTitle {
+  font-size: 18px;
 }
 #portImages {
   color:black;
@@ -167,15 +194,17 @@ ul {
   float:clear;
 }
 #mainNameHeader {
-  margin-top:7%;
-  margin-left: 5%;
-  letter-spacing: 15px;
-  font-size: 40px;
+  font-family: 'Kaushan Script', cursive;
+  letter-spacing: 25px;
+  font-size: 65px;
+  margin-top: 5%;
 }
 #emailFormat {
-  font-size: 18px;
-  letter-spacing: 5px;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 25px;
+  letter-spacing: 8px;
   font-weight: bold;
+  margin-top: 5%;
 }
 #fixNavBar {
   text-align: center;
