@@ -177,7 +177,7 @@ a:active {
   border-bottom: 3px solid black;
 }
 #topMargin {
-  /*margin-top: 175px;*/
+  margin-top: -80px;
   margin-bottom: 80px;
 }
 #contactBar {
@@ -197,7 +197,6 @@ a:active {
   font-family: 'Kaushan Script', cursive;
   letter-spacing: 25px;
   font-size: 65px;
-  margin-top: 5%;
 }
 #emailFormat {
   font-family: 'Kaushan Script', cursive;

@@ -9,9 +9,9 @@ const Nav = (props)=> {
     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-2 mainHolder">
     <img src="./images/headshot_comp.png" className="pull-left img-circle img-responsive App-logo" id="mainPic" />
     </div>
-    <div className="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
+    <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5 pull-left">
     <p id="mainNameHeader">David Hammond</p>
-    <div className="col-lg-9 col-lg-offset-2">
+    <div className="col-lg-9">
     <p id="emailFormat" >VDavidHammond@Gmail.com</p>
     </div>
     </div>
@@ -163,6 +163,7 @@ const IndividProj = (props)=> {
 }
 
 class ContactBar extends React.Component {
+
   render () {
     return (
       <div className="col-xs-8 col-sm-8 col-md-8 col-lg-1" id="contactBar">
@@ -185,12 +186,13 @@ class ContactBar extends React.Component {
       <a target="_blank" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
       </div>
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
-      <img onClick={this.toggleModal} className="img-responsive" src="./images/mail.png" alt="Email Me" />
+      <img className="img-responsive" src="./images/mail.png" alt="Email Me" />
       </div>
       </div>
     );
   }
 }
+
 
 const Projects = (props) => {
   return (
@@ -231,5 +233,3 @@ class Portfolio extends React.Component {
 }
 
 export default Portfolio;
-
-// data-toggle="popover" title='"<b>' + {props.title} + '</b>"' data-content='"' + {props.description} + '<b><p>Technologies Used:</b> ' +  {props.technology} + '"'data-toggle="popover" title='"<b>' + {props.title} + '</b>"' data-content='"' + {props.description} + '<b><p>Technologies Used:</b> ' +  {props.technology} + '"'
