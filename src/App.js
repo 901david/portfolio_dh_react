@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import portfolioData from './portfolioData.js';
+import Modal from 'react-modal';
+
 
 const Nav = (props)=> {
 
@@ -162,8 +164,61 @@ const IndividProj = (props)=> {
 
 }
 
-class ContactBar extends React.Component {
+const customStyles = {
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+  },
+  content : {
+    position                   : 'absolute',
+    top                        : '50%',
+    left                       : '50%',
+    right                      : 'auto',
+    bottom                     : 'auto',
+    border                     : '1px solid #ccc',
+    background                 : '#fff',
+    overflow                   : 'auto',
+    WebkitOverflowScrolling    : 'touch',
+    borderRadius               : '4px',
+    outline                    : 'none',
+    padding                    : '20px',
+    width: '500px',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
 
+  }
+
+};
+
+class ContactBar extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      modalIsOpen: false
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = 'black';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
   render () {
     return (
       <div className="col-xs-8 col-sm-8 col-md-8 col-lg-1" id="contactBar">
@@ -186,7 +241,36 @@ class ContactBar extends React.Component {
       <a target="_blank" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
       </div>
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
-      <img className="img-responsive" src="./images/mail.png" alt="Email Me" />
+      <img onClick={this.openModal} className="img-responsive" src="./images/mail.png" alt="Email Me" />
+      </div>
+      <div>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Email Modal"
+        >
+          <div className='col-lg-8 col-lg-offset-2'>
+          <h2 ref={subtitle => this.subtitle = subtitle}>Send me an Email</h2>
+          <form>
+          <div className="form-group">
+          <label for="email">Your Email Address:</label>
+          <input type="email" className="form-control" id="email" />
+          </div>
+          <div className="form-group">
+          <label for="subject">Subject:</label>
+          <input type="text" className="form-control" id="subject" />
+          </div>
+          <div className="form-group">
+          <label for="body">Email Body:</label>
+          <textarea className="form-control" rows="5" id="body"></textarea>
+          </div>
+          </form>
+          <button className='btn btn-warning' onClick={this.closeModal}>close</button>
+          <button type='submit' action='localhost:3002/api/contact' method='POST' className='btn btn-success' onClick={this.closeModal}>Submit</button>
+          </div>
+        </Modal>
       </div>
       </div>
     );

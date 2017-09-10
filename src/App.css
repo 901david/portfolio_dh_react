@@ -24,7 +24,6 @@
   border-bottom: 3px solid black;
   position: relative;
   top:-140px;
-  z-index: 100;
   white-space: nowrap;
   overflow: hidden;
 }
