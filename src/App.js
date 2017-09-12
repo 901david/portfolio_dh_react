@@ -116,60 +116,8 @@ const TechHolder = (props)=>{
   );
 };
 
-
-const Education = (props) => {
-  return (
-
-    <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn" id="leftSide">
-    <h1>Education:</h1>
-    <div className="textMargin">
-    <p className="mainTitleText">Denver University, Denver, Colorado</p>
-    <p className="supportingText">April 2017 - October 2017</p>
-    <p className="supportingText">DU Coding Bootcamp - Javascript Full Stack Web Development</p>
-    <p>An intensive 24-week long boot camp dedicated to designing and building
-    web applications. Skills learned consisted of HTML5, CSS3, Javascript, JQuery,
-    Bootstrap, Firebase, & Node Js.
-    </p>
-    <p className="mainTitleText">Final Cut Pro, Apple Certification</p>
-    <p className="supportingText">January 2010</p>
-    <p className="supportingText">Certified by Apple in the Final Cut Pro Application</p>
-    <p>Passed the Apple exam to become Final Cut Pro Certified. Completed the course work on all other programs in the series as well.  In addition, coursework has been completed on Adobe Premiere CS6 (2016) and Adobe Premiere CC (2017) without taking the associated exam.
-    </p>
-
-    <p className="mainTitleText">Rhodes College, Memphis, Tennessee</p>
-    <p className="supportingText">2003-2007</p>
-    <p className="supportingText">B.A. Religious Studies</p>
-    <p>Rhodes is a 4 year Liberal Arts college where I was able to take a very wide range of classes. My major was more ont he philosophical side, Religious Studies. This was an intense major that helps to provoke intense critical thinking by reading an extremely wide range of texts and lot sof writing. This experience has set a solid foundation for life-long learning.
-    </p>
-    </div>
-    </div>
-  );
-
-}
-// make class add toggle stuff to state then call
-const IndividProj = (props)=> {
-  return (
-    <div className="col-xs-12 col-sm-12 col-md-5 col-md-ofset-1 col-lg-5 col-lg-offset-1 centerMeTimbers">
-    <div className="col-xs-10 col-sm-10 col-md-12 col-lg-12 borderBox" id="anchorFix">
-    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-    <p id={props.title} className="center projTitle"><b>{props.title}</b></p>
-    </div>
-    <img src={props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" />
-    <br/>
-    <a className="textAlignPort" href={props.gitLink} target="_blank">GitHub Repo</a>
-    <span> | </span>
-    <a href={props.gitSite} target="_blank">Application</a>
-    </div>
-    </div>
-
-  );
-
-}
-
-
-
 class ContactBar extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
@@ -279,6 +227,164 @@ class ContactBar extends React.Component {
   }
 }
 
+const Education = (props) => {
+  return (
+
+    <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn" id="leftSide">
+    <h1>Education:</h1>
+    <div className="textMargin">
+    <p className="mainTitleText">Denver University, Denver, Colorado</p>
+    <p className="supportingText">April 2017 - October 2017</p>
+    <p className="supportingText">DU Coding Bootcamp - Javascript Full Stack Web Development</p>
+    <p>An intensive 24-week long boot camp dedicated to designing and building
+    web applications. Skills learned consisted of HTML5, CSS3, Javascript, JQuery,
+    Bootstrap, Firebase, & Node Js.
+    </p>
+    <p className="mainTitleText">Final Cut Pro, Apple Certification</p>
+    <p className="supportingText">January 2010</p>
+    <p className="supportingText">Certified by Apple in the Final Cut Pro Application</p>
+    <p>Passed the Apple exam to become Final Cut Pro Certified. Completed the course work on all other programs in the series as well.  In addition, coursework has been completed on Adobe Premiere CS6 (2016) and Adobe Premiere CC (2017) without taking the associated exam.
+    </p>
+
+    <p className="mainTitleText">Rhodes College, Memphis, Tennessee</p>
+    <p className="supportingText">2003-2007</p>
+    <p className="supportingText">B.A. Religious Studies</p>
+    <p>Rhodes is a 4 year Liberal Arts college where I was able to take a very wide range of classes. My major was more ont he philosophical side, Religious Studies. This was an intense major that helps to provoke intense critical thinking by reading an extremely wide range of texts and lot sof writing. This experience has set a solid foundation for life-long learning.
+    </p>
+    </div>
+    </div>
+  );
+
+}
+// make class add toggle stuff to state then call
+class IndividProj extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      modalIsOpen: false
+    };
+    this.customStyles = {
+      overlay : {
+        position          : 'fixed',
+        top               : 0,
+        left              : 0,
+        right             : 0,
+        bottom            : 0,
+        backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+      },
+      content : {
+        position                   : 'absolute',
+        top                        : '50%',
+        left                       : '50%',
+        right                      : 'auto',
+        bottom                     : 'auto',
+        border                     : '1px solid #ccc',
+        background                 : '#fff',
+        overflow                   : 'auto',
+        WebkitOverflowScrolling    : 'touch',
+        borderRadius               : '4px',
+        outline                    : 'none',
+        padding                    : '20px',
+        width                      : '88%',
+        height                     : '88%',
+        marginRight                : '-50%',
+        transform                  : 'translate(-50%, -50%)'
+
+      }
+
+    };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+  render () {
+  return (
+
+    <div className="col-xs-12 col-sm-12 col-md-5 col-md-ofset-1 col-lg-5 col-lg-offset-1 centerMeTimbers">
+    <div className="col-xs-10 col-sm-10 col-md-12 col-lg-12 borderBox" id="anchorFix">
+    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+    <p id={this.props.title} className="center projTitle"><b>{this.props.title}</b></p>
+    </div>
+    <img onClick={this.openModal} src={this.props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" />
+    <br/>
+    <a className="textAlignPort" href={this.props.gitLink} target="_blank">GitHub Repo</a>
+    <span> | </span>
+    <a href={this.props.gitSite} target="_blank">Application</a>
+    </div>
+    <Modal
+      isOpen={this.state.modalIsOpen}
+      onAfterOpen={this.afterOpenModal}
+      onRequestClose={this.closeModal}
+      style={this.customStyles}
+      contentLabel="Project Modal">
+      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h1 id={this.props.title} className="center"><b>{this.props.title}</b></h1>
+      </div>
+      <div className="col-lg-12">
+      <div className="col-lg-5 col-lg-offset-1">
+      <img src={this.props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroupModal" />
+      <br/>
+      <a className="textAlignPort" href={this.props.gitLink} target="_blank">GitHub Repo</a>
+      <span> | </span>
+      <a href={this.props.gitSite} target="_blank">Application</a>
+      </div>
+      <div className="col-lg-6">
+      <b><h3>Technologies Used:</h3></b>
+      <p>{this.props.technology}</p>
+      <b><h3 className="clear">Project Concept:</h3></b>
+      <p>{this.props.description}</p>
+      </div>
+      </div>
+      <i onClick={this.closeModal} className="fa fa-times" aria-hidden="true" id="closeBar"></i>
+    </Modal>
+    </div>
+  );
+}
+}
+
+// const ProjectModal = (props)=>{
+//   <div>
+//   <Modal
+//     isOpen={this.state.modalIsOpen}
+//     onAfterOpen={this.afterOpenModal}
+//     onRequestClose={this.closeModal}
+//     style={this.customStyles}
+//     contentLabel="Project Modal">
+//     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+//     <h1 id={this.props.title} className="center"><b>{this.props.title}</b></h1>
+//     </div>
+//     <div className="col-lg-12">
+//     <div className="col-lg-1">
+//     <i className="fa fa-arrow-left arrowMargin" aria-hidden="true"></i>
+//     </div>
+//     <div className="col-lg-4 col-lg-offset-1">
+//     <img src={this.props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroupModal" />
+//     <a className="textAlignPort" href={this.props.gitLink} target="_blank">GitHub Repo</a>
+//     <span> | </span>
+//     <a href={this.props.gitSite} target="_blank">Application</a>
+//     </div>
+//     <div className="col-lg-5">
+//     <b><h3>Technologies Used:</h3></b>
+//     <p>{this.props.technology}</p>
+//     <b><h3 className="clear">Project Concept:</h3></b>
+//     <p>{this.props.description}</p>
+//     </div>
+//     <div className="col-lg-1">
+//     <i className="fa fa-arrow-right arrowMargin" aria-hidden="true"></i>
+//     </div>
+//     </div>
+//     <i onClick={this.closeModal} className="fa fa-times" aria-hidden="true" id="closeBar"></i>
+//   </Modal>
+//   </div>
+// };
 
 const Projects = (props)=> {
 
@@ -293,26 +399,7 @@ const Projects = (props)=> {
   );
 
 }
-// <Modal
-//   isOpen={this.state.modalIsOpen}
-//   onAfterOpen={this.afterOpenModal}
-//   onRequestClose={this.closeModal}
-//   style={this.customStyles}
-//   contentLabel="Project Modal">
-//
-//   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-//   <p id={props.title} className="center projTitle"><b>{props.title}</b></p>
-//   </div>
-//   <img src={props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" />
-//   <br/>
-//   <a className="textAlignPort" href={props.gitLink} target="_blank">GitHub Repo</a>
-//   <span> | </span>
-//   <a href={props.gitSite} target="_blank">Application</a>
-//
-//
-//   <button className='btn btn-warning' onClick={this.closeModal}>close</button>
-//   </div>
-// </Modal>
+
 
 class Portfolio extends React.Component {
 
