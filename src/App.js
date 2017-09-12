@@ -37,6 +37,7 @@ const Objective = (props)=>{
 const Background = (props) =>{
   return (
     <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn">
+    <h1>Background:</h1>
     <div className="textMargin">
     <div className="background" id="background">
     <p className="mainTitleText">AB Court Reporting & Video</p>
@@ -120,6 +121,7 @@ const Education = (props) => {
   return (
 
     <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn" id="leftSide">
+    <h1>Education:</h1>
     <div className="textMargin">
     <p className="mainTitleText">Denver University, Denver, Colorado</p>
     <p className="supportingText">April 2017 - October 2017</p>
@@ -164,44 +166,44 @@ const IndividProj = (props)=> {
 
 }
 
-const customStyles = {
-  overlay : {
-    position          : 'fixed',
-    top               : 0,
-    left              : 0,
-    right             : 0,
-    bottom            : 0,
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
-  },
-  content : {
-    position                   : 'absolute',
-    top                        : '50%',
-    left                       : '50%',
-    right                      : 'auto',
-    bottom                     : 'auto',
-    border                     : '1px solid #ccc',
-    background                 : '#fff',
-    overflow                   : 'auto',
-    WebkitOverflowScrolling    : 'touch',
-    borderRadius               : '4px',
-    outline                    : 'none',
-    padding                    : '20px',
-    width: '500px',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
 
-  }
-
-};
 
 class ContactBar extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
       modalIsOpen: false
     };
+    this.customStyles = {
+      overlay : {
+        position          : 'fixed',
+        top               : 0,
+        left              : 0,
+        right             : 0,
+        bottom            : 0,
+        backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+      },
+      content : {
+        position                   : 'absolute',
+        top                        : '50%',
+        left                       : '50%',
+        right                      : 'auto',
+        bottom                     : 'auto',
+        border                     : '1px solid #ccc',
+        background                 : '#fff',
+        overflow                   : 'auto',
+        WebkitOverflowScrolling    : 'touch',
+        borderRadius               : '4px',
+        outline                    : 'none',
+        padding                    : '20px',
+        width: '500px',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)'
 
+      }
+
+    };
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -248,7 +250,7 @@ class ContactBar extends React.Component {
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}
+          style={this.customStyles}
           contentLabel="Email Modal"
         >
           <div className='col-lg-8 col-lg-offset-2'>
@@ -256,19 +258,19 @@ class ContactBar extends React.Component {
           <form>
           <div className="form-group">
           <label for="email">Your Email Address:</label>
-          <input type="email" className="form-control" id="email" />
+          <input type="email" name='email' className="form-control" id="email" />
           </div>
           <div className="form-group">
           <label for="subject">Subject:</label>
-          <input type="text" className="form-control" id="subject" />
+          <input type="text" name='subject' className="form-control" id="subject" />
           </div>
           <div className="form-group">
           <label for="body">Email Body:</label>
-          <textarea className="form-control" rows="5" id="body"></textarea>
+          <textarea name='body' className="form-control" rows="5" id="body"></textarea>
           </div>
           </form>
           <button className='btn btn-warning' onClick={this.closeModal}>close</button>
-          <button type='submit' action='localhost:3002/api/contact' method='POST' className='btn btn-success' onClick={this.closeModal}>Submit</button>
+          <button type='submit' action='api/contact' method='POST' className='btn btn-success' onClick={this.closeModal}>Submit</button>
           </div>
         </Modal>
       </div>
@@ -278,18 +280,39 @@ class ContactBar extends React.Component {
 }
 
 
-const Projects = (props) => {
+const Projects = (props)=> {
+
   return (
     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 boxBackground" id="portImages">
     <div className="applicationMove">
     <h1 id="recentProj">Spotlight on Applications:</h1>
-    {props.projects.map(project => <IndividProj {...project} />)}
+    {props.projects.map(project => <IndividProj {...project} onClick={this.openModal}  />)}
     </div>
+
     </div>
   );
 
 }
-
+// <Modal
+//   isOpen={this.state.modalIsOpen}
+//   onAfterOpen={this.afterOpenModal}
+//   onRequestClose={this.closeModal}
+//   style={this.customStyles}
+//   contentLabel="Project Modal">
+//
+//   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+//   <p id={props.title} className="center projTitle"><b>{props.title}</b></p>
+//   </div>
+//   <img src={props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" />
+//   <br/>
+//   <a className="textAlignPort" href={props.gitLink} target="_blank">GitHub Repo</a>
+//   <span> | </span>
+//   <a href={props.gitSite} target="_blank">Application</a>
+//
+//
+//   <button className='btn btn-warning' onClick={this.closeModal}>close</button>
+//   </div>
+// </Modal>
 
 class Portfolio extends React.Component {
 
