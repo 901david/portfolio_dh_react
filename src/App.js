@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import portfolioData from './portfolioData.js';
 import Modal from 'react-modal';
-import request from 'request';
+
 
 const Nav = (props)=> {
 
@@ -37,7 +37,7 @@ const Objective = (props)=>{
 const Background = (props) =>{
   return (
     <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn">
-      <h1>Background:</h1>
+      <h1 className="fixHeaders">Background:</h1>
       <div className="textMargin">
         <div className="background" id="background">
           <p className="mainTitleText">AB Court Reporting & Video</p>
@@ -122,10 +122,12 @@ class ContactBar extends React.Component {
 
     this.state = {
       modalIsOpen: false,
-      email: "some email",
-      subject: "some subject",
-      body: "some body"
+      email: "your email",
+      subject: "subject",
+      body: "your email",
+      emailValidated: false
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.customStyles = {
       overlay : {
@@ -160,25 +162,10 @@ class ContactBar extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-
-  handleInputChange (event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
-
   openModal() {
     this.setState({modalIsOpen: true});
   }
-  sendEmailPost(body) {
-    fetch('/api/', {
 
-    })
-  }
   afterOpenModal() {
     // references are now sync'd and can be accessed.
     this.subtitle.style.color = 'black';
@@ -187,6 +174,55 @@ class ContactBar extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
+  handleInputChange (event) {
+    event.preventDefault();
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  }
+  validateEmail(value) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(value);
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.validateEmail(this.state.email)) {
+      this.setState({emailValidated: true});
+      var formData = {
+        "email": this.state.email,
+        "body": this.state.body,
+        "subject": this.state.subject
+      };
+      fetch('api/contact', {
+      method: 'post',
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      },
+        "body": JSON.stringify(formData)
+    })
+    .then(function (data) {
+      console.log('Request succeeded with JSON response', data);
+
+    })
+    .catch(function (error) {
+      console.log('Request failed', error);
+    });
+    this.closeModal();
+    this.setState({email: "your email",
+    subject: "subject",
+    body: "your email"});
+    }
+    else {
+      // tell them wrong
+      console.log("not valid email");
+    }
+
+  }
+
+
   render () {
     return (
       <div className="col-xs-8 col-sm-8 col-md-8 col-lg-1" id="contactBar">
@@ -221,8 +257,8 @@ class ContactBar extends React.Component {
               >
                 <div className='col-lg-8 col-lg-offset-2'>
                   <h2 ref={subtitle => this.subtitle = subtitle}>Send me an Email</h2>
-                  <form>
-
+                  <form action="" onSubmit={this.handleSubmit}>
+                    <br/>
                     <label>
                       Your Email Address:
                       <input
@@ -231,6 +267,7 @@ class ContactBar extends React.Component {
                         value={this.state.email}
                         onChange={this.handleInputChange} />
                       </label>
+                      <br/>
                       <label>
                         Subject:
                         <input
@@ -239,6 +276,7 @@ class ContactBar extends React.Component {
                           value={this.state.subject}
                           onChange={this.handleInputChange} />
                         </label>
+                        <br/>
                         <label>
                           Email Body:
                           <textarea
@@ -248,7 +286,7 @@ class ContactBar extends React.Component {
                             onChange={this.handleInputChange} />
                           </label>
                         <button className='btn btn-warning' onClick={this.closeModal}>close</button>
-                        <button type='submit' action='/api/contact' method='POST' className='btn btn-success' onClick={this.closeModal, this.postThis}>Submit</button>
+                        <button type='submit' className='btn btn-success' >Submit</button>
                       </form>
 
                     </div>
@@ -258,12 +296,11 @@ class ContactBar extends React.Component {
             );
           }
         }
-
-        const Education = (props) => {
+const Education = (props) => {
           return (
 
             <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn" id="leftSide">
-              <h1>Education:</h1>
+              <h1 className="fixHeaders">Education:</h1>
               <div className="textMargin">
                 <p className="mainTitleText">Denver University, Denver, Colorado</p>
                 <p className="supportingText">April 2017 - October 2017</p>
@@ -289,7 +326,7 @@ class ContactBar extends React.Component {
 
         }
         // make class add toggle stuff to state then call
-        class IndividProj extends React.Component {
+class IndividProj extends React.Component {
           constructor() {
             super();
 

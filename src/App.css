@@ -46,6 +46,9 @@
 .textMargin {
   margin:50px;
 }
+.fixHeaders {
+  margin-left: 50px;
+}
 .mainTextTwo {
   font-style: italic;
   font-weight: bold;
