@@ -144,7 +144,7 @@ class ContactBar extends React.Component {
               >
                 <div className='col-lg-12' id='emailForm'>
                 <h2 ref={subtitle => this.subtitle = subtitle}>Send me an Email</h2>
-                <div className='col-lg-6 col-lg-offset-3'>
+                <div className='col-lg-6'>
 
                   <form action="" onSubmit={this.handleSubmit}>
                     <br/>
@@ -152,7 +152,7 @@ class ContactBar extends React.Component {
                       Your Email Address:
                       </label>
                       <input
-                        style={{width: 200 }}
+                        style={{width: 400 }}
                         id='emailLine'
                         name="email"
                         type="text"
@@ -164,7 +164,7 @@ class ContactBar extends React.Component {
                         Subject:
                         </label>
                         <input
-                          style={{width: 200 }}
+                          style={{width: 400 }}
                           id='subjectLine'
                           name="subject"
                           type="text"
@@ -176,7 +176,7 @@ class ContactBar extends React.Component {
                           Email Body:
                           </label>
                           <textarea
-                            style={{ height: 150, width: 200 }}
+                            style={{ height: 150, width: 400 }}
                             id='emailBody'
                             name="body"
                             type="text"

@@ -197,7 +197,7 @@ a:active {
 #contactBar {
   position: fixed;
   top: 214px;
-  right:-8px;
+  right:-30px;
 }
 
 #emailForm h2 {

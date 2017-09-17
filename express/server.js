@@ -15,7 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'express/public')));
+app.use(express.static(path.join(__dirname, './express/public')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'./express/public/index.html'));
+});
 require("./routes.js")(app);
 // Server Listener
 app.listen(PORT, function() {
