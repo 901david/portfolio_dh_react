@@ -21,7 +21,7 @@ class Portfolio extends React.Component {
         <Objective />
         <TechHolder />
         <div className="row">
-          <div className="col-lg-12" id="secondColorBar">
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="secondColorBar">
             <Background />
             <Education />
           </div>

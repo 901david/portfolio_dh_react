@@ -4,7 +4,7 @@ import Technical from './technical.js';
 const TechHolder = (props)=>{
   return (
     <div className="row">
-      <div className="col-lg-12 colorBox">
+      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 colorBox">
         <Technical />
         <TechnicalAdditional />
       </div>

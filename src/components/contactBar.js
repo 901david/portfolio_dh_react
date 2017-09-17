@@ -36,9 +36,10 @@ class ContactBar extends React.Component {
         borderRadius               : '4px',
         outline                    : 'none',
         padding                    : '20px',
-        width: '500px',
-        marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)'
+        width                      : '40%',
+        height                     : '85%',
+        marginRight                : '-50%',
+        transform                  : 'translate(-50%, -50%)'
 
       }
 
@@ -90,10 +91,11 @@ class ContactBar extends React.Component {
     })
     .then(function (data) {
       console.log('Request succeeded with JSON response', data);
-
+      // Success Modal
     })
     .catch(function (error) {
       console.log('Request failed', error);
+      // Fail Modal
     });
     this.closeModal();
     this.setState({email: "your email",
@@ -110,7 +112,7 @@ class ContactBar extends React.Component {
 
   render () {
     return (
-      <div className="col-xs-8 col-sm-8 col-md-8 col-lg-1" id="contactBar">
+      <div className="col-xs-3 col-sm-2 col-md-1 col-lg-1" id="contactBar">
 
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
           <a target="_blank" href="http://github.com/901david/"><img className="img-responsive" src="./images/gitlogo.png" alt="Github" /></a>
@@ -130,7 +132,7 @@ class ContactBar extends React.Component {
             <a target="_blank" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
-            <img onClick={this.openModal} className="img-responsive" src="./images/mail.png" alt="Email Me" />
+            <img onClick={this.openModal} style={{cursor:'pointer'}} className="img-responsive" src="./images/mail.png" alt="Email Me" />
           </div>
           <div>
             <Modal
@@ -140,41 +142,53 @@ class ContactBar extends React.Component {
               style={this.customStyles}
               contentLabel="Email Modal"
               >
-                <div className='col-lg-8 col-lg-offset-2'>
-                  <h2 ref={subtitle => this.subtitle = subtitle}>Send me an Email</h2>
+                <div className='col-lg-12' id='emailForm'>
+                <h2 ref={subtitle => this.subtitle = subtitle}>Send me an Email</h2>
+                <div className='col-lg-6 col-lg-offset-3'>
+
                   <form action="" onSubmit={this.handleSubmit}>
                     <br/>
-                    <label>
+                    <label htmlFor="emailLine">
                       Your Email Address:
+                      </label>
                       <input
+                        style={{width: 200 }}
+                        id='emailLine'
                         name="email"
                         type="text"
                         value={this.state.email}
                         onChange={this.handleInputChange} />
-                      </label>
+
                       <br/>
-                      <label>
+                      <label htmlFor="subjectLine">
                         Subject:
+                        </label>
                         <input
+                          style={{width: 200 }}
+                          id='subjectLine'
                           name="subject"
                           type="text"
                           value={this.state.subject}
                           onChange={this.handleInputChange} />
-                        </label>
+
                         <br/>
-                        <label>
+                        <label htmlFor="emailBody">
                           Email Body:
+                          </label>
                           <textarea
+                            style={{ height: 150, width: 200 }}
+                            id='emailBody'
                             name="body"
                             type="text"
                             value={this.state.body}
                             onChange={this.handleInputChange} />
-                          </label>
+
                         <button className='btn btn-warning' onClick={this.closeModal}>close</button>
                         <button type='submit' className='btn btn-success' >Submit</button>
                       </form>
 
                     </div>
+                  </div>
                   </Modal>
                 </div>
               </div>
