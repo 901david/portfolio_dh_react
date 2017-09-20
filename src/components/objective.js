@@ -6,7 +6,7 @@ const Objective = (props)=>{
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id='topMargin'>
 
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 animated fadeIn">
-          <p className="mainTextTwo textMarginTwo" id="objective"> I am a full stack developer with a deep interest in backend.  My diverse background, based in video editing and the legal field, allows me to have a creative, open mind, yet be concise and detail-oriented. I am assertive in approaching problems, and can take the lead in any situation, but can also constructively take criticism to improve my performance.  I can handle high-stress environments, while maintaining a cool head and a sense of urgency in my work.  I can play the role of a team member and lead the team, both, in a successful manner. My goal is to create applications that are built on efficient and effective code.</p>
+          <p className="mainTextTwo textMarginTwo" id="objective"> I am a full-stack javascript developer with a heavy interest in creating and consuming API's as well as creating unique and logical UI/UX.  My diverse background, based in video editing and the legal field, allows me to have a creative, open mind, yet be concise and detail-oriented. I am assertive in approaching problems, and can take the lead in any situation, but can also constructively take criticism to improve my performance.  I can handle high-stress environments, while maintaining a cool head and a sense of urgency in my work.  I can play the role of a team member and lead the team, both, in a successful manner. My goal is to create applications that are built on efficient and effective code while working with a team of developers.</p>
         </div>
       </div>
     </div>
