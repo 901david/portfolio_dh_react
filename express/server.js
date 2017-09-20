@@ -19,7 +19,9 @@ app.use(express.static(path.join(__dirname, './express/public')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'./express/public/index.html'));
 });
+app.use(express.static(path.join(__dirname, 'build')));
 require("./routes.js")(app);
+
 // Server Listener
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
