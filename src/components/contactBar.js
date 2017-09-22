@@ -131,9 +131,9 @@ class ContactBar extends React.Component {
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <a target="_blank" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
+          {/* <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
             <img onClick={this.openModal} style={{cursor:'pointer'}} className="img-responsive" src="./images/mail.png" alt="Email Me" />
-          </div>
+          </div> */}
           <div>
             <Modal
               isOpen={this.state.modalIsOpen}
