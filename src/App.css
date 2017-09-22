@@ -8,7 +8,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }*/
-
+/*font-family: 'Montserrat', sans-serif;
+font-family: 'Anton', sans-serif;*/
 #mainPic {
   border:3px solid black;
   margin-top: 2%;
@@ -212,12 +213,12 @@ a:active {
   float:clear;
 }
 #mainNameHeader {
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Anton', sans-serif;
   letter-spacing: 25px;
   font-size: 65px;
 }
 #emailFormat {
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Crimson Text', serif;
   font-size: 25px;
   letter-spacing: 8px;
   font-weight: bold;
