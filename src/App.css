@@ -103,13 +103,13 @@ a:active {
 .mainTitleText {
   font-weight: bold;
   font-size: 14px;
-  margin-right: 45px;
+  /*margin-right: 45px;*/
   /*white-space: nowrap;*/
 }
 .supportingText {
   font-size: 14px;
   font-style: italic;
-  margin-right: 45px;
+  /*margin-right: 45px;*/
 }
 .mainContentHeader {
   font-size: 20px;

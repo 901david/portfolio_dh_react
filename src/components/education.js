@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const Education = (props) => {
           return (
 
-            <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn">
+            <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-5 animated fadeIn">
               <h1 className="fixHeaders">Education:</h1>
               <div className="textMargin">
                 <p className="mainTitleText">Denver University, Denver, Colorado</p>
