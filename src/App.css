@@ -94,6 +94,25 @@ a:active {
 }
 .projTitle {
   font-size: 18px;
+  /*margin-left: 4%;*/
+}
+#TheCentennialCharge {
+  margin-left: 12%;
+}
+#BamazonApp {
+margin-left: 24%;
+}
+#FlashCardFun {
+margin-left: 22%;
+}
+#StarWarsBattle {
+margin-left: 19%;
+}
+#RockPaperScissors-Multiplayer {
+margin-left: 4%;
+}
+#LIRI-NodeApplication {
+  margin-left: 12%;
 }
 #portImages {
   color:black;
@@ -111,6 +130,7 @@ a:active {
   font-style: italic;
   /*margin-right: 45px;*/
 }
+
 .mainContentHeader {
   font-size: 20px;
   font-weight: bold;
@@ -128,6 +148,7 @@ a:active {
 .centerMeTimbers {
   margin-bottom: 2%;
 }
+
 .borderBox {
   margin-left: 2%;
 }
@@ -140,7 +161,7 @@ a:active {
   max-height: 200px;
 }
 .textAlignPort {
-  margin-left: 15%;
+  margin-left: 8%;
 }
 .contactText {
   font-size: 20px;
