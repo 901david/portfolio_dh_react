@@ -94,6 +94,7 @@ a:active {
 }
 .projTitle {
   font-size: 18px;
+  white-space: nowrap;
   /*margin-left: 4%;*/
 }
 #TheCentennialCharge {
