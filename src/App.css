@@ -103,11 +103,13 @@ a:active {
 .mainTitleText {
   font-weight: bold;
   font-size: 14px;
+  margin-right: 30px;
   /*white-space: nowrap;*/
 }
 .supportingText {
   font-size: 14px;
   font-style: italic;
+  margin-right: 30px;
 }
 .mainContentHeader {
   font-size: 20px;
@@ -154,7 +156,7 @@ a:active {
 }
 #education {
   margin-top: 10px;
-  margin-right: 30px;
+
 }
 .mainText {
   font-style: italic;
