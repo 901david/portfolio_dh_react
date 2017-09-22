@@ -115,15 +115,7 @@ a:active {
   font-size: 20px;
   font-weight: bold;
 }
-.mainTitleText {
-  font-weight: bold;
-  font-size: 14px;
-  /*white-space: nowrap;*/
-}
-.supportingText {
-  font-size: 14px;
-  font-style: italic;
-}
+
 .boxBackgroundTwo {
   background-color: white;
   border-radius: 5px;
