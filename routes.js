@@ -17,6 +17,7 @@ app.post('/api/contact', (req, res)=>{
     text: req.body.body
   };
   mailgun.messages().send(data, function (error, body) {
+    console.log(error);
     res.send(body);
   });
 });

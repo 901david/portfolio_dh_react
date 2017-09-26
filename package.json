@@ -14,5 +14,10 @@
     "mailgun": "^0.5.0",
     "mailgun-js": "^0.13.1",
     "react-modal": "^2.3.2"
+  },
+  "scripts": {
+    "start": "npm run start:server",
+    "start:react": "cd client npm start",
+    "start:server": "node server.js"
   }
 }
