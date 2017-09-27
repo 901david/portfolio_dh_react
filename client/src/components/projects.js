@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
-class IndividProj extends React.Component {
+class IndividProj extends Component {
           constructor() {
             super();
 

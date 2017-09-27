@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 const Objective = (props)=>{
   return (
     <div className="row">

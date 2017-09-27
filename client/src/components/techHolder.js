@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TechnicalAdditional from './techspecs.js';
 import Technical from './technical.js';
 const TechHolder = (props)=>{

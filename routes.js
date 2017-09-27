@@ -4,7 +4,9 @@ var express = require('express');
 var mailgun = require('./mailgun.js');
 module.exports = function(app) {
 
-
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
+  });
 
 
 
@@ -17,8 +19,13 @@ app.post('/api/contact', (req, res)=>{
     text: req.body.body
   };
   mailgun.messages().send(data, function (error, body) {
-    console.log(error);
-    res.send(body);
+    if(error) {
+
+    }
+    else {
+      res.send(body);
+    }
+
   });
 });
 };

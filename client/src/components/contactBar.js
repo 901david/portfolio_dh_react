@@ -47,6 +47,7 @@ class ContactBar extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   openModal() {
     this.setState({modalIsOpen: true});
@@ -74,6 +75,7 @@ class ContactBar extends React.Component {
     return re.test(value);
   }
   handleSubmit(event) {
+    const self = this;
     event.preventDefault();
     if (this.validateEmail(this.state.email)) {
       this.setState({emailValidated: true});
@@ -91,20 +93,26 @@ class ContactBar extends React.Component {
     })
     .then(function (data) {
       console.log('Request succeeded with JSON response', data);
-      // Success Modal
+      if (data.status === 500) {
+        alert('Your email failed to send');
+      }
+      else {
+        self.closeModal();
+        self.setState({email: "your email",
+        subject: "subject",
+        body: "your email"});
+        alert('Your email was successful');
+      }
+    
     })
     .catch(function (error) {
       console.log('Request failed', error);
-      // Fail Modal
+
     });
-    this.closeModal();
-    this.setState({email: "your email",
-    subject: "subject",
-    body: "your email"});
-    }
+  }
     else {
       // tell them wrong
-      console.log("not valid email");
+      alert('Not a valid email');
     }
 
   }
