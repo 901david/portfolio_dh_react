@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 
 class IndividProj extends Component {
-          constructor() {
-            super();
+          constructor(props) {
+            super(props);
 
             this.state = {
               modalIsOpen: false

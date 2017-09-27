@@ -15,6 +15,9 @@ font-family: 'Anton', sans-serif;*/
   margin-top: 2%;
   max-height:185px;
 }
+#uTileDevelopersProgram{
+  margin-left: 15%;
+}
 #closeBar {
   position: fixed;
   top: 0;
