@@ -9,6 +9,7 @@ import ContactBar from './components/contactBar.js';
 import Education from './components/education.js';
 import Projects from './components/projectHolder.js';
 import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-css-effects/scale.css';
 import 'react-s-alert/dist/s-alert-default.css';
 
 

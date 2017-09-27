@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
-class ContactBar extends React.Component {
+class ContactBar extends Component {
   constructor(props) {
     super(props);
 
@@ -94,16 +96,30 @@ class ContactBar extends React.Component {
     .then(function (data) {
       console.log('Request succeeded with JSON response', data);
       if (data.status === 500) {
-        alert('Your email failed to send');
+        Alert.error('<h5 class="center">There was a fatal error. Your email could not be sent. Please try again.</h5>', {
+              position: 'bottom',
+              effect: 'slide',
+              html: true,
+              beep: true,
+              timeout: 3000,
+              offset: 100
+          });
       }
       else {
         self.closeModal();
         self.setState({email: "your email",
         subject: "subject",
         body: "your email"});
-        alert('Your email was successful');
+        Alert.success('<h4 class="center">Your email was sent. Thank You! I will answer shortly.</h4>', {
+              position: 'top',
+              effect: 'slide',
+              html: true,
+              beep: true,
+              timeout: 2000,
+              offset: 100
+          });
       }
-    
+
     })
     .catch(function (error) {
       console.log('Request failed', error);
@@ -111,8 +127,14 @@ class ContactBar extends React.Component {
     });
   }
     else {
-      // tell them wrong
-      alert('Not a valid email');
+      Alert.warning('<h5>That is not a valid email...</h5>', {
+            position: 'top-left',
+            effect: 'slide',
+            html: true,
+            beep: true,
+            timeout: 3000,
+            offset: 100
+        });
     }
 
   }
