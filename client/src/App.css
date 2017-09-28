@@ -16,7 +16,7 @@ font-family: 'Anton', sans-serif;*/
   max-height:185px;
 }
 #uTileDevelopersProgram{
-  margin-left: 15%;
+  margin-left: 8%;
 }
 #closeBar {
   position: fixed;
@@ -104,7 +104,7 @@ a:active {
   /*margin-left: 4%;*/
 }
 #TheCentennialCharge {
-  margin-left: 12%;
+  margin-left: 11%;
 }
 #BamazonApp {
 margin-left: 24%;
@@ -116,7 +116,7 @@ margin-left: 22%;
 margin-left: 19%;
 }
 #RockPaperScissors-Multiplayer {
-margin-left: 4%;
+margin-left: -4%;
 }
 #LIRI-NodeApplication {
   margin-left: 12%;
@@ -168,7 +168,7 @@ margin-left: 4%;
   max-height: 200px;
 }
 .textAlignPort {
-  margin-left: 8%;
+  margin-left: 5%;
 }
 .contactText {
   font-size: 20px;
