@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(path.join(__dirname, 'client/build')));
-
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 require("./routes.js")(app);
 
