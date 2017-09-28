@@ -45,8 +45,8 @@ font-family: 'Anton', sans-serif;*/
   font-style: italic;
 }
 .textMarginTwo {
-  margin-left:150px;
-  margin-right:150px;
+  margin-left:50px;
+  margin-right:50px;
 }
 .textMargin {
   margin:50px;
@@ -60,7 +60,7 @@ font-family: 'Anton', sans-serif;*/
   line-height: 35px;
 }
 #background li {
-  font-size: 12px;
+  font-size: 18px;
 }
 ul {
   list-style-type: disc;
@@ -95,8 +95,11 @@ a:hover {
 a:active {
     color: blue;
 }
+#portImages a {
+  font-size: 22px;
+}
 .projTitle {
-  font-size: 18px;
+  font-size: 22px;
   white-space: nowrap;
   /*margin-left: 4%;*/
 }
@@ -125,12 +128,12 @@ margin-left: 4%;
 }
 .mainTitleText {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 20px;
   /*margin-right: 45px;*/
   /*white-space: nowrap;*/
 }
 .supportingText {
-  font-size: 14px;
+  font-size: 18px;
   font-style: italic;
   /*margin-right: 45px;*/
 }
@@ -254,8 +257,8 @@ margin-left: 4%;
 }
 @media screen and (max-width: 1200px) {
 .textMarginTwo {
-  margin-left: 75px;
-  margin-right: 75px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 }
 @media screen and (max-width: 1024px) {
