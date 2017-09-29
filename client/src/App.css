@@ -27,6 +27,9 @@ font-family: 'Anton', sans-serif;*/
 .arrowMargin {
   font-size: 80px;
 }
+.textAlignPortTwo {
+  margin-left: 24%;
+}
 #nav {
   margin:0;
   padding:0;
@@ -269,7 +272,7 @@ margin-left: -4%;
 }
 @media screen and (max-width: 960px) and (min-width:737px) {
   #recentProj {
-    text-align: left;
+    text-align: center;
     font-size: 35px;
     margin-top:54%;
 }
@@ -346,6 +349,6 @@ margin-left: -4%;
     letter-spacing: 2px;
   }
   #nav {
-    height:116px;
+    height:141px;
   }
 }

@@ -79,7 +79,7 @@ class IndividProj extends Component {
                     <div className="col-lg-5 col-lg-offset-1">
                       <img src={this.props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroupModal" />
                       <br/>
-                      <a className="textAlignPort" href={this.props.gitLink} target="_blank">GitHub Repo</a>
+                      <a className="textAlignPortTwo" href={this.props.gitLink} target="_blank">GitHub Repo</a>
                       <span> | </span>
                       <a href={this.props.gitSite} target="_blank">Application</a>
                     </div>
