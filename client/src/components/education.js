@@ -11,7 +11,7 @@ const Education = (props) => {
                 <p className="supportingText">DU Coding Bootcamp - Javascript Full Stack Web Development</p>
                 <p>An intensive 24-week long boot camp dedicated to designing and building
                   web applications. Skills learned consisted of HTML5, CSS3, Javascript, JQuery,
-                  Bootstrap, Firebase, & Node Js.
+                  Bootstrap, Firebase, Node Js & much more.
                 </p>
                 <p className="mainTitleText">Final Cut Pro, Apple Certification</p>
                 <p className="supportingText">January 2010</p>
@@ -22,7 +22,7 @@ const Education = (props) => {
                 <p className="mainTitleText">Rhodes College, Memphis, Tennessee</p>
                 <p className="supportingText">2003-2007</p>
                 <p className="supportingText">B.A. Religious Studies</p>
-                <p>Rhodes is a 4 year Liberal Arts college where I was able to take a very wide range of classes. My major was more ont he philosophical side, Religious Studies. This was an intense major that helps to provoke intense critical thinking by reading an extremely wide range of texts and lot sof writing. This experience has set a solid foundation for life-long learning.
+                <p>Rhodes is a 4 year Liberal Arts college where I was able to take a very wide range of classes. My major was more on the philosophical side, Religious Studies. This was an intense major that helps to provoke intense critical thinking by reading an extremely wide range of texts and lots of writing. This experience has set a solid foundation for life-long learning.
                 </p>
               </div>
             </div>

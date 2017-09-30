@@ -54,6 +54,9 @@ font-family: 'Anton', sans-serif;*/
 .textMargin {
   margin:50px;
 }
+.textMarginTech {
+  margin: 50px 130px 50px 50px;
+}
 .fixHeaders {
   margin-left: 50px;
 }
