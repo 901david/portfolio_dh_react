@@ -1,8 +1,8 @@
 // var key = require('./keys.js');
 
-// var mailgun = require('mailgun-js')({apiKey: process.env.HIDDEN_KEY, domain: process.env.domain});
-//
-// module.exports = mailgun;
+var mailgun = require('mailgun-js')({apiKey: process.env.HIDDEN_KEY, domain: process.env.domain});
+
+module.exports = mailgun;
 
 
 
