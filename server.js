@@ -16,13 +16,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'client', 'build', 'favicon.png')));
+app.use(favicon(path.join(__dirname, 'client', 'favicon.jpg')));
 
 require("./routes.js")(app);
 
 // Server Listener
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
-  console.log(__dirname);
+  console.log(path.join(__dirname, 'client', 'favicon.jpg'));
 });
