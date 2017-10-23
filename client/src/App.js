@@ -18,7 +18,7 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        modalIsOpen: true,
+        modalIsOpen: false,
         currentIndex: 0,
       };
   }
@@ -32,7 +32,7 @@ class Portfolio extends Component {
     this.setState({modalIsOpen: false});
   }
   render() {
-    // console.log(this.state.currentIndex, 'here is my index');
+    console.log(this.state.currentIndex, 'here is my index');
     return (
       <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12' id='main'>
         <div className='row'>
@@ -51,7 +51,7 @@ class Portfolio extends Component {
         </div>
         <ContactBar />
         <Alert stack={{limit: 3}} />
-        <ProjModal currentIndex={this.state.currentIndex} projects={portfolioData} openModal={this.openModal} closeModal={this.props.closeModal} modalIsOpen={this.state.modalIsOpen} />
+        <ProjModal currentIndex={this.state.currentIndex} projects={portfolioData} openModal={this.openModal.bind(this)} closeModal={this.closeModal.bind(this)} modalIsOpen={this.state.modalIsOpen} />
       </div>
     );
   }

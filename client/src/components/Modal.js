@@ -65,7 +65,7 @@ class ProjModal extends Component {
               <p>{this.props.projects[this.props.currentIndex].description}</p>
             </div>
           </div>
-          <i onClick={this.closeModal} className="fa fa-times" aria-hidden="true" id="closeBar"></i>
+          <i onClick={this.props.closeModal} className="fa fa-times" aria-hidden="true" id="closeBar"></i>
         </Modal>
       </div>
     );

@@ -9,7 +9,7 @@ class IndividProj extends Component {
                     <p id={this.props.title.replace(/\s/g, '').replace(/\'/g, '')} className="projTitle"><b>{this.props.title}</b></p>
                   </div>
 
-                  <img onClick={()=>this.props.openModal(this.props.indexValue)} style={{cursor:'pointer'}} src={this.props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" />
+                  <img onClick={()=>this.props.handleModal(this.props.indexValue)} style={{cursor:'pointer'}} src={this.props.imagePath} alt="Portfolio Image" className="img-responsive portImageGroup" />
                   <br/>
                   <a className="textAlignPort" href={this.props.gitLink} target="_blank">GitHub Repo</a>
                   <span> | </span>
