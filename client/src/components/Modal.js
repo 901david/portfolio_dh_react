@@ -69,7 +69,7 @@ class ProjModal extends Component {
             </div>
           </div>
           <div className='col-lg-1'>
-            <i className="fa fa-arrow-right arrowBox" aria-hidden="true" id='leftArrow'></i>
+            <i className="fa fa-arrow-right arrowBox" onClick={()=>this.props.rightClick(this.props.currentIndex)} aria-hidden="true" id='leftArrow'></i>
           </div>
         </div>
           <i onClick={this.props.closeModal} className="fa fa-times" aria-hidden="true" id="closeBar"></i>
