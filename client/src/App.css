@@ -28,7 +28,7 @@ font-family: 'Anton', sans-serif;*/
   font-size: 80px;
 }
 .textAlignPortTwo {
-  margin-left: 24%;
+  margin-left: 8%;
 }
 #nav {
   margin:0;
@@ -253,6 +253,11 @@ margin-left: -4%;
   font-weight: bold;
   margin-top: 5%;
 }
+.arrowBox {
+  margin-top: 50%;
+  font-size: 65px;
+}
+
 #fixNavBar {
   text-align: center;
 }

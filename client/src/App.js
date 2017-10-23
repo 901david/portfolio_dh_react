@@ -18,17 +18,19 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        modalIsOpen: false,
+        modalIsOpen: true,
         currentIndex: 0,
       };
   }
 
-
-  openModal(index) {
+  handleLeftArrow = (index) => {
+    index === 0 ? this.setState({ currentIndex: 5 }) : this.setState({ currentIndex: index - 1});
+  }
+  openModal = (index) => {
     this.setState({modalIsOpen: true, currentIndex: index});
   }
 
-  closeModal() {
+  closeModal = () => {
     this.setState({modalIsOpen: false});
   }
   render() {
@@ -51,7 +53,7 @@ class Portfolio extends Component {
         </div>
         <ContactBar />
         <Alert stack={{limit: 3}} />
-        <ProjModal currentIndex={this.state.currentIndex} projects={portfolioData} openModal={this.openModal.bind(this)} closeModal={this.closeModal.bind(this)} modalIsOpen={this.state.modalIsOpen} />
+        <ProjModal currentIndex={this.state.currentIndex} projects={portfolioData} openModal={this.openModal.bind(this)} closeModal={this.closeModal.bind(this)} modalIsOpen={this.state.modalIsOpen} leftClick={this.handleLeftArrow} />
       </div>
     );
   }

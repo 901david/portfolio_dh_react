@@ -49,8 +49,11 @@ class ProjModal extends Component {
             <h1 id={this.props.projects[this.props.currentIndex].title} className="center"><b>{this.props.projects[this.props.currentIndex].title}</b></h1>
             <hr />
           </div>
-
           <div className="col-lg-12">
+            <div className='col-lg-1'>
+              <i className="fa fa-arrow-left arrowBox" onClick={()=>this.props.leftClick(this.props.currentIndex)} aria-hidden="true" id='leftArrow'></i>
+            </div>
+          <div className="col-lg-9">
             <div className="col-lg-5 col-lg-offset-1">
               <img src={this.props.projects[this.props.currentIndex].imagePath} alt="Portfolio Image" className="img-responsive portImageGroupModal" />
               <br/>
@@ -65,6 +68,10 @@ class ProjModal extends Component {
               <p>{this.props.projects[this.props.currentIndex].description}</p>
             </div>
           </div>
+          <div className='col-lg-1'>
+            <i className="fa fa-arrow-right arrowBox" aria-hidden="true" id='leftArrow'></i>
+          </div>
+        </div>
           <i onClick={this.props.closeModal} className="fa fa-times" aria-hidden="true" id="closeBar"></i>
         </Modal>
       </div>
