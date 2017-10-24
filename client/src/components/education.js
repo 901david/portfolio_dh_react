@@ -3,11 +3,11 @@ import React from 'react';
 const Education = (props) => {
           return (
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div className='eduTitleBoxes'>
-            <h1 className="fixHeaders">Education:</h1>
-            </div>
-            <div id="education">
 
+            <div id="education">
+              <div className='eduTitleBoxes'>
+              <h1 className="fixHeadersEdu">Education:</h1>
+              </div>
               <div className="textMargin">
                 <div className='eduBoxes'>
                 <p className="mainTitleText">Denver University, Denver, Colorado</p>

@@ -4,7 +4,7 @@ const Background = (props) =>{
   return (
     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <div className='eduTitleBoxes'>
-      <h1 className="fixHeaders">Background:</h1>
+      <h1 className="fixHeadersBack">Background:</h1>
       </div>
     <div id="education">
 

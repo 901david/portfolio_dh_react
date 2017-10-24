@@ -7,7 +7,7 @@ const TechnicalAdditional = (props)=> {
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 center skillsTop">
         <p className="mainContentHeader">Additional Skills</p>
       </div>
-      <p className="mainText textMarginTech">Final Cut Pro, Motion, Premiere Pro, After Effects, Photoshop, Character Animator, Illustrator, Encore, Illustrator</p>
+      <p className="mainText textMarginTech">Final Cut Pro, Motion, Premiere Pro, After Effects, Photoshop, Character Animator, Illustrator, Encore</p>
     </div>
   );
 };

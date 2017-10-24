@@ -64,8 +64,6 @@ class ProjModal extends Component {
             <div className="col-lg-6">
               <b><h3>Technologies Used:</h3></b>
               <p>{this.props.projects[this.props.currentIndex].technology}</p>
-              <b><h3 className="clear">Project Concept:</h3></b>
-              <p>{this.props.projects[this.props.currentIndex].description}</p>
             </div>
           </div>
           <div className='col-lg-1'>
@@ -73,6 +71,8 @@ class ProjModal extends Component {
           </div>
         </div>
           <i onClick={this.props.closeModal} className="fa fa-times" aria-hidden="true" id="closeBar"></i>
+          <b><h3 className="clear">Project Concept:</h3></b>
+          <p>{this.props.projects[this.props.currentIndex].description}</p>
         </Modal>
       </div>
     );
