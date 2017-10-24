@@ -45,9 +45,11 @@ class Portfolio extends Component {
         </div>
         <Objective />
         <TechHolder />
+        <div className='row'>
         <Collaspible trigger={<CollapseComp />}>
           <EduBackHolder />
         </Collaspible>
+      </div>
         <div className="row">
           <Projects projects = {portfolioData} openModal={this.openModal.bind(this)} />
         </div>
