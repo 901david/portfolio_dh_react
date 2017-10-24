@@ -5,7 +5,7 @@ const Technical = (props)=> {
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 center skillsTop">
         <p className="mainContentHeader">Technical Skills</p>
       </div>
-      <p className="mainText textMargin">Node.js, Express, JavaScript, jQuery, React, Redux, JSX GIT, Github, Firebase, MySQL, Sequelize, MongoDB, Mongoose, HTML, CSS, Bootstrap, Handlebars, Animate CSS Media Queries, APIs, JSON, REST, AJAX, React, JSX, React-Native.
+      <p className="mainText textMargin">Node.js, Express, JavaScript, jQuery, React, Redux, JSX GIT, Github, Firebase, MySQL, Sequelize, MongoDB, Mongoose, HTML, CSS, Bootstrap, Handlebars, Animate CSS, Mobile Responsiveness, APIs, JSON, REST, AJAX, React-Native.
 </p>
     </div>
   );

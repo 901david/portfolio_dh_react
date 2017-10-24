@@ -214,11 +214,31 @@ margin-left: -4%;
   border-bottom: 3px solid black;
 }
 #secondColorBar {
-  color:white;
+  color:black;
   width:100%;
-  background-color: #860102;
+  margin:0;
+  /*background-color: #860102;*/
   border-top: 3px solid black;
   border-bottom: 3px solid black;
+}
+.eduBoxes {
+  color:white;
+  border: 2px solid black;
+  background-color: #860102;
+  border-radius: 5%;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.eduTitleBoxes {
+  color:white;
+  text-align: center;
+  margin-top: 5px;
+  border: 2px solid black;
+  background-color: #860102;
+  border-radius: 5%;
+  padding: 10px;
+  /*margin-bottom: 5px;*/
+  /*width:100%!important;*/
 }
 #topMargin {
   margin-top: -80px;
