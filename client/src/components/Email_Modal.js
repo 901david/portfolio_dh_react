@@ -13,10 +13,10 @@ class EmailModal extends Component {
       emailValidated: false
     }
   }
-  handleInputChange (event) {
+  handleInputChange = (event) => {
     event.preventDefault();
     console.log(event.target, "event target");
-    // console.log(target.value, 'target value');
+    console.log(target.value, 'target value');
     console.log(target.name, 'target name');
 
     const target = event.target;
@@ -26,11 +26,11 @@ class EmailModal extends Component {
       [name]: value
     });
   }
-  validateEmail(value) {
+  validateEmail = (value) => {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(value);
   }
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     const self = this;
     event.preventDefault();
     if (this.validateEmail(this.state.email)) {
@@ -114,7 +114,7 @@ class EmailModal extends Component {
                     name="email"
                     type="text"
                     value={this.state.email}
-                    onChange={this.handleInputChange} />
+                    onChange={this.handleInputChange.bind(this)} />
 
                   <br/>
                   <label htmlFor="subjectLine">
@@ -126,7 +126,7 @@ class EmailModal extends Component {
                       name="subject"
                       type="text"
                       value={this.state.subject}
-                      onChange={this.handleInputChange} />
+                      onChange={this.handleInputChange.bind(this)} />
 
                     <br/>
                     <label htmlFor="emailBody">
@@ -138,7 +138,7 @@ class EmailModal extends Component {
                         name="body"
                         type="text"
                         value={this.state.body}
-                        onChange={this.handleInputChange} />
+                        onChange={this.handleInputChange.bind(this)} />
 
                     <button className='btn btn-warning' onClick={this.props.closeModal}>close</button>
                     <button type='submit' className='btn btn-success' >Submit</button>

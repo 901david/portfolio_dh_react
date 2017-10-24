@@ -68,7 +68,7 @@ class Portfolio extends Component {
           leftClick={this.handleLeftArrow}
           rightClick={this.handleRightArrow} />
           <Footer />
-          <EmailModal handleOpen={this.handleEmailOpen} handleClose={this.handleEmailClose} currentState={this.state.emailModalOpen} />
+          <EmailModal handleOpen={this.handleEmailOpen.bind(this)} handleClose={this.handleEmailClose.bind(this)} currentState={this.state.emailModalOpen} />
       </div>
     );
   }
