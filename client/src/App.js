@@ -3,16 +3,16 @@ import './App.css';
 import portfolioData from './portfolioData.js';
 import Nav from './components/nav.js';
 import Objective from './components/objective.js';
-import Background from './components/background.js';
 import TechHolder from './components/techHolder.js';
 import ContactBar from './components/contactBar.js';
-import Education from './components/education.js';
 import Projects from './components/projectHolder.js';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-css-effects/scale.css';
 import 'react-s-alert/dist/s-alert-default.css';
 import ProjModal from './components/Modal';
-
+import Collaspible from 'react-collapsible';
+import EduBackHolder from './components/Edu_Back_Holder';
+import CollapseComp from './components/Collapse_Comp';
 
 class Portfolio extends Component {
   constructor(props) {
@@ -45,14 +45,11 @@ class Portfolio extends Component {
         </div>
         <Objective />
         <TechHolder />
+        <Collaspible trigger={<CollapseComp />}>
+          <EduBackHolder />
+        </Collaspible>
         <div className="row">
           <Projects projects = {portfolioData} openModal={this.openModal.bind(this)} />
-        </div>
-        <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="secondColorBar">
-            <Background />
-            <Education />
-          </div>
         </div>
         <ContactBar />
         <Alert stack={{limit: 3}} />
