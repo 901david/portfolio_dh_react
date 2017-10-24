@@ -14,6 +14,7 @@ import Collaspible from 'react-collapsible';
 import EduBackHolder from './components/Edu_Back_Holder';
 import CollapseComp from './components/Collapse_Comp';
 import Footer from './components/Footer';
+import EmailModal from './components/Email_Modal';
 
 class Portfolio extends Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class Portfolio extends Component {
           leftClick={this.handleLeftArrow}
           rightClick={this.handleRightArrow} />
           <Footer />
+          <EmailModal />
       </div>
     );
   }
