@@ -1,10 +1,5 @@
-// var key = require('./keys.js');
+require('dotenv').config()
 
-var mailgun = require('mailgun-js')({apiKey: process.env.HIDDEN_KEY, domain: process.env.domain});
+var mailgun = require('mailgun-js')({apiKey: process.env.HIDDEN_KEY, domain: process.env.DOMAIN});
 
 module.exports = mailgun;
-
-
-
-
-// ({apiKey: key.API_MAIL || process.env.HIDDEN_KEY, domain: key.domain || process.env.domain})

@@ -38,7 +38,7 @@ class ContactBar extends Component {
         borderRadius               : '4px',
         outline                    : 'none',
         padding                    : '20px',
-        width                      : '40%',
+        width                      : '60%',
         height                     : '85%',
         marginRight                : '-50%',
         transform                  : 'translate(-50%, -50%)'
@@ -174,7 +174,7 @@ class ContactBar extends Component {
               >
                 <div className='col-lg-12' id='emailForm'>
                 <h2 ref={subtitle => this.subtitle = subtitle}>Send me an Email</h2>
-                <div className='col-lg-6'>
+                <div className='col-lg-8 col-lg-offset-2'>
 
                   <form action="" onSubmit={this.handleSubmit}>
                     <br/>
