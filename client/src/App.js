@@ -22,9 +22,11 @@ class Portfolio extends Component {
     this.state = {
         modalIsOpen: false,
         currentIndex: 0,
+        emailModalOpen: true,
       };
   }
-
+  handleEmailOpen = () => this.setState({isShowingModal: true})
+  handleEmailClose = () => this.setState({isShowingModal: false})
   handleLeftArrow = (index) => {
     index === 0 ? this.setState({ currentIndex: 5 }) : this.setState({ currentIndex: index - 1});
   }
@@ -66,7 +68,7 @@ class Portfolio extends Component {
           leftClick={this.handleLeftArrow}
           rightClick={this.handleRightArrow} />
           <Footer />
-          <EmailModal />
+          <EmailModal handleOpen={this.handleEmailOpen} handleClose={this.handleEmailClose} currentState={this.state.emailModalOpen} />
       </div>
     );
   }
