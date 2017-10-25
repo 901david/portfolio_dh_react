@@ -14,6 +14,7 @@ import Collaspible from 'react-collapsible';
 import EduBackHolder from './components/Edu_Back_Holder';
 import CollapseComp from './components/Collapse_Comp';
 import Footer from './components/Footer';
+import EmailModal from './components/Email_Modal';
 
 class Portfolio extends Component {
   constructor(props) {
@@ -21,9 +22,11 @@ class Portfolio extends Component {
     this.state = {
         modalIsOpen: false,
         currentIndex: 0,
+        emailModalOpen: false,
       };
   }
-
+  handleEmailOpen = () => this.setState({emailModalOpen: true})
+  handleEmailClose = () => this.setState({emailModalOpen: false})
   handleLeftArrow = (index) => {
     index === 0 ? this.setState({ currentIndex: 5 }) : this.setState({ currentIndex: index - 1});
   }
@@ -54,7 +57,7 @@ class Portfolio extends Component {
         <div className="row">
           <Projects projects = {portfolioData} openModal={this.openModal.bind(this)} />
         </div>
-        <ContactBar />
+        <ContactBar handleEmailOpen={this.handleEmailOpen.bind(this)} />
         <Alert stack={{limit: 3}} />
         <ProjModal
           currentIndex={this.state.currentIndex}
@@ -65,6 +68,7 @@ class Portfolio extends Component {
           leftClick={this.handleLeftArrow}
           rightClick={this.handleRightArrow} />
           <Footer />
+          <EmailModal handleOpen={this.handleEmailOpen.bind(this)} handleClose={this.handleEmailClose.bind(this)} currentState={this.state.emailModalOpen} />
       </div>
     );
   }

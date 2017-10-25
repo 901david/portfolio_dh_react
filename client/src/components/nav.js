@@ -4,7 +4,7 @@ const Nav = (props)=> {
   return (
     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" id='nav'>
       <div className="col-xs-4 col-sm-4 col-md-2 col-lg-2 mainHolder">
-        <img src="./images/headshot_comp.jpg" className="pull-left img-circle img-responsive App-logo" id="mainPic" />
+        <img src="./images/headshot_comp.jpg" alt='headshot' className="pull-left img-circle img-responsive App-logo" id="mainPic" />
       </div>
       <div className="col-xs-2 col-sm-2 col-md-5 col-lg-5 pull-left" id="navNameHolder">
         <p id="mainNameHeader">David Hammond</p>
