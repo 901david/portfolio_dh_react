@@ -23,7 +23,7 @@ class ContactBar extends Component {
             <a target="_blank" rel="noopener noreferrer" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
-            <img onClick={this.props.handleEmailOpen} style={{cursor:'pointer'}} className="img-responsive" src="./images/mail.png" alt="Email Me" />
+            <img onClick={this.props.handleEmailOpen} style={{cursor:'pointer'}} className="img-responsive emailModal" src="./images/mail.png" alt="Email Me" />
           </div>
               </div>
             );

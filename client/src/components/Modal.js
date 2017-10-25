@@ -51,7 +51,7 @@ class ProjModal extends Component {
           </div>
           <div className="col-lg-12">
             <div className='col-lg-1'>
-              <i className="fa fa-arrow-left arrowBox" onClick={()=>this.props.leftClick(this.props.currentIndex)} aria-hidden="true" id='leftArrow'></i>
+              <i className="fa fa-arrow-left arrowBox leftArrow" onClick={()=>this.props.leftClick(this.props.currentIndex)} aria-hidden="true" id='leftArrow'></i>
             </div>
           <div className="col-lg-9">
             <div className="col-lg-5 col-lg-offset-1">
@@ -67,7 +67,7 @@ class ProjModal extends Component {
             </div>
           </div>
           <div className='col-lg-1'>
-            <i className="fa fa-arrow-right arrowBox" onClick={()=>this.props.rightClick(this.props.currentIndex)} aria-hidden="true" id='leftArrow'></i>
+            <i className="fa fa-arrow-right arrowBox rightArrow" onClick={()=>this.props.rightClick(this.props.currentIndex)} aria-hidden="true" id='leftArrow'></i>
           </div>
         </div>
           <i onClick={this.props.closeModal} className="fa fa-times" aria-hidden="true" id="closeBar"></i>
