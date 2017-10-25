@@ -11,13 +11,14 @@ class EmailModal extends Component {
       subject: "subject",
       body: "your email",
       emailValidated: false
-    }
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   handleInputChange = (event) => {
     event.preventDefault();
-    console.log(event.target, "event target");
-    console.log(target.value, 'target value');
-    console.log(target.name, 'target name');
+    // console.log(event.target, "event target");
+    // console.log(target.value, 'target value');
+    // console.log(target.name, 'target name');
 
     const target = event.target;
     const value = target.value;
@@ -60,7 +61,7 @@ class EmailModal extends Component {
           });
       }
       else {
-        self.closeModal();
+        self.props.handleClose();
         self.setState({email: "your email",
         subject: "subject",
         body: "your email"});
@@ -114,7 +115,7 @@ class EmailModal extends Component {
                     name="email"
                     type="text"
                     value={this.state.email}
-                    onChange={this.handleInputChange.bind(this)} />
+                    onChange={this.handleInputChange} />
 
                   <br/>
                   <label htmlFor="subjectLine">
@@ -126,7 +127,7 @@ class EmailModal extends Component {
                       name="subject"
                       type="text"
                       value={this.state.subject}
-                      onChange={this.handleInputChange.bind(this)} />
+                      onChange={this.handleInputChange} />
 
                     <br/>
                     <label htmlFor="emailBody">
@@ -138,9 +139,9 @@ class EmailModal extends Component {
                         name="body"
                         type="text"
                         value={this.state.body}
-                        onChange={this.handleInputChange.bind(this)} />
+                        onChange={this.handleInputChange} />
 
-                    <button className='btn btn-warning' onClick={this.props.closeModal}>close</button>
+                    <button className='btn btn-warning' type='button' onClick={this.props.handleClose}>close</button>
                     <button type='submit' className='btn btn-success' >Submit</button>
                   </form>
 
