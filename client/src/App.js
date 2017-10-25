@@ -15,6 +15,7 @@ import EduBackHolder from './components/Edu_Back_Holder';
 import CollapseComp from './components/Collapse_Comp';
 import Footer from './components/Footer';
 import EmailModal from './components/Email_Modal';
+import AboutModal from './components/About_Modal';
 
 class Portfolio extends Component {
   constructor(props) {
@@ -23,10 +24,13 @@ class Portfolio extends Component {
         modalIsOpen: false,
         currentIndex: 0,
         emailModalOpen: false,
+        aboutModalOpen: false,
       };
   }
   handleEmailOpen = () => this.setState({emailModalOpen: true})
   handleEmailClose = () => this.setState({emailModalOpen: false})
+  handleAboutOpen = () => this.setState({aboutModalOpen: true})
+  handleAboutClose = () => this.setState({aboutModalOpen: false})
   handleLeftArrow = (index) => {
     index === 0 ? this.setState({ currentIndex: 5 }) : this.setState({ currentIndex: index - 1});
   }
@@ -67,8 +71,10 @@ class Portfolio extends Component {
           modalIsOpen={this.state.modalIsOpen}
           leftClick={this.handleLeftArrow}
           rightClick={this.handleRightArrow} />
-          <Footer />
+          <Footer handleOpen={this.handleAboutOpen.bind(this)} />
           <EmailModal handleOpen={this.handleEmailOpen.bind(this)} handleClose={this.handleEmailClose.bind(this)} currentState={this.state.emailModalOpen} />
+          <AboutModal handleOpen={this.handleAboutOpen.bind(this)} handleClose={this.handleAboutClose.bind(this)} currentState={this.state.aboutModalOpen} />
+
       </div>
     );
   }
