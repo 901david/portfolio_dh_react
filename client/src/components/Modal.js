@@ -55,7 +55,7 @@ class ProjModal extends Component {
             </div>
           <div className="col-lg-9">
             <div className="col-lg-5 col-lg-offset-1">
-              <img src={this.props.projects[this.props.currentIndex].imagePath} alt="Portfolio Image" className="img-responsive portImageGroupModal" />
+              <img src={this.props.projects[this.props.currentIndex].imagePath} alt="Portfolio" className="img-responsive portImageGroupModal" />
               <br/>
               <a className="textAlignPortTwo" href={this.props.projects[this.props.currentIndex].gitLink} target="_blank">GitHub Repo</a>
               <span> | </span>
