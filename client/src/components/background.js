@@ -2,13 +2,30 @@ import React from 'react';
 
 const Background = (props) =>{
   return (
-    <div id="education" className="col-xs-12 col-sm-12 col-md-6 col-lg-6 animated fadeIn">
-      <h1 className="fixHeaders">Background:</h1>
+    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div className='eduTitleBoxes'>
+      <h1 className="fixHeadersBack">Background:</h1>
+      </div>
+    <div id="education">
+
       <div className="textMargin">
         <div className="background" id="background">
-          <p className="mainTitleText">AB Court Reporting & Video</p>
-          <p className="supportingText">Senior Production Support</p>
-          <p className="supportingText">March 2012 - present</p>
+          <div className='eduBoxes'>
+            <p className="mainTitleText">Trilogy Education Services</p>
+            <p className="supportingText">Teaching Assistant (Coding Bootcamp)</p>
+            <p className="supportingText">October 2017 - present</p>
+            <ul>
+              <li>Assist instructor in presenting content to students.
+              </li>
+              <li>Work with students to help troubleshoot issues with learning and/or homework during office hours.
+              </li>
+              <li>Assist in helping students engage with content of course.</li>
+            </ul>
+          </div>
+            <div className='eduBoxes'>
+            <p className="mainTitleText">AB Court Reporting & Video</p>
+            <p className="supportingText">Senior Production Support</p>
+            <p className="supportingText">March 2012 - present</p>
           <ul>
             <li>Responsible to ensure that legal transcripts are in perfect standing before
               being delivered to clients.
@@ -23,6 +40,8 @@ const Background = (props) =>{
               when necessary.
             </li>
           </ul>
+        </div>
+        <div className='eduBoxes'>
           <p className="mainTitleText">Master Video Productions</p>
           <p className="supportingText">Video Editor</p>
           <p className="supportingText">January 2011-March 2012</p>
@@ -38,14 +57,18 @@ const Background = (props) =>{
               make sure all the parts come together into a final project.
             </li>
           </ul>
+        </div>
+        <div className='eduBoxes'>
           <p className="mainTitleText">Additional Work Experience</p>
           <ul>
             <li className="supportingText">Freelance Video Editor - 2007-2011, 2016-Present </li>
             <li className="supportingText">Alford Imaging – Photo Technician, Seasonal - 2010 </li>
           </ul>
         </div>
+        </div>
       </div>
     </div>
+  </div>
   );
 };
 export default Background;

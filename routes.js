@@ -19,13 +19,10 @@ app.post('/api/contact', (req, res)=>{
     text: req.body.body
   };
   mailgun.messages().send(data, function (error, body) {
-    if(error) {
-
-    }
-    else {
+    if(!error) {
+      console.log(body);
       res.send(body);
     }
-
   });
 });
 };
