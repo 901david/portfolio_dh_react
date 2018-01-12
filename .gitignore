@@ -6,7 +6,7 @@ keys.js
 ./package-lock.json
 # testing
 /coverage
-
+/client/build
 # production
 
 
