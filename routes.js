@@ -25,4 +25,19 @@ app.post('/api/contact', (req, res)=>{
     }
   });
 });
+app.post('/pendant/mail', (req, res)=>{
+  console.log(req.body);
+  var data = {
+    from: req.body.email,
+    to: 'cndyjkramer@gmail.com',
+    subject: req.body.subject,
+    text: req.body.body
+  };
+  mailgun.messages().send(data, function (error, body) {
+    if(!error) {
+      console.log(body);
+      res.send(body);
+    }
+  });
+});
 };
