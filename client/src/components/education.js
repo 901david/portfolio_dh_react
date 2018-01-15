@@ -10,6 +10,17 @@ const Education = (props) => {
               </div>
               <div className="textMargin">
                 <div className='eduBoxes'>
+                <p className="mainTitleText">Udemy</p>
+                <p className="supportingText">Certificate of Completion for Classes</p>
+                <ul>
+                <li>Angular 5, formerly Angular 2</li>
+                <li>Understanding TypeScript</li>
+              <li>Modern React with Redux</li>
+              <li>Webpack 2</li>
+              <li>Coding Interview Bootcamp: Algorithms and Data Structures</li>
+                </ul>
+            </div>
+                <div className='eduBoxes'>
                 <p className="mainTitleText">Denver University, Denver, Colorado</p>
                 <p className="supportingText">April 2017 - October 2017</p>
                 <p className="supportingText">DU Coding Bootcamp - Javascript Full Stack Web Development</p>
