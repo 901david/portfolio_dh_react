@@ -1,16 +1,19 @@
+require('dotenv').config()
 
 var express = require('express');
 
-var mailgun = require('./mailgun.js');
 module.exports = function(app) {
 
   app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './client/build/index.html'));
   });
 
+  var mailgun;
 
 
 app.post('/api/contact', (req, res)=>{
+  mailgun = require('mailgun-js')({apiKey: process.env.HIDDEN_KEY, domain: 'vdavidhammond.com'});
+
   console.log(req.body);
   var data = {
     from: req.body.email,
@@ -26,10 +29,12 @@ app.post('/api/contact', (req, res)=>{
   });
 });
 app.post('/pendant/mail', (req, res)=>{
+  mailgun = require('mailgun-js')({apiKey: process.env.HIDDEN_KEY, domain: 'pendantwrapper.com'});
+
   console.log(req.body);
   var data = {
     from: req.body.email,
-    to: 'cndyjkramer@gmail.com',
+    to: 'candyjkramer@gmail.com',
     subject: req.body.subject,
     text: req.body.body
   };
