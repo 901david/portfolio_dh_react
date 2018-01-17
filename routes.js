@@ -22,7 +22,9 @@ app.post('/api/contact', (req, res)=>{
   };
   mailgun.messages().send(data, function (error, body) {
     console.log(mailgun);
-
+    if(error) {
+      console.log(error);
+    }
     if(!error) {
       console.log(body);
       res.send(body);
@@ -41,10 +43,13 @@ app.post('/pendant/mail', (req, res)=>{
   };
   mailgun.messages().send(dataTwo, function (error, body) {
     console.log(mailgun);
+    if(error) {
+      console.log(error);
+    }
 
     if(!error) {
       console.log(body);
-      res.send(body);
+      res.send(body); 
     }
   });
 });
