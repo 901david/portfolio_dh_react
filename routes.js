@@ -31,7 +31,8 @@ app.post('/api/contact', (req, res)=>{
     }
   });
 });
-app.post('/pendant/mail', (req, res)=>{
+
+app.use(cors()).post('/pendant/mail', (req, res)=>{
   mailgun = require('mailgun-js')({apiKey: process.env.HIDDEN_KEY, domain: 'pendantwrapper.com'});
 
   console.log(req.body);
@@ -42,14 +43,14 @@ app.post('/pendant/mail', (req, res)=>{
     text: req.body.body
   };
   mailgun.messages().send(dataTwo, function (error, body) {
-    console.log(mailgun);
+    console.log(req.headers);
     if(error) {
       console.log(error);
     }
 
     if(!error) {
       console.log(body);
-      res.send(body); 
+      res.send(body);
     }
   });
 });
