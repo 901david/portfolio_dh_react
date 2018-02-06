@@ -1,6 +1,7 @@
 require('dotenv').config()
-var express = require('express');
-var cors = require('cors')
+const express = require('express');
+const cors = require('cors');
+const request = require('request');
 module.exports = function(app) {
 
   app.get('/', (req, res) => {
@@ -32,26 +33,4 @@ app.post('/api/contact', (req, res)=>{
   });
 });
 
-app.use(cors()).post('/pendant/mail', cors(), (req, res)=>{
-  mailgun = require('mailgun-js')({apiKey: process.env.HIDDEN_KEY, domain: 'pendantwrapper.com'});
-
-  console.log(req.body);
-  var dataTwo = {
-    from: req.body.email,
-    to: 'candyjkramer@gmail.com',
-    subject: req.body.subject,
-    text: req.body.body
-  };
-  mailgun.messages().send(dataTwo, function (error, body) {
-    console.log(req.headers);
-    if(error) {
-      console.log(error);
-    }
-
-    if(!error) {
-      console.log(body);
-      res.send(body);
-    }
-  });
-});
 };
