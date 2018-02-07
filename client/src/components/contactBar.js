@@ -3,29 +3,54 @@ import React, { Component } from 'react';
 class ContactBar extends Component {
   render () {
     return (
-      <div className="col-xs-3 col-sm-2 col-md-1 col-lg-1" id="contactBar">
+      <div>
+      <div className="col-xs-2 col-sm-2 col-md-1 col-lg-1" id="contactBar">
 
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
+        <div className="col-xs-10 col-sm-8 col-md-12 col-lg-12 pull-left">
           <a target="_blank" rel="noopener noreferrer" href="http://github.com/901david/"><img className="img-responsive" src="./images/gitlogo.png" alt="Github" /></a>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 clear pull-left">
+        <div className="col-xs-10 col-sm-8 col-md-12 col-lg-12 clear pull-left">
           <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/david-hammond-96b1b8137/"><img
 
             className="img-responsive" src="./images/linkedFinal.png" alt="LinkedIn" /></a>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div className="col-xs-10 col-sm-8 col-md-12 col-lg-12">
             <a target="_blank" rel="noopener noreferrer" href="http://stackoverflow.com/users/7826396/901david?tab=profile"><img className="img-responsive" src="./images/stackoverflow.png" alt="StackOverflow" /></a>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div className="col-xs-10 col-sm-8 col-md-12 col-lg-12">
             <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/scriptscrawler"><img className="img-responsive" src="./images/twitter.png" alt="Twitter" /></a>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div className="col-xs-10 col-sm-8 col-md-12 col-lg-12">
             <a target="_blank" rel="noopener noreferrer" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left">
+          <div className="col-xs-10 col-sm-8 col-md-12 col-lg-12 pull-left">
             <img onClick={this.props.handleEmailOpen} style={{cursor:'pointer'}} className="img-responsive emailModal" src="./images/mail.png" alt="Email Me" />
           </div>
               </div>
+              <div className="col-xs-12" id="contactBarTwo">
+
+                <div className="col-xs-2">
+                  <a target="_blank" rel="noopener noreferrer" href="http://github.com/901david/"><img className="img-responsive" src="./images/gitlogo.png" alt="Github" /></a>
+                </div>
+                <div className="col-xs-2">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/david-hammond-96b1b8137/"><img
+
+                    className="img-responsive" src="./images/linkedFinal.png" alt="LinkedIn" /></a>
+                  </div>
+                  <div className="col-xs-2">
+                    <a target="_blank" rel="noopener noreferrer" href="http://stackoverflow.com/users/7826396/901david?tab=profile"><img className="img-responsive" src="./images/stackoverflow.png" alt="StackOverflow" /></a>
+                  </div>
+                  <div className="col-xs-2">
+                    <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/scriptscrawler"><img className="img-responsive" src="./images/twitter.png" alt="Twitter" /></a>
+                  </div>
+                  <div className="col-xs-2">
+                    <a target="_blank" rel="noopener noreferrer" href="https://vimeo.com/user62557417"><img className="img-responsive" src="./images/mountain.png" alt="Mountain View Video" /></a>
+                  </div>
+                  <div className="col-xs-2">
+                    <img onClick={this.props.handleEmailOpen} style={{cursor:'pointer'}} className="img-responsive emailModal" src="./images/mail.png" alt="Email Me" />
+                  </div>
+                      </div>
+                    </div>
             );
           }
         };

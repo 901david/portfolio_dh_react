@@ -15,9 +15,6 @@ font-family: 'Anton', sans-serif;*/
   margin-top: 2%;
   max-height:185px;
 }
-#uTileDevelopersProgram{
-  margin-left: 8%;
-}
 #closeBar {
   position: fixed;
   top: 0;
@@ -27,9 +24,9 @@ font-family: 'Anton', sans-serif;*/
 .arrowMargin {
   font-size: 80px;
 }
-.textAlignPortTwo {
+/* .textAlignPortTwo {
   margin-left: 8%;
-}
+} */
 #nav {
   margin:0;
   padding:0;
@@ -76,60 +73,72 @@ ul {
   margin-left: 2%;
 }
 .applicationMove {
-  margin-top: 328px;
+  margin-top: 11%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
 }
-#recentProj {
-  text-align: center;
+.main-port-label {
   font-size: 55px;
-  margin-top: -5%;
+  text-align: center;
+  background: white;
+  opacity: 0.5;
+  border-radius: 5%;
+}
+.spotlight {
+  opacity: 1.0;
 }
 a {
   font-size: 18px;
+  cursor: pointer;
 }
 /* unvisited link */
 a:link {
     color: black;
+    cursor: pointer;
+
 }
 
 /* visited link */
 a:visited {
     color: black;
+    cursor: pointer;
+
 }
 
 /* mouse over link */
 a:hover {
     color: green;
+    cursor: pointer;
+
 }
 
 /* selected link */
 a:active {
     color: blue;
+    cursor: pointer;
+
 }
 #portImages a {
   font-size: 22px;
+}
+.pipe-fix {
+  margin-top: 1%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .projTitle {
   font-size: 22px;
   white-space: nowrap;
   /*margin-left: 4%;*/
 }
-#TheCentennialCharge {
-  margin-left: 11%;
+.port-title-fix{
+  text-align: center;
 }
-#BamazonApp {
-margin-left: 24%;
-}
-#FlashCardFun {
-margin-left: 22%;
-}
-#StarWarsBattle {
-margin-left: 19%;
-}
-#RockPaperScissors-Multiplayer {
-margin-left: -4%;
-}
-#LIRI-NodeApplication {
-  margin-left: 12%;
+.port-bottom-text {
+  display:flex;
+  justify-content: center;
+  font-size: 18px;
 }
 #portImages {
   color:black;
@@ -163,11 +172,7 @@ margin-left: -4%;
   margin-bottom: 1%;
 }
 .centerMeTimbers {
-  margin-bottom: 2%;
-}
-
-.borderBox {
-  margin-left: 2%;
+  margin: 3%;
 }
 .portImageGroupModal {
   border: 1px solid black;
@@ -177,9 +182,6 @@ margin-left: -4%;
   border: 1px solid black;
   max-height: 200px;
   max-width: 360px;
-}
-.textAlignPort {
-  margin-left: 5%;
 }
 .contactText {
   font-size: 20px;
@@ -202,16 +204,9 @@ margin-left: -4%;
 .boxBackground {
   color:white;
   padding: 10px;
-  /*margin-top: 2%;*/
-  /*opacity: .9;*/
   min-height: 250px;
 }
-#rightSide {
-  /*position: fixed;
-  z-index: 101;
-  top: 301px;
-  right:0;*/
-}
+
 .colorBox {
   width:100%;
   background-color: #005781;
@@ -222,20 +217,19 @@ margin-left: -4%;
   color:black;
   width:100%;
   margin:0;
-  /*background-color: #23577D;*/
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
 }
 .eduBoxes {
   color:white;
   border: 2px solid black;
   background-color: #860102;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   border-radius: 5%;
   padding: 10px;
   margin-bottom: 5px;
 }
 .eduTitleBoxes {
   color:white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   /*text-align: center;*/
   margin-top: 5px;
   margin-left: 50px;
@@ -254,7 +248,7 @@ margin-left: -4%;
 #contactBar {
   position: fixed;
   top: 214px;
-  right:-30px;
+  right:-3%;
 }
 
 #emailForm h2 {
@@ -267,6 +261,9 @@ margin-left: -4%;
 
 .clear {
   float:clear;
+}
+#contactBarTwo {
+  display:hidden;
 }
 #mainNameHeader {
   font-family: 'Anton', sans-serif;
@@ -281,7 +278,6 @@ margin-left: -4%;
   margin-top: 5%;
 }
 .arrowBox {
-  margin-top: 50%;
   font-size: 65px;
 }
 
@@ -293,36 +289,38 @@ margin-left: -4%;
   font-size: 14px;
   font-weight: bold;
 }
+@media screen and (max-width: 1901px) {
+.applicationMove {
+  justify-content: center;
+}
+}
+
 @media screen and (max-width: 1200px) {
 .textMarginTwo {
   margin-left: 50px;
   margin-right: 50px;
 }
 }
-@media screen and (max-width: 1024px) {
+
+@media screen and (max-width: 991px) {
+#contactBar {
+  right:-8%;
+}
 #navNameHolder {
-  margin-left: -5%;
-  margin-top: 5%;
+  margin-left: -14%;
+  margin-top: 2%;
 }
 }
+
 @media screen and (max-width: 960px) and (min-width:737px) {
   #recentProj {
-    text-align: center;
     font-size: 35px;
-    margin-top:54%;
-}
-  #contactBar {
-    position: fixed;
-    top: 161px;
-    right: -28px;
-}
+  }
+
   .textMarginTwo {
     margin-left: 3px;
     margin-right: 78px;
   }
-#contactBar {
-  right: -30px;
-}
 .textMargin {
   margin-right: 30px;
   margin-left: 0;
@@ -332,8 +330,8 @@ margin-left: -4%;
   font-size: 36px;
 }
 #navNameHolder {
-  margin-left: -6%;
-  margin-top: 9%;
+  margin-left: -15%;
+  margin-top: 5%;
 }
 #emailFormat {
   font-size: 17px;
@@ -341,13 +339,24 @@ margin-left: -4%;
 #nav {
   height:198px;
 }
+#contactBar {
+  right: -8%;
+}
+}
+@media screen and (max-width: 767px) {
+  #contactBar {
+    right: -6%;
+  }
 }
 @media screen and (max-width: 736px) {
   #contactBar {
-    position: fixed;
-    top: 124px;
-    right: -28px;
-}
+    right: -6.5%;
+  }
+  #recentProj {
+    font-size: 43px;
+    bottom:-390px;
+    margin-bottom:50px;
+  }
   #mainNameHeader {
     letter-spacing: 7px;
     font-size: 33px;
@@ -370,6 +379,14 @@ margin-left: -4%;
   margin-right: 30px;
 }
 }
+@media screen and (max-width: 615px) {
+  #contactBar {
+    right: -7%;
+  }
+}
+@media screen and (max-width: 615px) {
+
+}
 @media screen and (max-width: 568px) {
   #mainNameHeader {
     letter-spacing: 5px;
@@ -386,4 +403,45 @@ margin-left: -4%;
   #nav {
     height:141px;
   }
+  #contactBar {
+    display:none!important;
+  }
+  #contactBarTwo {
+    display:block;
+    position:absolute;
+    top:0.25%;
+  }
+  .textMarginTwo {
+    margin-right:0;
+    margin-top: 2%;
+  }
+  .RockPaperScissors-Multiplayer {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 375px) {
+.portImageGroup {
+  max-width: 200px;
+}
+.projTitle {
+  font-size: 14px;
+}
+.textAlignPort {
+  font-size: 13px;
+}
+.port-bottom-text {
+  font-size: 15px;
+}
+#portImages a {
+  font-size: 13px;
+}
+
+.fixHeadersBack {
+  margin-left: 0;
+  font-size: 29px;
+}
+.fixHeadersEdu {
+  margin-left: 0;
+  font-size: 34px;
+}
 }
