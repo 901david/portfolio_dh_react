@@ -263,7 +263,7 @@ a:active {
   float:clear;
 }
 #contactBarTwo {
-  display:hidden;
+  display:none;
 }
 #mainNameHeader {
   font-family: 'Anton', sans-serif;

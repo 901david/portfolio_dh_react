@@ -100,16 +100,17 @@ class EmailModal extends Component {
         this.props.currentState &&
         <ModalContainer onClose={this.props.handleClose}>
           <ModalDialog onClose={this.props.handleClose}>
-            <div className='col-lg-12' id='emailForm'>
+            <div className='col-xs-12' id='emailForm'>
             <h2>Send me an Email</h2>
-            <div className='col-lg-8 col-lg-offset-2'>
+            <div className='col-xs-8'>
 
-              <form action="" onSubmit={this.handleSubmit}>
+              <form className='form-group' onSubmit={this.handleSubmit}>
                 <br/>
                 <label htmlFor="emailLine">
                   Your Email Address:
                   </label>
                   <input
+                    className='form-control'
                     style={{width: 400 }}
                     id='emailLine'
                     name="email"
@@ -122,6 +123,7 @@ class EmailModal extends Component {
                     Subject:
                     </label>
                     <input
+                      className='form-control'
                       style={{width: 400 }}
                       id='subjectLine'
                       name="subject"
@@ -134,15 +136,17 @@ class EmailModal extends Component {
                       Email Body:
                       </label>
                       <textarea
+                        className='form-control'
                         style={{ height: 150, width: 400 }}
                         id='emailBody'
                         name="body"
                         type="text"
                         value={this.state.body}
                         onChange={this.handleInputChange} />
-
+                    <div style={{ marginTop: '3%' }}>
                     <button className='btn btn-warning' type='button' onClick={this.props.handleClose}>close</button>
                     <button type='submit' className='btn btn-success' >Submit</button>
+                  </div>
                   </form>
 
                 </div>
