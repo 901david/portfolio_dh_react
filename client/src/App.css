@@ -248,7 +248,7 @@ a:active {
 #contactBar {
   position: fixed;
   top: 214px;
-  right:-3%;
+  right:-1.5%;
 }
 
 #emailForm h2 {
@@ -292,6 +292,11 @@ a:active {
 @media screen and (max-width: 1901px) {
 .applicationMove {
   justify-content: center;
+}
+}
+@media screen and (max-width: 1726px) {
+#contactBar {
+  right:-2%;
 }
 }
 
