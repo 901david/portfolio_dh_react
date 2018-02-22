@@ -13,6 +13,7 @@ const Education = (props) => {
                 <p className="mainTitleText">Udemy</p>
                 <p className="supportingText">Certificate of Completion for Classes</p>
                 <ul>
+                <li>Master Practical Java 9 Development</li>
                 <li>Angular 5, formerly Angular 2</li>
                 <li>Understanding TypeScript</li>
               <li>Modern React with Redux</li>
