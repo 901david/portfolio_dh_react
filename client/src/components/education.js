@@ -18,7 +18,13 @@ const Education = (props) => {
                 <li>Understanding TypeScript</li>
               <li>Modern React with Redux</li>
               <li>Webpack 2</li>
-              <li>Coding Interview Bootcamp: Algorithms and Data Structures</li>
+              <li>Javascript Interview Prep</li>
+              <li>Testing in Angular 4</li>
+              <li>Software Architecture: Meta and SOLID principles in C#</li>
+              <li>Angular 5 Advanced Masterclass</li>
+              <li>Master Practical Java Development</li>
+
+
                 </ul>
             </div>
                 <div className='eduBoxes'>
