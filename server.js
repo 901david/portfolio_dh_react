@@ -1,26 +1,26 @@
-// Dependencies
-// =============================================================
+require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
-const path = require('path');
-
-
-// Sets up the Express App
-// =============================================================
+const path = require("path");
+const htmlRouter = require("./Routes/html");
+const mailgunRouter = require("./Routes/mailgun");
+const dataRouter = require("./Routes/data");
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT;
+const mongoose = require("mongoose");
 
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(express.static(path.join(__dirname, 'client/build')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-require("./routes.js")(app);
+app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "public")));
 
-// Server Listener
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+app.use(htmlRouter);
+app.use("/api", mailgunRouter);
+app.use("/api", dataRouter);
+
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, err => {
+  if (err) throw err;
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
