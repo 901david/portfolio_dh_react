@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { iconMap } from "../../Shared/constants";
+import { iconMap, PATH_MAP } from "../../Shared/constants";
 
 const IconBarWrapper = styled.div`
   grid-row: body-start / body-end;
@@ -21,6 +21,11 @@ const IconTextWrapper = styled.div`
   opacity:0;
   position:absolute;
   transition:all 1s;
+  ${({ selected }) =>
+    selected &&
+    `
+    opacity: 1;
+    `}
   
 
   &::after {
@@ -30,6 +35,8 @@ const IconTextWrapper = styled.div`
   white-space: nowrap;
   color: white;
   transform:translate(5px,-35px);
+
+  
   }
 `;
 
@@ -41,6 +48,12 @@ const NavItemWrapper = styled.div`
   & > #icon-icon {
     transition: all 0.8s;
     transform: translate(25px, 0);
+
+    ${({ selected }) =>
+      selected &&
+      `
+    opacity: 0;
+    `}
   }
 
   & > #icon-icon[name="Projects"] {
@@ -55,14 +68,21 @@ const NavItemWrapper = styled.div`
     opacity: 1;
   }
 
+  &:active > #icon-text {
+    opacity: 1;
+    transform: translate(10px, 0);
+  }
+
   &:hover > #icon-icon {
     opacity: 0;
+    transform: translate(25px, 0);
   }
 `;
 
-const IconBar = props => {
+const IconBar = ({ history, location: { pathname } }) => {
+  const [currentlySelectedIcon, setIconState] = useState(0);
+
   const handleNavigation = (path, url) => {
-    const { history } = props;
     if (path) {
       history.push(path);
     } else {
@@ -70,13 +90,28 @@ const IconBar = props => {
     }
   };
 
+  useEffect(() => {
+    const areWeStillOnSamePage = currentlySelectedIcon === PATH_MAP[pathname];
+    if (!areWeStillOnSamePage) {
+      setIconState(PATH_MAP[pathname]);
+    }
+  }, [pathname, PATH_MAP, currentlySelectedIcon, setIconState]);
+
   return (
     <IconBarWrapper>
-      {iconMap.map(({ id, icon, text, path, url }) => {
+      {iconMap.map(({ id, icon, text, path, url }, index) => {
         return (
-          <NavItemWrapper key={id} onClick={() => handleNavigation(path, url)}>
+          <NavItemWrapper
+            selected={currentlySelectedIcon === index}
+            key={id}
+            onClick={() => handleNavigation(path, url)}
+          >
             <FontAwesomeIcon name={text} id="icon-icon" icon={icon} />
-            <IconTextWrapper id="icon-text" text={text} />
+            <IconTextWrapper
+              selected={currentlySelectedIcon === index}
+              id="icon-text"
+              text={text}
+            />
           </NavItemWrapper>
         );
       })}

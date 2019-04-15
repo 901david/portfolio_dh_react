@@ -6,10 +6,13 @@ import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Header from "../Header";
 import IconBar from "../IconBar/IconBar";
 import ContactInfo from "../../pages/ContactInfo";
+import SkillsInfo from "../../pages/SkillsInfo";
+import EducationInfo from "../../pages/EducationInfo";
+import Projects from "../../pages/Projects/Projects";
 
 const MainAppWrapper = styled.div`
   display: grid;
-  grid-template-rows: [header-start] 20vh [header-end body-start] 90vh [body-end];
+  grid-template-rows: [header-start] 20vh [header-end body-start] 80vh [body-end];
   grid-template-columns: [sideBar-start] 1fr [sideBar-end] repeat(11, 1fr);
 `;
 
@@ -31,10 +34,10 @@ const App = props => {
         <IconBar />
         <MainViewWrapper>
           <Route exact path="/" render={() => <Redirect to={"/skills"} />} />
-          <Route path="/skills" render={() => <div>Skills</div>} />
+          <Route path="/skills" component={SkillsInfo} />
           <Route path="/contact" component={ContactInfo} />
-          <Route path="/projects" render={() => <div>Projects</div>} />
-          <Route path="/education" render={() => <div>Education</div>} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/education" component={EducationInfo} />
         </MainViewWrapper>
       </Router>
     </MainAppWrapper>
