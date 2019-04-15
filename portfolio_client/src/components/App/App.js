@@ -26,20 +26,15 @@ const App = props => {
   console.log("portfolio data", portfolioData);
   return (
     <MainAppWrapper>
-      <Header />
-      <IconBar />
       <Router>
+        <Header />
+        <IconBar />
         <MainViewWrapper>
-          {/* <Route
-            exact
-            path="/"
-            component={() => <Redirect path={"/skills"} />}
-          /> */}
-          {/* <Route path="/skills" component={() => <div>Skills</div>} /> */}
+          <Route exact path="/" render={() => <Redirect to={"/skills"} />} />
+          <Route path="/skills" render={() => <div>Skills</div>} />
           <Route path="/contact" component={ContactInfo} />
-          {/* <Route path="/projects" component={() => <div>Projects</div>} /> */}
-          {/* <Route path="/education" component={() => <div>Education</div>} /> */}
-          {/* <Route path="*" component={() => <Redirect path={"/skills"} />} /> */}
+          <Route path="/projects" render={() => <div>Projects</div>} />
+          <Route path="/education" render={() => <div>Education</div>} />
         </MainViewWrapper>
       </Router>
     </MainAppWrapper>

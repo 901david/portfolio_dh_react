@@ -15,43 +15,50 @@ export const iconMap = [
   {
     icon: faAddressCard,
     text: "About Me",
-    linkTo: "/nowhere",
-    id: _.uniqueId("navBar-")
+    path: "/skills",
+    id: _.uniqueId("navBar-"),
+    url: null
   },
   {
     icon: faEnvelope,
     text: "Email Me",
-    linkTo: "/nowhere",
-    id: _.uniqueId("navBar-")
+    path: "/contact",
+    id: _.uniqueId("navBar-"),
+    url: null
   },
   {
     icon: faLaptopCode,
     text: "Projects",
-    linkTo: "/nowhere",
-    id: _.uniqueId("navBar-")
+    path: "/projects",
+    id: _.uniqueId("navBar-"),
+    url: null
   },
   {
     icon: faUserGraduate,
-    text: "Skills",
-    linkTo: "/nowhere",
-    id: _.uniqueId("navBar-")
+    text: "Education",
+    path: "/education",
+    id: _.uniqueId("navBar-"),
+    url: null
   },
   {
     icon: faGithub,
     text: "Github",
-    linkTo: "/nowhere",
-    id: _.uniqueId("navBar-")
+    path: null,
+    id: _.uniqueId("navBar-"),
+    url: "https://github.com/901david"
   },
   {
     icon: faBitbucket,
     text: "Bitbucket",
-    linkTo: "/nowhere",
-    id: _.uniqueId("navBar-")
+    path: null,
+    id: _.uniqueId("navBar-"),
+    url: "https://bitbucket.org/scriptscrawler/"
   },
   {
     icon: faLinkedinIn,
     text: "LinkedIn",
-    linkTo: "/nowhere",
-    id: _.uniqueId("navBar-")
+    path: null,
+    id: _.uniqueId("navBar-"),
+    url: "https://www.linkedin.com/in/00davidhammond/"
   }
 ];
