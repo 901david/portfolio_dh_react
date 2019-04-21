@@ -13,13 +13,34 @@ import Projects from "../../pages/Projects/Projects";
 const MainAppWrapper = styled.div`
   display: grid;
   grid-template-rows: [header-start] 20vh [header-end body-start] 80vh [body-end];
-  grid-template-columns: [sideBar-start] 1fr [sideBar-end] repeat(11, 1fr);
+  grid-template-columns: [sideBar-start] 8vw [sideBar-end] repeat(11, 1fr);
+
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: [sideBar-start] 10vw [sideBar-end] repeat(11, 1fr);
+  }
+
+  @media only screen and (max-width: 800px) {
+    grid-template-rows: [header-start] 20vh [header-end nav-start] 5vh [nav-end body-start] 75vh [body-end];
+    grid-template-columns: repeat(12, 1fr);
+  }
 `;
 
-const MainViewWrapper = styled.div``;
+const MainViewWrapper = styled.div`
+  grid-column: sideBar-start / -1;
+  grid-row: 2 / -1;
+
+  @media only screen and (max-width: 800px) {
+    grid-row: 3 / span 1;
+    grid-column: sideBar-start / -1;
+    position: relative;
+    z-index: -1;
+  }
+`;
 
 const App = props => {
   const [portfolioData, setPortfolioData] = useState(null);
+  const [viewingMainContent, setMainContentBeingViewed] = useState(false);
+
   useEffect(() => {
     axios
       .get("/api/data")
@@ -31,10 +52,18 @@ const App = props => {
     <MainAppWrapper>
       <Router>
         <Header />
-        <IconBar />
+        <IconBar viewingMainContent={viewingMainContent} />
         <MainViewWrapper>
           <Route exact path="/" render={() => <Redirect to={"/skills"} />} />
-          <Route path="/skills" component={SkillsInfo} />
+          <Route
+            path="/skills"
+            render={() => (
+              <SkillsInfo
+                viewingMainContent={viewingMainContent}
+                setMainContentBeingViewed={setMainContentBeingViewed}
+              />
+            )}
+          />
           <Route path="/contact" component={ContactInfo} />
           <Route path="/projects" component={Projects} />
           <Route path="/education" component={EducationInfo} />

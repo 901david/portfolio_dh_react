@@ -5,11 +5,15 @@ import {
   ADDITIONAL_SKILLS,
   TECHNICAL_SKILLS
 } from "../../Shared/constants";
+import Landing from "../Landing/Landing";
 
 const SkillsInfoWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: black;
+  padding-left: 8vw;
+  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(https://images.pexels.com/photos/1089552/pexels-photo-1089552.jpeg?cs=srgb&dl=coffee-computer-device-1089552.jpg&fm=jpg);
+  background-size: cover;
+  background-position: left top;
   color: white;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
@@ -19,35 +23,53 @@ const SkillsInfoWrapper = styled.div`
   line-height: 35px;
   font-size: 1rem;
   font-family: "Crimson Text", serif;
+  position: relative;
+
+  @media only screen and (max-width: 800px) {
+    height: 75vh;
+    width: 100vw;
+  }
 `;
 
 const SkillsWrapper = styled.div`
-  padding: 0 3rem;
+  padding: 0 5rem;
   text-align: center;
 `;
 const MissionStatement = styled.div`
   grid-row: 1 / span 1;
   grid-column: 1 / -1;
-  padding: 5rem 10rem;
+  padding: 0 5rem;
+  align-self: center;
 `;
 
 const SkillsTitle = styled.h4`
-  border-top: solid 2px white;
-  padding-top: 1rem;
+  background: white;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 2.25rem;
 `;
 
-const SkillsInfo = props => (
-  <SkillsInfoWrapper>
-    <MissionStatement>{MISSION_STATEMENT}</MissionStatement>
-    <SkillsWrapper>
-      <SkillsTitle>Technical Skills</SkillsTitle>
-      {TECHNICAL_SKILLS}
-    </SkillsWrapper>
-    <SkillsWrapper>
-      <SkillsTitle>Aditional Skills</SkillsTitle>
-      {ADDITIONAL_SKILLS}
-    </SkillsWrapper>
-  </SkillsInfoWrapper>
+const SkillsInfo = ({ viewingMainContent, setMainContentBeingViewed }) => (
+  <>
+    <Landing
+      viewingMainContent={viewingMainContent}
+      setMainContentBeingViewed={setMainContentBeingViewed}
+    />
+    <SkillsInfoWrapper>
+      <MissionStatement>{MISSION_STATEMENT}</MissionStatement>
+      <SkillsWrapper>
+        <SkillsTitle>Technical Skills</SkillsTitle>
+        {TECHNICAL_SKILLS}
+      </SkillsWrapper>
+      <SkillsWrapper>
+        <SkillsTitle>Aditional Skills</SkillsTitle>
+        {ADDITIONAL_SKILLS}
+      </SkillsWrapper>
+    </SkillsInfoWrapper>
+  </>
 );
 
 export default SkillsInfo;

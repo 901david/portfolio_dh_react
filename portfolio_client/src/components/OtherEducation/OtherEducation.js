@@ -1,10 +1,27 @@
 import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faJs } from "@fortawesome/free-brands-svg-icons";
+
+import {
+  CourseItemsWrapper,
+  CourseItem
+} from "../InformalEducationRenderer/InformalEducationRenderer";
+
+const CourseItemsWrapperOtherEducation = styled(CourseItemsWrapper)`
+  > p {
+    font-size: 1.8rem;
+  }
+`;
 
 const OtherEducation = props => (
-  <div>
+  <CourseItemsWrapperOtherEducation>
     <p>Other Education</p>
-    <p>Testing Javascript - Kent C. Dodds</p>
-  </div>
+    <CourseItem>
+      <FontAwesomeIcon icon={faJs} />
+      <span>Testing Javascrispant - Kent C. Dodds</span>
+    </CourseItem>
+  </CourseItemsWrapperOtherEducation>
 );
 
 export default OtherEducation;

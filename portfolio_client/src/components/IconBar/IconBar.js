@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { iconMap, PATH_MAP } from "../../Shared/constants";
+
+const slideNavInDesktop = keyframes`
+  0%{
+    transform:translateX(-8vw);
+  }
+  100%{
+    transform:translateX(0);
+
+  }
+`;
+
+const triggerIconBarSlide = css`
+  animation: ${slideNavInDesktop} 1s 1s forwards;
+`;
 
 const IconBarWrapper = styled.div`
   grid-row: body-start / body-end;
@@ -12,30 +26,48 @@ const IconBarWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background: black;
+  background: rgb(0, 0, 0, 1);
   color: white;
-  font-size: 2rem;
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 100;
+  transform: translateX(-8vw);
+  ${({ mainContentBeingViewed }) =>
+    mainContentBeingViewed && triggerIconBarSlide}
+
+  @media only screen and (max-width: 800px) {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 12;
+    flex-direction: row;
+    width: 100%;
+    width: 100vw;
+  }
 `;
 
 const IconTextWrapper = styled.div`
   opacity:0;
   position:absolute;
-  transition:all 1s;
+  transition:all 0.5s;
   ${({ selected }) =>
     selected &&
     `
     opacity: 1;
     `}
-  
+
 
   &::after {
     position:absolute;
     content: "${({ text }) => text}";
-  font-size: 1.2rem;
+  font-size: 1rem;
   white-space: nowrap;
   color: white;
   transform:translate(5px,-35px);
-
+  ${({ selected }) =>
+    selected &&
+    `
+    padding-bottom:0.2rem;
+  border-bottom:3px solid white;
+    `}
   
   }
 `;
@@ -79,8 +111,8 @@ const NavItemWrapper = styled.div`
   }
 `;
 
-const IconBar = ({ history, location: { pathname } }) => {
-  const [currentlySelectedIcon, setIconState] = useState(0);
+const IconBar = ({ history, location: { pathname }, viewingMainContent }) => {
+  const [currentlySelectedIcon, setIconState] = useState(pathname || 0);
 
   const handleNavigation = (path, url) => {
     if (path) {
@@ -98,24 +130,30 @@ const IconBar = ({ history, location: { pathname } }) => {
   }, [pathname, PATH_MAP, currentlySelectedIcon, setIconState]);
 
   return (
-    <IconBarWrapper>
-      {iconMap.map(({ id, icon, text, path, url }, index) => {
-        return (
-          <NavItemWrapper
-            selected={currentlySelectedIcon === index}
-            key={id}
-            onClick={() => handleNavigation(path, url)}
-          >
-            <FontAwesomeIcon name={text} id="icon-icon" icon={icon} />
-            <IconTextWrapper
+    <>
+      <IconBarWrapper mainContentBeingViewed={viewingMainContent}>
+        {iconMap.map(({ id, icon, text, path, url }, index) => {
+          return (
+            <NavItemWrapper
               selected={currentlySelectedIcon === index}
-              id="icon-text"
-              text={text}
-            />
-          </NavItemWrapper>
-        );
-      })}
-    </IconBarWrapper>
+              key={id}
+              onClick={
+                currentlySelectedIcon !== index
+                  ? () => handleNavigation(path, url)
+                  : null
+              }
+            >
+              <FontAwesomeIcon name={text} id="icon-icon" icon={icon} />
+              <IconTextWrapper
+                selected={currentlySelectedIcon === index}
+                id="icon-text"
+                text={text}
+              />
+            </NavItemWrapper>
+          );
+        })}
+      </IconBarWrapper>
+    </>
   );
 };
 

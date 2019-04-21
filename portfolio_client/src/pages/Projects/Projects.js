@@ -5,16 +5,25 @@ import {
   faChevronRight,
   faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
+import _ from "lodash";
+
 import Project from "./Project";
 import { PROJECTS } from "../../Shared/constants";
 
 const ProjectsWrapper = styled.div`
-  background: black;
-  width: 95vw;
+  padding-left: 8vw;
   height: 80vh;
   display: flex;
   justify-content: center;
   color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(https://images.unsplash.com/photo-1416339158484-9637228cc908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);
+  background-size: cover;
+
+  @media only screen and (max-width: 800px) {
+    height: 75vh;
+    width: 100vw;
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -54,35 +63,41 @@ const Projects = props => {
   const { title, projects } = PROJECTS[projectGroupSelected];
 
   const handleArrowClick = type => {
-    let currentGroupValue = projectGroupSelected;
-    let newIndexValue =
+    const currentGroupValue = projectGroupSelected;
+    const newIndexValue =
       type === "increment" ? currentGroupValue + 1 : currentGroupValue - 1;
 
-    const testedNewIndexValue =
-      newIndexValue > PROJECTS.length
+    setProjectGroup(
+      newIndexValue >= PROJECTS.length
         ? 0
         : newIndexValue < 0
         ? PROJECTS.length - 1
-        : newIndexValue;
-
-    setProjectGroup(testedNewIndexValue);
+        : newIndexValue
+    );
   };
+
   return (
     <ProjectsWrapper>
       <IconWrapper amount={1} position={"flex-start"} hover={true}>
-        <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronLeft} />
+        <FontAwesomeIcon
+          onClick={() => handleArrowClick("decrement")}
+          icon={faChevronLeft}
+        />
       </IconWrapper>
       <ProjectWrapper amount={3} position={"center"} hover={false}>
         <ProjectsTitle>
           <h4>{title}</h4>
           {projects.map(project => (
-            <Project {...project} />
+            <Project key={_.uniqueId("project-")} {...project} />
           ))}
         </ProjectsTitle>
       </ProjectWrapper>
 
       <IconWrapper amount={1} position={"flex-end"} hover={true}>
-        <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronRight} />
+        <FontAwesomeIcon
+          onClick={() => handleArrowClick("increment")}
+          icon={faChevronRight}
+        />
       </IconWrapper>
     </ProjectsWrapper>
   );

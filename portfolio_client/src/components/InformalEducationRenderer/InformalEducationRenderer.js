@@ -4,32 +4,41 @@ import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const CourseItem = styled.div`
+export const CourseItem = styled.div`
   display: flex;
+  font-size: 1rem;
 
   > span {
     margin-left: 1rem;
   }
+
+  > svg {
+    font-size: 1.5rem;
+  }
 `;
-const CourseItemsWrapper = styled.div`
+export const CourseItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items:space-around
   height: 100%;
+  width: 75%;
 `;
 
 const Subtitle = styled.h6`
   font-style: italic;
   margin: 0 0 3% 0;
+  font-size: 1rem;
 `;
 
 const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: solid 2px white;
 `;
 
-const Title = styled.h4``;
+const Title = styled.p`
+  font-size: 1.8rem;
+`;
 
 const InformalEducationRenderer = ({ courseList }) => (
   <CourseItemsWrapper>

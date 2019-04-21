@@ -5,16 +5,23 @@ import StandardInput from "../../Shared/StandardInput";
 import StandardButton from "../../Shared/StandardButton/StandardButton";
 
 const ContactInfoWrapper = styled.div`
-  width: 95vw;
-  height: 100%;
+  padding-left: 8vw;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: black;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(https://images.unsplash.com/photo-1538121915146-1dedb4191b21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2255&q=80);
+  background-size: cover;
 
   > div:first-child {
     margin-top: 5%;
+  }
+
+  @media only screen and (max-width: 800px) {
+    height: 75vh;
+    width: 100vw;
   }
 `;
 
@@ -35,7 +42,7 @@ const ContactInfo = props => {
         name={"yourEmail"}
         labelId={"yourEmailLabel"}
         inputId={"yourEmail"}
-        type={"text"}
+        type={"email"}
         label={"Your Email"}
       />
       <StandardInput
