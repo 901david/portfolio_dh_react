@@ -5,7 +5,6 @@ import {
   ADDITIONAL_SKILLS,
   TECHNICAL_SKILLS
 } from "../../Shared/constants";
-import Landing from "../Landing/Landing";
 
 const SkillsInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -52,24 +51,25 @@ const SkillsTitle = styled.h4`
   font-size: 2.25rem;
 `;
 
-const SkillsInfo = ({ viewingMainContent, setMainContentBeingViewed }) => (
-  <>
-    <Landing
-      viewingMainContent={viewingMainContent}
-      setMainContentBeingViewed={setMainContentBeingViewed}
-    />
-    <SkillsInfoWrapper>
-      <MissionStatement>{MISSION_STATEMENT}</MissionStatement>
-      <SkillsWrapper>
-        <SkillsTitle>Technical Skills</SkillsTitle>
-        {TECHNICAL_SKILLS}
-      </SkillsWrapper>
-      <SkillsWrapper>
-        <SkillsTitle>Aditional Skills</SkillsTitle>
-        {ADDITIONAL_SKILLS}
-      </SkillsWrapper>
-    </SkillsInfoWrapper>
-  </>
+const MissionStatementTitle = styled(SkillsTitle)`
+  margin: 0 25%;
+`;
+
+const SkillsInfo = props => (
+  <SkillsInfoWrapper>
+    <MissionStatement>
+      <MissionStatementTitle>Who Am I?</MissionStatementTitle>
+      {MISSION_STATEMENT}
+    </MissionStatement>
+    <SkillsWrapper>
+      <SkillsTitle>Technical Skills</SkillsTitle>
+      {TECHNICAL_SKILLS}
+    </SkillsWrapper>
+    <SkillsWrapper>
+      <SkillsTitle>Aditional Skills</SkillsTitle>
+      {ADDITIONAL_SKILLS}
+    </SkillsWrapper>
+  </SkillsInfoWrapper>
 );
 
 export default SkillsInfo;

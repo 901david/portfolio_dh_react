@@ -41,10 +41,15 @@ const LandingBackground = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background: black;
+  //   background: black;
+  background-image: url("./images/topBar_edited.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   z-index: 1000;
   color: white;
   transform: scale(1);
+  ${({ landingViewedOnce }) => landingViewedOnce && `top:-100vh;`}
   ${({ removeContentTriggered }) =>
     removeContentTriggered && removeContentAddOn}
 `;
@@ -79,15 +84,24 @@ const LandingTagline = styled(Tagline)`
 const Landing = ({
   history,
   viewingMainContent,
-  setMainContentBeingViewed
+  setMainContentBeingViewed,
+  setLandingViewed
 }) => {
   const handleArrowClick = () => {
     setMainContentBeingViewed(true);
     history.push("/skills");
+
+    /* 1 second represents the animation time which is triggered here. After the animation we never want to see the landing again. */
+    setTimeout(() => {
+      setLandingViewed(true);
+    }, 1002);
   };
 
   return (
-    <LandingBackground removeContentTriggered={viewingMainContent}>
+    <LandingBackground
+      removeContentTriggered={viewingMainContent}
+      setLandingViewed={setLandingViewed}
+    >
       <LandingHeadshotWrapper>
         <LandingHeadshot src="./images/headshot_comp.jpg" alt="headshot" />
         <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronDown} />

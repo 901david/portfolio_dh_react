@@ -9,6 +9,7 @@ import ContactInfo from "../../pages/ContactInfo";
 import SkillsInfo from "../../pages/SkillsInfo";
 import EducationInfo from "../../pages/EducationInfo";
 import Projects from "../../pages/Projects/Projects";
+import Landing from "../../pages/Landing/Landing";
 
 const MainAppWrapper = styled.div`
   display: grid;
@@ -40,6 +41,7 @@ const MainViewWrapper = styled.div`
 const App = props => {
   const [portfolioData, setPortfolioData] = useState(null);
   const [viewingMainContent, setMainContentBeingViewed] = useState(false);
+  const [landingViewedOnce, setLandingViewed] = useState(false);
 
   useEffect(() => {
     axios
@@ -53,12 +55,22 @@ const App = props => {
       <Router>
         <Header />
         <IconBar viewingMainContent={viewingMainContent} />
+        {!landingViewedOnce && (
+          <Landing
+            viewingMainContent={viewingMainContent}
+            setLandingViewed={setLandingViewed}
+            landingViewedOnce={landingViewedOnce}
+            setMainContentBeingViewed={setMainContentBeingViewed}
+          />
+        )}
         <MainViewWrapper>
           <Route exact path="/" render={() => <Redirect to={"/skills"} />} />
           <Route
             path="/skills"
             render={() => (
               <SkillsInfo
+                landingViewedOnce={landingViewedOnce}
+                setLandingViewed={setLandingViewed}
                 viewingMainContent={viewingMainContent}
                 setMainContentBeingViewed={setMainContentBeingViewed}
               />
