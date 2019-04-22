@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, createRef } from "react";
 import styled from "styled-components";
 
 import StandardInput from "../../Shared/StandardInput";
 import StandardButton from "../../Shared/StandardButton/StandardButton";
+import axios from "axios";
 
 const ContactInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -27,13 +28,45 @@ const ContactInfoWrapper = styled.div`
 
 const ButtonWrapper = styled.div`
   display: flex;
-  justofy-content: space-around;
-  width: 100%;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin-left: 21%;
+
+  > div {
+    margin-right: 8%;
+  }
 `;
 
 const ContactInfo = props => {
+  const [clearData, setDataShouldBeCleared] = useState(false);
+  const refMap = {
+    yourEmail: createRef(),
+    subject: createRef(),
+    body: createRef()
+  };
+
+  const handleSendEmail = () => {
+    const { yourEmail: email, subject, body } = refMap;
+
+    axios
+      .post("/api/contact/", { email, subject, body })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const typeMap = {
+    send: handleSendEmail,
+    clear: () => setDataShouldBeCleared(true)
+  };
   const handleClick = type => {
-    console.log("fake " + type);
+    const funcToExec = typeMap[type];
+    if (funcToExec) {
+      funcToExec();
+    }
   };
 
   return (
@@ -44,6 +77,8 @@ const ContactInfo = props => {
         inputId={"yourEmail"}
         type={"email"}
         label={"Your Email"}
+        shouldClear={clearData}
+        ref={refMap["yourEmail"]}
       />
       <StandardInput
         name={"subject"}
@@ -51,6 +86,8 @@ const ContactInfo = props => {
         inputId={"subject"}
         type={"text"}
         label={"Subject"}
+        shouldClear={clearData}
+        ref={refMap["subject"]}
       />
       <StandardInput
         name={"body"}
@@ -58,17 +95,21 @@ const ContactInfo = props => {
         inputId={"body"}
         type={"textarea"}
         label={"Body"}
+        shouldClear={clearData}
+        ref={refMap["body"]}
       />
       <ButtonWrapper>
         <StandardButton
           text={"Send"}
           clickHandler={handleClick}
           value={"send"}
+          color={"green"}
         />
         <StandardButton
           text={"Clear"}
           clickHandler={handleClick}
           value={"clear"}
+          color={"red"}
         />
       </ButtonWrapper>
     </ContactInfoWrapper>

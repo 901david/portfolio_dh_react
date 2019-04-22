@@ -12,7 +12,10 @@
     "start:server:dev": "nodemon ./server.js"
   },
   "nodemonConfig": {
-    "ignore": ["client/*", "portfolio_client/*"]
+    "ignore": [
+      "client/*",
+      "portfolio_client/*"
+    ]
   },
   "author": "",
   "license": "ISC",

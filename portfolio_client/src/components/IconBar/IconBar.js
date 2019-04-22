@@ -7,7 +7,7 @@ import { iconMap, PATH_MAP } from "../../Shared/constants";
 
 const slideNavInDesktop = keyframes`
   0%{
-    transform:translateX(-8vw);
+    transform:translateX(-10vw);
   }
   100%{
     transform:translateX(0);
@@ -26,12 +26,12 @@ const IconBarWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background: rgb(0, 0, 0, 1);
+  background: black;
   color: white;
   font-size: 1.3rem;
   position: relative;
   z-index: 100;
-  transform: translateX(-8vw);
+  transform: translateX(-10vw);
   ${({ mainContentBeingViewed }) =>
     mainContentBeingViewed && triggerIconBarSlide}
 
@@ -46,8 +46,8 @@ const IconBarWrapper = styled.div`
 
 const IconTextWrapper = styled.div`
   opacity:0;
-  position:absolute;
   transition:all 0.5s;
+  transform:translateY(-1.7rem);
   ${({ selected }) =>
     selected &&
     `
@@ -56,16 +56,14 @@ const IconTextWrapper = styled.div`
 
 
   &::after {
-    position:absolute;
     content: "${({ text }) => text}";
   font-size: 1rem;
   white-space: nowrap;
   color: white;
-  transform:translate(5px,-35px);
   ${({ selected }) =>
     selected &&
     `
-    padding-bottom:0.2rem;
+    padding-bottom:0;
   border-bottom:3px solid white;
     `}
   
@@ -73,13 +71,13 @@ const IconTextWrapper = styled.div`
 `;
 
 const NavItemWrapper = styled.div`
-  position: relative;
-  width: 100%;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   & > #icon-icon {
     transition: all 0.8s;
-    transform: translate(25px, 0);
 
     ${({ selected }) =>
       selected &&
@@ -88,26 +86,16 @@ const NavItemWrapper = styled.div`
     `}
   }
 
-  & > #icon-icon[name="Projects"] {
-    transform: translate(20px, 0);
-  }
-
-  & > #icon-icon[name="Github"] {
-    transform: translate(23px, 0);
-  }
-
   &:hover > #icon-text {
     opacity: 1;
   }
 
   &:active > #icon-text {
     opacity: 1;
-    transform: translate(10px, 0);
   }
 
   &:hover > #icon-icon {
     opacity: 0;
-    transform: translate(25px, 0);
   }
 `;
 

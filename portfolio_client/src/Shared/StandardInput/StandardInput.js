@@ -1,4 +1,4 @@
-import React, { useState, createRef } from "react";
+import React, { useState, createRef, useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import _ from "lodash";
@@ -13,17 +13,17 @@ const StandardInputWrapper = styled.div`
     left: 0;
     bottom: ${({ userInput }) => (userInput ? "1.8rem" : "0.5rem")};
     font-style: italic;
-    font-size: 1rem;
+    font-size: 1.5rem;
     transition: all 0.5s;
   }
 
   input {
-    background: rgb(0, 0, 0, 0.6);
+    background: rgb(0, 0, 0, 0);
     border: none;
     border-bottom: solid 5px white;
     width: 40rem;
     color: white;
-    font-size: 1rem;
+    font-size: 1.5rem;
 
     &:focus {
       outline: none;
@@ -37,7 +37,14 @@ const StandardInputWrapper = styled.div`
 
 const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const StandardInput = ({ name, labelId, inputId, type, label }) => {
+const StandardInput = ({
+  name,
+  labelId,
+  inputId,
+  type,
+  label,
+  shouldClear
+}) => {
   const [userInput, setUserInput] = useState("");
 
   const inputRef = createRef();
@@ -63,6 +70,12 @@ const StandardInput = ({ name, labelId, inputId, type, label }) => {
       }
     }
   };
+
+  useEffect(() => {
+    if (shouldClear) {
+      setUserInput("");
+    }
+  }, [shouldClear]);
 
   return (
     <StandardInputWrapper userInput={userInput}>

@@ -1,20 +1,21 @@
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
-import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import { HeadShot, Tagline } from "../../components/Header/Header";
 
-const arrowVibrate = keyframes`
+const arrowVibrate = initialPosition => keyframes`
 0%{
-    top: 44rem;
+    transform: translateY(${initialPosition}rem);
+    
 }
 50%{
-    top: 42rem;
+  transform: translateY(${initialPosition - 2}rem);
+
 }
 100%{
-    top: 44rem;
+    transform: translateY(${initialPosition}rem);
 }
 `;
 
@@ -41,7 +42,7 @@ const LandingBackground = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  //   background: black;
+  background: black;
   background-image: url("./images/topBar_edited.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -60,36 +61,60 @@ const LandingHeadshot = styled(HeadShot)`
 
 const LandingHeadshotWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
+  margin-left: 15%;
 
   > svg {
-    position: absolute;
-    top: 44rem;
-    left: 33rem;
+    margin-left: 6%;
     color: white;
     font-size: 12rem;
-    animation: ${arrowVibrate} 1.2s infinite;
+    animation: ${arrowVibrate(-8)} 1.2s infinite;
     cursor: pointer;
+    transform: translateY(-15rem);
+  }
+
+  @media only screen and (max-width: 800px) {
+    align-items: center;
+
+    > svg {
+      animation: ${arrowVibrate(0)} 1.2s infinite;
+      transform: translateY(0);
+    }
   }
 `;
 
 const LandingTagline = styled(Tagline)`
-  color: white;
-  position: absolute;
-  top: 0;
+  color: black;
+  background: white;
+  padding: 0.5em;
+  font-size: 4rem;
+  transform: rotate(-12deg) translate(-8rem, 2rem);
+
+  @media only screen and (max-width: 800px) {
+    transform: rotate(0) translate(0, 0);
+  }
+`;
+
+const LandingSubTagline = styled(LandingTagline)`
+  transform: rotate(0) translate(25rem, -15rem);
+  font-size: 3.5rem;
+  letter-spacing: 0.8rem;
+
+  @media only screen and (max-width: 800px) {
+    transform: rotate(0) translate(0, 0);
+  }
 `;
 
 const Landing = ({
-  history,
   viewingMainContent,
   setMainContentBeingViewed,
   setLandingViewed
 }) => {
   const handleArrowClick = () => {
     setMainContentBeingViewed(true);
-    history.push("/skills");
 
     /* 1 second represents the animation time which is triggered here. After the animation we never want to see the landing again. */
     setTimeout(() => {
@@ -103,13 +128,15 @@ const Landing = ({
       setLandingViewed={setLandingViewed}
     >
       <LandingHeadshotWrapper>
+        <LandingTagline fontSize={"5rem"}>David Hammond</LandingTagline>
         <LandingHeadshot src="./images/headshot_comp.jpg" alt="headshot" />
+        <LandingSubTagline fontSize={"3rem"}>
+          Software Engineer
+        </LandingSubTagline>
         <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronDown} />
       </LandingHeadshotWrapper>
-      <LandingTagline fontSize={"5rem"}>David Hammond</LandingTagline>
-      <LandingTagline fontSize={"3rem"}>vdavidhammond@gmail.com</LandingTagline>
     </LandingBackground>
   );
 };
 
-export default withRouter(Landing);
+export default Landing;

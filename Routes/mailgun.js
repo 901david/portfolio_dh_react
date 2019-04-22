@@ -4,21 +4,22 @@ const mailgun = require("mailgun-js")({
 });
 const mailgunRouter = require("express").Router();
 
-mailgunRouter.post(
-  "/contact",
-  ({ body: { email: from, subject, body: text } }, { send }) => {
-    const data = {
-      from,
-      to: "vdavidhammond@gmail.com",
-      subject,
-      text
-    };
-    mailgun.messages().send(data, function(error, body) {
-      if (error) throw error;
+mailgunRouter.post("/contact", (req, res) => {
+  const {
+    body: { email: from, subject, body: text }
+  } = req;
 
-      send(body);
-    });
-  }
-);
+  const data = {
+    from,
+    to: "vdavidhammond@gmail.com",
+    subject,
+    text
+  };
+  mailgun.messages().send(data, function(error, body) {
+    if (error) throw error;
+
+    res.send(body);
+  });
+});
 
 module.exports = mailgunRouter;
