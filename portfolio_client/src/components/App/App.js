@@ -32,6 +32,7 @@ const MainViewWrapper = styled.div`
 
   @media only screen and (max-width: 800px) {
     grid-row: 3 / span 1;
+    height: 75vh;
     grid-column: sideBar-start / -1;
     position: relative;
     z-index: -1;
@@ -41,7 +42,7 @@ const MainViewWrapper = styled.div`
 const App = props => {
   const [portfolioData, setPortfolioData] = useState(null);
   const [viewingMainContent, setMainContentBeingViewed] = useState(false);
-  const [landingViewedOnce, setLandingViewed] = useState(true);
+  const [landingViewedOnce, setLandingViewed] = useState(false);
 
   useEffect(() => {
     axios

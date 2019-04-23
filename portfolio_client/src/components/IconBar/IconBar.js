@@ -15,8 +15,22 @@ const slideNavInDesktop = keyframes`
   }
 `;
 
-const triggerIconBarSlide = css`
+const slideNavInTablet = keyframes`
+  0%{
+    transform:translateX(-100vw);
+  }
+  100%{
+    transform:translateX(0);
+
+  }
+`;
+
+const triggerIconBarSlideDesktop = css`
   animation: ${slideNavInDesktop} 1s 1s forwards;
+`;
+
+const triggerIconBarSlideTablet = css`
+  animation: ${slideNavInTablet} 1s 1s forwards;
 `;
 
 const IconBarWrapper = styled.div`
@@ -31,16 +45,23 @@ const IconBarWrapper = styled.div`
   font-size: 1.3rem;
   position: relative;
   z-index: 100;
-  transform: translateX(-10vw);
-  ${({ mainContentBeingViewed }) =>
-    mainContentBeingViewed && triggerIconBarSlide}
+
+  @media only screen and (max-width: 801px) {
+    transform: translateX(-10vw);
+    ${({ mainContentBeingViewed }) =>
+      mainContentBeingViewed && triggerIconBarSlideDesktop}
+  }
 
   @media only screen and (max-width: 800px) {
     grid-row: 2 / span 1;
     grid-column: 1 / span 12;
-    flex-direction: row;
-    width: 100%;
     width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    transform: translateX(-100vw);
+    ${({ mainContentBeingViewed }) =>
+      mainContentBeingViewed && triggerIconBarSlideTablet}
   }
 `;
 
@@ -67,6 +88,11 @@ const IconTextWrapper = styled.div`
   border-bottom:3px solid white;
     `}
   
+  } 
+  
+  @media only screen and (max-width: 800px) {
+  transform:translateY(-0.4rem);
+    
   }
 `;
 
@@ -96,6 +122,21 @@ const NavItemWrapper = styled.div`
 
   &:hover > #icon-icon {
     opacity: 0;
+  }
+
+  @media only screen and (max-width: 800px) {
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    &:hover > #icon-text {
+      opacity: 1;
+    }
+
+    &:active > #icon-text {
+      opacity: 1;
+    }
   }
 `;
 

@@ -8,7 +8,7 @@ import HeadShotImage from "../../images/headshot_comp.jpg";
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
-  background-image: url(${HeaderImage});
+  background: url(${HeaderImage}) black;
   color: white;
   background-size: cover;
   grid-row: header-start / header-end;

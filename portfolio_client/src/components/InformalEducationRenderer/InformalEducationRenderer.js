@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SkillsTitle } from "../../pages/SkillsInfo/SkillsInfo";
+import StandardTitle from "../../Shared/StandardTitle";
 
 export const CourseItem = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export const CourseItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items:space-around
+  align-items: space-around;
   height: 100%;
   width: 75%;
 `;
@@ -37,14 +38,10 @@ const TitleWrapper = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled(SkillsTitle)`
-  font-size: 1.8rem;
-`;
-
 const InformalEducationRenderer = ({ courseList }) => (
   <CourseItemsWrapper>
     <TitleWrapper>
-      <Title>Udemy</Title>
+      <StandardTitle>Udemy</StandardTitle>
       <Subtitle>Certificate of Completion</Subtitle>
     </TitleWrapper>
     {courseList.map(({ name, icon }) => {

@@ -7,8 +7,11 @@ import {
   CourseItemsWrapper,
   CourseItem
 } from "../InformalEducationRenderer/InformalEducationRenderer";
+import StandardTitle from "../../Shared/StandardTitle";
 
 const CourseItemsWrapperOtherEducation = styled(CourseItemsWrapper)`
+  margin-top: -6.4rem;
+
   > p {
     font-size: 1.8rem;
   }
@@ -16,7 +19,7 @@ const CourseItemsWrapperOtherEducation = styled(CourseItemsWrapper)`
 
 const OtherEducation = props => (
   <CourseItemsWrapperOtherEducation>
-    <p>Other Education</p>
+    <StandardTitle>Other Education</StandardTitle>
     <CourseItem>
       <FontAwesomeIcon icon={faJs} />
       <span>Testing Javascrispant - Kent C. Dodds</span>

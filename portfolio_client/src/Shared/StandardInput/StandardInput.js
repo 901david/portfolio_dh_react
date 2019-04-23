@@ -21,7 +21,7 @@ const StandardInputWrapper = styled.div`
     background: rgb(0, 0, 0, 0);
     border: none;
     border-bottom: solid 5px white;
-    width: 40rem;
+    width: 45vw;
     color: white;
     font-size: 1.5rem;
 

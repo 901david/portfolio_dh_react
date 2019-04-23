@@ -12,13 +12,14 @@ import OtherEducation from "../../components/OtherEducation/OtherEducation";
 
 const EducationInfoWrapper = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(https://cdn.stocksnap.io/img-thumbs/960w/ANC5ACJ7V0.jpg);
+    url(https://cdn.stocksnap.io/img-thumbs/960w/ANC5ACJ7V0.jpg) black;
   background-size: cover;
   padding-left: 8vw;
   height: 80vh;
   display: grid;
   color: white;
   grid-template-columns: repeat(3, 1fr);
+  overflow: auto;
 
   @media only screen and (max-width: 800px) {
     height: 75vh;
@@ -35,13 +36,15 @@ const FormalEducation = styled.div`
 `;
 
 const CertificateEducationWrapper = styled.div`
-  grid-row: 1 / span 1;
+  grid-row: 1 / span 2;
   grid-column: 3 / span 1;
+  align-self: start;
 `;
 
 const OtherEducationWrapper = styled.div`
-  grid-row: 2 / span 1;
+  grid-row: 3 / span 1;
   grid-column: 3 / span 1;
+  align-self: start;
 `;
 
 const EducationInfo = props => (

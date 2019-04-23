@@ -44,8 +44,7 @@ const LandingBackground = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  // background: black;
-  background-image: url(${HeaderImage});
+  background: url(${HeaderImage}) black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import StandardInput from "../../Shared/StandardInput";
 import StandardButton from "../../Shared/StandardButton/StandardButton";
 import axios from "axios";
+import StandardTitle from "../../Shared/StandardTitle";
 
 const ContactInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -13,7 +14,8 @@ const ContactInfoWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(https://images.unsplash.com/photo-1538121915146-1dedb4191b21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2255&q=80);
+    url(https://images.unsplash.com/photo-1538121915146-1dedb4191b21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2255&q=80)
+      black;
   background-size: cover;
 
   > div:first-child {
@@ -27,14 +29,17 @@ const ContactInfoWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  align-self: flex-start;
   display: flex;
-
-  margin-left: 20.5rem;
+  width: 45vw;
 
   > div {
     margin-right: 8%;
   }
+`;
+
+const ContactTitle = styled(StandardTitle)`
+  width: 45vw;
+  white-space: nowrap;
 `;
 
 const ContactInfo = props => {
@@ -71,6 +76,7 @@ const ContactInfo = props => {
 
   return (
     <ContactInfoWrapper>
+      <ContactTitle>Contact Me</ContactTitle>
       <StandardInput
         name={"yourEmail"}
         labelId={"yourEmailLabel"}
