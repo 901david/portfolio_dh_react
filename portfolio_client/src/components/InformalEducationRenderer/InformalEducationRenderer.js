@@ -3,6 +3,7 @@ import _ from "lodash";
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SkillsTitle } from "../../pages/SkillsInfo/SkillsInfo";
 
 export const CourseItem = styled.div`
   display: flex;
@@ -36,7 +37,7 @@ const TitleWrapper = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.p`
+const Title = styled(SkillsTitle)`
   font-size: 1.8rem;
 `;
 

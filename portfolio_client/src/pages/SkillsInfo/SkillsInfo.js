@@ -41,7 +41,7 @@ const MissionStatement = styled.div`
   align-self: center;
 `;
 
-const SkillsTitle = styled.h4`
+export const SkillsTitle = styled.h4`
   background: white;
   padding: 0.5rem;
   display: flex;

@@ -41,7 +41,7 @@ const MainViewWrapper = styled.div`
 const App = props => {
   const [portfolioData, setPortfolioData] = useState(null);
   const [viewingMainContent, setMainContentBeingViewed] = useState(false);
-  const [landingViewedOnce, setLandingViewed] = useState(false);
+  const [landingViewedOnce, setLandingViewed] = useState(true);
 
   useEffect(() => {
     axios

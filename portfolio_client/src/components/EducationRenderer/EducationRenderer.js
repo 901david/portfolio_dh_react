@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { SkillsTitle } from "../../pages/SkillsInfo/SkillsInfo";
 
 const EducationItemWrapper = styled.div`
   width: 75%;
@@ -9,8 +10,7 @@ const EducationItemWrapper = styled.div`
 export const TitleWrapper = styled.div`
   font-size: 1.8rem;
 
-  > p,
-  span {
+  > * {
     margin-bottom: 0;
   }
 
@@ -33,7 +33,7 @@ const Description = styled.p`
 const EducationRenderer = ({ title, degree, dates, description }) => (
   <EducationItemWrapper>
     <TitleWrapper>
-      <p>{title}</p>
+      <SkillsTitle>{title}</SkillsTitle>
       <span>{dates}</span>
     </TitleWrapper>
     <DegreeWrapper>{degree}</DegreeWrapper>

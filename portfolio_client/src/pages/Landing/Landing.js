@@ -2,6 +2,8 @@ import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import HeaderImage from "../../images/topBar_edited.jpg";
+import HeadShotImage from "../../images/headshot_comp.jpg";
 
 import { HeadShot, Tagline } from "../../components/Header/Header";
 
@@ -42,8 +44,8 @@ const LandingBackground = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background: black;
-  background-image: url("./images/topBar_edited.jpg");
+  // background: black;
+  background-image: url(${HeaderImage});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -129,7 +131,7 @@ const Landing = ({
     >
       <LandingHeadshotWrapper>
         <LandingTagline fontSize={"5rem"}>David Hammond</LandingTagline>
-        <LandingHeadshot src="./images/headshot_comp.jpg" alt="headshot" />
+        <LandingHeadshot src={HeadShotImage} alt="headshot" />
         <LandingSubTagline fontSize={"3rem"}>
           Software Engineer
         </LandingSubTagline>

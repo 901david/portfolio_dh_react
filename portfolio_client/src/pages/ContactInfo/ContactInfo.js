@@ -27,10 +27,10 @@ const ContactInfoWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
   align-self: flex-start;
-  margin-left: 21%;
+  display: flex;
+
+  margin-left: 20.5rem;
 
   > div {
     margin-right: 8%;

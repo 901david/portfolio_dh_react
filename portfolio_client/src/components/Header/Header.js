@@ -2,11 +2,13 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import HeaderImage from "../../images/topBar_edited.jpg";
+import HeadShotImage from "../../images/headshot_comp.jpg";
 
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
-  background-image: url("./images/topBar_edited.jpg");
+  background-image: url(${HeaderImage});
   color: white;
   background-size: cover;
   grid-row: header-start / header-end;
@@ -62,7 +64,7 @@ const Header = ({ history }) => {
 
   return (
     <HeaderWrapper>
-      <HeadShot src="./images/headshot_comp.jpg" alt="headshot" />
+      <HeadShot src={HeadShotImage} />
       <TaglineWrapper>
         <Tagline fontSize={3} letterSpacing={20}>
           David Hammond
