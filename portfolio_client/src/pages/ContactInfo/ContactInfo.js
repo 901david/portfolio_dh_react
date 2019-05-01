@@ -23,8 +23,11 @@ const ContactInfoWrapper = styled.div`
   }
 
   @media only screen and (max-width: 800px) {
-    height: 75vh;
+    background-attachment:fixed;
+    height:50%;
     width: 100vw;
+    padding-left: 0;
+
   }
 `;
 

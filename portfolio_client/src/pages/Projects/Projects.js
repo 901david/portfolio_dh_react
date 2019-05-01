@@ -22,8 +22,10 @@ const ProjectsWrapper = styled.div`
   background-size: cover;
 
   @media only screen and (max-width: 800px) {
-    height: 75vh;
+    background-attachment:fixed;
+    height: 120%;
     width: 100vw;
+    padding-left: 0;
   }
 `;
 
@@ -54,6 +56,14 @@ const ProjectWrapper = styled.div`
   grid-template-rows: 10rem 1fr;
   grid-gap: 1.5rem;
   align-items: start;
+  
+  
+  @media only screen and (max-width: 800px) {
+   grid-template-columns: 1fr;
+  grid-template-rows: 10rem repeat(3,1fr);
+  grid-gap: 0;
+  }
+  
 `;
 
 const ProjectsTitle = styled.div`

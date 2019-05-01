@@ -14,11 +14,11 @@ const SkillsInfoWrapper = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(https://images.pexels.com/photos/1089552/pexels-photo-1089552.jpeg?cs=srgb&dl=coffee-computer-device-1089552.jpg&fm=jpg)
       black;
-  background-size: cover;
+  background-size: 100vw auto;
   background-position: left top;
   color: white;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fill, 1fr);
   grid-template-columns: repeat(2, 1fr);
   font-style: italic;
   font-weight: bold;
@@ -27,12 +27,14 @@ const SkillsInfoWrapper = styled.div`
   font-family: "Crimson Text", serif;
   position: relative;
 
+
   @media only screen and (max-width: 950px) {
     grid-template-rows: repeat(3, 1fr);
   }
 
   @media only screen and (max-width: 800px) {
-    height: 100%;
+    background-attachment: fixed;
+    height: 75%;
     width: 100vw;
     padding-left: 0;
   }
@@ -44,10 +46,17 @@ const SkillsWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   align-self: start;
+  font-size:1.5rem;
+  line-height:1.8rem;
 
   @media only screen and (max-width: 950px) {
     grid-column: 1 / -1;
     margin-top: 2rem;
+  }
+  
+   @media only screen and (max-width: 800px) {
+    margin-top: 5rem;
+    margin-bottom:${({bottomMargin}) => bottomMargin || 0}rem;
   }
 `;
 
@@ -59,6 +68,8 @@ const MissionStatement = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size:1.5rem;
+  line-height:1.8rem;
 
   @media only screen and (max-width: 950px) {
     margin-top: 2rem;
@@ -68,15 +79,14 @@ const MissionStatement = styled.div`
 export const SkillsTitle = styled(StandardTitle)`
   margin-top: -1rem;
 
-  @media only screen and (max-width: 1000px) {
-    margin-bottom: 0.5rem;
-    grid-row: ${({ rowMd }) => rowMd} / span 1;
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 1.5rem;
   }
 `;
 
 const MissionStatementTitle = styled(SkillsTitle)`
-  @media only screen and (max-width: 1000px) {
-    margin-bottom: 0.5rem;
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -86,11 +96,11 @@ const SkillsInfo = props => (
       <MissionStatementTitle>Who Am I?</MissionStatementTitle>
       {MISSION_STATEMENT}
     </MissionStatement>
-    <SkillsWrapper rowMd={2}>
+    <SkillsWrapper>
       <SkillsTitle>Technical Skills</SkillsTitle>
       {TECHNICAL_SKILLS}
     </SkillsWrapper>
-    <SkillsWrapper rowMd={3}>
+    <SkillsWrapper bottomMargin={2}>
       <SkillsTitle>Aditional Skills</SkillsTitle>
       {ADDITIONAL_SKILLS}
     </SkillsWrapper>

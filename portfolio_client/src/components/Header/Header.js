@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import HeaderImage from "../../images/topBar_edited.jpg";
-import HeadShotImage from "../../images/headshot_comp.jpg";
+import HeadShotImage from "../../images/head_edited.JPG";
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -15,15 +15,17 @@ const HeaderWrapper = styled.div`
   grid-column: sideBar-start / -1;
 
   @media only screen and (max-width: 800px) {
-    grid-column: 1 / -1;
     grid-row: 1 / span 1;
+
   }
 `;
 
 export const HeadShot = styled.img`
   border-radius: 50%;
-  height: 10rem;
+  height: 8rem;
   width: auto;
+  margin-left:3%;
+  border:1px solid white;
 `;
 
 export const Tagline = styled.p`
@@ -38,6 +40,22 @@ export const Tagline = styled.p`
     `
     cursor: ${cursor};
   `}
+  
+  
+  @media only screen and (max-width: 800px) {
+    font-size: ${({ fontSizeMD, fontSize }) => fontSizeMD || fontSize}rem;
+  letter-spacing: ${({ letterSpacingMD, letterSpacing }) => letterSpacingMD || letterSpacing}px;
+
+  }
+  
+  @media only screen and (max-width: 600px) {
+    font-size: ${({ fontSizeMD, fontSizeSM, fontSize }) => fontSizeSM || fontSizeMD || fontSize}rem;
+  letter-spacing: ${({ letterSpacingMD, letterSpacingSM, letterSpacing }) => letterSpacingSM || letterSpacingMD || letterSpacing}px;
+
+  }
+  
+  
+  
 `;
 
 Tagline.defaultProps = {
@@ -66,7 +84,7 @@ const Header = ({ history }) => {
     <HeaderWrapper>
       <HeadShot src={HeadShotImage} />
       <TaglineWrapper>
-        <Tagline fontSize={3} letterSpacing={20}>
+        <Tagline fontSize={3} letterSpacing={20} fontSizeMD={2} letterSpacingMD={15} fontSizeSM={1} letterSpacingSM={10}>
           David Hammond
         </Tagline>
         <Tagline
@@ -74,6 +92,10 @@ const Header = ({ history }) => {
           cursor={"pointer"}
           fontSize={1.5}
           letterSpacing={15}
+          fontSizeMD={1}
+          letterSpacingMD={10}
+          fontSizeSM={1}
+          letterSpacingSM={10}
         >
           VDavidHammond@Gmail.com
         </Tagline>

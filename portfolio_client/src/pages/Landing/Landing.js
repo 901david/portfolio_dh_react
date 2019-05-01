@@ -3,7 +3,7 @@ import styled, { keyframes, css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import HeaderImage from "../../images/topBar_edited.jpg";
-import HeadShotImage from "../../images/headshot_comp.jpg";
+import HeadShotImage from "../../images/head_edited.JPG";
 
 import { HeadShot, Tagline } from "../../components/Header/Header";
 
@@ -51,40 +51,23 @@ const LandingBackground = styled.div`
   z-index: 1000;
   color: white;
   transform: scale(1);
+  
   ${({ landingViewedOnce }) => landingViewedOnce && `top:-100vh;`}
   ${({ removeContentTriggered }) =>
     removeContentTriggered && removeContentAddOn}
 `;
 
 const LandingHeadshot = styled(HeadShot)`
-  height: 25rem;
+  height: 20rem;
+  border:3px solid white;
 `;
 
 const LandingHeadshotWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   height: 100%;
-  margin-left: 15%;
-
-  > svg {
-    margin-left: 6%;
-    color: white;
-    font-size: 12rem;
-    animation: ${arrowVibrate(-8)} 1.2s infinite;
-    cursor: pointer;
-    transform: translateY(-15rem);
-  }
-
-  @media only screen and (max-width: 800px) {
-    align-items: center;
-
-    > svg {
-      animation: ${arrowVibrate(0)} 1.2s infinite;
-      transform: translateY(0);
-    }
-  }
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 `;
 
 const LandingTagline = styled(Tagline)`
@@ -92,22 +75,41 @@ const LandingTagline = styled(Tagline)`
   background: white;
   padding: 0.5em;
   font-size: 4rem;
-  transform: rotate(-12deg) translate(-8rem, 2rem);
+  letter-spacing: 0.8rem;
+
 
   @media only screen and (max-width: 800px) {
-    transform: rotate(0) translate(0, 0);
+      font-size: 3rem;
+
   }
 `;
 
 const LandingSubTagline = styled(LandingTagline)`
-  transform: rotate(0) translate(25rem, -15rem);
-  font-size: 3.5rem;
+  font-size: 4rem;
   letter-spacing: 0.8rem;
 
   @media only screen and (max-width: 800px) {
-    transform: rotate(0) translate(0, 0);
+    font-size: 3rem;
+
   }
 `;
+
+const IconWrapper = styled.div`
+   > svg {
+    color: white;
+    font-size: 12rem;
+    animation: ${arrowVibrate(0)} 1.2s infinite;
+    cursor: pointer;
+    }
+
+  @media only screen and (max-width: 800px) {
+
+    > svg {
+        font-size: 9rem;
+      animation: ${arrowVibrate(0)} 1.2s infinite;
+    }
+  }`;
+
 
 const Landing = ({
   viewingMainContent,
@@ -123,18 +125,26 @@ const Landing = ({
     }, 1002);
   };
 
+  const handleScroll = () => {
+    if(window.scrollY > 0){
+      handleArrowClick();
+    }
+  }
+
   return (
     <LandingBackground
       removeContentTriggered={viewingMainContent}
       setLandingViewed={setLandingViewed}
     >
-      <LandingHeadshotWrapper>
+      <LandingHeadshotWrapper onWheel={handleScroll}>
         <LandingTagline fontSize={"5rem"}>David Hammond</LandingTagline>
         <LandingHeadshot src={HeadShotImage} alt="headshot" />
         <LandingSubTagline fontSize={"3rem"}>
           Software Engineer
         </LandingSubTagline>
+      <IconWrapper>
         <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronDown} />
+      </IconWrapper>
       </LandingHeadshotWrapper>
     </LandingBackground>
   );

@@ -15,6 +15,9 @@ const MainAppWrapper = styled.div`
   display: grid;
   grid-template-rows: [header-start] 20vh [header-end body-start] 80vh [body-end];
   grid-template-columns: [sideBar-start] 8vw [sideBar-end] repeat(11, 1fr);
+  position:relative;
+  z-index:10000;
+
 
   @media only screen and (max-width: 1000px) {
     grid-template-columns: [sideBar-start] 10vw [sideBar-end] repeat(11, 1fr);
@@ -30,9 +33,9 @@ const MainViewWrapper = styled.div`
   grid-column: sideBar-start / -1;
   grid-row: 2 / -1;
 
+
   @media only screen and (max-width: 800px) {
     grid-row: 3 / span 1;
-    height: 75vh;
     grid-column: sideBar-start / -1;
     position: relative;
     z-index: -1;
