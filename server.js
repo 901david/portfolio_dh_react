@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const htmlRouter = require("./Routes/html");
@@ -18,7 +18,7 @@ app.use(htmlRouter);
 app.use("/api", mailgunRouter);
 app.use("/api", dataRouter);
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, err => {
+mongoose.connect(process.env.MONGODB_URI_MINE, { useNewUrlParser: true }, err => {
   if (err) throw err;
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
