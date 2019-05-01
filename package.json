@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "npm run start:server",
+    "test": "jest",
+    "start": "node server.js",
     "start:dev": "npm run start:server:dev",
     "start:react": "cd client npm start",
     "start:server": "node server.js",
