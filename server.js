@@ -11,7 +11,6 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, "portfolio_client/build")));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(htmlRouter);
