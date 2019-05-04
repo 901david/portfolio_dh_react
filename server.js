@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const htmlRouter = require("./Routes/html");
@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public/build")));
 
 app.use(htmlRouter);
 app.use("/api", mailgunRouter);
