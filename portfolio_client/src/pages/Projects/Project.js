@@ -5,6 +5,7 @@ import {
   faExternalLinkSquareAlt,
   faTimes
 } from "@fortawesome/free-solid-svg-icons";
+import LargeProjectContent from "./LargeProjectContent";
 
 const animateLargeProjectContentIn = ({ top, left }) => keyframes`
   0%{
@@ -43,11 +44,11 @@ const animateLargeProjectContentOut = ({ top, left }) => keyframes`
   `;
 
 const projectLaunch = position => css`
-  animation: ${animateLargeProjectContentIn(position)} 0.4s ease-in-out forwards;
+  animation: ${animateLargeProjectContentIn(position)} 0.2s ease-in-out forwards;
 `;
 
 const projectClose = position => css`
-  animation: ${animateLargeProjectContentOut(position)} 0.4s ease-in-out
+  animation: ${animateLargeProjectContentOut(position)} 0.2s ease-in-out
     forwards;
 `;
 
@@ -73,7 +74,6 @@ const ProjectWrapper = styled.div`
       backface-visibility: hidden;
 
       &_front {
-        background: black;
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.8),
             rgba(0, 0, 0, 0.8)
@@ -83,17 +83,20 @@ const ProjectWrapper = styled.div`
         background-position: left 55% bottom 45%;
         display: flex;
         align-items: center;
+        justify-content: center;
       }
 
       &_back {
-        background: green;
+        background: white;
+        color: black;
         transform: rotateY(180deg);
         position: relative;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        background: black;
 
         svg {
-          border-radius: 100px;
-          position: absolute;
-          right: 12rem;
           transform: scale(1);
           transition: all 0.3s;
 
@@ -122,14 +125,16 @@ const ProjectWrapper = styled.div`
   }
 
   .largeProjectContent {
-    width: 0;
     height: 0;
+    width: 100%;
     background: white;
     color: black;
-    position: fixed;
+    position: absolute;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
     ${({ largeContentStartingPosition: { top, left } }) =>
       css`
         top: ${top}px;
@@ -154,34 +159,62 @@ const ProjectWrapper = styled.div`
   }
 `;
 
-const ProjectTitle = styled.div`
+export const ProjectTitle = styled.div`
   font-size: 2.5rem;
-  width: 85%;
   whitespace: no-wrap;
-  text-align: center;
 `;
 
 const ProjectDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 80%;
-  justify-content: space-around;
-  color: white;
   font-size: 2rem;
+  text-align: center;
+  color: white;
+  height: 100%;
+  z-index: 6;
+
+  > p:first-child {
+    text-decoration: underline;
+  }
+
+  > p:nth-child(2) {
+    line-height: 4rem;
+  }
 `;
 
-const CloseContainer = styled.div`
-  padding: 0.2em;
-  background: rgb(0, 0, 0, 0.3);
-  border-radius: 50%;
-  display: inline-block;
+const ProjectTitleWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid lightgray;
+  position: relative;
+  z-index: 17;
+  background: white;
+
+  > svg {
+    margin-left: 5%;
+  }
+`;
+
+const BackCardBackgroundImage = styled.div`
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(${({ imageBack }) => imageBack});
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 const Project = ({
   id,
   projectTitle,
-  image,
+  imageFront,
+  imageBack,
+  images,
+  demoLink,
   githubLink,
   liveSite,
   description,
@@ -219,29 +252,43 @@ const Project = ({
     }
   };
 
+  const largeDisplayProps = {
+    images,
+    githubLink,
+    liveSite,
+    description,
+    technology,
+    projectTitle,
+    handleProjectToggle,
+    demoLink
+  };
+
   return (
     <ProjectWrapper
       projectLaunching={largeProjectOpen}
       projectClosing={largeProjectClosed}
-      backgroundSrcFront={image}
+      backgroundSrcFront={imageFront}
       largeContentStartingPosition={largeContentStartingPosition}
     >
-      <div class="largeProjectContent">
-        <CloseContainer>
-          <FontAwesomeIcon onClick={handleProjectToggle} icon={faTimes} />
-        </CloseContainer>
-      </div>
+      <LargeProjectContent {...largeDisplayProps} />
 
-      <div class="card">
-        <div class="card_side card_side_front">
+      <div className="card">
+        <div className="card_side card_side_front">
           <ProjectTitle ref={titleRef}>{projectTitle}</ProjectTitle>
         </div>
-        <div class="card_side card_side_back">
-          <FontAwesomeIcon
-            onClick={handleProjectToggle}
-            icon={faExternalLinkSquareAlt}
-          />
-          <ProjectDetails />
+        <div className="card_side card_side_back">
+          <ProjectTitleWrapper>
+            <ProjectTitle>{projectTitle}</ProjectTitle>
+            <FontAwesomeIcon
+              onClick={handleProjectToggle}
+              icon={faExternalLinkSquareAlt}
+            />
+          </ProjectTitleWrapper>
+          <ProjectDetails>
+            <BackCardBackgroundImage imageBack={imageBack} />
+            <p>Tech Used:</p>
+            <p>{technology.join(", ")}</p>
+          </ProjectDetails>
         </div>
       </div>
     </ProjectWrapper>

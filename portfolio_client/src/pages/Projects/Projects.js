@@ -5,7 +5,6 @@ import {
   faChevronRight,
   faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
-import _ from "lodash";
 
 import Project from "./Project";
 import { PROJECTS } from "../../Shared/constants";
@@ -52,7 +51,7 @@ const IconWrapper = styled.div`
 const ProjectWrapper = styled.div`
   font-size: 3rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 10rem 1fr;
   grid-gap: 1.5rem;
   align-items: start;

@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import PendantWrapperPreviewImage from "../images/portimages/pendantwrapper.png";
+import PendantCardBack from "../images/portimages/pandant.png";
 
 export const iconMap = [
   {
@@ -177,35 +178,44 @@ export const PROJECTS = [
       {
         id: "5cb23cd0fb6fc01d5666450f",
         projectTitle: "Pendant Wrapper",
-        image: PendantWrapperPreviewImage,
+        imageFront: PendantWrapperPreviewImage,
+        imageBack: PendantCardBack,
+        images: [
+          PendantWrapperPreviewImage,
+          PendantCardBack,
+          PendantWrapperPreviewImage,
+          PendantCardBack,
+          PendantWrapperPreviewImage,
+          PendantCardBack,
+          PendantWrapperPreviewImage,
+          PendantCardBack,
+          PendantWrapperPreviewImage,
+          PendantCardBack,
+          PendantWrapperPreviewImage,
+          PendantCardBack
+        ],
         githubLink: "www.fake.com",
         liveSite: "www.pendantwrapper.com",
+        demoLink: "https://vimeo.com/254561669",
         description:
           "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
-        technology:
-          "TypeScript, Angular, Express, Firebase/FirebaseAuth, HTML, CSS, Bootstrap, Flexbox"
+        technology: "TypeScript, Angular, Express, Firebase, Firebase Auth, HTML, CSS, Bootstrap, Flexbox".split(
+          ", "
+        )
       },
       {
         id: "5cb23cd0fb6fc01d5666450f",
         projectTitle: "Pendant Wrapper",
-        image: PendantWrapperPreviewImage,
+        imageFront: PendantWrapperPreviewImage,
+        imageBack: PendantCardBack,
+        images: [PendantWrapperPreviewImage, PendantCardBack],
         githubLink: "www.fake.com",
         liveSite: "www.pendantwrapper.com",
         description:
           "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
-        technology:
-          "TypeScript, Angular, Express, Firebase/FirebaseAuth, HTML, CSS, Bootstrap, Flexbox"
-      },
-      {
-        id: "5cb23cd0fb6fc01d5666450f",
-        projectTitle: "Pendant Wrapper",
-        image: PendantWrapperPreviewImage,
-        githubLink: "www.fake.com",
-        liveSite: "www.pendantwrapper.com",
-        description:
-          "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
-        technology:
-          "TypeScript, Angular, Express, Firebase/FirebaseAuth, HTML, CSS, Bootstrap, Flexbox"
+        technology: "TypeScript, Angular, Express, Firebase, Firebase Auth, HTML, CSS, Bootstrap, Flexbox".split(
+          ", "
+        )
       }
     ]
   },
