@@ -16,11 +16,11 @@ const animateLargeProjectContentIn = ({ top, left }) => keyframes`
     z-index: -1;
   }
   100%{
-    position: fixed;
+    position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: auto;
       z-index: 1000;
   }
   `;
@@ -31,7 +31,7 @@ const animateLargeProjectContentOut = ({ top, left }) => keyframes`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     z-index: 1000;
   }
   100%{
@@ -54,7 +54,7 @@ const projectClose = position => css`
 
 const ProjectWrapper = styled.div`
   overflow: hidden;
-  height: 35rem;
+  height: auto;
   padding-top: 2.5rem;
 
   .card {
@@ -125,8 +125,8 @@ const ProjectWrapper = styled.div`
   }
 
   .largeProjectContent {
+    width: 0;
     height: 0;
-    width: 100%;
     background: white;
     color: black;
     position: absolute;
@@ -134,6 +134,7 @@ const ProjectWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-x: scroll;
 
     ${({ largeContentStartingPosition: { top, left } }) =>
       css`
@@ -141,7 +142,6 @@ const ProjectWrapper = styled.div`
         left: ${left}px;
       `};
     z-index: -1;
-    overflow: hidden;
 
     ${({ projectLaunching }) => projectLaunching && projectLaunch}
     ${({ projectClosing }) => projectClosing && projectClose}
@@ -214,6 +214,7 @@ const Project = ({
   imageFront,
   imageBack,
   images,
+  bitBucketLink,
   demoLink,
   githubLink,
   liveSite,
@@ -260,7 +261,8 @@ const Project = ({
     technology,
     projectTitle,
     handleProjectToggle,
-    demoLink
+    demoLink,
+    bitBucketLink
   };
 
   return (

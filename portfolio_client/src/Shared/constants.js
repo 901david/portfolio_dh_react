@@ -17,8 +17,17 @@ import {
   faJava
 } from "@fortawesome/free-brands-svg-icons";
 
-import PendantWrapperPreviewImage from "../images/portimages/pendantwrapper.png";
-import PendantCardBack from "../images/portimages/pandant.png";
+import PendantWrapperPreviewImage from "../images/portimages/pendant/pendantwrapper.png";
+import PendantCardBack from "../images/portimages/pendant/pandant.png";
+import PendantImageOne from "../images/portimages/pendant/pendantfeaturedPiece.png";
+import PendantImageTwo from "../images/portimages/pendant/pendantwrapper.png";
+import PendantImageThree from "../images/portimages/pendant/pendantsalemodal.png";
+import PendantImageFour from "../images/portimages/pendant/pendantcontact.png";
+import PendantImageFive from "../images/portimages/pendant/pendantcalendar.png";
+import PendantImageSix from "../images/portimages/pendant/pendantcalendarevent.png";
+import PendantImageSeven from "../images/portimages/pendant/pendantshoppingcart.png";
+import PendantImagsEight from "../images/portimages/pendant/pendantaddevents.png";
+import PendantImagsNine from "../images/portimages/pendant/pendantadmindelete.png";
 
 export const iconMap = [
   {
@@ -176,41 +185,26 @@ export const PROJECTS = [
     title: "Recent Projects",
     projects: [
       {
-        id: "5cb23cd0fb6fc01d5666450f",
+        id: _.uniqueId(),
         projectTitle: "Pendant Wrapper",
         imageFront: PendantWrapperPreviewImage,
         imageBack: PendantCardBack,
         images: [
-          PendantWrapperPreviewImage,
-          PendantCardBack,
-          PendantWrapperPreviewImage,
-          PendantCardBack,
-          PendantWrapperPreviewImage,
-          PendantCardBack,
-          PendantWrapperPreviewImage,
-          PendantCardBack,
-          PendantWrapperPreviewImage,
-          PendantCardBack,
-          PendantWrapperPreviewImage,
-          PendantCardBack
+          PendantImageOne,
+          PendantImageTwo,
+          PendantImageThree,
+          PendantImageFour,
+          PendantImageFive,
+          PendantImageSix,
+          PendantImageSeven,
+          PendantImagsEight,
+          PendantImagsNine
         ],
-        githubLink: "www.fake.com",
+        githubLink: null,
         liveSite: "www.pendantwrapper.com",
         demoLink: "https://vimeo.com/254561669",
-        description:
-          "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
-        technology: "TypeScript, Angular, Express, Firebase, Firebase Auth, HTML, CSS, Bootstrap, Flexbox".split(
-          ", "
-        )
-      },
-      {
-        id: "5cb23cd0fb6fc01d5666450f",
-        projectTitle: "Pendant Wrapper",
-        imageFront: PendantWrapperPreviewImage,
-        imageBack: PendantCardBack,
-        images: [PendantWrapperPreviewImage, PendantCardBack],
-        githubLink: "www.fake.com",
-        liveSite: "www.pendantwrapper.com",
+        bitBucketLink: null,
+
         description:
           "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
         technology: "TypeScript, Angular, Express, Firebase, Firebase Auth, HTML, CSS, Bootstrap, Flexbox".split(
@@ -219,5 +213,33 @@ export const PROJECTS = [
       }
     ]
   },
-  { title: "Older Projects", projects: [] }
+  {
+    title: "Older Projects",
+    projects: [
+      {
+        id: _.uniqueId(),
+        projectTitle: "Terminal Tic Tac Toe",
+        imageFront: PendantWrapperPreviewImage,
+        imageBack: PendantCardBack,
+        images: [
+          PendantImageOne,
+          PendantImageTwo,
+          PendantImageThree,
+          PendantImageFour,
+          PendantImageFive,
+          PendantImageSix,
+          PendantImageSeven,
+          PendantImagsEight,
+          PendantImagsNine
+        ],
+        githubLink: null,
+        liveSite: null,
+        demoLink: null,
+        bitBucketLink: "https://bitbucket.org/scriptscrawler/pendant_wrapper/",
+        description:
+          "This is a very basic terminal tic tac toe app, that I built in python. Currently, two players can play each other in the terminal.  The goal for this app eventually is to try and turn this into a one player game using machine learning models. I have a high interest in machine learning and have been slowly learning this process.",
+        technology: "Python".split(", ")
+      }
+    ]
+  }
 ];

@@ -63,15 +63,10 @@ const IconBarWrapper = styled.div`
     ${({ mainContentBeingViewed }) =>
       mainContentBeingViewed && triggerIconBarSlideTablet}
   }
-  
-   @media only screen and (max-width: 600px) {
-   
-    width:70vw;
+
+  @media only screen and (max-width: 600px) {
+    width: 70vw;
     justify-content: flex-start;
-
-    
-
-    
   }
 `;
 
@@ -136,7 +131,7 @@ const NavItemWrapper = styled.div`
 
   @media only screen and (max-width: 800px) {
     padding: 0;
-    margin-left:10px;
+    margin-left: 10px;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
@@ -149,13 +144,9 @@ const NavItemWrapper = styled.div`
       opacity: 1;
     }
   }
-  
-  @media only screen and (max-width: 600px) {
-   
-    justify-content:flex-start;
-    
 
-    
+  @media only screen and (max-width: 600px) {
+    justify-content: flex-start;
   }
 `;
 

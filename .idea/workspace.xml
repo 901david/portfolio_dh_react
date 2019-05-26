@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe4a78fe-1cc9-4254-9814-c5a076509c40" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routes/html.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/html.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio_client/src/Shared/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_client/src/Shared/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio_client/src/components/IconBar/IconBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_client/src/components/IconBar/IconBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio_client/src/images/portimages/pandant.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio_client/src/images/portimages/pendantwrapper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio_client/src/pages/Projects/LargeProjectContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_client/src/pages/Projects/LargeProjectContent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio_client/src/pages/Projects/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_client/src/pages/Projects/Project.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio_client/src/pages/Projects/Projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_client/src/pages/Projects/Projects.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/precache-manifest.61de33ce66279c909ac4c6778dc98e6d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/static/js/2.25b0e9bb.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/static/js/2.25b0e9bb.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/static/js/main.4e40dd97.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/static/js/main.4e40dd97.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,11 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portfolio_client/src/pages/Projects/Project.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="224" column="19" selection-start-line="224" selection-start-column="19" selection-end-line="224" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#62#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="242">
+              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -71,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portfolio_client/src/Shared/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="182" column="60" selection-start-line="182" selection-start-column="60" selection-end-line="182" selection-end-column="60" />
+            <state relative-caret-position="3564">
+              <caret line="191" column="17" selection-start-line="191" selection-start-column="17" selection-end-line="191" selection-end-column="17" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -117,8 +106,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -134,37 +123,6 @@
             <path>
               <item name="portfolio_dh_react" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/Desktop/NP/portfolio_dh_react" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="portfolio_dh_react" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Desktop/NP/portfolio_dh_react" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="portfolio_client" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="portfolio_dh_react" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Desktop/NP/portfolio_dh_react" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="portfolio_client" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="portfolio_dh_react" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Desktop/NP/portfolio_dh_react" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="portfolio_client" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="portfolio_dh_react" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Desktop/NP/portfolio_dh_react" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="portfolio_client" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Landing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="portfolio_dh_react" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Desktop/NP/portfolio_dh_react" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -215,17 +173,20 @@
       <workItem from="1524004438314" duration="24000" />
       <workItem from="1556548349159" duration="16078000" />
       <workItem from="1556853665846" duration="7669000" />
+      <workItem from="1557544483044" duration="823000" />
+      <workItem from="1558415826963" duration="81000" />
+      <workItem from="1558454597011" duration="290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23862000" />
+    <option name="totallyTimeSpent" value="25056000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -236,8 +197,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32959184" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32959184" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32883817" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32883817" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -370,16 +331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portfolio_client/src/pages/EducationInfo/EducationInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -418,13 +369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Routes/html.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/build/static/media/head_edited.d96f0c88.JPG">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -444,6 +388,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portfolio_client/src/images/portimages/pandant.png" />
+    <entry file="file://$PROJECT_DIR$/Routes/html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portfolio_client/src/pages/EducationInfo/EducationInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portfolio_client/src/pages/Projects/Projects.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -451,13 +413,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portfolio_client/src/images/portimages/pandant.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/portfolio_client/src/Shared/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="182" column="60" selection-start-line="182" selection-start-column="60" selection-end-line="182" selection-end-column="60" />
+        <state relative-caret-position="3564">
+          <caret line="191" column="17" selection-start-line="191" selection-start-column="17" selection-end-line="191" selection-end-column="17" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -466,11 +425,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portfolio_client/src/pages/Projects/Project.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="224" column="19" selection-start-line="224" selection-start-column="19" selection-end-line="224" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="242">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
         </state>
       </provider>
     </entry>
