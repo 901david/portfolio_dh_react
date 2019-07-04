@@ -43,44 +43,69 @@ const StandardInput = ({
   inputId,
   type,
   label,
-  shouldClear
+  shouldClear,
+  cbClear,
+  forwardedRef,
+  valueValidator
 }) => {
   const [userInput, setUserInput] = useState("");
 
-  const inputRef = createRef();
+  const inputRef = forwardedRef;
 
   const onInputChangeHandler = ({ target: { value } }) => {
     setUserInput(value);
   };
 
   const handleValidation = () => {
+    let isValid = true;
     if (type === "email") {
       if (!emailValidation.exec(userInput)) {
         inputRef.current.style["border-bottom"] = "5px solid red";
+        isValid = false;
       } else {
         inputRef.current.style["border-bottom"] = "5px solid white";
+        isValid = true;
       }
     }
 
-    if (type === "text" || "textarea") {
+    if (type === "text" || type === "textarea") {
       if (userInput.length === 0) {
         inputRef.current.style["border-bottom"] = "5px solid red";
+        isValid = false;
       } else {
         inputRef.current.style["border-bottom"] = "5px solid white";
+        isValid = true;
       }
     }
+
+    if (inputRef.current.value === "") {
+      isValid = false;
+    }
+
+    if (typeof valueValidator === "function") {
+      debugger;
+      valueValidator(isValid);
+    }
+  };
+
+  const clearValidation = () => {
+    inputRef.current.style["border-bottom"] = "5px solid white";
   };
 
   useEffect(() => {
     if (shouldClear) {
       setUserInput("");
+      clearValidation();
+      if (typeof cbClear === "function") {
+        cbClear();
+      }
     }
-  }, [shouldClear]);
+  }, [shouldClear, inputRef]);
 
   return (
     <StandardInputWrapper userInput={userInput}>
       <input
-        ref={inputRef}
+        ref={forwardedRef}
         type={type}
         name={name}
         id={inputId}

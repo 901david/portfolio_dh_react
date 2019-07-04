@@ -23,12 +23,22 @@ const ContactInfoWrapper = styled.div`
   }
 
   @media only screen and (max-width: 800px) {
-    background-attachment:fixed;
-    height:50%;
+    background-attachment: fixed;
+    height: 50%;
     width: 100vw;
     padding-left: 0;
-
   }
+`;
+
+const Failure = styled.div`
+  height: 75px;
+  font-size: 24px;
+  color: black;
+  background: white;
+  border-radius: 5px;
+  width: 75%;
+  border: 3px solid red;
+  text-align: center;
 `;
 
 const ButtonWrapper = styled.div`
@@ -47,28 +57,61 @@ const ContactTitle = styled(StandardTitle)`
 
 const ContactInfo = props => {
   const [clearData, setDataShouldBeCleared] = useState(false);
+  const [submitFailed, showFailureError] = useState(false);
   const refMap = {
     yourEmail: createRef(),
     subject: createRef(),
     body: createRef()
   };
 
+  const submissionFailed = () => {
+    showFailureError(true);
+    const showFor = setTimeout(() => {
+      showFailureError(false);
+      clearTimeout(showFor);
+    }, 3000);
+  };
+
+  const valueValidator = bool => !bool;
+
   const handleSendEmail = () => {
-    const { yourEmail: email, subject, body } = refMap;
+    console.log(refMap);
+
+    const {
+      yourEmail: {
+        current: { value: email }
+      },
+      subject: {
+        current: { value: subject }
+      },
+      body: {
+        current: { value: body }
+      }
+    } = refMap;
 
     axios
       .post("/api/contact/", { email, subject, body })
       .then(response => {
         console.log(response);
+        clearPub();
       })
       .catch(err => {
         console.log(err);
+        submissionFailed();
       });
+  };
+
+  const clearPub = () => {
+    setDataShouldBeCleared(true);
+  };
+
+  const resetPub = () => {
+    setDataShouldBeCleared(false);
   };
 
   const typeMap = {
     send: handleSendEmail,
-    clear: () => setDataShouldBeCleared(true)
+    clear: clearPub
   };
   const handleClick = type => {
     const funcToExec = typeMap[type];
@@ -79,6 +122,11 @@ const ContactInfo = props => {
 
   return (
     <ContactInfoWrapper>
+      {submitFailed && (
+        <Failure>
+          <p>I am sorry. Something went wrong.</p>
+        </Failure>
+      )}
       <ContactTitle>Contact Me</ContactTitle>
       <StandardInput
         name={"yourEmail"}
@@ -87,7 +135,9 @@ const ContactInfo = props => {
         type={"email"}
         label={"Your Email"}
         shouldClear={clearData}
-        ref={refMap["yourEmail"]}
+        forwardedRef={refMap["yourEmail"]}
+        cbClear={resetPub}
+        valueValidator={valueValidator}
       />
       <StandardInput
         name={"subject"}
@@ -96,7 +146,9 @@ const ContactInfo = props => {
         type={"text"}
         label={"Subject"}
         shouldClear={clearData}
-        ref={refMap["subject"]}
+        forwardedRef={refMap["subject"]}
+        cbClear={resetPub}
+        valueValidator={valueValidator}
       />
       <StandardInput
         name={"body"}
@@ -105,7 +157,9 @@ const ContactInfo = props => {
         type={"textarea"}
         label={"Body"}
         shouldClear={clearData}
-        ref={refMap["body"]}
+        forwardedRef={refMap["body"]}
+        cbClear={resetPub}
+        valueValidator={valueValidator}
       />
       <ButtonWrapper>
         <StandardButton
@@ -113,6 +167,7 @@ const ContactInfo = props => {
           clickHandler={handleClick}
           value={"send"}
           color={"green"}
+          disabled={valueValidator()}
         />
         <StandardButton
           text={"Clear"}
