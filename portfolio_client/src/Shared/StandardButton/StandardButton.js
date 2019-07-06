@@ -23,14 +23,13 @@ const ContactButton = styled.div`
     transform: translate(-0.2rem, 0) scale(0.9);
     box-shadow: 0.1rem 0.1rem 0 rgb(250, 250, 250, 0.3);
   }
-  //TODO: fix disabled
-  // ${({ disabled }) => {
-    //   console.log("from css", disabled);
-    //   return (
-    //     disabled &&
-    //     `cursor: not-allowed;
-    // background: gray;`
-    //   );
+
+  ${({ disabled }) => {
+    return (
+      disabled &&
+      `cursor: not-allowed;
+    background: gray;`
+    );
   }}
 `;
 

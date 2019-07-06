@@ -5,6 +5,7 @@ import StandardInput from "../../Shared/StandardInput";
 import StandardButton from "../../Shared/StandardButton/StandardButton";
 import axios from "axios";
 import StandardTitle from "../../Shared/StandardTitle";
+import { emailValidation } from "../../Shared/constants";
 
 const ContactInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -72,11 +73,7 @@ const ContactInfo = props => {
     }, 3000);
   };
 
-  const valueValidator = bool => !bool;
-
   const handleSendEmail = () => {
-    console.log(refMap);
-
     const {
       yourEmail: {
         current: { value: email }
@@ -120,6 +117,57 @@ const ContactInfo = props => {
     }
   };
 
+  const handleEmailValidation = inputRef => {
+    if (inputRef.current) {
+      const { value: userInput } = inputRef.current;
+      let isValid = true;
+
+      if (!emailValidation.exec(userInput)) {
+        inputRef.current.style["border-bottom"] = "5px solid red";
+        isValid = false;
+      } else {
+        inputRef.current.style["border-bottom"] = "5px solid white";
+        isValid = true;
+      }
+
+      return isValid;
+    }
+
+    return false;
+  };
+
+  const handleTextValidation = inputRef => {
+    if (inputRef.current) {
+      const { value: userInput } = inputRef.current;
+      let isValid = true;
+
+      if (userInput.length === 0) {
+        inputRef.current.style["border-bottom"] = "5px solid red";
+        isValid = false;
+      } else {
+        inputRef.current.style["border-bottom"] = "5px solid white";
+        isValid = true;
+      }
+
+      return isValid;
+    }
+
+    return false;
+  };
+
+  const clearValidation = inputRef => {
+    inputRef.current.style["border-bottom"] = "5px solid white";
+  };
+
+  const shouldSubmitBeDisabled = () => {
+    console.log("being called");
+    return (
+      !handleTextValidation(refMap["body"]) &&
+      !handleTextValidation(refMap["subject"]) &&
+      !handleEmailValidation(refMap["yourEmail"])
+    );
+  };
+
   return (
     <ContactInfoWrapper>
       {submitFailed && (
@@ -137,7 +185,8 @@ const ContactInfo = props => {
         shouldClear={clearData}
         forwardedRef={refMap["yourEmail"]}
         cbClear={resetPub}
-        valueValidator={valueValidator}
+        validator={handleEmailValidation}
+        clearValidation={clearValidation}
       />
       <StandardInput
         name={"subject"}
@@ -148,7 +197,8 @@ const ContactInfo = props => {
         shouldClear={clearData}
         forwardedRef={refMap["subject"]}
         cbClear={resetPub}
-        valueValidator={valueValidator}
+        validator={handleTextValidation}
+        clearValidation={clearValidation}
       />
       <StandardInput
         name={"body"}
@@ -159,15 +209,16 @@ const ContactInfo = props => {
         shouldClear={clearData}
         forwardedRef={refMap["body"]}
         cbClear={resetPub}
-        valueValidator={valueValidator}
+        validator={handleTextValidation}
+        clearValidation={clearValidation}
       />
       <ButtonWrapper>
         <StandardButton
           text={"Send"}
-          clickHandler={handleClick}
+          clickHandler={!shouldSubmitBeDisabled() ? handleClick : () => ({})}
           value={"send"}
           color={"green"}
-          disabled={valueValidator()}
+          disabled={shouldSubmitBeDisabled()}
         />
         <StandardButton
           text={"Clear"}

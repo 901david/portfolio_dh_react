@@ -29,6 +29,8 @@ import PendantImageSeven from "../images/portimages/pendant/pendantshoppingcart.
 import PendantImagsEight from "../images/portimages/pendant/pendantaddevents.png";
 import PendantImagsNine from "../images/portimages/pendant/pendantadmindelete.png";
 
+export const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 export const iconMap = [
   {
     icon: faAddressCard,

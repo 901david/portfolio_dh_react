@@ -35,8 +35,6 @@ const StandardInputWrapper = styled.div`
   }
 `;
 
-const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
 const StandardInput = ({
   name,
   labelId,
@@ -46,7 +44,8 @@ const StandardInput = ({
   shouldClear,
   cbClear,
   forwardedRef,
-  valueValidator
+  validator,
+  clearValidation
 }) => {
   const [userInput, setUserInput] = useState("");
 
@@ -57,50 +56,26 @@ const StandardInput = ({
   };
 
   const handleValidation = () => {
-    let isValid = true;
-    if (type === "email") {
-      if (!emailValidation.exec(userInput)) {
-        inputRef.current.style["border-bottom"] = "5px solid red";
-        isValid = false;
-      } else {
-        inputRef.current.style["border-bottom"] = "5px solid white";
-        isValid = true;
-      }
-    }
-
-    if (type === "text" || type === "textarea") {
-      if (userInput.length === 0) {
-        inputRef.current.style["border-bottom"] = "5px solid red";
-        isValid = false;
-      } else {
-        inputRef.current.style["border-bottom"] = "5px solid white";
-        isValid = true;
-      }
-    }
-
-    if (inputRef.current.value === "") {
-      isValid = false;
-    }
-
-    if (typeof valueValidator === "function") {
-      debugger;
-      valueValidator(isValid);
+    if (typeof validator === "function") {
+      validator(inputRef);
     }
   };
 
-  const clearValidation = () => {
-    inputRef.current.style["border-bottom"] = "5px solid white";
+  const clearValidators = () => {
+    if (typeof clearValidation === "function") {
+      clearValidation(inputRef);
+    }
   };
 
   useEffect(() => {
     if (shouldClear) {
       setUserInput("");
-      clearValidation();
+      clearValidators();
       if (typeof cbClear === "function") {
         cbClear();
       }
     }
-  }, [shouldClear, inputRef]);
+  }, [shouldClear, inputRef, setUserInput, clearValidators, cbClear]);
 
   return (
     <StandardInputWrapper userInput={userInput}>
