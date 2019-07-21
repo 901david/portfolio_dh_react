@@ -25,6 +25,7 @@ export const CourseItemsWrapper = styled.div`
   align-items: space-around;
   height: 100%;
   width: 75%;
+  margin-bottom: 6rem;
 `;
 
 const Subtitle = styled.h6`

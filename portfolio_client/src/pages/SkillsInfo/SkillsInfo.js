@@ -27,7 +27,6 @@ const SkillsInfoWrapper = styled.div`
   font-family: "Crimson Text", serif;
   position: relative;
 
-
   @media only screen and (max-width: 950px) {
     grid-template-rows: repeat(3, 1fr);
   }
@@ -46,17 +45,17 @@ const SkillsWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   align-self: start;
-  font-size:1.5rem;
-  line-height:1.8rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
 
   @media only screen and (max-width: 950px) {
     grid-column: 1 / -1;
     margin-top: 2rem;
   }
-  
-   @media only screen and (max-width: 800px) {
+
+  @media only screen and (max-width: 800px) {
     margin-top: 5rem;
-    margin-bottom:${({bottomMargin}) => bottomMargin || 0}rem;
+    margin-bottom: ${({ bottomMargin }) => bottomMargin || 0}rem;
   }
 `;
 
@@ -68,8 +67,8 @@ const MissionStatement = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size:1.5rem;
-  line-height:1.8rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
 
   @media only screen and (max-width: 950px) {
     margin-top: 2rem;
@@ -77,11 +76,9 @@ const MissionStatement = styled.div`
 `;
 
 export const SkillsTitle = styled(StandardTitle)`
-  margin-top: -1rem;
-
-  @media only screen and (max-width: 800px) {
-    margin-bottom: 1.5rem;
-  }
+  // @media only screen and (max-width: 800px) {
+  //   margin-bottom: 1.5rem;
+  // }
 `;
 
 const MissionStatementTitle = styled(SkillsTitle)`

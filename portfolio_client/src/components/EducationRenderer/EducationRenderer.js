@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { SkillsTitle } from "../../pages/SkillsInfo/SkillsInfo";
 
-const EducationItemWrapper = styled.div`
-  width: 75%;
-  margin-left: 25%;
-`;
+const EducationItemWrapper = styled.div``;
 
 export const TitleWrapper = styled.div`
   font-size: 1.8rem;

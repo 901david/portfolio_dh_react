@@ -29,6 +29,11 @@ import PendantImageSeven from "../images/portimages/pendant/pendantshoppingcart.
 import PendantImagsEight from "../images/portimages/pendant/pendantaddevents.png";
 import PendantImagsNine from "../images/portimages/pendant/pendantadmindelete.png";
 
+import RPSFront from "../images/portimages/rps/rps_front.png";
+import RPSBack from "../images/portimages/rps/rps_back.png";
+import RPSThree from "../images/portimages/rps/rps_3.png";
+import RPSFour from "../images/portimages/rps/rps_4.png";
+
 export const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export const iconMap = [
@@ -40,9 +45,9 @@ export const iconMap = [
     url: null
   },
   {
-    icon: faEnvelope,
-    text: "Email Me",
-    path: "/contact",
+    icon: faUserGraduate,
+    text: "Education",
+    path: "/education",
     id: _.uniqueId("navBar-"),
     url: null
   },
@@ -54,9 +59,9 @@ export const iconMap = [
     url: null
   },
   {
-    icon: faUserGraduate,
-    text: "Education",
-    path: "/education",
+    icon: faEnvelope,
+    text: "Email Me",
+    path: "/contact",
     id: _.uniqueId("navBar-"),
     url: null
   },
@@ -241,6 +246,20 @@ export const PROJECTS = [
         description:
           "This is a very basic terminal tic tac toe app, that I built in python. Currently, two players can play each other in the terminal.  The goal for this app eventually is to try and turn this into a one player game using machine learning models. I have a high interest in machine learning and have been slowly learning this process.",
         technology: "Python".split(", ")
+      },
+      {
+        id: _.uniqueId(),
+        projectTitle: "Rock Paper Scissors",
+        imageFront: RPSFront,
+        imageBack: RPSBack,
+        images: [RPSFront, RPSThree, RPSFour],
+        githubLink: "https://github.com/901david/RPS-Multiplayer",
+        liveSite: "https://901david.github.io/RPS-Multiplayer/",
+        demoLink: null,
+        bitBucketLink: null,
+        description:
+          "Jquery Rock, Paper, Scissors game that allows two players to play each other online.",
+        technology: "Jquery, Firebase, Bootstrap".split(", ")
       }
     ]
   }

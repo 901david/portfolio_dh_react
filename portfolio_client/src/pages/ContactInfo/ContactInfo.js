@@ -59,6 +59,7 @@ const ContactTitle = styled(StandardTitle)`
 const ContactInfo = props => {
   const [clearData, setDataShouldBeCleared] = useState(false);
   const [submitFailed, showFailureError] = useState(false);
+  const [formTouched, setFormTouched] = useState(false);
   const refMap = {
     yourEmail: createRef(),
     subject: createRef(),
@@ -167,7 +168,7 @@ const ContactInfo = props => {
       !handleEmailValidation(refMap["yourEmail"])
     );
   };
-
+  console.log(refMap);
   return (
     <ContactInfoWrapper>
       {submitFailed && (
