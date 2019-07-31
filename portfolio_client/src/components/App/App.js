@@ -6,17 +6,45 @@ import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Header from "../Header";
 import IconBar from "../IconBar/IconBar";
 import ContactInfo from "../../pages/ContactInfo";
+import SkillsInfo from "../../pages/SkillsInfo";
+import EducationInfo from "../../pages/EducationInfo";
+import Projects from "../../pages/Projects/Projects";
+import Landing from "../../pages/Landing/Landing";
 
 const MainAppWrapper = styled.div`
   display: grid;
-  grid-template-rows: [header-start] 20vh [header-end body-start] 90vh [body-end];
-  grid-template-columns: [sideBar-start] 1fr [sideBar-end] repeat(11, 1fr);
+  grid-template-rows: [header-start] 20vh [header-end body-start] 80vh [body-end];
+  grid-template-columns: [sideBar-start] 8% [sideBar-end] repeat(11, 1fr);
+  position: relative;
+  z-index: 10000;
+
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: [sideBar-start] 8% [sideBar-end] repeat(11, 1fr);
+  }
+
+  @media only screen and (max-width: 800px) {
+    grid-template-rows: [header-start] 20vh [header-end nav-start] 5vh [nav-end body-start] 75vh [body-end];
+    grid-template-columns: repeat(12, 1fr);
+  }
 `;
 
-const MainViewWrapper = styled.div``;
+const MainViewWrapper = styled.div`
+  grid-column: sideBar-start / -1;
+  grid-row: 2 / -1;
+
+  @media only screen and (max-width: 800px) {
+    grid-row: 3 / span 1;
+    grid-column: sideBar-start / -1;
+    position: relative;
+    z-index: -1;
+  }
+`;
 
 const App = props => {
   const [portfolioData, setPortfolioData] = useState(null);
+  const [viewingMainContent, setMainContentBeingViewed] = useState(false);
+  const [landingViewedOnce, setLandingViewed] = useState(false);
+
   useEffect(() => {
     axios
       .get("/api/data")
@@ -26,20 +54,33 @@ const App = props => {
   console.log("portfolio data", portfolioData);
   return (
     <MainAppWrapper>
-      <Header />
-      <IconBar />
       <Router>
+        <Header />
+        <IconBar viewingMainContent={viewingMainContent} />
+        {!landingViewedOnce && (
+          <Landing
+            viewingMainContent={viewingMainContent}
+            setLandingViewed={setLandingViewed}
+            landingViewedOnce={landingViewedOnce}
+            setMainContentBeingViewed={setMainContentBeingViewed}
+          />
+        )}
         <MainViewWrapper>
-          {/* <Route
-            exact
-            path="/"
-            component={() => <Redirect path={"/skills"} />}
-          /> */}
-          {/* <Route path="/skills" component={() => <div>Skills</div>} /> */}
+          <Route exact path="/" render={() => <Redirect to={"/skills"} />} />
+          <Route
+            path="/skills"
+            render={() => (
+              <SkillsInfo
+                landingViewedOnce={landingViewedOnce}
+                setLandingViewed={setLandingViewed}
+                viewingMainContent={viewingMainContent}
+                setMainContentBeingViewed={setMainContentBeingViewed}
+              />
+            )}
+          />
           <Route path="/contact" component={ContactInfo} />
-          {/* <Route path="/projects" component={() => <div>Projects</div>} /> */}
-          {/* <Route path="/education" component={() => <div>Education</div>} /> */}
-          {/* <Route path="*" component={() => <Redirect path={"/skills"} />} /> */}
+          <Route path="/projects" component={Projects} />
+          <Route path="/education" component={EducationInfo} />
         </MainViewWrapper>
       </Router>
     </MainAppWrapper>

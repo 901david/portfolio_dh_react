@@ -6,8 +6,8 @@ keys.js
 ./package-lock.json
 # testing
 /coverage
-/client/build
-/client/node_modules
+
+
 # production
 /portfolio_client/node_modules
 /portfolio_client/build
