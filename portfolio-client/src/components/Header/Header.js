@@ -16,7 +16,6 @@ const HeaderWrapper = styled.div`
 
   @media only screen and (max-width: 800px) {
     grid-row: 1 / span 1;
-
   }
 `;
 
@@ -24,8 +23,8 @@ export const HeadShot = styled.img`
   border-radius: 50%;
   height: 8rem;
   width: auto;
-  margin-left:3%;
-  border:1px solid white;
+  margin-left: 3%;
+  border: 1px solid white;
 `;
 
 export const Tagline = styled.p`
@@ -40,22 +39,19 @@ export const Tagline = styled.p`
     `
     cursor: ${cursor};
   `}
-  
-  
+
   @media only screen and (max-width: 800px) {
     font-size: ${({ fontSizeMD, fontSize }) => fontSizeMD || fontSize}rem;
-  letter-spacing: ${({ letterSpacingMD, letterSpacing }) => letterSpacingMD || letterSpacing}px;
-
+    letter-spacing: ${({ letterSpacingMD, letterSpacing }) =>
+      letterSpacingMD || letterSpacing}px;
   }
-  
+
   @media only screen and (max-width: 600px) {
-    font-size: ${({ fontSizeMD, fontSizeSM, fontSize }) => fontSizeSM || fontSizeMD || fontSize}rem;
-  letter-spacing: ${({ letterSpacingMD, letterSpacingSM, letterSpacing }) => letterSpacingSM || letterSpacingMD || letterSpacing}px;
-
+    font-size: ${({ fontSizeMD, fontSizeSM, fontSize }) =>
+      fontSizeSM || fontSizeMD || fontSize}rem;
+    letter-spacing: ${({ letterSpacingMD, letterSpacingSM, letterSpacing }) =>
+      letterSpacingSM || letterSpacingMD || letterSpacing}px;
   }
-  
-  
-  
 `;
 
 Tagline.defaultProps = {
@@ -84,7 +80,14 @@ const Header = ({ history }) => {
     <HeaderWrapper>
       <HeadShot src={HeadShotImage} />
       <TaglineWrapper>
-        <Tagline fontSize={3} letterSpacing={20} fontSizeMD={2} letterSpacingMD={15} fontSizeSM={1} letterSpacingSM={10}>
+        <Tagline
+          fontSize={3}
+          letterSpacing={20}
+          fontSizeMD={2}
+          letterSpacingMD={15}
+          fontSizeSM={1}
+          letterSpacingSM={10}
+        >
           David Hammond
         </Tagline>
         <Tagline

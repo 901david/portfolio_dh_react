@@ -47,7 +47,7 @@ const App = props => {
 
   useEffect(() => {
     axios
-      .get("/api/data")
+      .get("/data")
       .then(({ data: { data } }) => setPortfolioData(data))
       .catch(err => console.log(err));
   }, [axios, setPortfolioData]);
