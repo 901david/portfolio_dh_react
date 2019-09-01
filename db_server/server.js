@@ -1,0 +1,19 @@
+require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
+const PORT = process.env.PORT;
+const app = express();
+const dataRouter = require("./Routes/data");
+
+app.use("/data", dataRouter);
+
+mongoose.connect(
+  process.env.MONGODB_URI_MINE,
+  { useNewUrlParser: true },
+  err => {
+    if (err) throw err;
+    app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
+    });
+  }
+);
