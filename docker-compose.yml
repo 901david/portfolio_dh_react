@@ -5,8 +5,8 @@ services:
       dockerfile: Dockerfile.dev
       context: ./portfolio-client
     volumes:
-      - /client/node_modules
-      - ./portfolio-client:/client
+      - /portfolio-client/node_modules
+      - "./portfolio-client:/portfolio-client"
   api:
     build:
       dockerfile: Dockerfile.dev
@@ -27,4 +27,4 @@ services:
       dockerfile: Dockerfile.dev
       context: ./router
     ports:
-      - "5000:80"
+      - "3000:80"

@@ -1,6 +1,6 @@
 FROM node:alpine as builder
 
-WORKDIR "/client"
+WORKDIR /portfolio-client
 
 COPY package*.json ./
 
@@ -16,4 +16,4 @@ EXPOSE 3000
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /client/build/ /usr/share/nginx/html
+COPY --from=builder /portfolio-client/build/ /usr/share/nginx/html

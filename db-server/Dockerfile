@@ -1,6 +1,6 @@
 FROM node:alpine
 
-WORKDIR "./db-server"
+WORKDIR /db-server
 
 COPY package.json .
 
