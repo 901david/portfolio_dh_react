@@ -51,7 +51,6 @@ const App = props => {
       .then(({ data: { data } }) => setPortfolioData(data))
       .catch(err => console.log(err));
   }, [axios, setPortfolioData]);
-  console.log("portfolio data", portfolioData);
   return (
     <MainAppWrapper>
       <Router>
@@ -79,7 +78,10 @@ const App = props => {
             )}
           />
           <Route path="/contact" component={ContactInfo} />
-          <Route path="/projects" component={Projects} />
+          <Route
+            path="/projects"
+            render={() => <Projects portfolioData={portfolioData} />}
+          />
           <Route path="/education" component={EducationInfo} />
         </MainViewWrapper>
       </Router>

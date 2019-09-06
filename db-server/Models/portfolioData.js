@@ -10,9 +10,17 @@ const PortfolioDataSchema = new Schema({
     type: String,
     required: true
   },
-  image: {
+  imageFront: {
     type: String,
     required: true
+  },
+  imageBack: {
+    type: String,
+    required: false
+  },
+  images: {
+    type: [String],
+    required: false
   },
   githubLink: {
     type: String,
@@ -22,8 +30,16 @@ const PortfolioDataSchema = new Schema({
     type: String,
     required: false
   },
-  technology: {
+  demoLink: {
     type: String,
+    required: false
+  },
+  bitBucketLink: {
+    type: String,
+    required: false
+  },
+  technology: {
+    type: [String],
     required: true
   }
 });

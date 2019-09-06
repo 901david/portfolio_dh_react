@@ -21,7 +21,7 @@ const ProjectsWrapper = styled.div`
   background-size: cover;
 
   @media only screen and (max-width: 800px) {
-    background-attachment:fixed;
+    background-attachment: fixed;
     height: 120%;
     width: 100vw;
     padding-left: 0;
@@ -55,14 +55,12 @@ const ProjectWrapper = styled.div`
   grid-template-rows: 10rem 1fr;
   grid-gap: 1.5rem;
   align-items: start;
-  
-  
+
   @media only screen and (max-width: 800px) {
-   grid-template-columns: 1fr;
-  grid-template-rows: 10rem repeat(3,1fr);
-  grid-gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem repeat(3, 1fr);
+    grid-gap: 0;
   }
-  
 `;
 
 const ProjectsTitle = styled.div`
@@ -73,7 +71,7 @@ const ProjectsTitle = styled.div`
   grid-column: 1 / -1;
 `;
 
-const Projects = props => {
+const Projects = ({ portfolioData }) => {
   const [projectGroupSelected, setProjectGroup] = useState(0);
 
   const { title, projects } = PROJECTS[projectGroupSelected];

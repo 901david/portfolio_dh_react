@@ -5,6 +5,7 @@ const PORT = process.env.PORT;
 const app = express();
 const dataRouter = require("./Routes/data");
 
+app.use(express.json());
 app.use("/data", dataRouter);
 
 mongoose.connect(
