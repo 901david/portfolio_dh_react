@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -72,46 +72,39 @@ const ProjectsTitle = styled.div`
 `;
 
 const Projects = ({ portfolioData }) => {
-  const [projectGroupSelected, setProjectGroup] = useState(0);
+  const [projects, setProjectData] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const { title, projects } = PROJECTS[projectGroupSelected];
+  useEffect(() => {
+    if (portfolioData) setProjectData(portfolioData);
+  }, [portfolioData]);
 
-  const handleArrowClick = type => {
-    const currentGroupValue = projectGroupSelected;
-    const newIndexValue =
-      type === "increment" ? currentGroupValue + 1 : currentGroupValue - 1;
-
-    setProjectGroup(
-      newIndexValue >= PROJECTS.length
-        ? 0
-        : newIndexValue < 0
-        ? PROJECTS.length - 1
-        : newIndexValue
-    );
+  const handleArrowClick = () => {
+    let nextIndex = currentIndex;
+    if (currentIndex + 1 === projects.length) nextIndex = 0;
+    else nextIndex++;
+    setCurrentIndex(nextIndex);
   };
 
   return (
     <ProjectsWrapper>
       <IconWrapper amount={1} position={"flex-start"} hover={true}>
-        <FontAwesomeIcon
-          onClick={() => handleArrowClick("decrement")}
-          icon={faChevronLeft}
-        />
+        <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronLeft} />
       </IconWrapper>
       <ProjectWrapper amount={3} position={"center"} hover={false}>
         <ProjectsTitle>
-          <h4>{title}</h4>
+          <h4>Projects</h4>
         </ProjectsTitle>
-        {projects.map(project => (
-          <Project key={`project-${project.id}`} {...project} />
-        ))}
+        {projects.length > 0 && (
+          <Project
+            key={`project-${projects[currentIndex]._id}`}
+            {...projects[currentIndex]}
+          />
+        )}
       </ProjectWrapper>
 
       <IconWrapper amount={1} position={"flex-end"} hover={true}>
-        <FontAwesomeIcon
-          onClick={() => handleArrowClick("increment")}
-          icon={faChevronRight}
-        />
+        <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronRight} />
       </IconWrapper>
     </ProjectsWrapper>
   );

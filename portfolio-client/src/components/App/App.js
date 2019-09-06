@@ -51,6 +51,7 @@ const App = props => {
       .then(({ data: { data } }) => setPortfolioData(data))
       .catch(err => console.log(err));
   }, [axios, setPortfolioData]);
+
   return (
     <MainAppWrapper>
       <Router>

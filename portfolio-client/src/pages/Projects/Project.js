@@ -209,7 +209,7 @@ const BackCardBackgroundImage = styled.div`
 `;
 
 const Project = ({
-  id,
+  _id,
   projectTitle,
   imageFront,
   imageBack,

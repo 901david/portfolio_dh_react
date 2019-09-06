@@ -16,23 +16,23 @@ import {
   faPython,
   faJava
 } from "@fortawesome/free-brands-svg-icons";
+//This will need to be supplied to DB soon
+// import PendantWrapperPreviewImage from "../images/portimages/pendant/pendantwrapper.png";
+// import PendantCardBack from "../images/portimages/pendant/pandant.png";
+// import PendantImageOne from "../images/portimages/pendant/pendantfeaturedPiece.png";
+// import PendantImageTwo from "../images/portimages/pendant/pendantwrapper.png";
+// import PendantImageThree from "../images/portimages/pendant/pendantsalemodal.png";
+// import PendantImageFour from "../images/portimages/pendant/pendantcontact.png";
+// import PendantImageFive from "../images/portimages/pendant/pendantcalendar.png";
+// import PendantImageSix from "../images/portimages/pendant/pendantcalendarevent.png";
+// import PendantImageSeven from "../images/portimages/pendant/pendantshoppingcart.png";
+// import PendantImagsEight from "../images/portimages/pendant/pendantaddevents.png";
+// import PendantImagsNine from "../images/portimages/pendant/pendantadmindelete.png";
 
-import PendantWrapperPreviewImage from "../images/portimages/pendant/pendantwrapper.png";
-import PendantCardBack from "../images/portimages/pendant/pandant.png";
-import PendantImageOne from "../images/portimages/pendant/pendantfeaturedPiece.png";
-import PendantImageTwo from "../images/portimages/pendant/pendantwrapper.png";
-import PendantImageThree from "../images/portimages/pendant/pendantsalemodal.png";
-import PendantImageFour from "../images/portimages/pendant/pendantcontact.png";
-import PendantImageFive from "../images/portimages/pendant/pendantcalendar.png";
-import PendantImageSix from "../images/portimages/pendant/pendantcalendarevent.png";
-import PendantImageSeven from "../images/portimages/pendant/pendantshoppingcart.png";
-import PendantImagsEight from "../images/portimages/pendant/pendantaddevents.png";
-import PendantImagsNine from "../images/portimages/pendant/pendantadmindelete.png";
-
-import RPSFront from "../images/portimages/rps/rps_front.png";
-import RPSBack from "../images/portimages/rps/rps_back.png";
-import RPSThree from "../images/portimages/rps/rps_3.png";
-import RPSFour from "../images/portimages/rps/rps_4.png";
+// import RPSFront from "../images/portimages/rps/rps_front.png";
+// import RPSBack from "../images/portimages/rps/rps_back.png";
+// import RPSThree from "../images/portimages/rps/rps_3.png";
+// import RPSFour from "../images/portimages/rps/rps_4.png";
 
 export const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -186,81 +186,3 @@ export const PATH_MAP = {
   "/projects": 2,
   "/education": 3
 };
-
-export const PROJECTS = [
-  {
-    title: "Recent Projects",
-    projects: [
-      {
-        id: _.uniqueId(),
-        projectTitle: "Pendant Wrapper",
-        imageFront: PendantWrapperPreviewImage,
-        imageBack: PendantCardBack,
-        images: [
-          PendantImageOne,
-          PendantImageTwo,
-          PendantImageThree,
-          PendantImageFour,
-          PendantImageFive,
-          PendantImageSix,
-          PendantImageSeven,
-          PendantImagsEight,
-          PendantImagsNine
-        ],
-        githubLink: null,
-        liveSite: "www.pendantwrapper.com",
-        demoLink: "https://vimeo.com/254561669",
-        bitBucketLink: null,
-
-        description:
-          "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
-        technology: "TypeScript, Angular, Express, Firebase, Firebase Auth, HTML, CSS, Bootstrap, Flexbox".split(
-          ", "
-        )
-      }
-    ]
-  },
-  {
-    title: "Older Projects",
-    projects: [
-      {
-        id: _.uniqueId(),
-        projectTitle: "Terminal Tic Tac Toe",
-        imageFront: PendantWrapperPreviewImage,
-        imageBack: PendantCardBack,
-        images: [
-          PendantImageOne,
-          PendantImageTwo,
-          PendantImageThree,
-          PendantImageFour,
-          PendantImageFive,
-          PendantImageSix,
-          PendantImageSeven,
-          PendantImagsEight,
-          PendantImagsNine
-        ],
-        githubLink: null,
-        liveSite: null,
-        demoLink: null,
-        bitBucketLink: "https://bitbucket.org/scriptscrawler/pendant_wrapper/",
-        description:
-          "This is a very basic terminal tic tac toe app, that I built in python. Currently, two players can play each other in the terminal.  The goal for this app eventually is to try and turn this into a one player game using machine learning models. I have a high interest in machine learning and have been slowly learning this process.",
-        technology: "Python".split(", ")
-      },
-      {
-        id: _.uniqueId(),
-        projectTitle: "Rock Paper Scissors",
-        imageFront: RPSFront,
-        imageBack: RPSBack,
-        images: [RPSFront, RPSThree, RPSFour],
-        githubLink: "https://github.com/901david/RPS-Multiplayer",
-        liveSite: "https://901david.github.io/RPS-Multiplayer/",
-        demoLink: null,
-        bitBucketLink: null,
-        description:
-          "Jquery Rock, Paper, Scissors game that allows two players to play each other online.",
-        technology: "Jquery, Firebase, Bootstrap".split(", ")
-      }
-    ]
-  }
-];
