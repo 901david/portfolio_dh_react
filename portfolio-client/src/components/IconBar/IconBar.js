@@ -167,7 +167,7 @@ const IconBar = ({ history, location: { pathname }, viewingMainContent }) => {
       setIconState(PATH_MAP[pathname]);
     }
   }, [pathname, PATH_MAP, currentlySelectedIcon, setIconState]);
-
+  console.log(currentlySelectedIcon);
   return (
     <>
       <IconBarWrapper mainContentBeingViewed={viewingMainContent}>

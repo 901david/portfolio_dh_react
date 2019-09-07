@@ -182,7 +182,7 @@ export const INFORMAL_EDUCATION_DATA = [
 
 export const PATH_MAP = {
   "/skills": 0,
-  "/contact": 1,
+  "/contact": 3,
   "/projects": 2,
-  "/education": 3
+  "/education": 1
 };
