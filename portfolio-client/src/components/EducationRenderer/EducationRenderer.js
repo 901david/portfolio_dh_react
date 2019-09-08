@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { SkillsTitle } from "../../pages/SkillsInfo/SkillsInfo";
-
-const EducationItemWrapper = styled.div``;
 
 export const TitleWrapper = styled.div`
   font-size: 1.8rem;
@@ -29,14 +26,14 @@ const Description = styled.p`
 `;
 
 const EducationRenderer = ({ title, degree, dates, description }) => (
-  <EducationItemWrapper>
+  <div>
     <TitleWrapper>
-      <SkillsTitle>{title}</SkillsTitle>
+      <div>{title}</div>
       <span>{dates}</span>
     </TitleWrapper>
     <DegreeWrapper>{degree}</DegreeWrapper>
     <Description>{description}</Description>
-  </EducationItemWrapper>
+  </div>
 );
 
 export default EducationRenderer;
