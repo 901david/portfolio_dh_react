@@ -123,6 +123,15 @@ export const FORMAL_EDUCATION_DATA = [
 
 export const INFORMAL_EDUCATION_DATA = [
   {
+    name: "Docker and Kubernetes: The Complete Guide",
+    icon: faLaptopCode
+  },
+  {
+    name: "Complete Guide to Tensorflow for Deep Learning in Python",
+    icon: faPython
+  },
+  { name: "Learn and Understand AngularJS", icon: faAngular },
+  {
     name: "Advanced CSS And SASS: Flexbox, Grid, Animations And More",
     icon: faSass
   },

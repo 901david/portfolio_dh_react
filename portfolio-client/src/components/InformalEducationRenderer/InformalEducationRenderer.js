@@ -3,12 +3,12 @@ import _ from "lodash";
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SkillsTitle } from "../../pages/SkillsInfo/SkillsInfo";
 import StandardTitle from "../../Shared/StandardTitle";
 
 export const CourseItem = styled.div`
   display: flex;
   font-size: 1rem;
+  margin: 3px;
 
   > span {
     margin-left: 1rem;
@@ -18,6 +18,7 @@ export const CourseItem = styled.div`
     font-size: 1.5rem;
   }
 `;
+
 export const CourseItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
