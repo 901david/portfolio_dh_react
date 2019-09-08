@@ -4,3 +4,4 @@
 api/.env
 db-server/.env
 portfolio-client/.env
+buildProj.sh
