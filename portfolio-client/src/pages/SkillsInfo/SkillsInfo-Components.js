@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ContactTitle } from "../ContactInfo/Contact-Components";
 
 export const SkillsInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -19,6 +18,7 @@ export const SkillsInfoWrapper = styled.div`
   font-size: 1rem;
   font-family: "Crimson Text", serif;
   position: relative;
+  overflow: auto;
 
   @media only screen and (max-width: 950px) {
     grid-template-rows: repeat(3, 1fr);
