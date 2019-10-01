@@ -78,7 +78,6 @@ const ContactInfo = () => {
   const handleEmailValidation = name => {
     if (inputMap.has(name)) {
       const userInput = inputMap.get(name);
-      console.log(refMap[name]);
       if (!emailValidation.exec(userInput)) {
         refMap[name].current.style["border-bottom"] = "5px solid red";
       } else {
@@ -87,17 +86,17 @@ const ContactInfo = () => {
     }
   };
 
-  const handleTextValidation = name => {
-    if (inputMap.has(name)) {
-      const userInput = inputMap.get(name);
+  // const handleTextValidation = name => {
+  //   if (inputMap.has(name)) {
+  //     const userInput = inputMap.get(name);
 
-      if (userInput === undefined || userInput.length === 0) {
-        refMap[name].current.style["border-bottom"] = "5px solid red";
-      } else {
-        refMap[name].current.style["border-bottom"] = "5px solid white";
-      }
-    }
-  };
+  //     if (userInput === undefined || userInput.length === 0) {
+  //       refMap[name].current.style["border-bottom"] = "5px solid red";
+  //     } else {
+  //       refMap[name].current.style["border-bottom"] = "5px solid white";
+  //     }
+  //   }
+  // };
 
   const clearValidation = inputRef => {
     inputRef.current.style["border-bottom"] = "5px solid white";
@@ -112,10 +111,8 @@ const ContactInfo = () => {
   };
 
   const handleOnInputChange = (val, name) => {
-    console.log(val, name);
     setInputMap(inputMap.set(name, val));
   };
-  console.log(inputMap);
 
   return (
     <ContactInfoWrapper>

@@ -60,8 +60,6 @@ Tagline.defaultProps = {
 };
 
 Tagline.propTypes = {
-  fontSize: PropTypes.number.isRequired,
-  letterSpacing: PropTypes.number.isRequired,
   cursor: PropTypes.string
 };
 

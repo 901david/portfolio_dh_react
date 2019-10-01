@@ -31,7 +31,6 @@ const LargeProjectContent = ({
   handleProjectToggle
 }) => {
   const [currentLargeImageIndex, setCurrentLargeImageIndex] = useState(0);
-  console.log(images);
   return (
     <div className="largeProjectContent">
       <LargeImageProjectTitle>{projectTitle}</LargeImageProjectTitle>

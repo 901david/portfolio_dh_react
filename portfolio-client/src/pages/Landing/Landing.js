@@ -37,11 +37,9 @@ const Landing = ({
       setLandingViewed={setLandingViewed}
     >
       <LandingHeadshotWrapper onWheel={handleScroll}>
-        <LandingTagline fontSize={"5rem"}>David Hammond</LandingTagline>
+        <LandingTagline>David Hammond</LandingTagline>
         <LandingHeadshot src={HeadShotImage} alt="headshot" />
-        <LandingSubTagline fontSize={"3rem"}>
-          Software Engineer
-        </LandingSubTagline>
+        <LandingSubTagline>Software Engineer</LandingSubTagline>
         <IconWrapper>
           <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronDown} />
         </IconWrapper>

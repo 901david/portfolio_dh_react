@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 
@@ -28,8 +28,6 @@ const StandardInput = ({
       blurFn(evt.target.name);
     }
   };
-
-  console.log("standard input", userInput);
 
   return (
     <StandardInputWrapper input={userInput}>

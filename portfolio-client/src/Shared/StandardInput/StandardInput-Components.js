@@ -9,7 +9,6 @@ export const StandardInputWrapper = styled.div`
     position: absolute;
     left: 0;
     bottom: ${({ input }) => {
-      console.log("Here is user input", input);
       return input === "" ? "1.8rem" : "0.5rem";
     }};
     font-style: italic;

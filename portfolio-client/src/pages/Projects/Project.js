@@ -31,8 +31,6 @@ const Project = ({
   const titleRef = createRef();
 
   const handleProjectToggle = e => {
-    console.log(e.target.getBoundingClientRect());
-
     const { top: startTop, left: startLeft } = e.target.getBoundingClientRect();
     const {
       top: endTop,
