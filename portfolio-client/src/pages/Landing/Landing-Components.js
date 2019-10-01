@@ -2,8 +2,8 @@ import styled, { css } from "styled-components";
 
 import { arrowVibrate, removeContent } from "../../Shared/animations";
 import { HeadShot, Tagline } from "../../components/Header/Header";
-import { HeaderImage } from "../../Shared/Images/index";
 
+const HeaderImage = "../../images/topBar_edited.jpg";
 const removeContentAddOn = css`
   animation: ${removeContent} 1s forwards;
 `;

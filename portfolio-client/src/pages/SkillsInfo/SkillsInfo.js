@@ -8,22 +8,22 @@ import {
 import {
   SkillsInfoWrapper,
   SkillsWrapper,
-  MissionStatement,
-  MissionStatementTitle
+  MissionStatement
 } from "./SkillsInfo-Components";
+import StandardTitle from "../../Shared/StandardTitle";
 
 const SkillsInfo = () => (
   <SkillsInfoWrapper>
     <MissionStatement>
-      <MissionStatementTitle>Who Am I?</MissionStatementTitle>
+      <StandardTitle>Who Am I?</StandardTitle>
       {MISSION_STATEMENT}
     </MissionStatement>
     <SkillsWrapper>
-      <div>Technical Skills</div>
+      <StandardTitle>Technical Skills</StandardTitle>
       {TECHNICAL_SKILLS}
     </SkillsWrapper>
     <SkillsWrapper bottomMargin={2}>
-      <div>Aditional Skills</div>
+      <StandardTitle>Aditional Skills</StandardTitle>
       {ADDITIONAL_SKILLS}
     </SkillsWrapper>
   </SkillsInfoWrapper>

@@ -2,8 +2,9 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { HeaderImage } from "../../Shared/Images/index";
-import { HeadShotImage } from "../../Shared/Images/index";
+
+const HeaderImage = "../../images/topBar_edited.jpg";
+const HeadShotImage = "../../images/head_edited.jpg";
 
 const HeaderWrapper = styled.div`
   display: flex;

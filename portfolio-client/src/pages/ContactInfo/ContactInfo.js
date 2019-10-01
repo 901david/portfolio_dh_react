@@ -11,10 +11,18 @@ import {
   ContactTitle
 } from "./Contact-Components";
 
-const ContactInfo = props => {
-  const [clearData, setDataShouldBeCleared] = useState(false);
+const ContactInfo = () => {
+  const getNewMap = () => {
+    const fields = ["yourEmail"];
+    return [
+      Array(3)
+        .fill(0)
+        .map((_, i) => fields[i])
+    ];
+  };
+
+  const [inputMap, setInputMap] = useState(new Map(getNewMap()));
   const [submitFailed, showFailureError] = useState(false);
-  const [formTouched, setFormTouched] = useState(false);
   const refMap = {
     yourEmail: createRef(),
     subject: createRef(),
@@ -44,9 +52,8 @@ const ContactInfo = props => {
 
     axios
       .post("/api/contact/", { email, subject, body })
-      .then(response => {
-        console.log(response);
-        clearPub();
+      .then(() => {
+        setInputMap(getNewMap());
       })
       .catch(err => {
         console.log(err);
@@ -54,17 +61,12 @@ const ContactInfo = props => {
       });
   };
 
-  const clearPub = () => {
-    setDataShouldBeCleared(true);
-  };
-
-  const resetPub = () => {
-    setDataShouldBeCleared(false);
-  };
-
   const typeMap = {
     send: handleSendEmail,
-    clear: clearPub
+    clear: () => {
+      setInputMap(getNewMap());
+      clearValidation();
+    }
   };
   const handleClick = type => {
     const funcToExec = typeMap[type];
@@ -73,42 +75,28 @@ const ContactInfo = props => {
     }
   };
 
-  const handleEmailValidation = inputRef => {
-    if (inputRef.current) {
-      const { value: userInput } = inputRef.current;
-      let isValid = true;
-
+  const handleEmailValidation = name => {
+    if (inputMap.has(name)) {
+      const userInput = inputMap.get(name);
+      console.log(refMap[name]);
       if (!emailValidation.exec(userInput)) {
-        inputRef.current.style["border-bottom"] = "5px solid red";
-        isValid = false;
+        refMap[name].current.style["border-bottom"] = "5px solid red";
       } else {
-        inputRef.current.style["border-bottom"] = "5px solid white";
-        isValid = true;
+        refMap[name].current.style["border-bottom"] = "5px solid white";
       }
-
-      return isValid;
     }
-
-    return false;
   };
 
-  const handleTextValidation = inputRef => {
-    if (inputRef.current) {
-      const { value: userInput } = inputRef.current;
-      let isValid = true;
+  const handleTextValidation = name => {
+    if (inputMap.has(name)) {
+      const userInput = inputMap.get(name);
 
-      if (userInput.length === 0) {
-        inputRef.current.style["border-bottom"] = "5px solid red";
-        isValid = false;
+      if (userInput === undefined || userInput.length === 0) {
+        refMap[name].current.style["border-bottom"] = "5px solid red";
       } else {
-        inputRef.current.style["border-bottom"] = "5px solid white";
-        isValid = true;
+        refMap[name].current.style["border-bottom"] = "5px solid white";
       }
-
-      return isValid;
     }
-
-    return false;
   };
 
   const clearValidation = inputRef => {
@@ -116,14 +104,19 @@ const ContactInfo = props => {
   };
 
   const shouldSubmitBeDisabled = () => {
-    console.log("being called");
-    return (
-      !handleTextValidation(refMap["body"]) &&
-      !handleTextValidation(refMap["subject"]) &&
-      !handleEmailValidation(refMap["yourEmail"])
-    );
+    let disabled = false;
+    for (let val of inputMap.values()) {
+      if (!val) disabled = true;
+    }
+    return disabled;
   };
-  console.log(refMap);
+
+  const handleOnInputChange = (val, name) => {
+    console.log(val, name);
+    setInputMap(inputMap.set(name, val));
+  };
+  console.log(inputMap);
+
   return (
     <ContactInfoWrapper>
       {submitFailed && (
@@ -138,13 +131,12 @@ const ContactInfo = props => {
         inputId={"yourEmail"}
         type={"email"}
         label={"Your Email"}
-        shouldClear={clearData}
         forwardedRef={refMap["yourEmail"]}
-        cbClear={resetPub}
-        validator={handleEmailValidation}
-        clearValidation={clearValidation}
+        changeFn={handleOnInputChange}
+        blurFn={handleEmailValidation}
+        userInput={inputMap.get("yourEmail")}
       />
-      <StandardInput
+      {/* <StandardInput
         name={"subject"}
         labelId={"subjectLabel"}
         inputId={"subject"}
@@ -155,6 +147,7 @@ const ContactInfo = props => {
         cbClear={resetPub}
         validator={handleTextValidation}
         clearValidation={clearValidation}
+        blurFn={formHasBeenTouched}
       />
       <StandardInput
         name={"body"}
@@ -167,18 +160,19 @@ const ContactInfo = props => {
         cbClear={resetPub}
         validator={handleTextValidation}
         clearValidation={clearValidation}
-      />
+        blurFn={formHasBeenTouched}
+      /> */}
       <ButtonWrapper>
         <StandardButton
           text={"Send"}
-          clickHandler={!shouldSubmitBeDisabled() ? handleClick : () => ({})}
+          clickHandler={shouldSubmitBeDisabled() ? handleClick : () => ({})}
           value={"send"}
           color={"green"}
           disabled={shouldSubmitBeDisabled()}
         />
         <StandardButton
           text={"Clear"}
-          clickHandler={handleClick}
+          clickHandler={() => handleClick("clear")}
           value={"clear"}
           color={"red"}
         />

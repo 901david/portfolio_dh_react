@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import StandardTitle from "../../Shared/StandardTitle";
+
+export const ShortenedStandardTitle = styled(StandardTitle)`
+  width: 60%;
+`;
 
 export const EducationInfoWrapper = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),

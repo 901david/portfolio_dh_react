@@ -8,7 +8,10 @@ export const StandardInputWrapper = styled.div`
   label {
     position: absolute;
     left: 0;
-    bottom: ${({ userInput }) => (userInput ? "1.8rem" : "0.5rem")};
+    bottom: ${({ input }) => {
+      console.log("Here is user input", input);
+      return input === "" ? "1.8rem" : "0.5rem";
+    }};
     font-style: italic;
     font-size: 1.5rem;
     transition: all 0.5s;

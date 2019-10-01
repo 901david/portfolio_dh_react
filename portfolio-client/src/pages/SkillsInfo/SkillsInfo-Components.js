@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ContactTitle } from "../ContactInfo/Contact-Components";
 
 export const SkillsInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -64,11 +65,5 @@ export const MissionStatement = styled.div`
 
   @media only screen and (max-width: 950px) {
     margin-top: 2rem;
-  }
-`;
-
-export const MissionStatementTitle = styled.div`
-  @media only screen and (max-width: 800px) {
-    margin-bottom: 1.5rem;
   }
 `;

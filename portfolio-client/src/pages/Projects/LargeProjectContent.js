@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { faTimes, faDesktop, faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faBitbucket } from "@fortawesome/free-brands-svg-icons";
+import _ from "lodash";
 
 import {
   CloseContainer,
@@ -78,6 +79,7 @@ const LargeProjectContent = ({
       <PreviewImageContainer>
         {images.map((img, index) => (
           <PreviewImage
+            key={_.uniqueId("prev-img-")}
             loaded={index === currentLargeImageIndex}
             onClick={() => setCurrentLargeImageIndex(index)}
             src={img}
@@ -86,7 +88,9 @@ const LargeProjectContent = ({
       </PreviewImageContainer>
       <TextWrapper>
         <TextTitle>Technologies Used:</TextTitle>
-        <Text textWidth={"75%"}>{technology.join(", ")}</Text>
+        <Text textAlign={"center"} textWidth={"75%"}>
+          {technology.join(", ")}
+        </Text>
       </TextWrapper>
       <TextWrapper>
         <TextTitle>Project Description:</TextTitle>

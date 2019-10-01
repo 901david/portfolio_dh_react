@@ -8,10 +8,15 @@ import {
 } from "../../Shared/constants";
 import InformalEducationRenderer from "../../components/InformalEducationRenderer/InformalEducationRenderer";
 import OtherEducation from "../../components/OtherEducation/OtherEducation";
-import { EducationInfoWrapper, EducationWrapper } from "./Education-Components";
+import {
+  EducationInfoWrapper,
+  EducationWrapper,
+  ShortenedStandardTitle
+} from "./Education-Components";
 
 const EducationInfo = () => (
   <EducationInfoWrapper>
+    <ShortenedStandardTitle>Formal Education</ShortenedStandardTitle>
     <EducationWrapper>
       {FORMAL_EDUCATION_DATA.slice(0, 1).map(eduItem => {
         return (

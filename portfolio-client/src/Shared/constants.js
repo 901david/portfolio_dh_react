@@ -16,23 +16,6 @@ import {
   faPython,
   faJava
 } from "@fortawesome/free-brands-svg-icons";
-//This will need to be supplied to DB soon
-// import PendantWrapperPreviewImage from "../images/portimages/pendant/pendantwrapper.png";
-// import PendantCardBack from "../images/portimages/pendant/pandant.png";
-// import PendantImageOne from "../images/portimages/pendant/pendantfeaturedPiece.png";
-// import PendantImageTwo from "../images/portimages/pendant/pendantwrapper.png";
-// import PendantImageThree from "../images/portimages/pendant/pendantsalemodal.png";
-// import PendantImageFour from "../images/portimages/pendant/pendantcontact.png";
-// import PendantImageFive from "../images/portimages/pendant/pendantcalendar.png";
-// import PendantImageSix from "../images/portimages/pendant/pendantcalendarevent.png";
-// import PendantImageSeven from "../images/portimages/pendant/pendantshoppingcart.png";
-// import PendantImagsEight from "../images/portimages/pendant/pendantaddevents.png";
-// import PendantImagsNine from "../images/portimages/pendant/pendantadmindelete.png";
-
-// import RPSFront from "../images/portimages/rps/rps_front.png";
-// import RPSBack from "../images/portimages/rps/rps_back.png";
-// import RPSThree from "../images/portimages/rps/rps_3.png";
-// import RPSFour from "../images/portimages/rps/rps_4.png";
 
 export const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 

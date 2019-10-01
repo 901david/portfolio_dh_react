@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { HeadShotImage } from "../../Shared/Images/index";
 import {
   LandingBackground,
   LandingHeadshot,
@@ -11,6 +10,7 @@ import {
   IconWrapper
 } from "./Landing-Components";
 
+const HeadShotImage = "../../images/head_edited.JPG";
 const Landing = ({
   viewingMainContent,
   setMainContentBeingViewed,

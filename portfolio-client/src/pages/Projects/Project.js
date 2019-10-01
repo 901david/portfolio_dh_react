@@ -11,7 +11,6 @@ import {
 } from "./Projects-Components";
 
 const Project = ({
-  _id,
   projectTitle,
   imageFront,
   imageBack,

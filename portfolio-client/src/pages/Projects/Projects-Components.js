@@ -15,8 +15,7 @@ export const CloseContainer = styled.div`
 `;
 
 export const PreviewImage = styled.img`
-  height: 5vh;
-  width: auto;
+  width: 10vw;
   margin: 1rem;
   border: 2px solid rgba(255, 255, 255, 0.7);
   transform: scale(1);
@@ -37,6 +36,7 @@ export const PreviewImageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 45vw;
+  justify-content: center;
 
   > * {
     margin: 3%;
@@ -63,6 +63,7 @@ export const LargeImageProjectTitle = styled.div`
   width: 45vw;
   margin: 1.5rem 0;
   padding-bottom: 0.3rem;
+  text-align: center;
 `;
 export const ProjectIconWrapper = styled.div`
   display: flex;
@@ -79,6 +80,7 @@ export const Text = styled.p`
   font-size: 1.5rem;
   line-height: 1.8rem;
   width: ${({ textWidth }) => (textWidth ? textWidth : "100%")};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign}`}
 `;
 
 export const StyledLinkContainer = styled.div`
@@ -111,11 +113,11 @@ export const TextTitle = styled.p`
 `;
 
 const projectLaunch = position => css`
-  animation: ${animateLargeProjectContentIn(position)} 0.5s ease forwards;
+  animation: ${animateLargeProjectContentIn(position)} 0.2s ease forwards;
 `;
 
 const projectClose = position => css`
-  animation: ${animateLargeProjectContentOut(position)} 0.5s ease forwards;
+  animation: ${animateLargeProjectContentOut(position)} 0.2s ease forwards;
 `;
 
 export const ProjectWrapper = styled.div`
@@ -126,7 +128,7 @@ export const ProjectWrapper = styled.div`
   .card {
     perspective: 150rem;
     -moz-perspective: 150rem;
-    width: 30rem;
+    width: 42rem;
     height: 30rem;
 
     &_side {
@@ -145,7 +147,7 @@ export const ProjectWrapper = styled.div`
             rgba(0, 0, 0, 0.8)
           ),
           url(${({ backgroundSrcFront }) => backgroundSrcFront});
-        background-size: cover;
+        background-size: contain;
         background-position: left 55% bottom 45%;
         display: flex;
         align-items: center;
@@ -167,7 +169,7 @@ export const ProjectWrapper = styled.div`
           transition: all 0.3s;
 
           &:hover {
-            transform: scale(1.2);
+            transform: scale(1.05);
             box-shadow: 0.5rem 0.5rem 0.5rem rgb(0, 0, 0, 0.2);
           }
 
@@ -258,7 +260,10 @@ export const ProjectTitleWrapper = styled.div`
   background: white;
 
   > svg {
-    margin-left: 5%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 2%;
   }
 `;
 

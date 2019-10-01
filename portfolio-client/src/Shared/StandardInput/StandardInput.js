@@ -10,51 +10,37 @@ const StandardInput = ({
   inputId,
   type,
   label,
-  shouldClear,
-  cbClear,
   forwardedRef,
-  validator,
-  clearValidation
+  blurFn,
+  changeFn,
+  userInput
 }) => {
-  const [userInput, setUserInput] = useState("");
   const inputRef = forwardedRef;
 
-  const onInputChangeHandler = ({ target: { value } }) => {
-    setUserInput(value);
-  };
-
-  const handleValidation = () => {
-    if (typeof validator === "function") {
-      validator(inputRef);
+  const handleOnChange = evt => {
+    if (typeof changeFn === "function") {
+      changeFn(evt.target.value, evt.target.name);
     }
   };
 
-  const clearValidators = () => {
-    if (typeof clearValidation === "function") {
-      clearValidation(inputRef);
+  const handleOnBlur = evt => {
+    if (typeof blurFn === "function") {
+      blurFn(evt.target.name);
     }
   };
 
-  useEffect(() => {
-    if (shouldClear) {
-      setUserInput("");
-      clearValidators();
-      if (typeof cbClear === "function") {
-        cbClear();
-      }
-    }
-  }, [shouldClear, inputRef, setUserInput, clearValidators, cbClear]);
+  console.log("standard input", userInput);
 
   return (
-    <StandardInputWrapper userInput={userInput}>
+    <StandardInputWrapper input={userInput}>
       <input
-        ref={forwardedRef}
+        ref={inputRef}
         type={type}
         name={name}
         id={inputId}
         value={userInput}
-        onChange={onInputChangeHandler}
-        onBlur={handleValidation}
+        onChange={handleOnChange}
+        onBlur={handleOnBlur}
       />
       <label htmlFor={name} id={labelId}>
         {label}
