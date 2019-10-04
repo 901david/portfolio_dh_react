@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon"
+  },
+  "author": "David Hammond",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mailgun-js": "^0.13.1"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "nodemon": "^1.19.1"
+  }
+}
