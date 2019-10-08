@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh '''
+                ls -lah
+                docker build -t 499814/test-port-build -f portfolio-client/Dockerfile.dev /portfolio-client
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'docker run 499814/test-port-build npm run test-docker'
+            }
+        }
+    }
+}
