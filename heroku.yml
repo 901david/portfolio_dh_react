@@ -1,0 +1,6 @@
+build:
+  docker:
+    web: portfolio-client/Dockerfile.webstaged
+    api: api/Dockerfile.apistaged
+    router: router/Dockerfile.routerstaged
+    db: db-server/Dockerfile.dbstaged
