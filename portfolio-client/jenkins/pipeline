@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build Web') {
             steps {
                 sh '''
                 ls -la
@@ -9,7 +9,7 @@ pipeline {
                 '''
             }
         }
-        stage('Test') {
+        stage('Test Web') {
             steps {
                 sh 'docker run 499814/test-port-build npm run test-docker'
             }
