@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                ls -la
                 docker build -t 499814/test-port-build -f ../Dockerfile-dev .
                 '''
             }
