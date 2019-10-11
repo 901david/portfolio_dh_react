@@ -4,7 +4,6 @@ pipeline {
         stage('Build Web') {
             steps {
                 sh '''
-                ls -la
                 docker build -t 499814/test-port-build -f portfolio-client/Dockerfile-dev ./portfolio-client
                 '''
             }
@@ -12,6 +11,23 @@ pipeline {
         stage('Test Web') {
             steps {
                 sh 'docker run 499814/test-port-build npm run test-docker'
+            }
+        }
+        stage('Build Api') {
+            steps {
+                sh 'docker build -t 499814/test-api-build ./api'
+            }
+        }
+
+        stage('Build DB Server') {
+            steps {
+                sh 'docker build -t 499814/test-db-build ./db-server'
+            }
+        }
+
+        stage('Build Router') {
+            steps {
+                sh 'docker build -t 499814/test-router-build ./router'
             }
         }
     }
