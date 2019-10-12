@@ -18,6 +18,7 @@ pipeline {
 
         stage('Build-Prod-Web') {
             steps {
+                echo 'Building Prod Web Image....'
                 sh 'docker build -t 4990814/test-port-build ./portfolio-client'
             }
         }
