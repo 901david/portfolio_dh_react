@@ -1,33 +1,50 @@
 pipeline {
     agent any
     stages {
-        stage('Build Web') {
+        stage('Build-Web-Test') {
             steps {
                 sh '''
                 docker build -t 499814/test-port-build -f portfolio-client/Dockerfile-dev ./portfolio-client
                 '''
             }
         }
-        stage('Test Web') {
+        stage('Web-Tests') {
             steps {
                 sh 'docker run 499814/test-port-build npm run test-docker'
             }
         }
-        stage('Build Api') {
+        stage('Build-Api') {
             steps {
                 sh 'docker build -t 499814/test-api-build ./api'
             }
         }
+        stage('Api-Tests') {
+            steps {
+                echo 'Running API Tests'
+            }
+        }
 
-        stage('Build DB Server') {
+        stage('Build-Db-Server') {
             steps {
                 sh 'docker build -t 499814/test-db-build ./db-server'
+            }
+        }
+
+        stage('Db-Server-Tests') {
+            steps {
+                echo 'Running DB-Server Tests'
             }
         }
 
         stage('Build Router') {
             steps {
                 sh 'docker build -t 499814/test-router-build ./router'
+            }
+        }
+
+        stage('Update-Docker-Hub-Images') {
+            steps {
+                echo 'Pushing Images to Docker Hub'
             }
         }
     }
