@@ -19,13 +19,13 @@ pipeline {
         stage('Build-Prod-Web') {
             steps {
                 echo 'Building Prod Web Image....'
-                sh 'docker build -t 4990814/test-port-build ./portfolio-client'
+                sh 'docker build -t 4990814/staged-port-build ./portfolio-client'
             }
         }
 
         stage('Build-Api') {
             steps {
-                sh 'docker build -t 4990814/test-api-build ./api'
+                sh 'docker build -t 4990814/staged-api-build ./api'
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
 
         stage('Build-Db-Server') {
             steps {
-                sh 'docker build -t 499814/test-db-build ./db-server'
+                sh 'docker build -t 499814/staged-db-build ./db-server'
             }
         }
 
@@ -49,13 +49,19 @@ pipeline {
 
         stage('Build Router') {
             steps {
-                sh 'docker build -t 499814/test-router-build ./router'
+                sh 'docker build -t 499814/staged-router-build ./router'
             }
         }
 
         stage('Update-Docker-Hub-Images') {
             steps {
-                echo 'Pushing Images to Docker Hub'
+                sh '''
+                echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+                docker push 4990814/staged-port-build
+                docker push 4990814/staged-api-build
+                docker push 4990814/staged-db-build
+                docker push 4990814/staged-router-build
+                '''
             }
         }
     }
