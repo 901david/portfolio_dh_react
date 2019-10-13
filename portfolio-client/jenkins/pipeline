@@ -4,6 +4,13 @@ pipeline {
 
         stage('Build-Web-Test') {
             steps {
+                sh
+                '''
+                (
+                echo "$HEROKU_CREDENTIALS_EMAIL"
+                echo "$HEROKU_CREDENTIALS_PASSWORD"
+                ) | heroku login
+                '''
                 sh '''
                 docker build -t 4990814/test-port-build -f portfolio-client/Dockerfile-dev ./portfolio-client
                 '''
@@ -19,13 +26,13 @@ pipeline {
         stage('Build-Prod-Web') {
             steps {
                 echo 'Building Prod Web Image....'
-                sh 'docker build -t 4990814/staged-port-build ./portfolio-client'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/web -f ./portfolio-client/Dockerfile.webstaged ./portfolio-client'
             }
         }
 
         stage('Build-Api') {
             steps {
-                sh 'docker build -t 4990814/staged-api-build ./api'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/api -f ./portfolio-client/Dockerfile.apistaged ./api'
             }
         }
 
@@ -37,7 +44,7 @@ pipeline {
 
         stage('Build-Db-Server') {
             steps {
-                sh 'docker build -t 4990814/staged-db-build ./db-server'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/db -f ./portfolio-client/Dockerfile.dbstaged ./db-server'
             }
         }
 
@@ -49,18 +56,24 @@ pipeline {
 
         stage('Build Router') {
             steps {
-                sh 'docker build -t 4990814/staged-router-build ./router'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/router -f ./portfolio-client/Dockerfile.routerstaged ./router'
             }
         }
 
         stage('Update-Docker-Hub-Images') {
             steps {
-                echo '$DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin'
+                sh
+                '''
+                (
+                echo "$HEROKU_CREDENTIALS_EMAIL"
+                echo "$HEROKU_CREDENTIALS_PASSWORD"
+                ) | heroku login
+                '''
                 sh '''
-                docker push 4990814/staged-port-build
-                docker push 4990814/staged-api-build
-                docker push 4990814/staged-db-build
-                docker push 4990814/staged-router-build
+                docker push registry.heroku.com/portfolio-staged/web
+                docker push registry.heroku.com/portfolio-staged/api
+                docker push registry.heroku.com/portfolio-staged/db
+                docker push registry.heroku.com/portfolio-staged/router
                 '''
             }
         }
