@@ -55,8 +55,8 @@ pipeline {
 
         stage('Update-Docker-Hub-Images') {
             steps {
-                sh '''
                 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+                sh '''
                 docker push 4990814/staged-port-build
                 docker push 4990814/staged-api-build
                 docker push 4990814/staged-db-build
