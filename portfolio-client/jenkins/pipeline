@@ -25,7 +25,7 @@ pipeline {
 
         stage('Build-Api') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-staged/api -f ./portfolio-client/Dockerfile.apistaged ./api'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/api -f ./api/Dockerfile.apistaged ./api'
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
 
         stage('Build-Db-Server') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-staged/db -f ./portfolio-client/Dockerfile.dbstaged ./db-server'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/db -f ./db-server/Dockerfile.dbstaged ./db-server'
             }
         }
 
@@ -49,7 +49,7 @@ pipeline {
 
         stage('Build Router') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-staged/router -f ./portfolio-client/Dockerfile.routerstaged ./router'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/router -f ./router/Dockerfile.routerstaged ./router'
             }
         }
 
