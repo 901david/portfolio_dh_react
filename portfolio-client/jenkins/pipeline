@@ -4,13 +4,11 @@ pipeline {
 
         stage('Build-Web-Test') {
             steps {
-                sh
-                '''
                 (
                 echo "$HEROKU_CREDENTIALS_EMAIL"
                 echo "$HEROKU_CREDENTIALS_PASSWORD"
                 ) | heroku login
-                '''
+
                 sh '''
                 docker build -t 4990814/test-port-build -f portfolio-client/Dockerfile-dev ./portfolio-client
                 '''
