@@ -56,7 +56,7 @@ pipeline {
         stage('Update-Docker-Hub-Images') {
             steps {
                 sh'''
-                echo '$HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com' && \
+                docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
                 docker push registry.heroku.com/portfolio-staged/web
                 '''
             }
