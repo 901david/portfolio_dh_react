@@ -56,7 +56,7 @@ pipeline {
         stage('Update-Docker-Hub-Images') {
             steps {
                 echo 'Logging In.....'
-                echo '"$HEROKU_API_KEY" | docker login --username=_ --password registry.heroku.com'
+                echo '"$HEROKU_API_KEY" | heroku login'
                 sh '''
                 heroku container:login
                 heroku container:push --recursive
