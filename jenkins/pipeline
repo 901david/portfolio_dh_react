@@ -58,10 +58,9 @@ pipeline {
                 echo 'Logging In.....'
                 echo '"$HEROKU_API_KEY" | docker login --username=_ --password registry.heroku.com'
                 sh '''
-                docker push registry.heroku.com/portfolio-staged/web
-                docker push registry.heroku.com/portfolio-staged/api
-                docker push registry.heroku.com/portfolio-staged/db
-                docker push registry.heroku.com/portfolio-staged/router
+                heroku container:login
+                heroku container:push --recursive
+                heroku container:release web api db router
                 '''
             }
         }
