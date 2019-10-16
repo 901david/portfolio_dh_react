@@ -59,7 +59,7 @@ pipeline {
                 sh '''
                 heroku container:login 
                 heroku container:push --recursive --app=portfolio-staged 
-                heroku container:release web api db router 
+                heroku container:release web api db router --app=portfolio-staged
                 '''
             }
         }
