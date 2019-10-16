@@ -19,7 +19,7 @@ pipeline {
         stage('Build-Prod-Web') {
             steps {
                 echo 'Building Prod Web Image....'
-                sh 'docker build -t registry.heroku.com/portfolio-staged/web -f ./portfolio-client/Dockerfile.web ./portfolio-client'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/client -f ./portfolio-client/Dockerfile.client ./portfolio-client'
             }
         }
 
@@ -49,7 +49,7 @@ pipeline {
 
         stage('Build Router') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-staged/router -f ./router/Dockerfile.router ./router'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/web -f ./router/Dockerfile.web ./router'
             }
         }
 
