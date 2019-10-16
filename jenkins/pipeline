@@ -57,9 +57,9 @@ pipeline {
             steps {
                 echo 'Logging In.....'
                 sh '''
-                heroku container:login
-                heroku container:push --recursive
-                heroku container:release web api db router
+                heroku container:login -a portfolio-staged
+                heroku container:push --recursive -a portfolio-staged
+                heroku container:release web api db router -a portfolio-staged
                 '''
             }
         }
