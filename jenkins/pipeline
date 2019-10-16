@@ -55,7 +55,7 @@ pipeline {
 
         stage('Update-Docker-Hub-Images') {
             steps {
-                echo 'Logging In.....'
+                echo 'Logging In......'
                 sh '''
                 heroku container:login 
                 heroku container:push --recursive --app=portfolio-staged 
