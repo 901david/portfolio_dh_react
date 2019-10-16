@@ -24,7 +24,7 @@ pipeline {
         stage('Build-Prod-Web') {
             steps {
                 echo 'Building Prod Web Image....'
-                sh 'docker build -t registry.heroku.com/portfolio-staged/client -f ./portfolio-client/Dockerfile.client ./portfolio-client'
+                sh 'docker build -t registry.heroku.com/portfolio-client-staged/client -f ./portfolio-client/Dockerfile.client ./portfolio-client'
             }
         }
 
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Build-Api') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-staged/api -f ./api/Dockerfile.api ./api'
+                sh 'docker build -t registry.heroku.com/portfolio-api-staged/api -f ./api/Dockerfile.api ./api'
             }
         }
 
@@ -62,7 +62,7 @@ pipeline {
 
         stage('Build-Db-Server') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-staged/db -f ./db-server/Dockerfile.db ./db-server'
+                sh 'docker build -t registry.heroku.com/portfolio-db-staged/db -f ./db-server/Dockerfile.db ./db-server'
             }
         }
 
