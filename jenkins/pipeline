@@ -57,7 +57,7 @@ pipeline {
             steps {
                 echo 'Logging In.....'
                 sh '''
-                heroku login
+                export HEROKU_API_KEY=$HEROKU_API_KEY
                 heroku container:login
                 heroku container:push --recursive
                 heroku container:release web api db router
