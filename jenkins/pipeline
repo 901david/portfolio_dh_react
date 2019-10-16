@@ -4,8 +4,8 @@ pipeline {
 
         stage('Pre-Build') {
             steps{
-            echo 'Logging Into Heroku......'
-            sh 'heroku container:login'
+            echo 'Logging Into Docker......'
+            echo '"$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"'
             }
         }
 
@@ -24,23 +24,13 @@ pipeline {
         stage('Build-Prod-Web') {
             steps {
                 echo 'Building Prod Web Image....'
-                sh 'docker build -t registry.heroku.com/portfolio-client-staged/client -f ./portfolio-client/Dockerfile.client ./portfolio-client'
-            }
-        }
-
-        stage('Deploy-Prod-Web') {
-            steps {
-                echo 'Deploying Prod Web Image....'
-                sh '''
-                heroku container:push client --app=portfolio-client-staged 
-                heroku container:client --app=portfolio-client-staged
-                '''
+                sh 'docker build -t 4990814/portfolio-client-staged -f ./portfolio-client/Dockerfile.client ./portfolio-client'
             }
         }
 
         stage('Build-Api') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-api-staged/api -f ./api/Dockerfile.api ./api'
+                sh 'docker build -t 4990814/portfolio-api-staged -f ./api/Dockerfile.api ./api'
             }
         }
 
@@ -50,19 +40,9 @@ pipeline {
             }
         }
 
-        stage('Deploy-API') {
-            steps {
-                echo 'Deploying Prod Web Image....'
-                sh '''
-                heroku container:push api --app=portfolio-api-staged 
-                heroku container:api --app=portfolio-api-staged
-                '''
-            }
-        }
-
         stage('Build-Db-Server') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-db-staged/db -f ./db-server/Dockerfile.db ./db-server'
+                sh 'docker build -t 4990814/portfolio-db-staged -f ./db-server/Dockerfile.db ./db-server'
             }
         }
 
@@ -72,28 +52,20 @@ pipeline {
             }
         }
 
-        stage('Deploy-Db-Server') {
-            steps {
-                echo 'Deploying Db Server Image....'
-                sh '''
-                heroku container:push db --app=portfolio-db-staged 
-                heroku container:db --app=portfolio-db-staged
-                '''
-            }
-        }
-
         stage('Build Router') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-staged/router -f ./router/Dockerfile.router ./router'
+                sh 'docker build -t 4990814/portfolio-router-staged -f ./router/Dockerfile.router ./router'
             }
         }
 
-        stage('Deploy-router') {
+        stage('Push Staged Images to Prod') {
             steps {
-                echo 'Deploying Router Image....'
+                echo 'Pushing Images to Docker Hub'
                 sh '''
-                heroku container:push router --app=portfolio-staged 
-                heroku container:router --app=portfolio-staged
+                docker push 4990814/portfolio-client-staged
+                docker push 4990814/portfolio-api-staged
+                docker push 4990814/portfolio-db-staged
+                docker push 4990814/portfolio-router-staged
                 '''
             }
         }
