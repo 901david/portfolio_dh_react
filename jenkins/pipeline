@@ -2,6 +2,11 @@ pipeline {
     agent any
     stages {
 
+        stage('Pre-Build') {
+            echo 'Logging Into Heroku......'
+            sh 'heroku container:login'
+        }
+
         stage('Build-Web-Test') {
             steps {
                 sh '''
@@ -23,6 +28,16 @@ pipeline {
             }
         }
 
+        stage('Deploy-Prod-Web') {
+            steps {
+                echo 'Deploying Prod Web Image....'
+                sh '''
+                heroku container:push client --app=portfolio-client-staged 
+                heroku container:client --app=portfolio-client-staged
+                '''
+            }
+        }
+
         stage('Build-Api') {
             steps {
                 sh 'docker build -t registry.heroku.com/portfolio-staged/api -f ./api/Dockerfile.api ./api'
@@ -32,6 +47,16 @@ pipeline {
         stage('Api-Tests') {
             steps {
                 echo 'Running API Tests'
+            }
+        }
+
+        stage('Deploy-API') {
+            steps {
+                echo 'Deploying Prod Web Image....'
+                sh '''
+                heroku container:push api --app=portfolio-api-staged 
+                heroku container:api --app=portfolio-api-staged
+                '''
             }
         }
 
@@ -47,19 +72,28 @@ pipeline {
             }
         }
 
-        stage('Build Router') {
+        stage('Deploy-Db-Server') {
             steps {
-                sh 'docker build -t registry.heroku.com/portfolio-staged/web -f ./router/Dockerfile.web ./router'
+                echo 'Deploying Db Server Image....'
+                sh '''
+                heroku container:push db --app=portfolio-db-staged 
+                heroku container:db --app=portfolio-db-staged
+                '''
             }
         }
 
-        stage('Update-Docker-Hub-Images') {
+        stage('Build Router') {
             steps {
-                echo 'Logging In......'
+                sh 'docker build -t registry.heroku.com/portfolio-staged/router -f ./router/Dockerfile.router ./router'
+            }
+        }
+
+        stage('Deploy-router') {
+            steps {
+                echo 'Deploying Router Image....'
                 sh '''
-                heroku container:login 
-                heroku container:push --recursive --app=portfolio-staged 
-                heroku container:release web api db client --app=portfolio-staged
+                heroku container:push router --app=portfolio-staged 
+                heroku container:router --app=portfolio-staged
                 '''
             }
         }
