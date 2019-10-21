@@ -5,19 +5,22 @@
       "name": "client",
       "image": "4990814/portfolio-client-staged",
       "hostname": "client",
-      "essential": false
+      "essential": false,
+      "memory": "6"
     },
     {
       "name": "api",
       "image": "4990814/portfolio-api-staged",
       "hostname": "api",
-      "essential": false
+      "essential": false,
+      "memory": "2"
     },
     {
       "name": "db",
       "image": "4990814/portfolio-db-staged",
       "hostname": "db",
-      "essential": false
+      "essential": false,
+      "memory": "2"
     },
     {
       "name": "router",
@@ -30,6 +33,7 @@
           "containerPort": 80
         }
       ],
+      "memory": "4",
       "links": ["client", "api", "db"]
     }
   ]
