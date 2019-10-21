@@ -55,15 +55,8 @@ pipeline {
             steps {
                 
                 echo '"$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"'
-                sh'docker status'
-                sh '''
-                echo 'Logging Into Docker......'
-                echo 'Pushing Images to Docker Hub'
-                docker push 4990814/portfolio-client-staged
-                docker push 4990814/portfolio-api-staged
-                docker push 4990814/portfolio-db-staged
-                docker push 4990814/portfolio-router-staged
-                '''
+                sh'docker logout'
+                
             }
         }
     }
