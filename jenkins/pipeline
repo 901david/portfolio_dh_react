@@ -55,8 +55,6 @@ pipeline {
             steps {
                 
                 sh'echo "'$DOCKER_PASSWORD' | docker login -u '$DOCKER_ID'"'
-                sh'docker logout'
-                
             }
         }
     }
