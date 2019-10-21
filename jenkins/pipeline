@@ -53,10 +53,11 @@ pipeline {
 
         stage('Push Staged Images to Prod') {
             steps {
-                echo 'Logging Into Docker......'
-            echo '"$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"'
-                echo 'Pushing Images to Docker Hub'
+                
                 sh '''
+                echo 'Logging Into Docker......'
+                echo '"$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"'
+                echo 'Pushing Images to Docker Hub'
                 docker push 4990814/portfolio-client-staged
                 docker push 4990814/portfolio-api-staged
                 docker push 4990814/portfolio-db-staged
