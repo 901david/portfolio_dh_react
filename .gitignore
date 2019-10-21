@@ -5,3 +5,8 @@ api/.env
 db-server/.env
 portfolio-client/.env
 buildProj.sh
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

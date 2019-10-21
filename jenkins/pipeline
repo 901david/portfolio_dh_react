@@ -51,7 +51,7 @@ pipeline {
             }
         }
 
-        stage('Push Staged Images to Prod') {
+        stage('Push Staged Docker Hub') {
             steps {
                 echo 'LOGGING INTO DOCKER................'
                 sh'cat ~/my_creds.txt | docker login --username 4990814 --password-stdin'
