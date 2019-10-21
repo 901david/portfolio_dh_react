@@ -55,6 +55,13 @@ pipeline {
             steps {
                 echo 'LOGGING INTO DOCKER................'
                 sh'cat ~/my_creds.txt | docker login --username 4990814 --password-stdin'
+                sh '''
+                echo 'Pushing Images to Docker Hub'
+                docker push 4990814/portfolio-client-staged
+                docker push 4990814/portfolio-api-staged
+                docker push 4990814/portfolio-db-staged
+                docker push 4990814/portfolio-router-staged
+                '''
             }
         }
     }
