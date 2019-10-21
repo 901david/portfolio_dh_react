@@ -54,7 +54,7 @@ pipeline {
         stage('Push Staged Images to Prod') {
             steps {
                 
-                sh'"$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"'
+                sh'echo "'$DOCKER_PASSWORD' | docker login -u '$DOCKER_ID'"'
                 sh'docker logout'
                 
             }
