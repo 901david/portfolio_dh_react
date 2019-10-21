@@ -53,8 +53,8 @@ pipeline {
 
         stage('Push Staged Images to Prod') {
             steps {
-                
-                sh'docker login --username="$DOCKER_USER" --password="$DOCKER_PASS"'
+                echo 'LOGGING INTO DOCKER................'
+                sh'cat ~/my_creds.txt | docker login --username 4990814 --password-stdin'
             }
         }
     }
