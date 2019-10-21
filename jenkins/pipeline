@@ -2,13 +2,6 @@ pipeline {
     agent any
     stages {
 
-        stage('Pre-Build') {
-            steps{
-            echo 'Logging Into Docker......'
-            echo '"$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"'
-            }
-        }
-
         stage('Build-Web-Test') {
             steps {
                 sh 'docker build -t 4990814/test-port-build -f portfolio-client/Dockerfile-dev ./portfolio-client'
@@ -60,6 +53,8 @@ pipeline {
 
         stage('Push Staged Images to Prod') {
             steps {
+                echo 'Logging Into Docker......'
+            echo '"$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"'
                 echo 'Pushing Images to Docker Hub'
                 sh '''
                 docker push 4990814/portfolio-client-staged
