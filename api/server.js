@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === "development") {
 const express = require("express");
 const mailgunRouter = require("./Routes/mailgun");
 const app = express();
-const PORT = process.env.PORT || 8051;
+const PORT = 8051;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
