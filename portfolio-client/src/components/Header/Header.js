@@ -87,7 +87,7 @@ const Header = ({ history }) => {
           fontSizeSM={1}
           letterSpacingSM={10}
         >
-          David Hammond test
+          David Hammond
         </Tagline>
         <Tagline
           onClick={handleContactNavigation}
