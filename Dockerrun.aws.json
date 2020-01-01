@@ -12,7 +12,8 @@
           "hostPort": 3000,
           "containerPort": 3000
         }
-      ]
+      ],
+      "links": ["router"]
     },
     {
       "name": "api",
@@ -25,7 +26,8 @@
           "hostPort": 8051,
           "containerPort": 8051
         }
-      ]
+      ],
+      "links": ["router"]
     },
     {
       "name": "db",
@@ -38,7 +40,8 @@
           "hostPort": 8050,
           "containerPort": 8050
         }
-      ]
+      ],
+      "links": ["router"]
     },
     {
       "name": "router",
