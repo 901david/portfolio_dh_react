@@ -4,7 +4,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const HeaderImage = "../../images/topBar_edited.jpg";
-const HeadShotImage = "../../images/head_edited.jpg";
+const HeadShotImage = "../images/head_edited.jpg";
 
 const HeaderWrapper = styled.div`
   display: flex;

@@ -13,6 +13,7 @@ import {
   EducationWrapper,
   ShortenedStandardTitle
 } from "./Education-Components";
+import CertificationRenderer from "../../components/certification-renderer";
 
 const EducationInfo = () => (
   <EducationInfoWrapper>
@@ -38,6 +39,12 @@ const EducationInfo = () => (
         );
       })}
     </EducationWrapper>
+    <CertificationRenderer
+      title="Certifications"
+      degree="AWS Dev/Ops Professional"
+      dates="Valid 2020-2023"
+      description="AWS Professional Badge obtained"
+    />
     <EducationWrapper>
       <InformalEducationRenderer courseList={INFORMAL_EDUCATION_DATA} />
     </EducationWrapper>
