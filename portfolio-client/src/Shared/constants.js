@@ -178,3 +178,81 @@ export const PATH_MAP = {
   "/projects": 2,
   "/education": 1
 };
+
+export const PORTFOLIO_DATA = [
+  {
+    _id: {
+      $oid: "5d727bd7f45221001e5cfe34"
+    },
+    images: [
+      "../images/portimages/pendant/pendantwrapper.png",
+      "../images/portimages/pendant/pendantfeaturedPiece.png",
+      "../images/portimages/pendant/pendantwrapper.png",
+      "../images/portimages/pendant/pendantsalemodal.png",
+      "../images/portimages/pendant/pendantcontact.png",
+      "../images/portimages/pendant/pendantcalendar.png",
+      "../images/portimages/pendant/pendantcalendarevent.png",
+      "../images/portimages/pendant/pendantshoppingcart.png",
+      "../images/portimages/pendant/pendantaddevents.png",
+      "../images/portimages/pendant/pendantadmindelete.png"
+    ],
+    technology: [
+      "TypeScript",
+      "Angular",
+      "Express",
+      "Firebase/FirebaseAuth",
+      "HTML",
+      "CSS"
+    ],
+    projectTitle: "Pendant Wrapper",
+    description:
+      "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
+    imageFront: "../images/portimages/pendant/pendantwrapper.png",
+    imageBack: "../images/portimages/pendant/pandant.png",
+    githubLink: "",
+    liveSite: "http://pendantwrapper.com",
+    demoLink: "https://vimeo.com/254561669",
+    bitBucketLink: "",
+    __v: 0
+  },
+  {
+    _id: {
+      $oid: "5d8596df1223b9002f91e816"
+    },
+    images: [],
+    technology: ["Python"],
+    projectTitle: "Terminal Tic Tac Toe",
+    description:
+      "This is a very basic terminal tic tac toe application written in Python",
+    imageFront:
+      "https://www.recruiter.com/i/wp-content/uploads/2014/11/python-programming.jpg",
+    imageBack: "",
+    githubLink: "",
+    liveSite: "",
+    demoLink: "",
+    bitBucketLink:
+      "https://bitbucket.org/scriptscrawler/tic-tac-toe/src/master/",
+    __v: 0
+  },
+  {
+    _id: {
+      $oid: "5d92bb828fbc08001d575be7"
+    },
+    images: [
+      "../images/portimages/rps/rps_front.png",
+      "../images/portimages/rps/rps_3.png",
+      "../images/portimages/rps/rps_4.png"
+    ],
+    technology: ["Firebase", "JQuery", "HTML", "CSS"],
+    projectTitle: "Rock, Paper, Scissors",
+    description:
+      "This is a very basic multi-player rock paper scissors game. It allows two users to chat and play over the internet using firebase realtime database",
+    imageFront: "../images/portimages/rps/rps_front.png",
+    imageBack: "../images/portimages/rps/rps_back.png",
+    githubLink: "https://github.com/901david/RPS-Multiplayer",
+    liveSite: "https://901david.github.io/RPS-Multiplayer/",
+    demoLink: "",
+    bitBucketLink: "",
+    __v: 0
+  }
+];

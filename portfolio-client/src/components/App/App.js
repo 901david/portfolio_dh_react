@@ -10,6 +10,7 @@ import SkillsInfo from "../../pages/SkillsInfo";
 import EducationInfo from "../../pages/EducationInfo";
 import Projects from "../../pages/Projects/Projects";
 import Landing from "../../pages/Landing/Landing";
+import { PORTFOLIO_DATA } from "../../Shared/constants";
 
 const MainAppWrapper = styled.div`
   display: grid;
@@ -41,16 +42,16 @@ const MainViewWrapper = styled.div`
 `;
 
 const App = props => {
-  const [portfolioData, setPortfolioData] = useState(null);
+  const [portfolioData, setPortfolioData] = useState(PORTFOLIO_DATA);
   const [viewingMainContent, setMainContentBeingViewed] = useState(false);
   const [landingViewedOnce, setLandingViewed] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get("/data")
-      .then(({ data: { data } }) => setPortfolioData(data))
-      .catch(err => console.log(err));
-  }, [axios, setPortfolioData]);
+  // useEffect(() => {
+  //   axios
+  //     .get("/data")
+  //     .then(({ data: { data } }) => setPortfolioData(data))
+  //     .catch(err => console.log(err));
+  // }, [axios, setPortfolioData]);
 
   return (
     <MainAppWrapper>
