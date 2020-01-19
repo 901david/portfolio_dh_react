@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { faTimes, faDesktop, faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faBitbucket } from "@fortawesome/free-brands-svg-icons";
 import _ from "lodash";
+import { useMappedState } from "react-use-mapped-state";
 
 import {
   CloseContainer,
@@ -30,7 +31,10 @@ const LargeProjectContent = ({
   projectTitle,
   handleProjectToggle
 }) => {
-  const [currentLargeImageIndex, setCurrentLargeImageIndex] = useState(0);
+  const [{ currentLargeImageIndex }, valueSetter] = useMappedState({
+    currentLargeImageIndex: 0
+  });
+
   return (
     <div className="largeProjectContent">
       <LargeImageProjectTitle>{projectTitle}</LargeImageProjectTitle>
@@ -80,7 +84,7 @@ const LargeProjectContent = ({
           <PreviewImage
             key={_.uniqueId("prev-img-")}
             loaded={index === currentLargeImageIndex}
-            onClick={() => setCurrentLargeImageIndex(index)}
+            onClick={() => valueSetter("currentLargeImageIndex", index)}
             src={img}
           />
         ))}

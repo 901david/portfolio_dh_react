@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { useMappedState } from "react-use-mapped-state";
 
 import Header from "../Header";
 import IconBar from "../IconBar/IconBar";
@@ -42,16 +43,25 @@ const MainViewWrapper = styled.div`
 `;
 
 const App = props => {
-  const [portfolioData, setPortfolioData] = useState(PORTFOLIO_DATA);
-  const [viewingMainContent, setMainContentBeingViewed] = useState(false);
-  const [landingViewedOnce, setLandingViewed] = useState(false);
+  const [
+    { portfolioData, viewingMainContent, landingViewedOnce },
+    valueSetter
+  ] = useMappedState({
+    portfolioData: PORTFOLIO_DATA,
+    viewingMainContent: false,
+    landingViewedOnce: false
+  });
 
   // useEffect(() => {
   //   axios
   //     .get("/data")
-  //     .then(({ data: { data } }) => setPortfolioData(data))
+  //     .then(({ data: { data } }) => valueSetter('portfolioData',data))
   //     .catch(err => console.log(err));
-  // }, [axios, setPortfolioData]);
+  // }, [axios, valueSetter]);
+
+  const setMainContentBeingViewed = bool =>
+    valueSetter("viewingMainContent", bool);
+  const setLandingViewed = bool => valueSetter("landingViewedOnce", bool);
 
   return (
     <MainAppWrapper>

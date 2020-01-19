@@ -1,6 +1,8 @@
-import React, { useState, createRef } from "react";
+import React, { createRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons";
+import { useMappedState } from "react-use-mapped-state";
+
 import LargeProjectContent from "./LargeProjectContent";
 import {
   ProjectWrapper,
@@ -23,12 +25,14 @@ const Project = ({
   technology,
   cardBackground
 }) => {
-  const [largeProjectOpen, setLargeProjectOpen] = useState(false);
-  const [largeProjectClosed, setLargeProjectClosed] = useState(false);
   const [
-    largeContentStartingPosition,
-    setLargeContentStartingPosition
-  ] = useState({ top: null, left: null });
+    { largeProjectOpen, largeProjectClosed, largeContentStartingPosition },
+    valueSetter
+  ] = useMappedState({
+    largeProjectOpen: false,
+    largeProjectClosed: false,
+    largeContentStartingPosition: { top: null, left: null }
+  });
   const titleRef = createRef();
 
   const handleProjectToggle = e => {
@@ -40,16 +44,19 @@ const Project = ({
     } = titleRef.current.getBoundingClientRect();
 
     if (largeProjectOpen) {
-      setLargeContentStartingPosition({
+      valueSetter("largeContentStartingPosition", {
         top: endTop,
         left: endLeft + endWidth / 2
       });
-      setLargeProjectOpen(false);
-      setLargeProjectClosed(true);
+      valueSetter("largeProjectOpen", false);
+      valueSetter("largeProjectClosed", true);
     } else {
-      setLargeContentStartingPosition({ top: startTop, left: startLeft });
-      setLargeProjectOpen(true);
-      setLargeProjectClosed(false);
+      valueSetter("largeContentStartingPosition", {
+        top: startTop,
+        left: startLeft
+      });
+      valueSetter("largeProjectOpen", true);
+      valueSetter("largeProjectClosed", false);
     }
   };
 

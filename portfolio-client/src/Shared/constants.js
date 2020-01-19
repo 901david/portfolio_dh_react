@@ -74,10 +74,10 @@ export const iconMap = [
 ];
 
 export const MISSION_STATEMENT =
-  "I am a full-stack developer with a heavy interest in creating and consuming API's as well as creating unique and logical UI/UX.  My diverse background, based in video editing and the legal field, allows me to have a creative, open mind, yet be concise and detail-oriented. I am assertive in approaching problems and can take the lead in any situation, but can also constructively take criticism to improve my performance. I can handle high-stress environments while maintaining a cool head and a sense of urgency in my work. I can play the role of a team member and lead the team, both in a successful manner. My goal is to create applications that are built on efficient and effective code while working with a team of developers.";
+  "Full-Stack Software Engineer with interest in the full lifecycle of software development. Most of my work has been focused on front-end engineering, with a high interest in Dev/Ops, recently obtaining the AWS Dev/Ops Professional Certification.  I enjoy tackling challenging problems in an efficient manner and prefer to have tests to ensure that the code is accurate.";
 
 export const TECHNICAL_SKILLS =
-  "JavaScript, TypeScript, Python,  Java, React, JSX, TSX, Angular, jQuery, HTML, CSS, Handlebars, Bootstrap, Responsive Design, Redux, Jest, Enzyme, Mocha, Chai,  Node.js, REST, Express,  Git, Webpack, Firebase, MySQL, Sequelize, MongoDB, Mongoose,  GraphQL, Apollo.";
+  "Javascript, TypeScript, Python,  React, Angular, AngularJs,  jQuery, HTML, CSS, Handlebars, Bootstrap, Responsive Design, Redux, Jest, Enzyme, Mocha, Chai,  Node.js, REST, Git, MySQL, Sequelize, MongoDB, Mongoose,  GraphQL, Apollo, Docker, Amazon Web Services";
 
 export const ADDITIONAL_SKILLS =
   "Final Cut Pro, Motion, Premiere Pro, After Effects, Photoshop, Character Animator, Illustrator, Encore";

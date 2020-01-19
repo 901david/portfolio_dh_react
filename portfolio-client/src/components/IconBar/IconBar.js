@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled, { keyframes, css } from "styled-components";
 import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useMappedState } from "react-use-mapped-state";
 
 import { iconMap, PATH_MAP } from "../../Shared/constants";
 
@@ -151,7 +152,9 @@ const NavItemWrapper = styled.div`
 `;
 
 const IconBar = ({ history, location: { pathname }, viewingMainContent }) => {
-  const [currentlySelectedIcon, setIconState] = useState(pathname || 0);
+  const [{ currentlySelectedIcon }, valueSetter] = useMappedState({
+    currentlySelectedIcon: pathname || 0
+  });
 
   const handleNavigation = (path, url) => {
     if (path) {
@@ -164,9 +167,10 @@ const IconBar = ({ history, location: { pathname }, viewingMainContent }) => {
   useEffect(() => {
     const areWeStillOnSamePage = currentlySelectedIcon === PATH_MAP[pathname];
     if (!areWeStillOnSamePage) {
-      setIconState(PATH_MAP[pathname]);
+      valueSetter("currentlySelectedIcon", PATH_MAP[pathname]);
     }
-  }, [pathname, PATH_MAP, currentlySelectedIcon, setIconState]);
+  }, [pathname, PATH_MAP, currentlySelectedIcon, valueSetter]);
+
   return (
     <>
       <IconBarWrapper mainContentBeingViewed={viewingMainContent}>

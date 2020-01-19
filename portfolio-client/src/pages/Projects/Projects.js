@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
+import { useMappedState } from "react-use-mapped-state";
 
 import Project from "./Project";
 import {
@@ -13,19 +14,22 @@ import {
 } from "./Projects-Components";
 
 const Projects = ({ portfolioData }) => {
-  const [projects, setProjectData] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [{ projects, currentIndex }, valueSetter] = useMappedState({
+    projects: [],
+    currentIndex: 0
+  });
 
   useEffect(() => {
-    if (portfolioData) setProjectData(portfolioData);
-  }, [portfolioData]);
+    if (portfolioData) valueSetter("projects", portfolioData);
+  }, [portfolioData, valueSetter]);
 
   const handleArrowClick = () => {
     let nextIndex = currentIndex;
     if (currentIndex + 1 === projects.length) nextIndex = 0;
     else nextIndex++;
-    setCurrentIndex(nextIndex);
+    valueSetter("currentIndex", nextIndex);
   };
+
   return (
     <ProjectsWrapper>
       <IconWrapper amount={1} position={"flex-start"} hover={true}>

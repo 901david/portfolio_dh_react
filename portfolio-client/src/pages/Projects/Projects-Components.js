@@ -12,6 +12,17 @@ export const CloseContainer = styled.div`
   position: absolute;
   top: 1rem;
   left: 1rem;
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 `;
 
 export const PreviewImage = styled.img`
