@@ -199,16 +199,14 @@ export const PORTFOLIO_DATA = [
       $oid: "5d727bd7f45221001e5cfe34"
     },
     images: [
-      "../images/portimages/pendant/pendantwrapper.png",
-      "../images/portimages/pendant/pendantfeaturedPiece.png",
-      "../images/portimages/pendant/pendantwrapper.png",
-      "../images/portimages/pendant/pendantsalemodal.png",
-      "../images/portimages/pendant/pendantcontact.png",
-      "../images/portimages/pendant/pendantcalendar.png",
-      "../images/portimages/pendant/pendantcalendarevent.png",
-      "../images/portimages/pendant/pendantshoppingcart.png",
-      "../images/portimages/pendant/pendantaddevents.png",
-      "../images/portimages/pendant/pendantadmindelete.png"
+      "../images/portimages/pendant/pendant-1.png",
+      "../images/portimages/pendant/pendant-2.png",
+      "../images/portimages/pendant/pendant-3.png",
+      "../images/portimages/pendant/pendant-4.png",
+      "../images/portimages/pendant/pendant-5.png",
+      "../images/portimages/pendant/pendant-6.png",
+      "../images/portimages/pendant/pendant-7.png",
+      "../images/portimages/pendant/pendant-8.png"
     ],
     technology: [
       "TypeScript",
@@ -223,7 +221,7 @@ export const PORTFOLIO_DATA = [
     cardBackground: "black",
     description:
       "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
-    imageFront: "../images/portimages/pendant/pendantwrapper.png",
+    imageFront: "../images/portimages/pendant/pendant-3.png",
     imageBack: "../images/portimages/pendant/pandant.png",
     githubLink: "",
     liveSite: "https://pendantwrapper.com",
