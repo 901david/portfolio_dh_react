@@ -132,7 +132,7 @@ export const ProjectWrapper = styled.div`
     height: 30rem;
 
     &_side {
-      background: orangered;
+      background: ${({ cardBackground }) => cardBackground};
       height: 100%;
       width: 100%;
       transition: all 0.8s ease;
@@ -152,10 +152,11 @@ export const ProjectWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        background-repeat: no-repeat;
       }
 
       &_back {
-        background: white;
+        background: ${({ cardBackground }) => cardBackground};
         color: black;
         transform: rotateY(180deg);
         position: relative;
@@ -240,6 +241,7 @@ export const ProjectDetails = styled.div`
   color: white;
   height: 100%;
   z-index: 6;
+  background: ${({ cardBackground }) => cardBackground}
 
   > p:first-child {
     text-decoration: underline;

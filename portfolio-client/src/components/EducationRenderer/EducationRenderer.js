@@ -7,11 +7,6 @@ export const TitleWrapper = styled.div`
   > * {
     margin-bottom: 0;
   }
-
-  > span {
-    font-size: 1rem;
-    letter-spacing: 0.08rem;
-  }
 `;
 
 const DegreeWrapper = styled.p`
@@ -29,7 +24,7 @@ const EducationRenderer = ({ title, degree, dates, description }) => (
   <div>
     <TitleWrapper>
       <div>{title}</div>
-      <span>{dates}</span>
+      <DegreeWrapper>{dates}</DegreeWrapper>
     </TitleWrapper>
     <DegreeWrapper>{degree}</DegreeWrapper>
     <Description>{description}</Description>

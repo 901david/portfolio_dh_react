@@ -41,9 +41,8 @@ const EducationInfo = () => (
     </EducationWrapper>
     <CertificationRenderer
       title="Certifications"
-      degree="AWS Dev/Ops Professional"
-      dates="Valid 2020-2023"
-      description="AWS Professional Badge obtained"
+      degree="AWS Certified DevOps Engineer - Professional"
+      dates="Jan 06, 2020 - Jan 07, 2023"
     />
     <EducationWrapper>
       <InformalEducationRenderer courseList={INFORMAL_EDUCATION_DATA} />

@@ -22,7 +22,7 @@ const OtherEducation = props => (
     <StandardTitle>Other Education</StandardTitle>
     <CourseItem>
       <FontAwesomeIcon icon={faJs} />
-      <span>Testing Javascrispant - Kent C. Dodds</span>
+      <span>Testing Javascript - Kent C. Dodds</span>
     </CourseItem>
   </CourseItemsWrapperOtherEducation>
 );

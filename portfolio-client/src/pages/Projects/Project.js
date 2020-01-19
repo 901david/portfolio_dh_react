@@ -20,7 +20,8 @@ const Project = ({
   githubLink,
   liveSite,
   description,
-  technology
+  technology,
+  cardBackground
 }) => {
   const [largeProjectOpen, setLargeProjectOpen] = useState(false);
   const [largeProjectClosed, setLargeProjectClosed] = useState(false);
@@ -70,6 +71,7 @@ const Project = ({
       projectClosing={largeProjectClosed}
       backgroundSrcFront={imageFront}
       largeContentStartingPosition={largeContentStartingPosition}
+      cardBackground={cardBackground}
     >
       <LargeProjectContent {...largeDisplayProps} />
 
@@ -85,7 +87,7 @@ const Project = ({
               icon={faExternalLinkSquareAlt}
             />
           </ProjectTitleWrapper>
-          <ProjectDetails>
+          <ProjectDetails cardBackground={cardBackground}>
             <BackCardBackgroundImage imageBack={imageBack} />
             <p>Tech Used:</p>
             <p>{technology.join(", ")}</p>

@@ -14,7 +14,9 @@ import {
   faReact,
   faJsSquare,
   faPython,
-  faJava
+  faJava,
+  faJenkins,
+  faAws
 } from "@fortawesome/free-brands-svg-icons";
 
 export const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -105,6 +107,18 @@ export const FORMAL_EDUCATION_DATA = [
 ].reverse();
 
 export const INFORMAL_EDUCATION_DATA = [
+  {
+    name: "AWS Certified DevOps Engineer Professional 2020 - Hands On!",
+    icon: faAws
+  },
+  {
+    name: "AWS Certified DevOps Engineer: Get 3 Certifications 2019",
+    icon: faAws
+  },
+  {
+    name: "Jenkins, From Zero To Hero: Become a DevOps Jenkins Master",
+    icon: faJenkins
+  },
   {
     name: "Docker and Kubernetes: The Complete Guide",
     icon: faLaptopCode
@@ -202,16 +216,38 @@ export const PORTFOLIO_DATA = [
       "Express",
       "Firebase/FirebaseAuth",
       "HTML",
-      "CSS"
+      "CSS",
+      "AWS"
     ],
     projectTitle: "Pendant Wrapper",
+    cardBackground: "black",
     description:
       "This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular, utilizing a node express server. In addition, I am persisting data using Firebase to store calendar events saved by the owner.  Lastly, I am using Firebase Auth for authentification for the owner to manage event creation and deletions.",
     imageFront: "../images/portimages/pendant/pendantwrapper.png",
     imageBack: "../images/portimages/pendant/pandant.png",
     githubLink: "",
-    liveSite: "http://pendantwrapper.com",
-    demoLink: "https://vimeo.com/254561669",
+    liveSite: "https://pendantwrapper.com",
+    bitBucketLink: "",
+    __v: 0
+  },
+  {
+    _id: {
+      $oid: "5d92bb828fbc08001d575be742342"
+    },
+    images: [
+      "../images/portimages/mappedstate/react.png",
+      "../images/portimages/mappedstate/npm.png"
+    ],
+    technology: ["React", "Npm"],
+    projectTitle: "useMappedState React Hook",
+    cardBackground: "black",
+    description:
+      "A custom React hook which allows you to pass an object of key values pairs which will be managed by a useState hook and simply returns your values from state to use and a simple value setter to modify state.",
+    imageFront: "../images/portimages/mappedstate/react.png",
+    imageBack: "../images/portimages/mappedstate/npm.png",
+    githubLink: "https://github.com/901david/use-mapped-state",
+    liveSite: "https://www.npmjs.com/package/react-use-mapped-state",
+    demoLink: "",
     bitBucketLink: "",
     __v: 0
   },
@@ -219,14 +255,14 @@ export const PORTFOLIO_DATA = [
     _id: {
       $oid: "5d8596df1223b9002f91e816"
     },
-    images: [],
+    images: ["../images/portimages/tictac/tictac.png"],
     technology: ["Python"],
+    cardBackground: "white",
     projectTitle: "Terminal Tic Tac Toe",
     description:
       "This is a very basic terminal tic tac toe application written in Python",
-    imageFront:
-      "https://www.recruiter.com/i/wp-content/uploads/2014/11/python-programming.jpg",
-    imageBack: "",
+    imageFront: "../images/portimages/tictac/python.png",
+    imageBack: "../images/portimages/tictac/pythontwo.jpg",
     githubLink: "",
     liveSite: "",
     demoLink: "",
@@ -245,6 +281,7 @@ export const PORTFOLIO_DATA = [
     ],
     technology: ["Firebase", "JQuery", "HTML", "CSS"],
     projectTitle: "Rock, Paper, Scissors",
+    cardBackground: "white",
     description:
       "This is a very basic multi-player rock paper scissors game. It allows two users to chat and play over the internet using firebase realtime database",
     imageFront: "../images/portimages/rps/rps_front.png",
