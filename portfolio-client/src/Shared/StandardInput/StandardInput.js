@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
+import { useMappedState } from "react-use-mapped-state";
 
 import { StandardInputWrapper } from "./StandardInput-Components";
 
@@ -10,27 +11,33 @@ const StandardInput = ({
   inputId,
   type,
   label,
-  forwardedRef,
-  blurFn,
   changeFn,
-  userInput
+  userInput,
+  isErrored
 }) => {
-  const inputRef = forwardedRef;
+  const inputRef = useRef();
+
+  const [{ touched }, valueSetter] = useMappedState({
+    touched: false
+  });
 
   const handleOnChange = evt => {
+    if (touched === false) valueSetter("touched", true);
     if (typeof changeFn === "function") {
-      changeFn(evt.target.value, evt.target.name);
+      changeFn(evt.target.name, evt.target.value);
     }
   };
 
-  const handleOnBlur = evt => {
-    if (typeof blurFn === "function") {
-      blurFn(evt.target.name);
+  const handleErrors = evt => {
+    if (isErrored(userInput, evt.target.name)) {
+      inputRef.current.style["border-bottom"] = "5px solid red";
+    } else {
+      inputRef.current.style["border-bottom"] = "5px solid white";
     }
   };
 
   return (
-    <StandardInputWrapper input={userInput}>
+    <StandardInputWrapper touched={touched} isErrored={isErrored}>
       <input
         ref={inputRef}
         type={type}
@@ -38,7 +45,7 @@ const StandardInput = ({
         id={inputId}
         value={userInput}
         onChange={handleOnChange}
-        onBlur={handleOnBlur}
+        onBlur={handleErrors}
       />
       <label htmlFor={name} id={labelId}>
         {label}

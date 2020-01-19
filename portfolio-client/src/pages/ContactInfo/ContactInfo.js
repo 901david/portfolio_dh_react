@@ -1,4 +1,5 @@
-import React, { useState, createRef } from "react";
+import React from "react";
+import { useMappedState } from "react-use-mapped-state";
 
 import StandardInput from "../../Shared/StandardInput";
 import StandardButton from "../../Shared/StandardButton/StandardButton";
@@ -12,106 +13,94 @@ import {
 } from "./Contact-Components";
 
 const ContactInfo = () => {
-  const getNewMap = () => {
-    const fields = ["yourEmail"];
-    return [
-      Array(3)
-        .fill(0)
-        .map((_, i) => fields[i])
-    ];
-  };
-
-  const [inputMap, setInputMap] = useState(new Map(getNewMap()));
-  const [submitFailed, showFailureError] = useState(false);
-  const refMap = {
-    yourEmail: createRef(),
-    subject: createRef(),
-    body: createRef()
-  };
+  const [
+    {
+      email,
+      subject,
+      body,
+      submitFailed,
+      hasemailErrors,
+      hassubjectErrors,
+      hasbodyErrors
+    },
+    valueSetter
+  ] = useMappedState({
+    email: "",
+    subject: "",
+    body: "",
+    submitFailed: false,
+    hasemailErrors: false,
+    hassubjectErrors: false,
+    hasbodyErrors: false
+  });
 
   const submissionFailed = () => {
-    showFailureError(true);
+    valueSetter(submitFailed, true);
     const showFor = setTimeout(() => {
-      showFailureError(false);
+      valueSetter(submitFailed, false);
       clearTimeout(showFor);
     }, 3000);
   };
 
-  const handleSendEmail = () => {
-    const {
-      yourEmail: {
-        current: { value: email }
-      },
-      subject: {
-        current: { value: subject }
-      },
-      body: {
-        current: { value: body }
-      }
-    } = refMap;
-
-    axios
-      .post("/api/contact/", { email, subject, body })
-      .then(() => {
-        setInputMap(getNewMap());
-      })
-      .catch(err => {
-        console.log(err);
-        submissionFailed();
-      });
-  };
-
-  const typeMap = {
-    send: handleSendEmail,
-    clear: () => {
-      setInputMap(getNewMap());
-      clearValidation();
+  const handleSendEmail = async () => {
+    try {
+      await axios.post("/api/contact/", { email, subject, body });
+      valueSetter("email", "");
+      valueSetter("subject", "");
+      valueSetter("body", "");
+    } catch (err) {
+      console.error(err);
+      submissionFailed();
     }
   };
-  const handleClick = type => {
-    const funcToExec = typeMap[type];
-    if (funcToExec) {
-      funcToExec();
-    }
-  };
-
-  const handleEmailValidation = name => {
-    if (inputMap.has(name)) {
-      const userInput = inputMap.get(name);
-      if (!emailValidation.exec(userInput)) {
-        refMap[name].current.style["border-bottom"] = "5px solid red";
-      } else {
-        refMap[name].current.style["border-bottom"] = "5px solid white";
-      }
-    }
-  };
-
-  // const handleTextValidation = name => {
-  //   if (inputMap.has(name)) {
-  //     const userInput = inputMap.get(name);
-
-  //     if (userInput === undefined || userInput.length === 0) {
-  //       refMap[name].current.style["border-bottom"] = "5px solid red";
-  //     } else {
-  //       refMap[name].current.style["border-bottom"] = "5px solid white";
-  //     }
-  //   }
-  // };
 
   const clearValidation = inputRef => {
     inputRef.current.style["border-bottom"] = "5px solid white";
   };
 
-  const shouldSubmitBeDisabled = () => {
-    let disabled = false;
-    for (let val of inputMap.values()) {
-      if (!val) disabled = true;
-    }
-    return disabled;
+  const typeMap = {
+    send: handleSendEmail,
+    clear: clearValidation
   };
 
-  const handleOnInputChange = (val, name) => {
-    setInputMap(inputMap.set(name, val));
+  const handleClick = evt => {
+    const fn = typeMap[evt.target.textContent.toLowerCase()];
+    if (typeof fn === "function") {
+      fn();
+    }
+  };
+
+  const validateText = userInput => userInput === undefined || userInput === "";
+  const validateEmail = userInput => !emailValidation.exec(userInput);
+
+  const conditionMap = {
+    body: validateText,
+    email: validateEmail,
+    subject: validateText
+  };
+
+  const inErroredState = (userInput, name) => {
+    const condition = conditionMap[name];
+    if (condition(userInput)) {
+      valueSetter(`has${name}Errors`, true);
+      return true;
+    }
+    valueSetter(`has${name}Errors`, false);
+    return false;
+  };
+
+  const shouldSubmitBeDisabled = () => {
+    if (!email) return true;
+    if (!body) return true;
+    if (!subject) return true;
+    if (hasbodyErrors) return true;
+    if (hassubjectErrors) return true;
+    if (hasemailErrors) return true;
+    return false;
+  };
+
+  const handleOnInputChange = (name, val) => {
+    valueSetter(name, val);
   };
 
   return (
@@ -123,28 +112,25 @@ const ContactInfo = () => {
       )}
       <ContactTitle>Contact Me</ContactTitle>
       <StandardInput
-        name={"yourEmail"}
+        name={"email"}
         labelId={"yourEmailLabel"}
         inputId={"yourEmail"}
         type={"email"}
         label={"Your Email"}
-        forwardedRef={refMap["yourEmail"]}
         changeFn={handleOnInputChange}
-        blurFn={handleEmailValidation}
-        userInput={inputMap.get("yourEmail")}
+        isErrored={inErroredState}
+        userInput={email}
       />
-      {/* <StandardInput
+
+      <StandardInput
         name={"subject"}
         labelId={"subjectLabel"}
         inputId={"subject"}
         type={"text"}
         label={"Subject"}
-        shouldClear={clearData}
-        forwardedRef={refMap["subject"]}
-        cbClear={resetPub}
-        validator={handleTextValidation}
-        clearValidation={clearValidation}
-        blurFn={formHasBeenTouched}
+        isErrored={inErroredState}
+        changeFn={handleOnInputChange}
+        userInput={subject}
       />
       <StandardInput
         name={"body"}
@@ -152,25 +138,20 @@ const ContactInfo = () => {
         inputId={"body"}
         type={"textarea"}
         label={"Body"}
-        shouldClear={clearData}
-        forwardedRef={refMap["body"]}
-        cbClear={resetPub}
-        validator={handleTextValidation}
-        clearValidation={clearValidation}
-        blurFn={formHasBeenTouched}
-      /> */}
+        isErrored={inErroredState}
+        changeFn={handleOnInputChange}
+        userInput={body}
+      />
       <ButtonWrapper>
         <StandardButton
           text={"Send"}
-          clickHandler={shouldSubmitBeDisabled() ? handleClick : () => ({})}
-          value={"send"}
+          clickHandler={!shouldSubmitBeDisabled() ? handleClick : () => ({})}
           color={"green"}
           disabled={shouldSubmitBeDisabled()}
         />
         <StandardButton
           text={"Clear"}
-          clickHandler={() => handleClick("clear")}
-          value={"clear"}
+          clickHandler={handleClick}
           color={"red"}
         />
       </ButtonWrapper>

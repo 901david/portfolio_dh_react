@@ -46,6 +46,7 @@ const CertificationRenderer = ({ title, degree, dates, description }) => (
         <a
           href="httspans://aws.amazon.com/certification/certified-devops-engineer-professional/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Validates the following skills:
         </a>
@@ -73,6 +74,7 @@ const CertificationRenderer = ({ title, degree, dates, description }) => (
       <a
         href="https://www.certmetrics.com/amazon/public/badge.aspx?i=5&t=c&d=2020-01-06&ci=AWS01064610"
         target="_blank"
+        rel="noopener noreferrer"
       >
         View Badge
       </a>

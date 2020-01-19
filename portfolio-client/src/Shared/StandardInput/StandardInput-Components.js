@@ -8,8 +8,8 @@ export const StandardInputWrapper = styled.div`
   label {
     position: absolute;
     left: 0;
-    bottom: ${({ input }) => {
-      return input === "" ? "1.8rem" : "0.5rem";
+    bottom: ${({ touched, isErrored }) => {
+      return touched ? "1.8rem" : "0.5rem";
     }};
     font-style: italic;
     font-size: 1.5rem;
