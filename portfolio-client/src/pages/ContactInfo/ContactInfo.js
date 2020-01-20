@@ -8,6 +8,7 @@ import { emailValidation } from "../../Shared/constants";
 import {
   ContactInfoWrapper,
   Failure,
+  Success,
   ButtonWrapper,
   ContactTitle
 } from "./Contact-Components";
@@ -19,6 +20,7 @@ const ContactInfo = () => {
       subject,
       body,
       submitFailed,
+      submitSucceeded,
       hasemailErrors,
       hassubjectErrors,
       hasbodyErrors
@@ -31,29 +33,31 @@ const ContactInfo = () => {
     submitFailed: false,
     hasemailErrors: false,
     hassubjectErrors: false,
-    hasbodyErrors: false
+    hasbodyErrors: false,
+    submitSucceeded: false
   });
 
-  const submissionFailed = () => {
-    valueSetter(submitFailed, true);
+  const submissionStatus = key => {
+    valueSetter(key, true);
     const showFor = setTimeout(() => {
-      valueSetter(submitFailed, false);
+      valueSetter(key, false);
       clearTimeout(showFor);
-    }, 3000);
+    }, 5000);
   };
 
   const handleSendEmail = async () => {
     try {
       await axios.post(
-        "https://amgzjh5om7.execute-api.us-west-2.amazonaws.com/Prod",
+        "https://amgzjh5om7.execute-api.us-west-2.amazonaws.com/Prod/contactdavid",
         { email, subject, body }
       );
       valueSetter("email", "");
       valueSetter("subject", "");
       valueSetter("body", "");
+      submissionStatus("submitSucceeded");
     } catch (err) {
       console.error(err);
-      submissionFailed();
+      submissionStatus("submitFailed");
     }
   };
 
@@ -112,6 +116,12 @@ const ContactInfo = () => {
         <Failure>
           <p>I am sorry. Something went wrong.</p>
         </Failure>
+      )}
+
+      {submitSucceeded && (
+        <Success>
+          <p>I recieved your info, I will get back to your soon.</p>
+        </Success>
       )}
       <ContactTitle>Contact Me</ContactTitle>
       <StandardInput

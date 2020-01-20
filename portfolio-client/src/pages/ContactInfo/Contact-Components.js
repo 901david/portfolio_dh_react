@@ -37,6 +37,10 @@ export const Failure = styled.div`
   text-align: center;
 `;
 
+export const Success = styled(Failure)`
+  border: 3px solid green;
+`;
+
 export const ButtonWrapper = styled.div`
   display: flex;
   width: 45vw;
