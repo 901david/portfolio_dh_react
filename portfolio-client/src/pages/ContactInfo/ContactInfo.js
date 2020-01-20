@@ -44,7 +44,10 @@ const ContactInfo = () => {
 
   const handleSendEmail = async () => {
     try {
-      await axios.post("/api/contact/", { email, subject, body });
+      await axios.post(
+        "https://amgzjh5om7.execute-api.us-west-2.amazonaws.com/Prod",
+        { email, subject, body }
+      );
       valueSetter("email", "");
       valueSetter("subject", "");
       valueSetter("body", "");
