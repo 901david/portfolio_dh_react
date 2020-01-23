@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { useMappedState } from "react-use-mapped-state";
@@ -13,7 +13,8 @@ const StandardInput = ({
   label,
   changeFn,
   userInput,
-  isErrored
+  isErrored,
+  shouldClear
 }) => {
   const inputRef = useRef();
 
@@ -35,6 +36,13 @@ const StandardInput = ({
       inputRef.current.style["border-bottom"] = "5px solid white";
     }
   };
+
+  useEffect(() => {
+    if (shouldClear) {
+      inputRef.current.style["border-bottom"] = "5px solid white";
+      valueSetter("touched", false);
+    }
+  }, [shouldClear]);
 
   return (
     <StandardInputWrapper touched={touched} isErrored={isErrored}>

@@ -23,7 +23,8 @@ const ContactInfo = () => {
       submitSucceeded,
       hasemailErrors,
       hassubjectErrors,
-      hasbodyErrors
+      hasbodyErrors,
+      shouldClear
     },
     valueSetter
   ] = useMappedState({
@@ -34,7 +35,8 @@ const ContactInfo = () => {
     hasemailErrors: false,
     hassubjectErrors: false,
     hasbodyErrors: false,
-    submitSucceeded: false
+    submitSucceeded: false,
+    shouldClear: false
   });
 
   const submissionStatus = key => {
@@ -62,7 +64,16 @@ const ContactInfo = () => {
   };
 
   const clearValidation = inputRef => {
-    inputRef.current.style["border-bottom"] = "5px solid white";
+    valueSetter("email", "");
+    valueSetter("subject", "");
+    valueSetter("body", "");
+    valueSetter("hasemailErrors", false);
+    valueSetter("hassubjectErrors", false);
+    valueSetter("hasbodyErrors", false);
+    valueSetter("shouldClear", true);
+    setTimeout(() => {
+      valueSetter("shouldClear", false);
+    }, 2000);
   };
 
   const typeMap = {
@@ -133,6 +144,7 @@ const ContactInfo = () => {
         changeFn={handleOnInputChange}
         isErrored={inErroredState}
         userInput={email}
+        shouldClear={shouldClear}
       />
 
       <StandardInput
@@ -144,6 +156,7 @@ const ContactInfo = () => {
         isErrored={inErroredState}
         changeFn={handleOnInputChange}
         userInput={subject}
+        shouldClear={shouldClear}
       />
       <StandardInput
         name={"body"}
@@ -154,6 +167,7 @@ const ContactInfo = () => {
         isErrored={inErroredState}
         changeFn={handleOnInputChange}
         userInput={body}
+        shouldClear={shouldClear}
       />
       <ButtonWrapper>
         <StandardButton
