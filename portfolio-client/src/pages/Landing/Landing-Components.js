@@ -38,6 +38,7 @@ export const LandingHeadshotWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  //HERE
 `;
 
 export const LandingTagline = styled(Tagline)`

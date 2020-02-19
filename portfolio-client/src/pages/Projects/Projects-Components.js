@@ -27,6 +27,7 @@ export const CloseContainer = styled.div`
 
 export const PreviewImage = styled.img`
   width: 10vw;
+  max-height: 6vw;
   margin: 1rem;
   border: 2px solid rgba(255, 255, 255, 0.7);
   transform: scale(1);

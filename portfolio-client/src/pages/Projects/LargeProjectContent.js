@@ -1,7 +1,11 @@
 import React from "react";
 import { faTimes, faDesktop, faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faBitbucket } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  faBitbucket,
+  faDocker
+} from "@fortawesome/free-brands-svg-icons";
 import _ from "lodash";
 import { useMappedState } from "react-use-mapped-state";
 
@@ -23,6 +27,7 @@ import {
 const LargeProjectContent = ({
   images,
   githubLink,
+  dockerLink,
   liveSite,
   demoLink,
   description,
@@ -35,6 +40,11 @@ const LargeProjectContent = ({
     currentLargeImageIndex: 0
   });
 
+  const onCloseProject = event => {
+    valueSetter("currentLargeImageIndex", 0);
+    handleProjectToggle(event);
+  };
+
   return (
     <div className="largeProjectContent">
       <LargeImageProjectTitle>{projectTitle}</LargeImageProjectTitle>
@@ -43,6 +53,13 @@ const LargeProjectContent = ({
           <StyledLinkContainer>
             <StyledLink target="_blank" href={githubLink}>
               <FontAwesomeIcon title="View GitHub Repository" icon={faGithub} />
+            </StyledLink>
+          </StyledLinkContainer>
+        )}
+        {dockerLink && (
+          <StyledLinkContainer>
+            <StyledLink target="_blank" href={dockerLink}>
+              <FontAwesomeIcon title="View GitHub Repository" icon={faDocker} />
             </StyledLink>
           </StyledLinkContainer>
         )}
@@ -74,7 +91,7 @@ const LargeProjectContent = ({
       </ProjectIconWrapper>
 
       <CloseContainer>
-        <FontAwesomeIcon onClick={handleProjectToggle} icon={faTimes} />
+        <FontAwesomeIcon onClick={onCloseProject} icon={faTimes} />
       </CloseContainer>
       <LargeImageContainer>
         <LargeImage src={images[currentLargeImageIndex]} alt={"project view"} />

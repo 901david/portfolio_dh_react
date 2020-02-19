@@ -16,7 +16,8 @@ import {
   faPython,
   faJava,
   faJenkins,
-  faAws
+  faAws,
+  faDocker
 } from "@fortawesome/free-brands-svg-icons";
 
 export const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -65,6 +66,13 @@ export const iconMap = [
     url: "https://bitbucket.org/scriptscrawler/"
   },
   {
+    icon: faDocker,
+    text: "Docker Hub",
+    path: null,
+    id: _.uniqueId("navBar-"),
+    url: "https://hub.docker.com/u/4990814"
+  },
+  {
     icon: faLinkedinIn,
     text: "LinkedIn",
     path: null,
@@ -74,7 +82,7 @@ export const iconMap = [
 ];
 
 export const MISSION_STATEMENT =
-  "Full-Stack Software Engineer with interest in the full lifecycle of software development. Most of my work has been focused on front-end engineering, with a high interest in Dev/Ops, recently obtaining the AWS Dev/Ops Professional Certification.  I enjoy tackling challenging problems in an efficient manner and prefer to have tests to ensure that the code is accurate.";
+  "Full-Stack Software Engineer with interest in the full lifecycle of software development. Most of my work has been focused on front-end engineering, with a high interest in Dev/Ops, recently obtaining the AWS Dev/Ops Professional Certification.  I enjoy tackling challenging problems in an efficient manner and continuous learning is a lifestyle for me.";
 
 export const TECHNICAL_SKILLS =
   "Javascript, TypeScript, Python,  React, Angular, AngularJs,  jQuery, HTML, CSS, Handlebars, Bootstrap, Responsive Design, Redux, Jest, Enzyme, Mocha, Chai,  Node.js, REST, Git, MySQL, Sequelize, MongoDB, Mongoose,  GraphQL, Apollo, Docker, Amazon Web Services";
@@ -107,6 +115,10 @@ export const FORMAL_EDUCATION_DATA = [
 ].reverse();
 
 export const INFORMAL_EDUCATION_DATA = [
+  {
+    name: "Ultimate AWS Certified Solutions Architect Associate 2020",
+    icon: faAws
+  },
   {
     name: "AWS Certified DevOps Engineer Professional 2020 - Hands On!",
     icon: faAws
@@ -230,13 +242,93 @@ export const PORTFOLIO_DATA = [
   },
   {
     _id: {
+      $oid: "5d92bb828fb194001d575be7"
+    },
+    images: [
+      "../images/portimages/twilio/text.png",
+      "../images/portimages/twilio/gui.png",
+      "../images/portimages/twilio/gui2.png"
+    ],
+    technology: [
+      "React",
+      "Typescript",
+      "Ag-Grid",
+      "Styled-Components",
+      "Lambda",
+      "API Gateway",
+      "Heroku",
+      "Docker",
+      "Twilio API",
+      "Node",
+      "Express"
+    ],
+    projectTitle: "Twilio-Lambda",
+    cardBackground: "white",
+    description:
+      "Twilio-Lambda is a result of toying with Twilio API and trying to come up with something useful to use in everyday coding life. What I decided to build was a very generic lambda function which could be used in the cloud to alert developers when something serious has occurred with a service and immediate attention is needed therefore an sms text would be a nice way to immediately alert someone there is an issue. This is where the project started. After I developed this, I thought it might be really nice to have some data around what kind of messages are being sent, and even potentially run some analytics to determine if I am receiving too many alarms etc.",
+    imageFront:
+      "https://static.seekingalpha.com/uploads/2019/3/19/saupload_twilio-730x365.jpg",
+    imageBack: "../images/portimages/twilio/gui.png",
+    githubLink: "https://github.com/901david/twilio-lambda",
+    liveSite: "https://bitly.com/twilio-lambda",
+    demoLink: "",
+    bitBucketLink: "",
+    __v: 0
+  },
+  {
+    _id: {
+      $oid: "5d92bb8453528fb194001d575be7"
+    },
+    images: [
+      "../images/portimages/dockhand/dockhand1.png",
+      "../images/portimages/dockhand/dockhand2.png",
+      "../images/portimages/dockhand/dockhand3.png"
+    ],
+    technology: [
+      "React",
+      "Typescript",
+      "Dockerode",
+      "Styled-Components",
+      "Docker",
+      "Socket IO"
+    ],
+    projectTitle: "DockHand",
+    cardBackground: "white",
+    description: `An application that allows the management of containers on your local system in and intuitive ad helpful manner and does the following:
+                  See all containers running on your local machine whether started or stopped
+                  Provides container information such as the following:
+                  Running or Stopped
+                  Container Id with auto-copy
+                  Image sha
+                  Any Volumes present
+                  Any Mounts present
+                  Ports used
+                  Command used to start container
+                  Start and stop containers that exist on your machine
+                  Remove stopped containers from your machine
+                  Spin up new containers with images that are already downloaded to your machine
+                  Stream logs from container
+                  Use quickfilters to filter by INFO, WARN, SEVERE
+                  Custom Filtering of logs based on input from user
+    `,
+    imageFront: "https://buddy.works/guides/thumbnails/docker-cover.png",
+    imageBack: "../images/portimages/dockhand/dockhand1.png",
+    githubLink: "https://github.com/901david/dock-hand",
+    dockerLink: "https://hub.docker.com/repository/docker/4990814/dock-hand",
+    liveSite: "",
+    demoLink: "",
+    bitBucketLink: "",
+    __v: 0
+  },
+  {
+    _id: {
       $oid: "5d92bb828fbc08001d575be742342"
     },
     images: [
-      "../images/portimages/mappedstate/react.png",
-      "../images/portimages/mappedstate/npm.png"
+      "../images/portimages/mappedstate/example1.png",
+      "../images/portimages/mappedstate/example2.png"
     ],
-    technology: ["React", "Npm"],
+    technology: ["React", "Npm", "Rollup", "Typescript"],
     projectTitle: "useMappedState React Hook",
     cardBackground: "black",
     description:

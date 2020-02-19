@@ -23,7 +23,8 @@ const Project = ({
   liveSite,
   description,
   technology,
-  cardBackground
+  cardBackground,
+  dockerLink
 }) => {
   const [
     { largeProjectOpen, largeProjectClosed, largeContentStartingPosition },
@@ -64,6 +65,7 @@ const Project = ({
     images,
     githubLink,
     liveSite,
+    dockerLink,
     description,
     technology,
     projectTitle,
