@@ -51,7 +51,7 @@ const ContactInfo = () => {
     try {
       await axios.post(
         "https://amgzjh5om7.execute-api.us-west-2.amazonaws.com/Prod/contactdavid",
-        { email, subject, body }
+        { from: email, subject, text: body }
       );
       valueSetter("email", "");
       valueSetter("subject", "");
