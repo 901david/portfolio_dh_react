@@ -10,8 +10,8 @@ const OtherEducation = props => (
   <CourseItemsWrapperOtherEducation>
     <StandardTitle>Other Education</StandardTitle>
     <CourseItem>
-      <FontAwesomeIcon icon={faJs} />
       <span>Testing Javascript - Kent C. Dodds</span>
+      <FontAwesomeIcon icon={faJs} />
     </CourseItem>
   </CourseItemsWrapperOtherEducation>
 );
