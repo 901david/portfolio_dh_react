@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SkillsInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -16,7 +16,7 @@ export const SkillsInfoWrapper = styled.div`
   font-weight: bold;
   line-height: 35px;
   font-size: 1rem;
-  font-family: "Crimson Text", serif;
+  font-family: 'Crimson Text', serif;
   position: relative;
   overflow: auto;
 
@@ -40,9 +40,9 @@ export const SkillsWrapper = styled.div`
   align-self: start;
   font-size: 1.5rem;
   line-height: 1.8rem;
+  grid-column: 1 / -1;
 
   @media only screen and (max-width: 950px) {
-    grid-column: 1 / -1;
     margin-top: 2rem;
   }
 

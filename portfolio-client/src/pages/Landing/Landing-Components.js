@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
+import { HeadShot, Tagline } from '../../components/Header/Header-Components';
 
-import { arrowVibrate, removeContent } from "../../Shared/animations";
-import { HeadShot, Tagline } from "../../components/Header/Header";
+import { arrowVibrate, removeContent } from '../../Shared/animations';
 
-const HeaderImage = "../../images/topBar_edited.jpg";
+const HeaderImage = '../../images/topBar_edited.jpg';
 const removeContentAddOn = css`
   animation: ${removeContent} 1s forwards;
 `;

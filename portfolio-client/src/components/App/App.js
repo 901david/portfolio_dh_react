@@ -1,67 +1,30 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import { useMappedState } from "react-use-mapped-state";
+import React from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { useMappedState } from 'react-use-mapped-state';
 
-import Header from "../Header";
-import IconBar from "../IconBar/IconBar";
-import ContactInfo from "../../pages/ContactInfo";
-import SkillsInfo from "../../pages/SkillsInfo";
-import EducationInfo from "../../pages/EducationInfo";
-import Projects from "../../pages/Projects/Projects";
-import Landing from "../../pages/Landing/Landing";
-import { PORTFOLIO_DATA } from "../../Shared/constants";
-
-const MainAppWrapper = styled.div`
-  display: grid;
-  grid-template-rows: [header-start] 20vh [header-end body-start] 80vh [body-end];
-  grid-template-columns: [sideBar-start] 8% [sideBar-end] repeat(11, 1fr);
-  position: relative;
-  z-index: 10000;
-
-  @media only screen and (max-width: 1000px) {
-    grid-template-columns: [sideBar-start] 8% [sideBar-end] repeat(11, 1fr);
-  }
-
-  @media only screen and (max-width: 800px) {
-    grid-template-rows: [header-start] 20vh [header-end nav-start] 5vh [nav-end body-start] 75vh [body-end];
-    grid-template-columns: repeat(12, 1fr);
-  }
-`;
-
-const MainViewWrapper = styled.div`
-  grid-column: sideBar-start / -1;
-  grid-row: 2 / -1;
-
-  @media only screen and (max-width: 800px) {
-    grid-row: 3 / span 1;
-    grid-column: sideBar-start / -1;
-    position: relative;
-    z-index: -1;
-  }
-`;
+import Header from '../Header';
+import IconBar from '../IconBar/IconBar';
+import ContactInfo from '../../pages/ContactInfo';
+import SkillsInfo from '../../pages/SkillsInfo';
+import EducationInfo from '../../pages/EducationInfo';
+import Projects from '../../pages/Projects/Projects';
+import Landing from '../../pages/Landing/Landing';
+import { PORTFOLIO_DATA } from '../../Shared/constants';
+import { MainAppWrapper, MainViewWrapper } from './App-Components';
 
 const App = props => {
   const [
     { portfolioData, viewingMainContent, landingViewedOnce },
-    valueSetter
+    valueSetter,
   ] = useMappedState({
     portfolioData: PORTFOLIO_DATA,
     viewingMainContent: false,
-    landingViewedOnce: false
+    landingViewedOnce: false,
   });
 
-  // useEffect(() => {
-  //   axios
-  //     .get("/data")
-  //     .then(({ data: { data } }) => valueSetter('portfolioData',data))
-  //     .catch(err => console.log(err));
-  // }, [axios, valueSetter]);
-
   const setMainContentBeingViewed = bool =>
-    valueSetter("viewingMainContent", bool);
-  const setLandingViewed = bool => valueSetter("landingViewedOnce", bool);
+    valueSetter('viewingMainContent', bool);
+  const setLandingViewed = bool => valueSetter('landingViewedOnce', bool);
 
   return (
     <MainAppWrapper>
@@ -77,9 +40,9 @@ const App = props => {
           />
         )}
         <MainViewWrapper>
-          <Route exact path="/" render={() => <Redirect to={"/skills"} />} />
+          <Route exact path='/' render={() => <Redirect to={'/skills'} />} />
           <Route
-            path="/skills"
+            path='/skills'
             render={() => (
               <SkillsInfo
                 landingViewedOnce={landingViewedOnce}
@@ -89,12 +52,12 @@ const App = props => {
               />
             )}
           />
-          <Route path="/contact" component={ContactInfo} />
+          <Route path='/contact' component={ContactInfo} />
           <Route
-            path="/projects"
+            path='/projects'
             render={() => <Projects portfolioData={portfolioData} />}
           />
-          <Route path="/education" component={EducationInfo} />
+          <Route path='/education' component={EducationInfo} />
         </MainViewWrapper>
       </Router>
     </MainAppWrapper>

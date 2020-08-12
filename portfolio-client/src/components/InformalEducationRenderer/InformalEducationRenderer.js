@@ -1,44 +1,14 @@
-import React from "react";
-import _ from "lodash";
-import styled from "styled-components";
+import React from 'react';
+import _ from 'lodash';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import StandardTitle from "../../Shared/StandardTitle";
-
-export const CourseItem = styled.div`
-  display: flex;
-  font-size: 1rem;
-  margin: 3px;
-
-  > span {
-    margin-left: 1rem;
-  }
-
-  > svg {
-    font-size: 1.5rem;
-  }
-`;
-
-export const CourseItemsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: space-around;
-  height: 100%;
-  width: 75%;
-  margin-bottom: 6rem;
-`;
-
-const Subtitle = styled.h6`
-  font-style: italic;
-  margin: 0 0 3% 0;
-  font-size: 1rem;
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import StandardTitle from '../../Shared/StandardTitle';
+import {
+  CourseItem,
+  CourseItemsWrapper,
+  Subtitle,
+  TitleWrapper,
+} from './InformalEducationRenderer-Components';
 
 const InformalEducationRenderer = ({ courseList }) => (
   <CourseItemsWrapper>
@@ -46,11 +16,13 @@ const InformalEducationRenderer = ({ courseList }) => (
       <StandardTitle>Udemy</StandardTitle>
       <Subtitle>Certificate of Completion</Subtitle>
     </TitleWrapper>
-    {courseList.map(({ name, icon }) => {
+    {courseList.map(({ name, icon, url }) => {
       return (
-        <CourseItem key={_.uniqueId("courseItem-")}>
+        <CourseItem key={_.uniqueId('courseItem-')}>
+          <a target='_blank' rel='noreferrer noopener' href={url}>
+            <span>{name}</span>
+          </a>
           <FontAwesomeIcon icon={icon} />
-          <span>{name}</span>
         </CourseItem>
       );
     })}
