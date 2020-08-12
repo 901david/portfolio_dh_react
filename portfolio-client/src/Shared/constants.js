@@ -89,7 +89,7 @@ export const MISSION_STATEMENT =
   'Full-Stack Software Engineer with interest in the full lifecycle of software development. Most of my work has been focused on front-end engineering, with a high interest in cloud architectures.  I enjoy tackling challenging problems in an efficient manner and continuous learning is a lifestyle for me.';
 
 export const TECHNICAL_SKILLS =
-  'Javascript, TypeScript, Python,  React, Angular, AngularJs,  jQuery, HTML, CSS, Handlebars, Bootstrap, Responsive Design, Redux, Jest, Enzyme, Mocha, Chai,  Node.js, REST, Git, MySQL, Sequelize, MongoDB, Mongoose,  GraphQL, Apollo, Docker, API Gateway, Lambda, DynamoDb, ECS, S3, Step Functionss';
+  'Javascript, TypeScript, Python,  React, Angular, AngularJs,  jQuery, HTML, CSS, Handlebars, Bootstrap, Responsive Design, Redux, Jest, Enzyme, Mocha, Chai,  Node.js, REST, Git, MySQL, Sequelize, MongoDB, Mongoose,  GraphQL, Apollo, Docker, API Gateway, Lambda, DynamoDb, ECS, S3, Step Functions';
 
 export const FORMAL_EDUCATION_DATA = [
   {
@@ -268,6 +268,7 @@ export const PORTFOLIO_DATA = [
     _id: {
       $oid: '5d727bd7f45221001e5cfe34',
     },
+    //TODO: replace these images
     images: [
       '../images/portimages/pendant/pendant-1.png',
       '../images/portimages/pendant/pendant-2.png',
@@ -282,13 +283,12 @@ export const PORTFOLIO_DATA = [
     projectTitle: 'Pendant Wrapper',
     cardBackground: 'black',
     description:
-      'This is an Etsy store wrapper.  Essentially creating a more personalized experience for the user but all features are built on the Etsy API.  It is built on TypeScript/Angular for the front end. This is  deployed as static assets on S3, using Cloudfront to decrease latency, and perform SSL termiination.  The backend is serverless, built on API Gateway, with Lambda in a mixture of Python and Node/JS',
+      'This is an Etsy store wrapper.  This application  creates a more personalized experience for the user but the all features are built on the Etsy API.  It is built on TypeScript/Angular 8 for the front end. This is  deployed as static assets on S3, using Cloudfront to decrease latency, and perform SSL termiination.  The backend is serverless, built on API Gateway, with Lambda in a mixture of Python and Node',
     imageFront: '../images/portimages/pendant/pendant-3.png',
     imageBack: '../images/portimages/pendant/pandant.png',
     githubLink: '',
     liveSite: 'https://pendantwrapper.com',
     bitBucketLink: '',
-    __v: 0,
   },
   {
     _id: {
@@ -315,7 +315,7 @@ export const PORTFOLIO_DATA = [
     projectTitle: 'Twilio-Lambda',
     cardBackground: 'white',
     description:
-      'Twilio-Lambda is a result of toying with Twilio API and trying to come up with something useful to use in everyday coding life. What I decided to build was a very generic lambda function which could be used in the cloud to alert developers when something serious has occurred with a service and immediate attention is needed therefore an sms text would be a nice way to immediately alert someone there is an issue. This is where the project started. After I developed this, I thought it might be really nice to have some data around what kind of messages are being sent, and even potentially run some analytics to determine if I am receiving too many alarms etc.',
+      'Twilio-Lambda is a result of toying with Twilio API and trying to come up with something useful to use in everyday coding life. What I decided to build was a very generic lambda function which could be used in the cloud to alert developers when something serious has occurred with a service and immediate attention is needed therefore an sms text would be a nice way to immediately alert someone there is an issue. This is where the project started. After I developed this, I thought it might be really nice to have some data around what kind of messages are being sent, and even potentially run some analytics to determine if I am receiving too many alarms etc. I built a basic web GUI  which  uses Ag-Grid to display data about the current set messages that have been sent.',
     imageFront:
       'https://static.seekingalpha.com/uploads/2019/3/19/saupload_twilio-730x365.jpg',
     imageBack: '../images/portimages/twilio/gui.png',
@@ -323,7 +323,6 @@ export const PORTFOLIO_DATA = [
     liveSite: 'https://bitly.com/twilio-lambda',
     demoLink: '',
     bitBucketLink: '',
-    __v: 0,
   },
   {
     _id: {
@@ -344,12 +343,12 @@ export const PORTFOLIO_DATA = [
     ],
     projectTitle: 'DockHand',
     cardBackground: 'white',
-    description: `An application that allows the management of containers on your local system in and intuitive ad helpful manner and does the following:
+    description: `An application that allows the management of containers on your local system in an intuitive, helpful manner, and does the following:
                   See all containers running on your local machine whether started or stopped
                   Provides container information such as the following:
                   Running or Stopped
                   Container Id with auto-copy
-                  Image sha
+                  Image SHA
                   Any Volumes present
                   Any Mounts present
                   Ports used
@@ -368,7 +367,6 @@ export const PORTFOLIO_DATA = [
     liveSite: '',
     demoLink: '',
     bitBucketLink: '',
-    __v: 0,
   },
   {
     _id: {
@@ -382,13 +380,12 @@ export const PORTFOLIO_DATA = [
     projectTitle: 'useMappedState React Hook',
     cardBackground: 'black',
     description:
-      'A custom React hook which allows you to pass an object of key values pairs which will be managed by a useState hook and simply returns your values from state to use and a simple value setter to modify state.',
+      'A custom React hook which allows you to pass an object of key value pairs which will be managed by a useState hook and simply returns your values from state to use and a simple value setter to modify state. Allows for complex state to be managed in functional components without  writing many useState declarations. It also supports an array format for updates to batch changes into onoe function call.',
     imageFront: '../images/portimages/mappedstate/react.png',
     imageBack: '../images/portimages/mappedstate/npm.png',
     githubLink: 'https://github.com/901david/use-mapped-state',
     liveSite: 'https://www.npmjs.com/package/react-use-mapped-state',
     demoLink: '',
     bitBucketLink: '',
-    __v: 0,
   },
 ];
