@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import StandardTitle from "../../Shared/StandardTitle";
+import styled from 'styled-components';
+import StandardTitle from '../../Shared/StandardTitle';
 
 export const ShortenedStandardTitle = styled(StandardTitle)`
   width: 60%;

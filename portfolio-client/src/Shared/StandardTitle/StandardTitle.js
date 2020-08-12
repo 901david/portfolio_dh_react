@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StandardTitle = styled.h4`
   background: white;
@@ -11,6 +11,7 @@ const StandardTitle = styled.h4`
   font-size: 2.25rem;
   border-radius: 0.1rem;
   white-space: nowrap;
+  font-style: italic;
 `;
 
 export default StandardTitle;

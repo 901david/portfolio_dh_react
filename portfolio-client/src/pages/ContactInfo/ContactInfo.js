@@ -1,17 +1,29 @@
-import React from "react";
-import { useMappedState } from "react-use-mapped-state";
+import React from 'react';
+import { useMappedState } from 'react-use-mapped-state';
 
-import StandardInput from "../../Shared/StandardInput";
-import StandardButton from "../../Shared/StandardButton/StandardButton";
-import axios from "axios";
-import { emailValidation } from "../../Shared/constants";
+import StandardInput from '../../Shared/StandardInput';
+import StandardButton from '../../Shared/StandardButton/StandardButton';
+import axios from 'axios';
+import { emailValidation } from '../../Shared/constants';
 import {
   ContactInfoWrapper,
   Failure,
   Success,
   ButtonWrapper,
-  ContactTitle
-} from "./Contact-Components";
+  ContactTitle,
+} from './Contact-Components';
+
+const starterState = {
+  email: '',
+  subject: '',
+  body: '',
+  submitFailed: false,
+  hasemailErrors: false,
+  hassubjectErrors: false,
+  hasbodyErrors: false,
+  submitSucceeded: false,
+  shouldClear: false,
+};
 
 const ContactInfo = () => {
   const [
@@ -24,20 +36,10 @@ const ContactInfo = () => {
       hasemailErrors,
       hassubjectErrors,
       hasbodyErrors,
-      shouldClear
+      shouldClear,
     },
-    valueSetter
-  ] = useMappedState({
-    email: "",
-    subject: "",
-    body: "",
-    submitFailed: false,
-    hasemailErrors: false,
-    hassubjectErrors: false,
-    hasbodyErrors: false,
-    submitSucceeded: false,
-    shouldClear: false
-  });
+    valueSetter,
+  ] = useMappedState(starterState);
 
   const submissionStatus = key => {
     valueSetter(key, true);
@@ -50,51 +52,55 @@ const ContactInfo = () => {
   const handleSendEmail = async () => {
     try {
       await axios.post(
-        "https://amgzjh5om7.execute-api.us-west-2.amazonaws.com/Prod/contactdavid",
+        'https://amgzjh5om7.execute-api.us-west-2.amazonaws.com/Prod/contactdavid',
         { from: email, subject, text: body }
       );
-      valueSetter("email", "");
-      valueSetter("subject", "");
-      valueSetter("body", "");
-      submissionStatus("submitSucceeded");
+      const props = ['email', 'subject', 'body'];
+      const vals = ['', '', ''];
+      valueSetter(props, vals);
+      submissionStatus('submitSucceeded');
+      clearValidation();
     } catch (err) {
-      console.error(err);
-      submissionStatus("submitFailed");
+      submissionStatus('submitFailed');
     }
   };
 
-  const clearValidation = inputRef => {
-    valueSetter("email", "");
-    valueSetter("subject", "");
-    valueSetter("body", "");
-    valueSetter("hasemailErrors", false);
-    valueSetter("hassubjectErrors", false);
-    valueSetter("hasbodyErrors", false);
-    valueSetter("shouldClear", true);
+  const clearValidation = () => {
+    const props = [
+      'email',
+      'subject',
+      'body',
+      'hasemailErrors',
+      'hassubjectErrors',
+      'hasbodyErrors',
+      'shouldClear',
+    ];
+    const vals = ['', '', '', false, false, false, true];
+    valueSetter(props, vals);
     setTimeout(() => {
-      valueSetter("shouldClear", false);
+      valueSetter('shouldClear', false);
     }, 2000);
   };
 
   const typeMap = {
     send: handleSendEmail,
-    clear: clearValidation
+    clear: clearValidation,
   };
 
   const handleClick = evt => {
     const fn = typeMap[evt.target.textContent.toLowerCase()];
-    if (typeof fn === "function") {
+    if (typeof fn === 'function') {
       fn();
     }
   };
 
-  const validateText = userInput => userInput === undefined || userInput === "";
+  const validateText = userInput => userInput === undefined || userInput === '';
   const validateEmail = userInput => !emailValidation.exec(userInput);
 
   const conditionMap = {
     body: validateText,
     email: validateEmail,
-    subject: validateText
+    subject: validateText,
   };
 
   const inErroredState = (userInput, name) => {
@@ -136,11 +142,11 @@ const ContactInfo = () => {
       )}
       <ContactTitle>Contact Me</ContactTitle>
       <StandardInput
-        name={"email"}
-        labelId={"yourEmailLabel"}
-        inputId={"yourEmail"}
-        type={"email"}
-        label={"Your Email"}
+        name={'email'}
+        labelId={'yourEmailLabel'}
+        inputId={'yourEmail'}
+        type={'email'}
+        label={'Your Email'}
         changeFn={handleOnInputChange}
         isErrored={inErroredState}
         userInput={email}
@@ -148,22 +154,22 @@ const ContactInfo = () => {
       />
 
       <StandardInput
-        name={"subject"}
-        labelId={"subjectLabel"}
-        inputId={"subject"}
-        type={"text"}
-        label={"Subject"}
+        name={'subject'}
+        labelId={'subjectLabel'}
+        inputId={'subject'}
+        type={'text'}
+        label={'Subject'}
         isErrored={inErroredState}
         changeFn={handleOnInputChange}
         userInput={subject}
         shouldClear={shouldClear}
       />
       <StandardInput
-        name={"body"}
-        labelId={"bodyLabel"}
-        inputId={"body"}
-        type={"textarea"}
-        label={"Body"}
+        name={'body'}
+        labelId={'bodyLabel'}
+        inputId={'body'}
+        type={'textarea'}
+        label={'Body'}
         isErrored={inErroredState}
         changeFn={handleOnInputChange}
         userInput={body}
@@ -171,15 +177,15 @@ const ContactInfo = () => {
       />
       <ButtonWrapper>
         <StandardButton
-          text={"Send"}
+          text={'Send'}
           clickHandler={!shouldSubmitBeDisabled() ? handleClick : () => ({})}
-          color={"green"}
+          color={'green'}
           disabled={shouldSubmitBeDisabled()}
         />
         <StandardButton
-          text={"Clear"}
+          text={'Clear'}
           clickHandler={handleClick}
-          color={"red"}
+          color={'red'}
         />
       </ButtonWrapper>
     </ContactInfoWrapper>
