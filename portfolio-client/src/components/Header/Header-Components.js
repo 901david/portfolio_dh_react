@@ -6,7 +6,7 @@ const HeaderImage = '../../images/topBar_edited.jpg';
 export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
-  background: url(${HeaderImage}) black;
+  background: black;
   color: white;
   background-size: cover;
   grid-row: header-start / header-end;
@@ -14,6 +14,55 @@ export const HeaderWrapper = styled.div`
 
   @media only screen and (max-width: 800px) {
     grid-row: 1 / span 1;
+  }
+`;
+
+export const IconShifter = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: center;
+
+  .icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .header-icon {
+      height: 16px;
+      width: 16px;
+      color: white;
+
+      &__fore {
+        height: 64px;
+        width: 64px;
+      }
+    }
+  }
+
+  .message {
+    justify-self: flex-end;
+    display: flex;
+    jutify-content: center;
+    width: 100%;
+    transition: all 0.5s;
+    opacity: 0;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .visible {
+    opacity: 1;
+  }
+
+  .hidden {
+    opacity: 0;
   }
 `;
 
