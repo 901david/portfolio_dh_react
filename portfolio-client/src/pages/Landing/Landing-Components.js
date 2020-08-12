@@ -38,7 +38,6 @@ export const LandingHeadshotWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  //HERE
 `;
 
 export const LandingTagline = styled(Tagline)`
@@ -47,6 +46,7 @@ export const LandingTagline = styled(Tagline)`
   padding: 0.5em;
   font-size: 4rem;
   letter-spacing: 0.8rem;
+  font-style: italic;
 
   @media only screen and (max-width: 800px) {
     font-size: 3rem;

@@ -1,9 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 import { useMappedState } from 'react-use-mapped-state';
 
 import StandardInput from '../../Shared/StandardInput';
 import StandardButton from '../../Shared/StandardButton/StandardButton';
-import axios from 'axios';
 import { emailValidation } from '../../Shared/constants';
 import {
   ContactInfoWrapper,

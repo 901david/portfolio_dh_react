@@ -29,7 +29,7 @@ export const Tagline = styled.p`
   font-size: ${({ fontSize }) => fontSize}rem;
   letter-spacing: ${({ letterSpacing }) => letterSpacing}px;
   white-space: nowrap;
-  margin: 2% 0;
+  margin: 0 0;
   padding: 0;
 
   ${({ cursor }) =>
@@ -63,6 +63,6 @@ Tagline.propTypes = {
 export const TaglineWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Crimson Text', serif;
   margin-left: 8%;
 `;
