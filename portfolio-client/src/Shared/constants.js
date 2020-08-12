@@ -263,6 +263,37 @@ export const PATH_MAP = {
   '/education': 1,
 };
 
+export const PROFESSIONAL_CERTS = [
+  {
+    degree: 'AWS Certified Solutions Architect - Associate',
+    dates: 'July 17, 2020 - July 17, 2023',
+    badgeLink:
+      'https://www.youracclaim.com/badges/00923c96-0f60-42cf-b1d6-ae3936f47d3e',
+    certUrl:
+      'https://aws.amazon.com/certification/certified-solutions-architect-associate/',
+    skills: [
+      'Effectively demonstrate knowledge of how to architect and deploy secure and robust applications on AWS technologies',
+      'Define a solution using architectural design principles based on customer requirements',
+      'Provide implementation guidance based on best practices to the organization throughout the life cycle of the project',
+    ],
+  },
+  {
+    degree: 'AWS Certified DevOps Engineer - Professional',
+    dates: 'Jan 06, 2020 - Jan 07, 2023',
+    badgeLink:
+      'https://www.youracclaim.com/badges/b3364b42-32c1-4e30-8de4-538163d1ceba',
+    certUrl:
+      'https://aws.amazon.com/certification/certified-devops-engineer-professional/',
+    skills: [
+      'Implement and manage continuous delivery systems and methodologies on AWS',
+      'Implement and automate security controls, governance processes, and compliance validation',
+      'Define and deploy monitoring, metrics, and logging systems on AWS',
+      'Implement systems that are highly available, scalable, and self-healing on the AWS platform',
+      'Design, manage, and maintain tools to automate operational processes',
+    ],
+  },
+];
+
 export const PORTFOLIO_DATA = [
   {
     _id: {
