@@ -26,43 +26,38 @@ export const IconShifter = styled.div`
   justify-content: center;
 
   .icons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    .header-icon {
-      height: 16px;
-      width: 16px;
-      color: white;
-
-      &__fore {
-        height: 64px;
-        width: 64px;
-      }
-    }
-  }
-
-  .message {
-    justify-self: flex-end;
-    display: flex;
-    jutify-content: center;
-    width: 100%;
-    transition: all 0.5s;
-    opacity: 0;
+    position: relative;
+    color: white;
   }
 
   .icon-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+export const MovableIcon = styled.div`
+  position: absolute;
+  left: ${({ left }) => left}px;
+  top: ${({ top }) => top}px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 2.5s;
+
+  svg {
+    height: ${({ heightNum }) => heightNum}px !important;
+    width: ${({ widthNum }) => widthNum}px !important;
+    transition: all 0.5s;
   }
 
-  .visible {
-    opacity: 1;
-  }
-
-  .hidden {
-    opacity: 0;
+  span {
+    font-size: 16px;
+    opacity: ${({ active }) => (active ? 1 : 0)};
+    transition: all 0.5s;
   }
 `;
 

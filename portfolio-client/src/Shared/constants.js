@@ -299,7 +299,6 @@ export const PORTFOLIO_DATA = [
     _id: {
       $oid: '5d727bd7f45221001e5cfe34',
     },
-    //TODO: replace these images
     images: [
       '../images/portimages/pendant/pendant-1.png',
       '../images/portimages/pendant/pendant-2.png',
@@ -307,14 +306,12 @@ export const PORTFOLIO_DATA = [
       '../images/portimages/pendant/pendant-4.png',
       '../images/portimages/pendant/pendant-5.png',
       '../images/portimages/pendant/pendant-6.png',
-      '../images/portimages/pendant/pendant-7.png',
-      '../images/portimages/pendant/pendant-8.png',
     ],
     technology: ['TypeScript', 'Angular', 'Python', 'API Gateway', 'Lambda'],
     projectTitle: 'Pendant Wrapper',
     cardBackground: 'black',
     description:
-      'This is an Etsy store wrapper.  This application  creates a more personalized experience for the user but the all features are built on the Etsy API.  It is built on TypeScript/Angular 8 for the front end. This is  deployed as static assets on S3, using Cloudfront to decrease latency, and perform SSL termiination.  The backend is serverless, built on API Gateway, with Lambda in a mixture of Python and Node',
+      'This is an Etsy store wrapper.  This application  creates a more personalized experience for the user but the all features are built on the Etsy API.  It is built on TypeScript/Angular 8 for the front end. This is  deployed as static assets on S3, using Cloudfront to decrease latency, and perform SSL termination.  The backend is serverless, built on API Gateway, with Lambda in a mixture of Python and Node',
     imageFront: '../images/portimages/pendant/pendant-3.png',
     imageBack: '../images/portimages/pendant/pandant.png',
     githubLink: '',

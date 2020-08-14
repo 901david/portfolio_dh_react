@@ -1,8 +1,8 @@
 import {
   faChalkboardTeacher,
-  faCloud,
   faCode,
   faGraduationCap,
+  faInfinity,
   faVials,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +13,7 @@ import {
   HeaderWrapper,
   HeadShot,
   IconShifter,
+  MovableIcon,
   Tagline,
   TaglineWrapper,
 } from './Header-Components';
@@ -22,18 +23,49 @@ const Header = ({ history }) => {
   const handleContactNavigation = () => {
     history.push('/contact');
   };
-  const order = ['experiment', 'teach', 'learn', 'cloud', 'code'];
-  const [selectedIcon, setSelectedIcon] = useState(0);
+  const [iconPositionConfig, setIconPositionConfig] = useState([
+    {
+      active: false,
+      boundLength: '25',
+      top: '-80',
+      left: '87',
+    },
+    {
+      active: false,
+      boundLength: '40',
+      top: '-48',
+      left: '31',
+    },
+    {
+      active: true,
+      boundLength: '64',
+      top: '-30',
+      left: '100',
+    },
+    {
+      active: false,
+      boundLength: '40',
+      top: '-48',
+      left: '213',
+    },
+    {
+      active: false,
+      boundLength: '25',
+      top: '-80',
+      left: '165',
+    },
+  ]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const next = selectedIcon + 1 >= order.length ? 0 : selectedIcon + 1;
-      setSelectedIcon(next);
+      const updated = [...iconPositionConfig];
+      const removed = updated.pop();
+      setIconPositionConfig([removed].concat(updated));
     }, 2500);
     return () => {
       clearInterval(interval);
     };
-  }, [selectedIcon]);
+  }, [iconPositionConfig]);
 
   return (
     <HeaderWrapper>
@@ -64,73 +96,56 @@ const Header = ({ history }) => {
       </TaglineWrapper>
       <IconShifter>
         <div className='icons'>
-          <div className='icon-wrapper'>
-            <FontAwesomeIcon
-              className={`header-icon ${
-                order[selectedIcon] === 'experiment' ? 'header-icon__fore' : ''
-              }`}
-              icon={faVials}
-            />
-            <span
-              className={
-                order[selectedIcon] === 'experiment' ? 'visible' : 'hidden'
-              }
-            >
-              Experiment
-            </span>
-          </div>
-          <div className='icon-wrapper'>
-            <FontAwesomeIcon
-              className={`header-icon ${
-                order[selectedIcon] === 'teach' ? 'header-icon__fore' : ''
-              }`}
-              icon={faChalkboardTeacher}
-            />
-            <span
-              className={order[selectedIcon] === 'teach' ? 'visible' : 'hidden'}
-            >
-              Teach
-            </span>
-          </div>
-          <div className='icon-wrapper'>
-            <FontAwesomeIcon
-              className={`header-icon ${
-                order[selectedIcon] === 'learn' ? 'header-icon__fore' : ''
-              }`}
-              icon={faGraduationCap}
-            />
-            <span
-              className={order[selectedIcon] === 'learn' ? 'visible' : 'hidden'}
-            >
-              Learn
-            </span>
-          </div>
-          <div className='icon-wrapper'>
-            <FontAwesomeIcon
-              className={`header-icon ${
-                order[selectedIcon] === 'cloud' ? 'header-icon__fore' : ''
-              }`}
-              icon={faCloud}
-            />
-            <span
-              className={order[selectedIcon] === 'cloud' ? 'visible' : 'hidden'}
-            >
-              Cloud First
-            </span>
-          </div>
-          <div className='icon-wrapper'>
-            <FontAwesomeIcon
-              className={`header-icon ${
-                order[selectedIcon] === 'code' ? 'header-icon__fore' : ''
-              }`}
-              icon={faCode}
-            />
-            <span
-              className={order[selectedIcon] === 'code' ? 'visible' : 'hidden'}
-            >
-              Code
-            </span>
-          </div>
+          <MovableIcon
+            active={iconPositionConfig[0].active}
+            heightNum={iconPositionConfig[0].boundLength}
+            widthNum={iconPositionConfig[0].boundLength}
+            top={iconPositionConfig[0].top}
+            left={iconPositionConfig[0].left}
+          >
+            <FontAwesomeIcon icon={faChalkboardTeacher} />
+            <span>Teach</span>
+          </MovableIcon>
+          <MovableIcon
+            active={iconPositionConfig[1].active}
+            heightNum={iconPositionConfig[1].boundLength}
+            widthNum={iconPositionConfig[1].boundLength}
+            top={iconPositionConfig[1].top}
+            left={iconPositionConfig[1].left}
+          >
+            <FontAwesomeIcon icon={faInfinity} />
+            <span>Repeat</span>
+          </MovableIcon>
+          <MovableIcon
+            active={iconPositionConfig[2].active}
+            heightNum={iconPositionConfig[2].boundLength}
+            widthNum={iconPositionConfig[2].boundLength}
+            top={iconPositionConfig[2].top}
+            left={iconPositionConfig[2].left}
+          >
+            <FontAwesomeIcon icon={faVials} />
+            <span>Experiment</span>
+          </MovableIcon>
+          <MovableIcon
+            active={iconPositionConfig[3].active}
+            heightNum={iconPositionConfig[3].boundLength}
+            widthNum={iconPositionConfig[3].boundLength}
+            top={iconPositionConfig[3].top}
+            left={iconPositionConfig[3].left}
+          >
+            <FontAwesomeIcon icon={faCode} />
+            <span>Code</span>
+          </MovableIcon>
+          <MovableIcon
+            active={iconPositionConfig[4].active}
+            heightNum={iconPositionConfig[4].boundLength}
+            widthNum={iconPositionConfig[4].boundLength}
+            top={iconPositionConfig[4].top}
+            left={iconPositionConfig[4].left}
+          >
+            <FontAwesomeIcon icon={faGraduationCap} />
+            <span>Learn</span>
+          </MovableIcon>
         </div>
       </IconShifter>
     </HeaderWrapper>

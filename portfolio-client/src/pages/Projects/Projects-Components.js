@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 import {
   animateLargeProjectContentIn,
-  animateLargeProjectContentOut
-} from "../../Shared/animations";
+  animateLargeProjectContentOut,
+} from '../../Shared/animations';
 
 export const CloseContainer = styled.div`
   padding: 0.2em;
@@ -11,7 +11,7 @@ export const CloseContainer = styled.div`
   display: inline-block;
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
   transform: scale(1);
   transition: all 0.5s;
   cursor: pointer;
@@ -91,7 +91,7 @@ export const Text = styled.p`
   color: black;
   font-size: 1.5rem;
   line-height: 1.8rem;
-  width: ${({ textWidth }) => (textWidth ? textWidth : "100%")};
+  width: ${({ textWidth }) => (textWidth ? textWidth : '100%')};
   ${({ textAlign }) => textAlign && `text-align: ${textAlign}`}
 `;
 
