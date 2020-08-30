@@ -4,8 +4,9 @@
 api/.env
 db-server/.env
 portfolio-client/.env
+portfolio-client/dist
 buildProj.sh
-portfolio-client/build/*
+portfolio-client/build
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

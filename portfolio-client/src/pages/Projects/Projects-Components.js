@@ -206,17 +206,15 @@ export const ProjectWrapper = styled.div`
     }
   }
 
-  .largeProjectContent {
+  .large-project {
+    display: flex;
     width: 0;
     height: 0;
     background: white;
     color: black;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     overflow-x: scroll;
+    align-items: flex-start;
 
     ${({ largeContentStartingPosition: { top, left } }) =>
       css`
@@ -227,8 +225,18 @@ export const ProjectWrapper = styled.div`
     z-index: 100;
 
     ${({ projectLaunching }) => projectLaunching && projectLaunch}
-    ${({ projectClosing }) => projectClosing && projectClose}
+    ${({ projectClosing }) =>
+      projectClosing && projectClose}
 
+
+    
+
+    .large-project-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
     > svg {
       margin-top: 1rem;
@@ -321,6 +329,12 @@ export const IconWrapper = styled.div`
   align-items: center;
   font-size: 8rem;
   padding: 1rem;
+  ${({ marginTop }) =>
+    marginTop !== undefined
+      ? css`
+          margin-top: ${marginTop}rem;
+        `
+      : ''};
 
   & > svg {
     transform: scale(1);

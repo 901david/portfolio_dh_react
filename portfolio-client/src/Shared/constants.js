@@ -188,8 +188,7 @@ export const INFORMAL_EDUCATION_DATA = [
   {
     name: 'GraphQL with React: The Complete Developer’s Guide',
     icon: faReact,
-    url:
-      'https://dh-certs.s3-us-west-1.amazonaws.com/graphql-with-react.pdfhttps://dh-certs.s3-us-west-1.amazonaws.com/graphql-with-react.pdf',
+    url: 'https://dh-certs.s3-us-west-1.amazonaws.com/graphql-with-react.pdf',
   },
   {
     name: 'Complete Python Bootcamp',
@@ -252,7 +251,7 @@ export const INFORMAL_EDUCATION_DATA = [
     name: 'Angular 5, formerly Angular 2',
     icon: faAngular,
     url:
-      'https://dh-certs.s3-us-west-1.amazonaws.com/angular-complete-guide.pdfs',
+      'https://dh-certs.s3-us-west-1.amazonaws.com/angular-complete-guide.pdf',
   },
 ];
 
@@ -302,8 +301,9 @@ export const PORTFOLIO_DATA = [
     images: [
       '../images/portimages/pendant/pendant-1.png',
       '../images/portimages/pendant/pendant-2.png',
-      '../images/portimages/pendant/pendant-3.png',
-      '../images/portimages/pendant/pendant-4.png',
+      '../images/portimages/pendant/pendant-updated-3.png',
+      '../images/portimages/pendant/pendant-updated-1.png',
+      '../images/portimages/pendant/pendant-updated-2.png',
       '../images/portimages/pendant/pendant-5.png',
       '../images/portimages/pendant/pendant-6.png',
     ],
@@ -311,8 +311,8 @@ export const PORTFOLIO_DATA = [
     projectTitle: 'Pendant Wrapper',
     cardBackground: 'black',
     description:
-      'This is an Etsy store wrapper.  This application  creates a more personalized experience for the user but the all features are built on the Etsy API.  It is built on TypeScript/Angular 8 for the front end. This is  deployed as static assets on S3, using Cloudfront to decrease latency, and perform SSL termination.  The backend is serverless, built on API Gateway, with Lambda in a mixture of Python and Node',
-    imageFront: '../images/portimages/pendant/pendant-3.png',
+      'This is an Etsy store wrapper.  This application  creates a more personalized experience for the user but all the main features are built on the Etsy API.  It is built on TypeScript/Angular 8 for the front end. This is  deployed as static assets on S3, using Cloudfront to decrease latency, and perform SSL termination.  The backend is serverless, built on API Gateway, with Lambda in a mixture of Python and Node. More recent features added include, recommended products, trending  products, and recently viewed products.  Trending  products is achieved by anonymouosly recording clicks into products and which ones were added to the cart.  The data colletion  is two fold. First off,  we are keeping track of data over time. This will allow us once enough is collected to perform machine learning on this data to attempt to improve the more primitive approach currently taken to recommend products to users(currently involves using tags of items users looks at and of items they add to their cart).  In addition, this data is aggregated hourly to account for the products with the most views over the last hour. This becomes the  trending results for the next hour. This complex process is managed by AWS Step Functions, and coordinates  between several different states to ensure the algorithm is run successfully every hour of every day.',
+    imageFront: '../images/portimages/pendant/pendant-updated-3.png',
     imageBack: '../images/portimages/pendant/pandant.png',
     githubLink: '',
     liveSite: 'https://pendantwrapper.com',
