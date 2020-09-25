@@ -461,21 +461,26 @@ export const iconAnimationConfig = [
   {
     icon: <FontAwesomeIcon icon={faChalkboardTeacher} />,
     title: 'Teach',
+    key: _.uniqueId('icon-animation-'),
   },
   {
     icon: <FontAwesomeIcon icon={faInfinity} />,
     title: 'Repeat',
+    key: _.uniqueId('icon-animation-'),
   },
   {
     icon: <FontAwesomeIcon icon={faVials} />,
     title: 'Experiment',
+    key: _.uniqueId('icon-animation-'),
   },
   {
     icon: <FontAwesomeIcon icon={faCode} />,
     title: 'Code',
+    key: _.uniqueId('icon-animation-'),
   },
   {
     icon: <FontAwesomeIcon icon={faGraduationCap} />,
     title: 'Learn',
+    key: _.uniqueId('icon-animation-'),
   },
 ];

@@ -63,9 +63,10 @@ const Header = ({ history }) => {
       </TaglineWrapper>
       <IconShifter>
         <div className='icons'>
-          {iconAnimationConfig.map(({ icon: Icon, title }, idx) => {
+          {iconAnimationConfig.map(({ icon: Icon, title, key }, idx) => {
             return (
               <MovableIcon
+                key={key}
                 active={iconPositionConfig[idx].active}
                 heightNum={iconPositionConfig[idx].boundLength}
                 widthNum={iconPositionConfig[idx].boundLength}
