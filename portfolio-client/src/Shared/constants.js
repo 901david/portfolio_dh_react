@@ -1,10 +1,16 @@
 import _ from 'lodash';
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEnvelope,
   faAddressCard,
   faLaptopCode,
   faUserGraduate,
   faCode,
+  faChalkboardTeacher,
+  faGraduationCap,
+  faInfinity,
+  faVials,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -415,5 +421,61 @@ export const PORTFOLIO_DATA = [
     liveSite: 'https://www.npmjs.com/package/react-use-mapped-state',
     demoLink: '',
     bitBucketLink: '',
+  },
+];
+
+export const iconAnimationStarterState = [
+  {
+    active: false,
+    boundLength: '25',
+    top: '-80',
+    left: '87',
+  },
+  {
+    active: false,
+    boundLength: '40',
+    top: '-48',
+    left: '31',
+  },
+  {
+    active: true,
+    boundLength: '64',
+    top: '-30',
+    left: '100',
+  },
+  {
+    active: false,
+    boundLength: '40',
+    top: '-48',
+    left: '213',
+  },
+  {
+    active: false,
+    boundLength: '25',
+    top: '-80',
+    left: '165',
+  },
+];
+
+export const iconAnimationConfig = [
+  {
+    icon: <FontAwesomeIcon icon={faChalkboardTeacher} />,
+    title: 'Teach',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faInfinity} />,
+    title: 'Repeat',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faVials} />,
+    title: 'Experiment',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCode} />,
+    title: 'Code',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faGraduationCap} />,
+    title: 'Learn',
   },
 ];
