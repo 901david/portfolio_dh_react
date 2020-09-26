@@ -4,6 +4,7 @@ export const APP_THEME = {
   '$font-size-regular': '1rem',
   '$font-size-medium-large': '1.3rem',
   '$font-size-large': '1.8rem',
+  '$font-size-extra-medium-large': '3rem',
   '$font-size-extra-large': '4rem',
 
   //  Spacing

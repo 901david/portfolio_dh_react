@@ -49,7 +49,7 @@ export const LandingTagline = styled(Tagline)`
   font-style: italic;
 
   @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme['$font-size-extra-medium-large']};
   }
 `;
 
@@ -58,7 +58,7 @@ export const LandingSubTagline = styled(LandingTagline)`
   letter-spacing: 0.8rem;
 
   @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme['$font-size-extra-medium-large']};
   }
 `;
 
