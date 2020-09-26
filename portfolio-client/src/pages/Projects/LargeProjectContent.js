@@ -12,7 +12,6 @@ import {
   faBitbucket,
   faDocker,
 } from '@fortawesome/free-brands-svg-icons';
-import _ from 'lodash';
 import { useMappedState } from 'react-use-mapped-state';
 
 import {
