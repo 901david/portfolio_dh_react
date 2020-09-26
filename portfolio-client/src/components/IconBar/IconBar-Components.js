@@ -35,19 +35,19 @@ export const IconBarWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background: black;
-  color: white;
-  font-size: 1.3rem;
+  background: ${({ theme }) => theme.$black};
+  color: ${({ theme }) => theme.$white};
+  font-size: ${({ theme }) => theme['$font-size-medium-large']};
   position: relative;
   z-index: 100;
 
-  @media only screen and (min-width: 801px) {
+  @media only screen and (min-width: ${({ theme }) => theme.sizes.md + 1}) {
     transform: translateX(-10vw);
     ${({ mainContentBeingViewed }) =>
       mainContentBeingViewed && triggerIconBarSlideDesktop}
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
     grid-row: 2 / span 1;
     grid-column: 1 / span 12;
     width: 100vw;
@@ -59,7 +59,7 @@ export const IconBarWrapper = styled.div`
       mainContentBeingViewed && triggerIconBarSlideTablet}
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.sm}) {
     width: 70vw;
     justify-content: flex-start;
   }
@@ -78,21 +78,20 @@ ${({ selected }) =>
 
 &::after {
   content: "${({ text }) => text}";
-font-size: 1rem;
+font-size: ${({ theme }) => theme['$font-size-regular']};
 white-space: nowrap;
-color: white;
+color: ${({ theme }) => theme.$white};
 ${({ selected }) =>
   selected &&
   `
   padding-bottom:0;
-border-bottom:3px solid white;
+border-bottom:3px solid ${({ theme }) => theme.$white};
   `}
 
 } 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
 transform: translate(-3rem,-0.25rem);
-  
 }
 `;
 
@@ -124,7 +123,7 @@ export const NavItemWrapper = styled.div`
     opacity: 0;
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
     padding: 0;
     margin-left: 10px;
     flex-direction: row;
@@ -140,7 +139,7 @@ export const NavItemWrapper = styled.div`
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.sm}) {
     justify-content: flex-start;
   }
 `;

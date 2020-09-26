@@ -6,6 +6,6 @@ export const CourseItemsWrapperOtherEducation = styled(CourseItemsWrapper)`
   margin-top: -6.4rem;
 
   > p {
-    font-size: 1.8rem;
+    font-size: ${({ theme }) => theme['$font-size-large']};
   }
 `;

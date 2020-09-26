@@ -1,18 +1,16 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const HeaderImage = '../../images/topBar_edited.jpg';
-
 export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   background: black;
-  color: white;
+  color: ${({ theme }) => theme.$white};
   background-size: cover;
   grid-row: header-start / header-end;
   grid-column: sideBar-start / -1;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
     grid-row: 1 / span 1;
   }
 `;
@@ -27,7 +25,7 @@ export const IconShifter = styled.div`
 
   .icons {
     position: relative;
-    color: white;
+    color: ${({ theme }) => theme.$white};
   }
 
   .icon-wrapper {
@@ -55,7 +53,7 @@ export const MovableIcon = styled.div`
   }
 
   span {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme['$font-size-regular']};
     opacity: ${({ active }) => (active ? 1 : 0)};
     transition: all 0.5s;
   }
@@ -66,7 +64,7 @@ export const HeadShot = styled.img`
   height: 8rem;
   width: auto;
   margin-left: 3%;
-  border: 1px solid white;
+  border: 1px solid ${({ theme }) => theme.$white};
 `;
 
 export const Tagline = styled.p`
@@ -82,13 +80,13 @@ export const Tagline = styled.p`
     cursor: ${cursor};
   `}
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
     font-size: ${({ fontSizeMD, fontSize }) => fontSizeMD || fontSize}rem;
     letter-spacing: ${({ letterSpacingMD, letterSpacing }) =>
       letterSpacingMD || letterSpacing}px;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.sm}) {
     font-size: ${({ fontSizeMD, fontSizeSM, fontSize }) =>
       fontSizeSM || fontSizeMD || fontSize}rem;
     letter-spacing: ${({ letterSpacingMD, letterSpacingSM, letterSpacing }) =>
@@ -107,6 +105,6 @@ Tagline.propTypes = {
 export const TaglineWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: 'Crimson Text', serif;
+  font-family: ${({ theme }) => theme['$font-crimson']};
   margin-left: 8%;
 `;

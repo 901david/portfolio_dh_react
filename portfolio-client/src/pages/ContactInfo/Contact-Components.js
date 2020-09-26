@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import StandardTitle from "../../Shared/StandardTitle";
+import StandardTitle from '../../Shared/StandardTitle';
 
 export const ContactInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -28,17 +28,17 @@ export const ContactInfoWrapper = styled.div`
 
 export const Failure = styled.div`
   height: 75px;
-  font-size: 24px;
-  color: black;
-  background: white;
+  font-size: ${({ theme }) => theme['$font-size-medium-large']};
+  color: ${({ theme }) => theme.$black};
+  background: ${({ theme }) => theme.$white};
   border-radius: 5px;
   width: 75%;
-  border: 3px solid red;
+  border: 3px solid ${({ theme }) => theme.$red};
   text-align: center;
 `;
 
 export const Success = styled(Failure)`
-  border: 3px solid green;
+  border: 3px solid ${({ theme }) => theme.$green};
 `;
 
 export const ButtonWrapper = styled.div`

@@ -14,12 +14,12 @@ export const LandingBackground = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background: url(${HeaderImage}) black;
+  background: url(${HeaderImage}) ${({ theme }) => theme.$black};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1000;
-  color: white;
+  color: ${({ theme }) => theme.$white};
   transform: scale(1);
 
   ${({ landingViewedOnce }) => landingViewedOnce && `top:-100vh;`}
@@ -29,7 +29,7 @@ export const LandingBackground = styled.div`
 
 export const LandingHeadshot = styled(HeadShot)`
   height: 20rem;
-  border: 3px solid white;
+  border: 3px solid ${({ theme }) => theme.$white};
 `;
 
 export const LandingHeadshotWrapper = styled.div`
@@ -41,14 +41,14 @@ export const LandingHeadshotWrapper = styled.div`
 `;
 
 export const LandingTagline = styled(Tagline)`
-  color: black;
-  background: white;
+  color: ${({ theme }) => theme.$black};
+  background: ${({ theme }) => theme.$white};
   padding: 0.5em;
-  font-size: 4rem;
-  letter-spacing: 0.8rem;
+  font-size: ${({ theme }) => theme['$font-size-extra-large']};
+  letter-spacing: ${({ theme }) => theme['$title-letter-spacing']};
   font-style: italic;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
     font-size: 3rem;
   }
 `;
@@ -57,7 +57,7 @@ export const LandingSubTagline = styled(LandingTagline)`
   font-size: 4rem;
   letter-spacing: 0.8rem;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
     font-size: 3rem;
   }
 `;
@@ -70,7 +70,7 @@ export const IconWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: ${({ theme }) => theme.sizes.md}) {
     > svg {
       font-size: 9rem;
       animation: ${arrowVibrate(0)} 1.2s infinite;
