@@ -30,6 +30,8 @@ import {
   faInternetExplorer,
 } from '@fortawesome/free-brands-svg-icons';
 
+import { getUUID } from '../Shared/uuid-generator.js';
+
 export const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export const iconMap = [
@@ -37,56 +39,56 @@ export const iconMap = [
     icon: faAddressCard,
     text: 'About Me',
     path: '/skills',
-    id: _.uniqueId('navBar-'),
+    key: getUUID(),
     url: null,
   },
   {
     icon: faUserGraduate,
     text: 'Education',
     path: '/education',
-    id: _.uniqueId('navBar-'),
+    key: getUUID(),
     url: null,
   },
   {
     icon: faLaptopCode,
     text: 'Projects',
     path: '/projects',
-    id: _.uniqueId('navBar-'),
+    key: getUUID(),
     url: null,
   },
   {
     icon: faEnvelope,
     text: 'Email Me',
     path: '/contact',
-    id: _.uniqueId('navBar-'),
+    key: getUUID(),
     url: null,
   },
   {
     icon: faGithub,
     text: 'Github',
     path: null,
-    id: _.uniqueId('navBar-'),
+    key: getUUID(),
     url: 'https://github.com/901david',
   },
   {
     icon: faBitbucket,
     text: 'Bitbucket',
     path: null,
-    id: _.uniqueId('navBar-'),
+    key: getUUID(),
     url: 'https://bitbucket.org/scriptscrawler/',
   },
   {
     icon: faDocker,
     text: 'Docker Hub',
     path: null,
-    id: _.uniqueId('navBar-'),
+    key: getUUID(),
     url: 'https://hub.docker.com/u/4990814',
   },
   {
     icon: faLinkedinIn,
     text: 'LinkedIn',
     path: null,
-    id: _.uniqueId('navBar-'),
+    key: getUUID(),
     url: 'https://www.linkedin.com/in/00davidhammond/',
   },
 ];
@@ -100,6 +102,7 @@ export const TECHNICAL_SKILLS =
 export const FORMAL_EDUCATION_DATA = [
   {
     title: 'Rhodes College',
+    key: getUUID(),
     degree: "Bachelor's Degree, Religious Studies",
     dates: '2004 - 2007',
     description:
@@ -107,6 +110,7 @@ export const FORMAL_EDUCATION_DATA = [
   },
   {
     title: 'Final Cut Pro',
+    key: getUUID(),
     degree: 'Apple Certification',
     dates: '2010',
     description:
@@ -114,6 +118,7 @@ export const FORMAL_EDUCATION_DATA = [
   },
   {
     title: 'Denver University',
+    key: getUUID(),
     degree: 'Full Stack Developer Professional Certificate',
     dates: 'April 2017 - October 2017',
     description:
@@ -126,138 +131,164 @@ export const INFORMAL_EDUCATION_DATA = [
     name: 'Amazon ECS & Fargate Masterclass - Docker on AWS',
     icon: faAws,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/ecs-fargate.pdf',
+    key: getUUID(),
   },
   {
     name: 'Javascript Algorithms and Data Structures Masterclass',
     icon: faCode,
     url:
       'https://dh-certs.s3-us-west-1.amazonaws.com/algorithms-data-structures.pdf',
+    key: getUUID(),
   },
   {
     name: "Go: The Complete Developer's Guide",
     icon: faGoogle,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/go.pdf',
+    key: getUUID(),
   },
   {
     name: 'Ultimate AWS Certified Solutions Architect Associate 2020',
     icon: faAws,
     url:
       'https://dh-certs.s3-us-west-1.amazonaws.com/aws-solutions-architect.pdf',
+    key: getUUID(),
   },
   {
     name: 'Web Components & Stencil.js',
     icon: faInternetExplorer,
     url:
       'https://dh-certs.s3-us-west-1.amazonaws.com/web-components-stencil.pdf',
+    key: getUUID(),
   },
   {
     name: 'AWS Certified DevOps Engineer Professional 2020 - Hands On!',
     icon: faAws,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/devops-aws-cert.pdf',
+    key: getUUID(),
   },
   {
     name: 'Mastering Salesforce DX and Visual Studio Code',
     icon: faSalesforce,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/mastering-salesforce.pdf',
+    key: getUUID(),
   },
   {
     name: 'AWS Certified DevOps Engineer: Get 3 Certifications 2019',
     icon: faAws,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/dev-ops-coourse-1.pdf',
+    key: getUUID(),
   },
   {
     name: 'Jenkins, From Zero To Hero: Become a DevOps Jenkins Master',
     icon: faJenkins,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/jenkins.pdf',
+    key: getUUID(),
   },
   {
     name: 'Docker and Kubernetes: The Complete Guide',
     icon: faLaptopCode,
     url:
       'https://dh-certs.s3-us-west-1.amazonaws.com/docker-and-kuberneetes.pdf',
+    key: getUUID(),
   },
   {
     name: 'Complete Guide to Tensorflow for Deep Learning in Python',
     icon: faPython,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/tensorflow.pdf',
+    key: getUUID(),
   },
   {
     name: 'Learn and Understand AngularJS',
     icon: faAngular,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/angularjs.pdf',
+    key: getUUID(),
   },
   {
     name: 'Advanced CSS And SASS: Flexbox, Grid, Animations And More',
     icon: faSass,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/sass-flexbox-css.pdf',
+    key: getUUID(),
   },
   {
     name: 'GraphQL with React: The Complete Developer’s Guide',
     icon: faReact,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/graphql-with-react.pdf',
+    key: getUUID(),
   },
   {
     name: 'Complete Python Bootcamp',
     icon: faPython,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/python-bootcamp.pdf',
+    key: getUUID(),
   },
   {
     name: 'Webpack 2: The Complete Developer’s Guide',
     icon: faJsSquare,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/webpack-2.pdf',
+    key: getUUID(),
   },
   {
     name: 'Advanced React and Redux: 2018 edition',
     icon: faReact,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/advanced-react-redux.pdf',
+    key: getUUID(),
   },
   {
     name: 'Angular 5 Advanced Masterclass',
     icon: faAngular,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/angular-master-class.pdf',
+    key: getUUID(),
   },
   {
     name: 'Software Architecture: Meta and SOLID principles in C#',
     icon: faLaptopCode,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/solid-and-c-sharp.pdf',
+    key: getUUID(),
   },
   {
     name: 'Testing in Angular 4',
     icon: faAngular,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/testinig-angular.pdf',
+    key: getUUID(),
   },
   {
     name: 'Javascript Interview Prep',
     icon: faLaptopCode,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/js-interview-prep.pdf',
+    key: getUUID(),
   },
   {
     name: 'Master Practical Java 9 Development',
     icon: faJava,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/java.pdf',
+    key: getUUID(),
   },
   {
     name: 'Coding Interview Bootcamp: Algorithms and Data Structures',
     icon: faLaptopCode,
     url:
       'https://dh-certs.s3-us-west-1.amazonaws.com/coding-interview-bootcamp.pdf',
+    key: getUUID(),
   },
   {
     name: 'Modern React with Redux',
     icon: faReact,
     url: 'https://dh-certs.s3-us-west-1.amazonaws.com/react-with-redux.pdf',
+    key: getUUID(),
   },
   {
     name: 'Understanding TypeScript ',
     icon: faJsSquare,
     url:
       'https://dh-certs.s3-us-west-1.amazonaws.com/typescript-understanding.pdf',
+    key: getUUID(),
   },
   {
     name: 'Angular 5, formerly Angular 2',
     icon: faAngular,
     url:
       'https://dh-certs.s3-us-west-1.amazonaws.com/angular-complete-guide.pdf',
+    key: getUUID(),
   },
 ];
 
@@ -277,10 +308,23 @@ export const PROFESSIONAL_CERTS = [
     certUrl:
       'https://aws.amazon.com/certification/certified-solutions-architect-associate/',
     skills: [
-      'Effectively demonstrate knowledge of how to architect and deploy secure and robust applications on AWS technologies',
-      'Define a solution using architectural design principles based on customer requirements',
-      'Provide implementation guidance based on best practices to the organization throughout the life cycle of the project',
+      {
+        skill:
+          'Effectively demonstrate knowledge of how to architect and deploy secure and robust applications on AWS technologies',
+        key: getUUID(),
+      },
+      {
+        skill:
+          'Define a solution using architectural design principles based on customer requirements',
+        key: getUUID(),
+      },
+      {
+        skiill:
+          'Provide implementation guidance based on best practices to the organization throughout the life cycle of the project',
+        key: getUUID(),
+      },
     ],
+    key: getUUID(),
   },
   {
     degree: 'AWS Certified DevOps Engineer - Professional',
@@ -290,30 +334,64 @@ export const PROFESSIONAL_CERTS = [
     certUrl:
       'https://aws.amazon.com/certification/certified-devops-engineer-professional/',
     skills: [
-      'Implement and manage continuous delivery systems and methodologies on AWS',
-      'Implement and automate security controls, governance processes, and compliance validation',
-      'Define and deploy monitoring, metrics, and logging systems on AWS',
-      'Implement systems that are highly available, scalable, and self-healing on the AWS platform',
-      'Design, manage, and maintain tools to automate operational processes',
+      {
+        skill:
+          'Implement and manage continuous delivery systems and methodologies on AWS',
+        key: getUUID(),
+      },
+      {
+        skill:
+          'Implement and automate security controls, governance processes, and compliance validation',
+        key: getUUID(),
+      },
+      {
+        skill:
+          'Define and deploy monitoring, metrics, and logging systems on AWS',
+        key: getUUID(),
+      },
+      {
+        skill:
+          'Implement systems that are highly available, scalable, and self-healing on the AWS platform',
+        key: getUUID(),
+      },
+      {
+        skill:
+          'Design, manage, and maintain tools to automate operational processes',
+        key: getUUID(),
+      },
     ],
+    key: getUUID(),
   },
 ];
 
 export const PORTFOLIO_DATA = [
   {
-    _id: {
-      $oid: '5d727bd7f45221001e5cfe34',
-    },
+    key: getUUID(),
     images: [
-      '../images/portimages/pendant/pendant-1.png',
-      '../images/portimages/pendant/pendant-2.png',
-      '../images/portimages/pendant/pendant-updated-3.png',
-      '../images/portimages/pendant/pendant-updated-1.png',
-      '../images/portimages/pendant/pendant-updated-2.png',
-      '../images/portimages/pendant/pendant-5.png',
-      '../images/portimages/pendant/pendant-6.png',
+      { url: '../images/portimages/pendant/pendant-1.png', key: getUUID() },
+      { url: '../images/portimages/pendant/pendant-2.png', key: getUUID() },
+      {
+        url: '../images/portimages/pendant/pendant-updated-3.png',
+        key: getUUID(),
+      },
+      {
+        url: '../images/portimages/pendant/pendant-updated-1.png',
+        key: getUUID(),
+      },
+      {
+        url: '../images/portimages/pendant/pendant-updated-2.png',
+        key: getUUID(),
+      },
+      { url: '../images/portimages/pendant/pendant-5.png', key: getUUID() },
+      { url: '../images/portimages/pendant/pendant-6.png', key: getUUID() },
     ],
-    technology: ['TypeScript', 'Angular', 'Python', 'API Gateway', 'Lambda'],
+    technology: [
+      { name: 'TypeScript', key: getUUID() },
+      { name: 'Angular', key: getUUID() },
+      { name: 'Python', key: getUUID() },
+      { name: 'API Gateway', key: getUUID() },
+      { name: 'Lambda', key: getUUID() },
+    ],
     projectTitle: 'Pendant Wrapper',
     cardBackground: 'black',
     description:
@@ -325,26 +403,24 @@ export const PORTFOLIO_DATA = [
     bitBucketLink: '',
   },
   {
-    _id: {
-      $oid: '5d92bb828fb194001d575be7',
-    },
+    key: getUUID(),
     images: [
-      '../images/portimages/twilio/text.png',
-      '../images/portimages/twilio/gui.png',
-      '../images/portimages/twilio/gui2.png',
+      { url: '../images/portimages/twilio/text.png', key: getUUID() },
+      { url: '../images/portimages/twilio/gui.png', key: getUUID() },
+      { url: '../images/portimages/twilio/gui2.png', key: getUUID() },
     ],
     technology: [
-      'React',
-      'Typescript',
-      'Ag-Grid',
-      'Styled-Components',
-      'Lambda',
-      'API Gateway',
-      'Heroku',
-      'Docker',
-      'Twilio API',
-      'Node',
-      'Express',
+      { name: 'React', key: getUUID() },
+      { name: 'Typescript', key: getUUID() },
+      { name: 'Ag-Grid', key: getUUID() },
+      { name: 'Styled-Components', key: getUUID() },
+      { name: 'Lambda', key: getUUID() },
+      { name: 'API Gateway', key: getUUID() },
+      { name: 'Heroku', key: getUUID() },
+      { name: 'Docker', key: getUUID() },
+      { name: 'Twilio API', key: getUUID() },
+      { name: 'Node', key: getUUID() },
+      { name: 'Express', key: getUUID() },
     ],
     projectTitle: 'Twilio-Lambda',
     cardBackground: 'white',
@@ -359,21 +435,19 @@ export const PORTFOLIO_DATA = [
     bitBucketLink: '',
   },
   {
-    _id: {
-      $oid: '5d92bb8453528fb194001d575be7',
-    },
+    key: getUUID(),
     images: [
-      '../images/portimages/dockhand/dockhand1.png',
-      '../images/portimages/dockhand/dockhand2.png',
-      '../images/portimages/dockhand/dockhand3.png',
+      { url: '../images/portimages/dockhand/dockhand1.png', key: getUUID() },
+      { url: '../images/portimages/dockhand/dockhand2.png', key: getUUID() },
+      { url: '../images/portimages/dockhand/dockhand3.png', key: getUUID() },
     ],
     technology: [
-      'React',
-      'Typescript',
-      'Dockerode',
-      'Styled-Components',
-      'Docker',
-      'Socket IO',
+      { name: 'React', key: getUUID() },
+      { name: 'Typescript', key: getUUID() },
+      { name: 'Dockerode', key: getUUID() },
+      { name: 'Styled-Components', key: getUUID() },
+      { name: 'Docker', key: getUUID() },
+      { name: 'Socket IO', key: getUUID() },
     ],
     projectTitle: 'DockHand',
     cardBackground: 'white',
@@ -403,14 +477,17 @@ export const PORTFOLIO_DATA = [
     bitBucketLink: '',
   },
   {
-    _id: {
-      $oid: '5d92bb828fbc08001d575be742342',
-    },
+    key: getUUID(),
     images: [
-      '../images/portimages/mappedstate/example1.png',
-      '../images/portimages/mappedstate/example2.png',
+      { url: '../images/portimages/mappedstate/example1.png', key: getUUID() },
+      { url: '../images/portimages/mappedstate/example2.png', key: getUUID() },
     ],
-    technology: ['React', 'Npm', 'Rollup', 'Typescript'],
+    technology: [
+      { name: 'React', key: getUUID() },
+      { name: 'Npm', key: getUUID() },
+      { name: 'Rollup', key: getUUID() },
+      { name: 'Typescript', key: getUUID() },
+    ],
     projectTitle: 'useMappedState React Hook',
     cardBackground: 'black',
     description:
@@ -461,26 +538,26 @@ export const iconAnimationConfig = [
   {
     icon: <FontAwesomeIcon icon={faChalkboardTeacher} />,
     title: 'Teach',
-    key: _.uniqueId('icon-animation-'),
+    key: getUUID(),
   },
   {
     icon: <FontAwesomeIcon icon={faInfinity} />,
     title: 'Repeat',
-    key: _.uniqueId('icon-animation-'),
+    key: getUUID(),
   },
   {
     icon: <FontAwesomeIcon icon={faVials} />,
     title: 'Experiment',
-    key: _.uniqueId('icon-animation-'),
+    key: getUUID(),
   },
   {
     icon: <FontAwesomeIcon icon={faCode} />,
     title: 'Code',
-    key: _.uniqueId('icon-animation-'),
+    key: getUUID(),
   },
   {
     icon: <FontAwesomeIcon icon={faGraduationCap} />,
     title: 'Learn',
-    key: _.uniqueId('icon-animation-'),
+    key: getUUID(),
   },
 ];

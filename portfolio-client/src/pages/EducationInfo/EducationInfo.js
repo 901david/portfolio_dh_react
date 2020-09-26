@@ -19,24 +19,18 @@ const EducationInfo = () => (
   <EducationInfoWrapper>
     <ShortenedStandardTitle>Formal Education</ShortenedStandardTitle>
     <EducationWrapper>
-      {FORMAL_EDUCATION_DATA.slice(0, 1).map(eduItem => {
-        return (
-          <EducationRenderer key={_.uniqueId('eduRenderer-')} {...eduItem} />
-        );
+      {FORMAL_EDUCATION_DATA.slice(0, 1).map(({ key, ...props }) => {
+        return <EducationRenderer key={key} {...props} />;
       })}
     </EducationWrapper>
     <EducationWrapper>
-      {FORMAL_EDUCATION_DATA.slice(1, 1).map(eduItem => {
-        return (
-          <EducationRenderer key={_.uniqueId('eduRenderer-')} {...eduItem} />
-        );
+      {FORMAL_EDUCATION_DATA.slice(1, 1).map(({ key, ...props }) => {
+        return <EducationRenderer key={key} {...props} />;
       })}
     </EducationWrapper>
     <EducationWrapper>
-      {FORMAL_EDUCATION_DATA.slice(2).map(eduItem => {
-        return (
-          <EducationRenderer key={_.uniqueId('eduRenderer-')} {...eduItem} />
-        );
+      {FORMAL_EDUCATION_DATA.slice(2).map(({ key, ...props }) => {
+        return <EducationRenderer key={key} {...props} />;
       })}
     </EducationWrapper>
     <CertificationRenderer

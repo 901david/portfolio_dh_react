@@ -1,3 +1,3 @@
 import IconBar from './IconBar';
 
-export defualt IconBar;
+export default IconBar;

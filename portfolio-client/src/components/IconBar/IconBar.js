@@ -33,11 +33,11 @@ const IconBar = ({ history, location: { pathname }, viewingMainContent }) => {
   return (
     <>
       <IconBarWrapper mainContentBeingViewed={viewingMainContent}>
-        {iconMap.map(({ id, icon, text, path, url }, index) => {
+        {iconMap.map(({ key, icon, text, path, url }, index) => {
           return (
             <NavItemWrapper
               selected={currentlySelectedIcon === index}
-              key={id}
+              key={key}
               onClick={
                 currentlySelectedIcon !== index
                   ? () => handleNavigation(path, url)

@@ -123,12 +123,12 @@ const LargeProjectContent = ({
           />
         </LargeImageContainer>
         <PreviewImageContainer>
-          {images.map((img, index) => (
+          {images.map(({ url, key }, index) => (
             <PreviewImage
-              key={_.uniqueId('prev-img-')}
+              key={key}
               loaded={index === currentLargeImageIndex}
               onClick={() => valueSetter('currentLargeImageIndex', index)}
-              src={img}
+              src={url}
             />
           ))}
         </PreviewImageContainer>

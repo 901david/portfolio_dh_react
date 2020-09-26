@@ -1,7 +1,6 @@
 import React from 'react';
-import _ from 'lodash';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import StandardTitle from '../../Shared/StandardTitle';
 import {
   CourseItem,
@@ -16,9 +15,9 @@ const InformalEducationRenderer = ({ courseList }) => (
       <StandardTitle>Udemy</StandardTitle>
       <Subtitle>Certificate of Completion</Subtitle>
     </TitleWrapper>
-    {courseList.map(({ name, icon, url }) => {
+    {courseList.map(({ name, icon, url, key }) => {
       return (
-        <CourseItem key={_.uniqueId('courseItem-')}>
+        <CourseItem key={key}>
           <a target='_blank' rel='noreferrer noopener' href={url}>
             <span>{name}</span>
           </a>

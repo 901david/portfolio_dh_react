@@ -36,13 +36,13 @@ const Projects = ({ portfolioData }) => {
         <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronLeft} />
       </IconWrapper>
       <IndividualProjectWrapper amount={3} position={'center'} hover={false}>
-        {projects.length > 0 && (
+        {projects.length > 0 ? (
           <Project
-            key={`project-${projects[currentIndex]._id}`}
+            key={projects[currentIndex].key}
             {...projects[currentIndex]}
             handleArrowClick={handleArrowClick}
           />
-        )}
+        ) : null}
       </IndividualProjectWrapper>
 
       <IconWrapper amount={1} position={'flex-end'} hover={true}>
