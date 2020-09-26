@@ -5,6 +5,8 @@ import {
   faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import { useMappedState } from 'react-use-mapped-state';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleProjectIdx } from '../../Ducks/Projects/projects.slice';
 
 import Project from './Project';
 import {
@@ -14,20 +16,24 @@ import {
 } from './Projects-Components';
 
 const Projects = ({ portfolioData }) => {
-  const [{ projects, currentIndex }, valueSetter] = useMappedState({
+  const [{ projects }, valueSetter] = useMappedState({
     projects: [],
-    currentIndex: 0,
   });
+  const dispatch = useDispatch();
+
+  const selectedProjectIndex = useSelector(
+    ({ projects }) => projects.selectedProject
+  );
 
   useEffect(() => {
     if (portfolioData) valueSetter('projects', portfolioData);
   }, [portfolioData, valueSetter]);
 
   const handleArrowClick = () => {
-    let nextIndex = currentIndex;
-    if (currentIndex + 1 === projects.length) nextIndex = 0;
+    let nextIndex = selectedProjectIndex;
+    if (selectedProjectIndex + 1 === projects.length) nextIndex = 0;
     else nextIndex++;
-    valueSetter('currentIndex', nextIndex);
+    dispatch(toggleProjectIdx(nextIndex));
   };
 
   return (
@@ -38,8 +44,8 @@ const Projects = ({ portfolioData }) => {
       <IndividualProjectWrapper amount={3} position={'center'} hover={false}>
         {projects.length > 0 ? (
           <Project
-            key={projects[currentIndex].key}
-            {...projects[currentIndex]}
+            key={projects[selectedProjectIndex].key}
+            {...projects[selectedProjectIndex]}
             handleArrowClick={handleArrowClick}
           />
         ) : null}
