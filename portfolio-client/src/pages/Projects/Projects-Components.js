@@ -287,17 +287,6 @@ export const IconWrapper = styled.div`
           margin-top: ${marginTop}rem;
         `
       : ''};
-
-  & > svg {
-    transform: scale(1);
-    transition: all 0.5s;
-  }
-
-  ${({ hover }) =>
-    hover &&
-    `& > svg:hover {
-    transform: scale(1.15);
-  }`}
 `;
 
 export const IndividualProjectWrapper = styled.div`
@@ -325,14 +314,14 @@ export const LargeProjectWrapper = styled.div`
   display: flex;
   width: ${({ isOpen }) => (isOpen ? '100vw' : '0')};
   height: ${({ isOpen }) => (isOpen ? '100vh' : '0')};
-  transition: all 0.5s;
+  transition: all 0.3s;
   background: white;
   color: black;
   position: absolute;
   overflow-x: scroll;
   align-items: flex-start;
-  top: 0px;
-  left: 0px;
+  top: ${({ isOpen }) => (!isOpen ? '50%' : '0px')};
+  left: ${({ isOpen }) => (!isOpen ? '50%' : '0px')};
   z-index: 100;
 
   .large-project-content {
@@ -342,7 +331,8 @@ export const LargeProjectWrapper = styled.div`
     flex-direction: column;
   }
 
-  > svg {
+  svg.fa-times {
+    font-size: 30px;
     margin-top: 1rem;
     margin-left: 1rem;
     transform: scale(1);
