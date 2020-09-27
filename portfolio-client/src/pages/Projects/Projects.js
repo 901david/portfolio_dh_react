@@ -19,21 +19,20 @@ import {
   IndividualProjectWrapper,
 } from './Projects-Components';
 import axios from 'axios';
-import { isError } from 'lodash';
 
 const Projects = () => {
   const dispatch = useDispatch();
-  const { selectedProject: selectedProjectIndex, projects } = useSelector(
+  const { selectedProject: selectedProjectIndex } = useSelector(
     ({ projects }) => projects
   );
 
   const { url: baseUrl } = useSelector(({ apiurl }) => apiurl);
 
-  // const { isLoading, error, data: projects } = useQuery('repoData', () =>
-  //   axios.get(`${baseUrl}/projects`).then(res => {
-  //     return res.data.projects;
-  //   })
-  // );
+  const { isLoading, error, data: projects } = useQuery('repoData', () =>
+    axios.get(`${baseUrl}/projects`).then(res => {
+      return res.data.projects;
+    })
+  );
 
   React.useEffect(() => {
     axios
@@ -53,9 +52,8 @@ const Projects = () => {
     else nextIndex++;
     dispatch(toggleProjectIdx(nextIndex));
   };
-  // if (isLoading) return <div>Loading...</div>;
-  // if (isError) return <div>Sorry something went wrong here......</div>;
-  console.log(selectedProjectIndex);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Sorry something went wrong here......</div>;
   return (
     <ProjectsWrapper>
       <IconWrapper amount={1} position={'flex-start'} hover={true}>

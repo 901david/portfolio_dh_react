@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { useMappedState } from 'react-use-mapped-state';
 import { useDispatch } from 'react-redux';
+import { ReactQueryDevtools } from 'react-query-devtools';
 
 import Header from '../Header';
 import IconBar from '../IconBar/IconBar';
@@ -35,39 +36,46 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <MainAppWrapper>
-        <Header />
-        <IconBar viewingMainContent={viewingMainContent} />
-        {!landingViewedOnce ? (
-          <Landing
-            viewingMainContent={viewingMainContent}
-            setLandingViewed={setLandingViewed}
-            landingViewedOnce={landingViewedOnce}
-            setMainContentBeingViewed={setMainContentBeingViewed}
-          />
-        ) : null}
-        <Suspense fallback={<Loader />}>
-          <MainViewWrapper>
-            <Route exact path='/' render={() => <Redirect to={'/skills'} />} />
-            <Route
-              path='/skills'
-              render={() => (
-                <Skills
-                  landingViewedOnce={landingViewedOnce}
-                  setLandingViewed={setLandingViewed}
-                  viewingMainContent={viewingMainContent}
-                  setMainContentBeingViewed={setMainContentBeingViewed}
-                />
-              )}
+    <>
+      <Router>
+        <MainAppWrapper>
+          <Header />
+          <IconBar viewingMainContent={viewingMainContent} />
+          {!landingViewedOnce ? (
+            <Landing
+              viewingMainContent={viewingMainContent}
+              setLandingViewed={setLandingViewed}
+              landingViewedOnce={landingViewedOnce}
+              setMainContentBeingViewed={setMainContentBeingViewed}
             />
-            <Route path='/contact' component={ContactInfo} />
-            <Route path='/projects' render={() => <Projects />} />
-            <Route path='/education' component={EducationInfo} />
-          </MainViewWrapper>
-        </Suspense>
-      </MainAppWrapper>
-    </Router>
+          ) : null}
+          <Suspense fallback={<Loader />}>
+            <MainViewWrapper>
+              <Route
+                exact
+                path='/'
+                render={() => <Redirect to={'/skills'} />}
+              />
+              <Route
+                path='/skills'
+                render={() => (
+                  <Skills
+                    landingViewedOnce={landingViewedOnce}
+                    setLandingViewed={setLandingViewed}
+                    viewingMainContent={viewingMainContent}
+                    setMainContentBeingViewed={setMainContentBeingViewed}
+                  />
+                )}
+              />
+              <Route path='/contact' component={ContactInfo} />
+              <Route path='/projects' render={() => <Projects />} />
+              <Route path='/education' component={EducationInfo} />
+            </MainViewWrapper>
+          </Suspense>
+        </MainAppWrapper>
+      </Router>
+      <ReactQueryDevtools initialIsOpen />
+    </>
   );
 };
 
