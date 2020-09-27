@@ -1,0 +1,13 @@
+{
+  "name": "projects-endpoint",
+  "private": true,
+  "version": "1.0.0",
+  "description": "/projects endpoint",
+  "main": "app.js",
+  "repository": "",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {},
+  "devDependencies": {}
+}

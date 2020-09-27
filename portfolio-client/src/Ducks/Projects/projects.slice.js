@@ -10,9 +10,12 @@ const projectsSlice = createSlice({
     toggleProjectIdx(state, action) {
       state.selectedProject = action.payload;
     },
+    addProjects(state, action) {
+      state.projects = action.payload;
+    },
   },
 });
 
-export const { toggleProjectIdx } = projectsSlice.actions;
+export const { toggleProjectIdx, addProjects } = projectsSlice.actions;
 
 export default projectsSlice.reducer;

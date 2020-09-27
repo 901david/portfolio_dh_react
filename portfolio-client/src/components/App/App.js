@@ -1,24 +1,25 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { useMappedState } from 'react-use-mapped-state';
+import { useDispatch } from 'react-redux';
 
 import Header from '../Header';
 import IconBar from '../IconBar/IconBar';
 import Landing from '../../pages/Landing/Landing';
-import { PORTFOLIO_DATA } from '../../Shared/constants';
 import { MainAppWrapper, MainViewWrapper } from './App-Components';
 import Loader from '../../components/Loader';
+import { UrlService } from '../../Shared/url-service';
+import { updateUrl } from '../../Ducks/ApiUrl/api-url-slice';
 
-const App = props => {
+const App = () => {
   const [
-    { portfolioData, viewingMainContent, landingViewedOnce },
+    { viewingMainContent, landingViewedOnce },
     valueSetter,
   ] = useMappedState({
-    portfolioData: PORTFOLIO_DATA,
     viewingMainContent: false,
     landingViewedOnce: false,
   });
-
+  const dispatch = useDispatch();
   const setMainContentBeingViewed = bool =>
     valueSetter('viewingMainContent', bool);
   const setLandingViewed = bool => valueSetter('landingViewedOnce', bool);
@@ -27,6 +28,11 @@ const App = props => {
   const ContactInfo = lazy(() => import('../../pages/ContactInfo'));
   const EducationInfo = lazy(() => import('../../pages/EducationInfo'));
   const Projects = lazy(() => import('../../pages/Projects/Projects'));
+
+  React.useEffect(() => {
+    const urlService = new UrlService();
+    dispatch(updateUrl(urlService.baseUrl));
+  }, []);
 
   return (
     <Router>
@@ -56,10 +62,7 @@ const App = props => {
               )}
             />
             <Route path='/contact' component={ContactInfo} />
-            <Route
-              path='/projects'
-              render={() => <Projects portfolioData={portfolioData} />}
-            />
+            <Route path='/projects' render={() => <Projects />} />
             <Route path='/education' component={EducationInfo} />
           </MainViewWrapper>
         </Suspense>

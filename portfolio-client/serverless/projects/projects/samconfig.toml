@@ -1,0 +1,9 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "projects-endpoint"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-nrx1a9mnumrh"
+s3_prefix = "projects-endpoint"
+region = "us-west-2"
+capabilities = "CAPABILITY_IAM"

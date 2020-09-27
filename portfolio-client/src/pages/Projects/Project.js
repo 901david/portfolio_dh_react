@@ -103,7 +103,9 @@ const Project = ({
           <ProjectDetails cardBackground={cardBackground}>
             <BackCardBackgroundImage imageBack={imageBack} />
             <p>Tech Used:</p>
-            <p>{technology.join(', ')}</p>
+            {technology.map(({ name, key }) => (
+              <p key={key}>{name}</p>
+            ))}
           </ProjectDetails>
         </div>
       </div>

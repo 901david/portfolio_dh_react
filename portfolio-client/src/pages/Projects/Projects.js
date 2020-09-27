@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,
   faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons';
-import { useMappedState } from 'react-use-mapped-state';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleProjectIdx } from '../../Ducks/Projects/projects.slice';
+import { useQuery } from 'react-query';
+
+import {
+  toggleProjectIdx,
+  addProjects,
+} from '../../Ducks/Projects/projects.slice';
 
 import Project from './Project';
 import {
@@ -14,20 +18,34 @@ import {
   IconWrapper,
   IndividualProjectWrapper,
 } from './Projects-Components';
+import axios from 'axios';
+import { isError } from 'lodash';
 
-const Projects = ({ portfolioData }) => {
-  const [{ projects }, valueSetter] = useMappedState({
-    projects: [],
-  });
+const Projects = () => {
   const dispatch = useDispatch();
-
-  const selectedProjectIndex = useSelector(
-    ({ projects }) => projects.selectedProject
+  const { selectedProject: selectedProjectIndex, projects } = useSelector(
+    ({ projects }) => projects
   );
 
-  useEffect(() => {
-    if (portfolioData) valueSetter('projects', portfolioData);
-  }, [portfolioData, valueSetter]);
+  const { url: baseUrl } = useSelector(({ apiurl }) => apiurl);
+
+  // const { isLoading, error, data: projects } = useQuery('repoData', () =>
+  //   axios.get(`${baseUrl}/projects`).then(res => {
+  //     return res.data.projects;
+  //   })
+  // );
+
+  React.useEffect(() => {
+    axios
+      .get(`${baseUrl}/projects`)
+      .then(res => {
+        dispatch(addProjects(res.data.projects));
+      })
+      .catch(err => {
+        //handle with  redux
+        console.log(err);
+      });
+  }, []);
 
   const handleArrowClick = () => {
     let nextIndex = selectedProjectIndex;
@@ -35,14 +53,16 @@ const Projects = ({ portfolioData }) => {
     else nextIndex++;
     dispatch(toggleProjectIdx(nextIndex));
   };
-
+  // if (isLoading) return <div>Loading...</div>;
+  // if (isError) return <div>Sorry something went wrong here......</div>;
+  console.log(selectedProjectIndex);
   return (
     <ProjectsWrapper>
       <IconWrapper amount={1} position={'flex-start'} hover={true}>
         <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronLeft} />
       </IconWrapper>
       <IndividualProjectWrapper amount={3} position={'center'} hover={false}>
-        {projects.length > 0 ? (
+        {projects && projects.length > 0 ? (
           <Project
             key={projects[selectedProjectIndex].key}
             {...projects[selectedProjectIndex]}
