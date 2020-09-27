@@ -355,3 +355,16 @@ export const IndividualProjectWrapper = styled.div`
   grid-template-rows: 1fr;
   align-items: center;
 `;
+
+export const TechColumnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const TechColumn = styled.ul`
+  margin: 0 5px;
+
+  > li {
+    text-align: left;
+  }
+`;

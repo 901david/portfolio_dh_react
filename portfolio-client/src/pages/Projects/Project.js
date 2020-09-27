@@ -10,6 +10,8 @@ import {
   ProjectDetails,
   ProjectTitleWrapper,
   BackCardBackgroundImage,
+  TechColumnWrapper,
+  TechColumn,
 } from './Projects-Components';
 
 const Project = ({
@@ -103,9 +105,20 @@ const Project = ({
           <ProjectDetails cardBackground={cardBackground}>
             <BackCardBackgroundImage imageBack={imageBack} />
             <p>Tech Used:</p>
-            {technology.map(({ name, key }) => (
-              <p key={key}>{name}</p>
-            ))}
+            <TechColumnWrapper>
+              <TechColumn>
+                {technology.map(
+                  ({ name, key }, idx) =>
+                    idx % 2 === 0 && <li key={key}>{name}</li>
+                )}
+              </TechColumn>
+              <TechColumn>
+                {technology.map(
+                  ({ name, key }, idx) =>
+                    idx % 2 !== 0 && <li key={key}>{name}</li>
+                )}
+              </TechColumn>
+            </TechColumnWrapper>
           </ProjectDetails>
         </div>
       </div>
