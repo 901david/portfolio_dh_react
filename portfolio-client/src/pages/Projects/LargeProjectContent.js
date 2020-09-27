@@ -28,6 +28,7 @@ import {
   TextWrapper,
   TextTitle,
   IconWrapper,
+  LargeProjectWrapper,
 } from './Projects-Components';
 
 const LargeProjectContent = ({
@@ -42,6 +43,7 @@ const LargeProjectContent = ({
   projectTitle,
   handleProjectToggle,
   handleArrowClick,
+  isOpen,
 }) => {
   const [{ currentLargeImageIndex }, valueSetter] = useMappedState({
     currentLargeImageIndex: 0,
@@ -49,11 +51,11 @@ const LargeProjectContent = ({
 
   const onCloseProject = event => {
     valueSetter('currentLargeImageIndex', 0);
-    handleProjectToggle(event);
+    handleProjectToggle();
   };
 
   return (
-    <div className='large-project'>
+    <LargeProjectWrapper isOpen={isOpen}>
       <IconWrapper
         amount={1}
         position={'flex-start'}
@@ -145,7 +147,7 @@ const LargeProjectContent = ({
       <IconWrapper amount={1} position={'flex-end'} hover={true} marginTop={15}>
         <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronRight} />
       </IconWrapper>
-    </div>
+    </LargeProjectWrapper>
   );
 };
 

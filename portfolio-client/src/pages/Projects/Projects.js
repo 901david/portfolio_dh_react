@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   toggleProjectIdx,
   addProjects,
+  toggleLargeDisplay,
 } from '../../Ducks/Projects/projects.slice';
 
 import Project from './Project';
@@ -18,12 +19,15 @@ import {
   IndividualProjectWrapper,
 } from './Projects-Components';
 import axios from 'axios';
+import LargeProjectContent from './LargeProjectContent';
 
 const Projects = () => {
   const dispatch = useDispatch();
-  const { selectedProject: selectedProjectIndex, projects } = useSelector(
-    ({ projects }) => projects
-  );
+  const {
+    selectedProject: selectedProjectIndex,
+    projects,
+    largeDisplayOpen,
+  } = useSelector(({ projects }) => projects);
 
   const { url: baseUrl } = useSelector(({ apiurl }) => apiurl);
 
@@ -46,25 +50,40 @@ const Projects = () => {
     dispatch(toggleProjectIdx(nextIndex));
   };
 
-  return (
-    <ProjectsWrapper>
-      <IconWrapper amount={1} position={'flex-start'} hover={true}>
-        <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronLeft} />
-      </IconWrapper>
-      <IndividualProjectWrapper amount={3} position={'center'} hover={false}>
-        {projects && projects.length > 0 ? (
-          <Project
-            key={projects[selectedProjectIndex].key}
-            {...projects[selectedProjectIndex]}
-            handleArrowClick={handleArrowClick}
-          />
-        ) : null}
-      </IndividualProjectWrapper>
+  const handleProjectToggle = () => {
+    dispatch(toggleLargeDisplay(!largeDisplayOpen));
+  };
 
-      <IconWrapper amount={1} position={'flex-end'} hover={true}>
-        <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronRight} />
-      </IconWrapper>
-    </ProjectsWrapper>
+  return (
+    <>
+      <ProjectsWrapper>
+        <IconWrapper amount={1} position={'flex-start'} hover={true}>
+          <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronLeft} />
+        </IconWrapper>
+        <IndividualProjectWrapper amount={3} position={'center'} hover={false}>
+          {projects && projects.length > 0 ? (
+            <Project
+              handleProjectToggle={handleProjectToggle}
+              key={projects[selectedProjectIndex].key}
+              {...projects[selectedProjectIndex]}
+              handleArrowClick={handleArrowClick}
+            />
+          ) : null}
+        </IndividualProjectWrapper>
+
+        <IconWrapper amount={1} position={'flex-end'} hover={true}>
+          <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronRight} />
+        </IconWrapper>
+      </ProjectsWrapper>
+      {projects[selectedProjectIndex] !== undefined && (
+        <LargeProjectContent
+          isOpen={largeDisplayOpen}
+          handleProjectToggle={handleProjectToggle}
+          {...projects[selectedProjectIndex]}
+          handleArrowClick={handleArrowClick}
+        />
+      )}
+    </>
   );
 };
 

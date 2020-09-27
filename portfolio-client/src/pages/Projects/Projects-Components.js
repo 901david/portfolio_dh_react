@@ -200,49 +200,6 @@ export const ProjectWrapper = styled.div`
       cursor: pointer;
     }
   }
-
-  .large-project {
-    display: flex;
-    width: 0;
-    height: 0;
-    background: white;
-    color: black;
-    position: absolute;
-    overflow-x: scroll;
-    align-items: flex-start;
-
-    ${({ largeContentStartingPosition: { top, left } }) =>
-      css`
-        top: ${top}px;
-        left: ${left}px;
-      `};
-    // z-index: -1;
-    z-index: 100;
-
-    ${({ projectLaunching }) => projectLaunching && projectLaunch}
-    ${({ projectClosing }) =>
-      projectClosing && projectClose}
-
-
-    
-
-    .large-project-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    > svg {
-      margin-top: 1rem;
-      margin-left: 1rem;
-      transform: scale(1);
-
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
 `;
 
 export const ProjectTitle = styled.div`
@@ -361,5 +318,37 @@ export const TechColumn = styled.ul`
 
   > li {
     text-align: left;
+  }
+`;
+
+export const LargeProjectWrapper = styled.div`
+  display: flex;
+  width: ${({ isOpen }) => (isOpen ? '100vw' : '0')};
+  height: ${({ isOpen }) => (isOpen ? '100vh' : '0')};
+  transition: all 0.5s;
+  background: white;
+  color: black;
+  position: absolute;
+  overflow-x: scroll;
+  align-items: flex-start;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+
+  .large-project-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  > svg {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `;
