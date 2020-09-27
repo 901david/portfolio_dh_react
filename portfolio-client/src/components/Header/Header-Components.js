@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+const HeaderImage = '../../images/topBar_edited.jpg';
+
 export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
-  background: black;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(${HeaderImage}) black;
   color: ${({ theme }) => theme.$white};
   background-size: cover;
   grid-row: header-start / header-end;

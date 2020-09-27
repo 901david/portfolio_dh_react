@@ -92,7 +92,7 @@ const PORTFOLIO_DATA = [
       { name: 'Socket IO', key: getUUID() },
     ],
     projectTitle: 'DockHand',
-    cardBackground: 'white',
+    cardBackground: 'black',
     description: `An application that allows the management of containers on your local system in an intuitive, helpful manner, and does the following:
                     See all containers running on your local machine whether started or stopped
                     Provides container information such as the following:
@@ -110,7 +110,7 @@ const PORTFOLIO_DATA = [
                     Use quickfilters to filter by INFO, WARN, SEVERE
                     Custom Filtering of logs based on input from user
       `,
-    imageFront: 'https://buddy.works/guides/thumbnails/docker-cover.png',
+    imageFront: 'https://www.thagomizer.com/img/docker.png',
     imageBack: '../images/portimages/dockhand/dockhand1.png',
     githubLink: 'https://github.com/901david/dock-hand',
     dockerLink: 'https://hub.docker.com/repository/docker/4990814/dock-hand',

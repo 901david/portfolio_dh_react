@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { configureStore } from '@reduxjs/toolkit';
-import { QueryCache, ReactQueryCacheProvider } from 'react-query';
 
 import App from './components/App';
 import './index.css';
@@ -15,15 +14,11 @@ const store = configureStore({
   reducer: rootReducer,
 });
 
-const queryCache = new QueryCache();
-
 ReactDOM.render(
   <ThemeProvider theme={APP_THEME}>
-    <ReactQueryCacheProvider queryCache={queryCache}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </ReactQueryCacheProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </ThemeProvider>,
   document.getElementById('root')
 );

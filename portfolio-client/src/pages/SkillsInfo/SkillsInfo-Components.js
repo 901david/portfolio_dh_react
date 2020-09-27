@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const SkillsInfoWrapper = styled.div`
   padding-left: 8vw;
   height: 80vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(https://images.pexels.com/photos/1089552/pexels-photo-1089552.jpeg?cs=srgb&dl=coffee-computer-device-1089552.jpg&fm=jpg)
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+    url(https://libreshot.com/wp-content/uploads/2016/12/book-and-coffee.jpg)
       black;
   background-size: 100vw auto;
   background-position: left top;

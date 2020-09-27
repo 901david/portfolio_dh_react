@@ -5,7 +5,6 @@ import {
   faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import { useQuery } from 'react-query';
 
 import {
   toggleProjectIdx,
@@ -22,17 +21,11 @@ import axios from 'axios';
 
 const Projects = () => {
   const dispatch = useDispatch();
-  const { selectedProject: selectedProjectIndex } = useSelector(
+  const { selectedProject: selectedProjectIndex, projects } = useSelector(
     ({ projects }) => projects
   );
 
   const { url: baseUrl } = useSelector(({ apiurl }) => apiurl);
-
-  const { isLoading, error, data: projects } = useQuery('repoData', () =>
-    axios.get(`${baseUrl}/projects`).then(res => {
-      return res.data.projects;
-    })
-  );
 
   React.useEffect(() => {
     axios
@@ -52,8 +45,7 @@ const Projects = () => {
     else nextIndex++;
     dispatch(toggleProjectIdx(nextIndex));
   };
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Sorry something went wrong here......</div>;
+
   return (
     <ProjectsWrapper>
       <IconWrapper amount={1} position={'flex-start'} hover={true}>
