@@ -117,7 +117,7 @@ const LargeProjectContent = ({
         </CloseContainer>
         <LargeImageContainer>
           <LargeImage
-            src={images[currentLargeImageIndex]}
+            src={images[currentLargeImageIndex].url}
             alt={'project view'}
           />
         </LargeImageContainer>
@@ -134,12 +134,12 @@ const LargeProjectContent = ({
         <TextWrapper>
           <TextTitle>Technologies Used:</TextTitle>
           <Text textAlign={'center'} textWidth={'75%'}>
-            {technology.join(', ')}
+            {technology.map(t => t.name).join(', ')}
           </Text>
         </TextWrapper>
         <TextWrapper>
           <TextTitle>Project Description:</TextTitle>
-          <Text textWidth={'45%'}>{description}</Text>
+          <Text textWidth={'95%'}>{description}</Text>
         </TextWrapper>
       </div>
       <IconWrapper amount={1} position={'flex-end'} hover={true} marginTop={15}>

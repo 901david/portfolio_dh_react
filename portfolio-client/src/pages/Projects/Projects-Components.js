@@ -45,14 +45,9 @@ export const PreviewImage = styled.img`
 `;
 
 export const PreviewImageContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 45vw;
-  justify-content: center;
-
-  > * {
-    margin: 3%;
-  }
+  width: 55vw;
+  display: grid:
+  grid-columns-template: repeat(1fr, 4);
 `;
 
 export const LargeImage = styled.img`
