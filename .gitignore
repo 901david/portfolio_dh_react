@@ -7,6 +7,8 @@ portfolio-client/.env
 portfolio-client/dist
 buildProj.sh
 portfolio-client/build
+portfolio-client/node_modules
+./node_modules
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
