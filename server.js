@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require('path');
-
+const cors = require('cors');
 
 // Sets up the Express App
 // =============================================================
@@ -11,6 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3002;
 
 // Sets up the Express app to handle data parsing
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
