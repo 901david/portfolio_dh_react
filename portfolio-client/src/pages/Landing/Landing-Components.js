@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
+import { HeadShot, Tagline } from '../../components/Header/Header-Components';
 
-import { arrowVibrate, removeContent } from "../../Shared/animations";
-import { HeadShot, Tagline } from "../../components/Header/Header";
+import { arrowVibrate, removeContent } from '../../Shared/animations';
 
-const HeaderImage = "../../images/topBar_edited.jpg";
+const HeaderImage = '../../images/topBar_edited.jpg';
 const removeContentAddOn = css`
   animation: ${removeContent} 1s forwards;
 `;
@@ -46,6 +46,7 @@ export const LandingTagline = styled(Tagline)`
   padding: 0.5em;
   font-size: 4rem;
   letter-spacing: 0.8rem;
+  font-style: italic;
 
   @media only screen and (max-width: 800px) {
     font-size: 3rem;

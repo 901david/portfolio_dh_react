@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 import {
   animateLargeProjectContentIn,
-  animateLargeProjectContentOut
-} from "../../Shared/animations";
+  animateLargeProjectContentOut,
+} from '../../Shared/animations';
 
 export const CloseContainer = styled.div`
   padding: 0.2em;
@@ -11,11 +11,23 @@ export const CloseContainer = styled.div`
   display: inline-block;
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 `;
 
 export const PreviewImage = styled.img`
   width: 10vw;
+  max-height: 6vw;
   margin: 1rem;
   border: 2px solid rgba(255, 255, 255, 0.7);
   transform: scale(1);
@@ -79,7 +91,7 @@ export const Text = styled.p`
   color: black;
   font-size: 1.5rem;
   line-height: 1.8rem;
-  width: ${({ textWidth }) => (textWidth ? textWidth : "100%")};
+  width: ${({ textWidth }) => (textWidth ? textWidth : '100%')};
   ${({ textAlign }) => textAlign && `text-align: ${textAlign}`}
 `;
 
@@ -132,7 +144,7 @@ export const ProjectWrapper = styled.div`
     height: 30rem;
 
     &_side {
-      background: orangered;
+      background: ${({ cardBackground }) => cardBackground};
       height: 100%;
       width: 100%;
       transition: all 0.8s ease;
@@ -152,10 +164,11 @@ export const ProjectWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        background-repeat: no-repeat;
       }
 
       &_back {
-        background: white;
+        background: ${({ cardBackground }) => cardBackground};
         color: black;
         transform: rotateY(180deg);
         position: relative;
@@ -193,17 +206,15 @@ export const ProjectWrapper = styled.div`
     }
   }
 
-  .largeProjectContent {
+  .large-project {
+    display: flex;
     width: 0;
     height: 0;
     background: white;
     color: black;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     overflow-x: scroll;
+    align-items: flex-start;
 
     ${({ largeContentStartingPosition: { top, left } }) =>
       css`
@@ -216,6 +227,15 @@ export const ProjectWrapper = styled.div`
     ${({ projectLaunching }) => projectLaunching && projectLaunch}
     ${({ projectClosing }) => projectClosing && projectClose}
 
+
+    
+
+    .large-project-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
     > svg {
       margin-top: 1rem;
@@ -240,6 +260,7 @@ export const ProjectDetails = styled.div`
   color: white;
   height: 100%;
   z-index: 6;
+  background: ${({ cardBackground }) => cardBackground}
 
   > p:first-child {
     text-decoration: underline;
@@ -287,14 +308,14 @@ export const ProjectsWrapper = styled.div`
   display: flex;
   justify-content: center;
   color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(https://images.unsplash.com/photo-1416339158484-9637228cc908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80)
-      black;
-  background-size: cover;
+  // background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  //   url(https://images.unsplash.com/photo-1416339158484-9637228cc908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80)
+  //     black;
+  // background-size: cover;
 
   @media only screen and (max-width: 800px) {
-    background-attachment: fixed;
-    height: 120%;
+    // background-attachment: fixed;
+    // height: 120%;
     width: 100vw;
     padding-left: 0;
   }
@@ -307,6 +328,12 @@ export const IconWrapper = styled.div`
   align-items: center;
   font-size: 8rem;
   padding: 1rem;
+  ${({ marginTop }) =>
+    marginTop !== undefined
+      ? css`
+          margin-top: ${marginTop}rem;
+        `
+      : ''};
 
   & > svg {
     transform: scale(1);

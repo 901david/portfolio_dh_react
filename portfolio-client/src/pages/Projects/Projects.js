@@ -1,46 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,
-  faChevronLeft
-} from "@fortawesome/free-solid-svg-icons";
+  faChevronLeft,
+} from '@fortawesome/free-solid-svg-icons';
+import { useMappedState } from 'react-use-mapped-state';
 
-import Project from "./Project";
+import Project from './Project';
 import {
   ProjectsWrapper,
   IconWrapper,
-  IndividualProjectWrapper
-} from "./Projects-Components";
+  IndividualProjectWrapper,
+} from './Projects-Components';
 
 const Projects = ({ portfolioData }) => {
-  const [projects, setProjectData] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [{ projects, currentIndex }, valueSetter] = useMappedState({
+    projects: [],
+    currentIndex: 0,
+  });
 
   useEffect(() => {
-    if (portfolioData) setProjectData(portfolioData);
-  }, [portfolioData]);
+    if (portfolioData) valueSetter('projects', portfolioData);
+  }, [portfolioData, valueSetter]);
 
   const handleArrowClick = () => {
     let nextIndex = currentIndex;
     if (currentIndex + 1 === projects.length) nextIndex = 0;
     else nextIndex++;
-    setCurrentIndex(nextIndex);
+    valueSetter('currentIndex', nextIndex);
   };
+
   return (
     <ProjectsWrapper>
-      <IconWrapper amount={1} position={"flex-start"} hover={true}>
+      <IconWrapper amount={1} position={'flex-start'} hover={true}>
         <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronLeft} />
       </IconWrapper>
-      <IndividualProjectWrapper amount={3} position={"center"} hover={false}>
+      <IndividualProjectWrapper amount={3} position={'center'} hover={false}>
         {projects.length > 0 && (
           <Project
             key={`project-${projects[currentIndex]._id}`}
             {...projects[currentIndex]}
+            handleArrowClick={handleArrowClick}
           />
         )}
       </IndividualProjectWrapper>
 
-      <IconWrapper amount={1} position={"flex-end"} hover={true}>
+      <IconWrapper amount={1} position={'flex-end'} hover={true}>
         <FontAwesomeIcon onClick={handleArrowClick} icon={faChevronRight} />
       </IconWrapper>
     </ProjectsWrapper>

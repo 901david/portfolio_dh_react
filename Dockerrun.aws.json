@@ -1,0 +1,58 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "4990814/portfolio-client-staged",
+      "hostname": "client",
+      "essential": false,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "containerPort": 3000
+        }
+      ]
+    },
+    {
+      "name": "api",
+      "image": "4990814/portfolio-api-staged",
+      "hostname": "api",
+      "essential": false,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 8051,
+          "containerPort": 8051
+        }
+      ]
+    },
+    {
+      "name": "db",
+      "image": "4990814/portfolio-db-staged",
+      "hostname": "db",
+      "essential": false,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 8050,
+          "containerPort": 8050
+        }
+      ]
+    },
+    {
+      "name": "router",
+      "image": "4990814/portfolio-router-staged",
+      "hostname": "router",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "memory": 128,
+      "links": ["client", "api", "db"]
+    }
+  ]
+}

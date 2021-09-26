@@ -10,7 +10,7 @@ import {
   IconWrapper
 } from "./Landing-Components";
 
-const HeadShotImage = "../../images/head_edited.JPG";
+const HeadShotImage = "../../images/head_edited.jpg";
 const Landing = ({
   viewingMainContent,
   setMainContentBeingViewed,

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import StandardTitle from "../../Shared/StandardTitle";
+import StandardTitle from '../../Shared/StandardTitle';
 
 export const ContactInfoWrapper = styled.div`
   padding-left: 8vw;
@@ -9,10 +9,10 @@ export const ContactInfoWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(https://images.unsplash.com/photo-1538121915146-1dedb4191b21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2255&q=80)
-      black;
-  background-size: cover;
+  // background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  //   url(https://images.unsplash.com/photo-1538121915146-1dedb4191b21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2255&q=80)
+  //     black;
+  // background-size: cover;
 
   > div:first-child {
     margin-top: 5%;
@@ -35,6 +35,10 @@ export const Failure = styled.div`
   width: 75%;
   border: 3px solid red;
   text-align: center;
+`;
+
+export const Success = styled(Failure)`
+  border: 3px solid green;
 `;
 
 export const ButtonWrapper = styled.div`

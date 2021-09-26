@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SkillsInfoWrapper = styled.div`
   padding-left: 8vw;
   height: 80vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(https://images.pexels.com/photos/1089552/pexels-photo-1089552.jpeg?cs=srgb&dl=coffee-computer-device-1089552.jpg&fm=jpg)
-      black;
+  // background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  //   url(https://images.pexels.com/photos/1089552/pexels-photo-1089552.jpeg?cs=srgb&dl=coffee-computer-device-1089552.jpg&fm=jpg)
+  //     black;
   background-size: 100vw auto;
-  background-position: left top;
+  // background-position: left top;
   color: white;
   display: grid;
   grid-template-rows: repeat(auto-fill, 1fr);
@@ -16,7 +16,7 @@ export const SkillsInfoWrapper = styled.div`
   font-weight: bold;
   line-height: 35px;
   font-size: 1rem;
-  font-family: "Crimson Text", serif;
+  font-family: 'Crimson Text', serif;
   position: relative;
   overflow: auto;
 
@@ -25,7 +25,7 @@ export const SkillsInfoWrapper = styled.div`
   }
 
   @media only screen and (max-width: 800px) {
-    background-attachment: fixed;
+    // background-attachment: fixed;
     height: 75%;
     width: 100vw;
     padding-left: 0;
@@ -40,9 +40,9 @@ export const SkillsWrapper = styled.div`
   align-self: start;
   font-size: 1.5rem;
   line-height: 1.8rem;
+  grid-column: 1 / -1;
 
   @media only screen and (max-width: 950px) {
-    grid-column: 1 / -1;
     margin-top: 2rem;
   }
 

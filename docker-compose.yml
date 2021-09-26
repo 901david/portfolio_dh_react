@@ -2,21 +2,21 @@ version: "3.7"
 services:
   client:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile-dev
       context: ./portfolio-client
     volumes:
       - "/portfolio-client/node_modules"
       - "./portfolio-client:/portfolio-client"
   api:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile-dev
       context: ./api
     volumes:
       - "/api/node_modules"
       - "./api:/api"
   dbserver:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile-dev
       context: ./db-server
     volumes:
       - "/db-server/node_modules"
@@ -24,7 +24,7 @@ services:
   router:
     restart: always
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile-dev
       context: ./router
     ports:
       - "3000:80"

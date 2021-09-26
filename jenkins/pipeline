@@ -1,0 +1,69 @@
+pipeline {
+    agent any
+    stages {
+
+        stage('Build-Web-Test') {
+            steps {
+                sh 'docker build -t 4990814/test-port-build -f portfolio-client/Dockerfile-dev ./portfolio-client'
+            }
+        }
+
+        stage('Web-Tests') {
+            steps {
+                sh 'docker run 4990814/test-port-build npm run test-docker'
+            }
+        }
+
+        stage('Build-Prod-Web') {
+            steps {
+                echo 'Building Prod Web Image....'
+                sh 'docker build -t 4990814/portfolio-client-staged -f ./portfolio-client/Dockerfile.client ./portfolio-client'
+            }
+        }
+
+        stage('Build-Api') {
+            steps {
+                sh 'docker build -t 4990814/portfolio-api-staged -f ./api/Dockerfile.api ./api'
+            }
+        }
+
+        stage('Api-Tests') {
+            steps {
+                echo 'Running API Tests'
+            }
+        }
+
+        stage('Build-Db-Server') {
+            steps {
+                sh 'docker build -t 4990814/portfolio-db-staged -f ./db-server/Dockerfile.db ./db-server'
+            }
+        }
+
+        stage('Db-Server-Tests') {
+            steps {
+                echo 'Running DB-Server Tests'
+            }
+        }
+
+        stage('Build Router') {
+            steps {
+                sh 'docker build -t 4990814/portfolio-router-staged -f ./router/Dockerfile.router ./router'
+            }
+        }
+
+        stage('Push Staged Docker Hub') {
+            steps {
+                echo 'LOGGING INTO DOCKER................'
+                sh'cat ~/my_creds.txt | docker login --username 4990814 --password-stdin'
+                sh '''
+                echo 'Pushing Images to Docker Hub'
+                docker push 4990814/portfolio-client-staged
+                docker push 4990814/portfolio-api-staged
+                docker push 4990814/portfolio-db-staged
+                docker push 4990814/portfolio-router-staged
+                '''
+            }
+        }
+    }
+}
+

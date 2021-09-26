@@ -1,7 +1,9 @@
+// if (process.env.NODE_ENV === "development") {
 require("dotenv").config();
+// }
 const express = require("express");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT;
+const PORT = 8050;
 const app = express();
 const dataRouter = require("./Routes/data");
 

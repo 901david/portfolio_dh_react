@@ -1,16 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import {
-  MISSION_STATEMENT,
-  ADDITIONAL_SKILLS,
-  TECHNICAL_SKILLS
-} from "../../Shared/constants";
+import { MISSION_STATEMENT, TECHNICAL_SKILLS } from '../../Shared/constants';
 import {
   SkillsInfoWrapper,
   SkillsWrapper,
-  MissionStatement
-} from "./SkillsInfo-Components";
-import StandardTitle from "../../Shared/StandardTitle";
+  MissionStatement,
+} from './SkillsInfo-Components';
+import StandardTitle from '../../Shared/StandardTitle';
 
 const SkillsInfo = () => (
   <SkillsInfoWrapper>
@@ -21,10 +17,6 @@ const SkillsInfo = () => (
     <SkillsWrapper>
       <StandardTitle>Technical Skills</StandardTitle>
       {TECHNICAL_SKILLS}
-    </SkillsWrapper>
-    <SkillsWrapper bottomMargin={2}>
-      <StandardTitle>Aditional Skills</StandardTitle>
-      {ADDITIONAL_SKILLS}
     </SkillsWrapper>
   </SkillsInfoWrapper>
 );
